@@ -15,6 +15,7 @@ namespace PTAS
     {
         string constring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dtbPTAS.mdf;Integrated Security=True";
         string TestData;
+        float kv;
 
         public frmIPF()
         {
@@ -207,85 +208,196 @@ namespace PTAS
             else
                 this.Focus();
         }
-
         
-
-        private void ipfCFTextBox_TextChanged(object sender, EventArgs e)
+        private void btnCompute_Click(object sender, EventArgs e)
         {
             float cf = float.Parse(ipfCFTextBox.Text);
 
             float[] measured = new float[8];
+            float[] capacitance = new float[8];
 
-            if (ipfMCHCHLTextBox.Text != "")
+            var tm = grpPFM.Controls.
+                     OfType<TextBox>().
+                     OrderBy(t => t.TabIndex).
+                     ToArray();
+
+            var cap = grpCap.Controls.
+                      OfType<TextBox>().
+                      ToArray();
+            
+            float[] f = new float[8];
+            float[] truncated = new float[8];
+            float[] round = new float[8];
+
+            for (int i = 0; i < 8; i++)
             {
-                measured[0] = float.Parse(ipfMCHCHLTextBox.Text);
-                float f = (measured[0] * cf);
-                float truncated = (float)(Math.Truncate((double)f * 100.0) / 100.0);
-                float rounded = (float)(Math.Round((double)f, 2));
-                ipfCCHCHLTextBox.Text = rounded.ToString();
+                if (!string.IsNullOrEmpty(tm[i].Text))
+                {
+                    measured[i] = float.Parse(tm[i].Text);
+
+                    f[i] = measured[i] * cf;
+                    truncated[i] = (float)Math.Round(f[i], 2);
+                }
+
+                if (!string.IsNullOrEmpty(cap[i].Text))
+                {
+                    capacitance[i] = float.Parse(cap[i].Text);
+                }
+            }
+            
+            if(truncated[0] != 0)
+                ipfCCHCHLTextBox.Text = truncated[0].ToString();
+            if(truncated[1] != 0)
+                ipfCCHTextBox.Text = truncated[1].ToString();
+            if (truncated[2] != 0)
+                ipfCCHLUTextBox.Text = truncated[2].ToString();
+            if (truncated[3] != 0)
+                ipfCCHLTextBox.Text = truncated[3].ToString();
+            if (truncated[4] != 0)
+                ipfCCLCHLTextBox.Text = truncated[4].ToString();
+            if (truncated[5] != 0)
+                ipfCCLTextBox.Text = truncated[5].ToString();
+            if (truncated[6] != 0)
+                ipfCCHLUlvTextBox.Text = truncated[6].ToString();
+            if (truncated[7] != 0)
+                ipfCCHLlvTextBox.Text = truncated[7].ToString();
+        }
+
+        private void btnAssess_Click(object sender, EventArgs e)
+        {
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("Data Directory", path);
+
+            var tc = grpPFC.Controls.
+                     OfType<TextBox>().
+                     OrderBy(t => t.TabIndex).
+                     ToArray();
+
+            float[] corrected = new float[8];
+            float[] previous = new float[8];
+            float[] previouscap = new float[8];
+
+            float[] compare = new float[8];
+
+            string xf;
+            
+            string query = "SELECT tblTest.TestNumber, tblTransformer.xfID, tblTransformer.xfPrimVolt FROM tblTest LEFT OUTER JOIN tblTransformer ON tblTest.testXformer = tblTransformer.xfID " +
+                "WHERE tblTest.TestNumber = @testnumber";
+            string query2 = "SELECT TOP 1 tblTest.testXformer, tblIPF.* FROM tblIPF LEFT OUTER JOIN tblTest ON tblIPF.TestNumber = tblTest.TestNumber " +
+                "ORDER BY tblIPF.TestNumber DESC WHERE tblIPF.TestNumber = @testnumber";
+
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using(SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+
+                    con.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        xf = (dr["tblTransformer.xfID"].ToString());
+                        kv = float.Parse(dr["tblTransformer.xfPrimVolt"].ToString());
+                    }
+                    
+                    using(SqlCommand cmd2 = new SqlCommand(query2, con))
+                    {
+                        cmd2.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+
+                        SqlDataReader dr2 = cmd2.ExecuteReader();
+                        while (dr2.Read())
+                        {
+                            previous[0] = float.Parse(dr["ipfCCHCHL"].ToString());
+                            previous[1] = float.Parse(dr["ipfCCH"].ToString());
+                            previous[2] = float.Parse(dr["ipfCCHLU"].ToString());
+                            previous[3] = float.Parse(dr["ipfCCHL"].ToString());
+                            previous[4] = float.Parse(dr["ipfCCLCHL"].ToString());
+                            previous[5] = float.Parse(dr["ipfCCL"].ToString());
+                            previous[6] = float.Parse(dr["ipfCCHLUlv"].ToString());
+                            previous[7] = float.Parse(dr["ipfCCHLlv"].ToString());
+                            previouscap[0] = float.Parse(dr["ipfACHCHL"].ToString());
+                            previouscap[1] = float.Parse(dr["ipfACH"].ToString());
+                            previouscap[2] = float.Parse(dr["ipfACHLU"].ToString());
+                            previouscap[3] = float.Parse(dr["ipfACHL"].ToString());
+                            previouscap[4] = float.Parse(dr["ipfACLCHL"].ToString());
+                            previouscap[5] = float.Parse(dr["ipfACL"].ToString());
+                            previouscap[6] = float.Parse(dr["ipfACHLUlv"].ToString());
+                            previouscap[7] = float.Parse(dr["ipfACHLlv"].ToString());
+                        }
+                        con.Close();
+                    }
+                }
             }
 
-            if (ipfMCHTextBox.Text != "")
+            for(int i = 0; i < 8; i++)
             {
-                measured[1] = float.Parse(ipfMCHTextBox.Text);
-                float f = (measured[1] * cf);
-                float truncated = (float)(Math.Truncate((double)f * 100.0) / 100.0);
-                float rounded = (float)(Math.Round((double)f, 2));
-                ipfCCHTextBox.Text = rounded.ToString();
+                corrected[i] = float.Parse(tc[i].Text);
             }
 
-            if (ipfMCHLUTextBox.Text != "")
+            if(kv <= 230000)
             {
-                measured[2] = float.Parse(ipfMCHLUTextBox.Text);
-                float f = (measured[2] * cf);
-                float truncated = (float)(Math.Truncate((double)f * 100.0) / 100.0);
-                float rounded = (float)(Math.Round((double)f, 2));
-                ipfCCHLUTextBox.Text = rounded.ToString();
+                if (Array.TrueForAll(corrected, v => v <= 0.5))
+                {
+                    //txtAssess.Text = "PASSED";
+                    for (int i = 0; i < 8; i++)
+                    {
+                        if (previous[i] != 0 || corrected[i] != 0)
+                        {
+                            compare[i] = ((corrected[i] - previous[i]) / corrected[i]) * 100;
+                        }
+
+                        else compare[i] = 0;
+                    }
+
+                    if (Array.TrueForAll(compare, v => v <= 20))
+                    {
+                        txtAssess.Text = "PASSED";
+                    }
+
+                    else txtAssess.Text = "INVESTIGATE. RESULT HIGHER THAN PREVIOUS";
+                }
+                else if (Array.TrueForAll(corrected, v => v > 1))
+                {
+                    txtAssess.Text = "FAILED";
+                }
+                else
+                {
+                    txtAssess.Text = "INVESTIGATE";
+                }
             }
 
-            if (ipfMCHLTextBox.Text != "")
+            else
             {
-                measured[3] = float.Parse(ipfMCHLTextBox.Text);
-                float f = (measured[3] * cf);
-                float truncated = (float)(Math.Truncate((double)f * 100.0) / 100.0);
-                float rounded = (float)(Math.Round((double)f, 2));
-                ipfCCHLTextBox.Text = rounded.ToString();
-            }
+                if (Array.TrueForAll(corrected, v => v <= 0.4))
+                {
+                    //txtAssess.Text = "PASSED";
+                    for (int i = 0; i < 8; i++)
+                    {
+                        if (previous[i] != 0 || corrected[i] != 0)
+                        {
+                            compare[i] = ((corrected[i] - previous[i]) / corrected[i]) * 100;
+                        }
 
-            if (ipfMCLCHLTextBox.Text != "")
-            {
-                measured[4] = float.Parse(ipfMCLCHLTextBox.Text);
-                float f = (measured[4] * cf);
-                float truncated = (float)(Math.Truncate((double)f * 100.0) / 100.0);
-                float rounded = (float)(Math.Round((double)f, 2));
-                ipfCCLCHLTextBox.Text = rounded.ToString();
-            }
+                        else compare[i] = 0;
+                    }
 
-            if (ipfMCLTextBox.Text != "")
-            {
-                measured[5] = float.Parse(ipfMCLTextBox.Text);
-                float f = (measured[5] * cf);
-                float truncated = (float)(Math.Truncate((double)f * 100.0) / 100.0);
-                float rounded = (float)(Math.Round((double)f, 2));
-                ipfCCLTextBox.Text = rounded.ToString();
-            }
+                    if (Array.TrueForAll(compare, v => v <= 20))
+                    {
+                        txtAssess.Text = "PASSED";
+                    }
 
-            if (ipfMCHLUlvTextBox.Text != "")
-            {
-                measured[6] = float.Parse(ipfMCHLUlvTextBox.Text);
-                float f = (measured[6] * cf);
-                float truncated = (float)(Math.Truncate((double)f * 100.0) / 100.0);
-                float rounded = (float)(Math.Round((double)f, 2));
-                ipfCCHLUlvTextBox.Text = rounded.ToString();
-            }
-
-            if (ipfMCHLlvTextBox.Text != "")
-            {
-                measured[7] = float.Parse(ipfMCHLlvTextBox.Text);
-                float f = (measured[7] * cf);
-                float truncated = (float)(Math.Truncate((double)f * 100.0) / 100.0);
-                float rounded = (float)(Math.Round((double)f, 2));
-                ipfCCHLlvTextBox.Text = rounded.ToString();
+                    else txtAssess.Text = "INVESTIGATE. RESULT HIGHER THAN PREVIOUS";
+                }
+                else if (Array.TrueForAll(corrected, v => v > 1))
+                {
+                    txtAssess.Text = "FAILED";
+                }
+                else
+                {
+                    txtAssess.Text = "INVESTIGATE";
+                }
             }
         }
     }

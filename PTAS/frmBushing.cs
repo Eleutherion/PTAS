@@ -215,5 +215,38 @@ namespace PTAS
                 }
             }
         }
+
+        private void btnAssess_Click(object sender, EventArgs e)
+        {
+            var n = grpName.Controls.OfType<TextBox>().ToArray();
+            var c1p = grpC1pf.Controls.OfType<TextBox>().ToArray();
+            var c2p = grpC2pf.Controls.OfType<TextBox>().ToArray();
+            var c1c = grpC1Cap.Controls.OfType<TextBox>().ToArray();
+            var c2c = grpC2Cap.Controls.OfType<TextBox>().ToArray();
+
+            float[] name = new float[7];
+            float[] c1pf = new float[7];
+            float[] c2pf = new float[7];
+            float[] c1cap = new float[7];
+            float[] c2cap = new float[7];
+
+            float[] c1diff = new float[7];
+            float[] c2diff = new float[7];
+
+            TextBox[] assess = grpAssess.Controls.OfType<TextBox>().ToArray();
+
+            for (int i = 0; i < 7; i++)
+            {
+                float.TryParse(n[i].Text, out name[i]);
+                float.TryParse(c1p[i].Text, out c1pf[i]);
+                float.TryParse(c2p[i].Text, out c2pf[i]);
+                float.TryParse(c1c[i].Text, out c1cap[i]);
+                float.TryParse(c2c[i].Text, out c2cap[i]);
+
+                if (c1pf[i] <= 0.5 && c2pf[i] <= 0.5) assess[i].Text = "PASSED";
+                else if (c1pf[i] > 1 || c2pf[i] > 1) assess[i].Text = "INVESTIGATE OR REPLACE BUSHING";
+                else assess[i].Text = "DETERIORATED";
+            }
+        }
     }
 }

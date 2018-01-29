@@ -46,6 +46,10 @@ namespace PTAS {
         
         private tblWindingDataTable tabletblWinding;
         
+        private tblStandardsDataTable tabletblStandards;
+        
+        private tblStatusDataTable tabletblStatus;
+        
         private global::System.Data.DataRelation relationFK_tblBushing_tblTest;
         
         private global::System.Data.DataRelation relationFK_tblDielectric_tblTest;
@@ -63,6 +67,10 @@ namespace PTAS {
         private global::System.Data.DataRelation relationFK_tblTTR_tblTest;
         
         private global::System.Data.DataRelation relationFK_tblWinding_tblTest;
+        
+        private global::System.Data.DataRelation relationFK_tblDielectric_tblStandards;
+        
+        private global::System.Data.DataRelation relationFK_tblDielectric_tblStatus;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -124,6 +132,12 @@ namespace PTAS {
                 }
                 if ((ds.Tables["tblWinding"] != null)) {
                     base.Tables.Add(new tblWindingDataTable(ds.Tables["tblWinding"]));
+                }
+                if ((ds.Tables["tblStandards"] != null)) {
+                    base.Tables.Add(new tblStandardsDataTable(ds.Tables["tblStandards"]));
+                }
+                if ((ds.Tables["tblStatus"] != null)) {
+                    base.Tables.Add(new tblStatusDataTable(ds.Tables["tblStatus"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -255,6 +269,26 @@ namespace PTAS {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public tblStandardsDataTable tblStandards {
+            get {
+                return this.tabletblStandards;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public tblStatusDataTable tblStatus {
+            get {
+                return this.tabletblStatus;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -352,6 +386,12 @@ namespace PTAS {
                 }
                 if ((ds.Tables["tblWinding"] != null)) {
                     base.Tables.Add(new tblWindingDataTable(ds.Tables["tblWinding"]));
+                }
+                if ((ds.Tables["tblStandards"] != null)) {
+                    base.Tables.Add(new tblStandardsDataTable(ds.Tables["tblStandards"]));
+                }
+                if ((ds.Tables["tblStatus"] != null)) {
+                    base.Tables.Add(new tblStatusDataTable(ds.Tables["tblStatus"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -452,6 +492,18 @@ namespace PTAS {
                     this.tabletblWinding.InitVars();
                 }
             }
+            this.tabletblStandards = ((tblStandardsDataTable)(base.Tables["tblStandards"]));
+            if ((initTable == true)) {
+                if ((this.tabletblStandards != null)) {
+                    this.tabletblStandards.InitVars();
+                }
+            }
+            this.tabletblStatus = ((tblStatusDataTable)(base.Tables["tblStatus"]));
+            if ((initTable == true)) {
+                if ((this.tabletblStatus != null)) {
+                    this.tabletblStatus.InitVars();
+                }
+            }
             this.relationFK_tblBushing_tblTest = this.Relations["FK_tblBushing_tblTest"];
             this.relationFK_tblDielectric_tblTest = this.Relations["FK_tblDielectric_tblTest"];
             this.relationFK_tblExcitation_tblTest = this.Relations["FK_tblExcitation_tblTest"];
@@ -461,6 +513,8 @@ namespace PTAS {
             this.relationFK_tblTransformer_tblSubstation = this.Relations["FK_tblTransformer_tblSubstation"];
             this.relationFK_tblTTR_tblTest = this.Relations["FK_tblTTR_tblTest"];
             this.relationFK_tblWinding_tblTest = this.Relations["FK_tblWinding_tblTest"];
+            this.relationFK_tblDielectric_tblStandards = this.Relations["FK_tblDielectric_tblStandards"];
+            this.relationFK_tblDielectric_tblStatus = this.Relations["FK_tblDielectric_tblStatus"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -493,6 +547,10 @@ namespace PTAS {
             base.Tables.Add(this.tabletblTTR);
             this.tabletblWinding = new tblWindingDataTable();
             base.Tables.Add(this.tabletblWinding);
+            this.tabletblStandards = new tblStandardsDataTable();
+            base.Tables.Add(this.tabletblStandards);
+            this.tabletblStatus = new tblStatusDataTable();
+            base.Tables.Add(this.tabletblStatus);
             this.relationFK_tblBushing_tblTest = new global::System.Data.DataRelation("FK_tblBushing_tblTest", new global::System.Data.DataColumn[] {
                         this.tabletblTest.TestNumberColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblBushing.TestNumberColumn}, false);
@@ -529,6 +587,14 @@ namespace PTAS {
                         this.tabletblTest.TestNumberColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblWinding.TestNumberColumn}, false);
             this.Relations.Add(this.relationFK_tblWinding_tblTest);
+            this.relationFK_tblDielectric_tblStandards = new global::System.Data.DataRelation("FK_tblDielectric_tblStandards", new global::System.Data.DataColumn[] {
+                        this.tabletblStandards.standardsColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblDielectric.standardColumn}, false);
+            this.Relations.Add(this.relationFK_tblDielectric_tblStandards);
+            this.relationFK_tblDielectric_tblStatus = new global::System.Data.DataRelation("FK_tblDielectric_tblStatus", new global::System.Data.DataColumn[] {
+                        this.tabletblStatus.statusColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblDielectric.statusColumn}, false);
+            this.Relations.Add(this.relationFK_tblDielectric_tblStatus);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -594,6 +660,18 @@ namespace PTAS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializetblWinding() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializetblStandards() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializetblStatus() {
             return false;
         }
         
@@ -684,6 +762,12 @@ namespace PTAS {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void tblWindingRowChangeEventHandler(object sender, tblWindingRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void tblStandardsRowChangeEventHandler(object sender, tblStandardsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void tblStatusRowChangeEventHandler(object sender, tblStatusRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1505,6 +1589,10 @@ namespace PTAS {
             
             private global::System.Data.DataColumn columnoltcAve;
             
+            private global::System.Data.DataColumn columnstandard;
+            
+            private global::System.Data.DataColumn columnstatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tblDielectricDataTable() {
@@ -1644,6 +1732,22 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn standardColumn {
+                get {
+                    return this.columnstandard;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn statusColumn {
+                get {
+                    return this.columnstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1679,7 +1783,7 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblDielectricRow AddtblDielectricRow(tblTestRow parenttblTestRowByFK_tblDielectric_tblTest, float main1, float main2, float main3, float main4, float main5, float mainAve, float oltc1, float oltc2, float oltc3, float oltc4, float oltc5, float oltcAve) {
+            public tblDielectricRow AddtblDielectricRow(tblTestRow parenttblTestRowByFK_tblDielectric_tblTest, float main1, float main2, float main3, float main4, float main5, float mainAve, float oltc1, float oltc2, float oltc3, float oltc4, float oltc5, float oltcAve, tblStandardsRow parenttblStandardsRowByFK_tblDielectric_tblStandards, tblStatusRow parenttblStatusRowByFK_tblDielectric_tblStatus) {
                 tblDielectricRow rowtblDielectricRow = ((tblDielectricRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1694,9 +1798,17 @@ namespace PTAS {
                         oltc3,
                         oltc4,
                         oltc5,
-                        oltcAve};
+                        oltcAve,
+                        null,
+                        null};
                 if ((parenttblTestRowByFK_tblDielectric_tblTest != null)) {
                     columnValuesArray[0] = parenttblTestRowByFK_tblDielectric_tblTest[0];
+                }
+                if ((parenttblStandardsRowByFK_tblDielectric_tblStandards != null)) {
+                    columnValuesArray[13] = parenttblStandardsRowByFK_tblDielectric_tblStandards[0];
+                }
+                if ((parenttblStatusRowByFK_tblDielectric_tblStatus != null)) {
+                    columnValuesArray[14] = parenttblStatusRowByFK_tblDielectric_tblStatus[0];
                 }
                 rowtblDielectricRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtblDielectricRow);
@@ -1740,6 +1852,8 @@ namespace PTAS {
                 this.columnoltc4 = base.Columns["oltc4"];
                 this.columnoltc5 = base.Columns["oltc5"];
                 this.columnoltcAve = base.Columns["oltcAve"];
+                this.columnstandard = base.Columns["standard"];
+                this.columnstatus = base.Columns["status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1771,10 +1885,16 @@ namespace PTAS {
                 base.Columns.Add(this.columnoltc5);
                 this.columnoltcAve = new global::System.Data.DataColumn("oltcAve", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnoltcAve);
+                this.columnstandard = new global::System.Data.DataColumn("standard", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstandard);
+                this.columnstatus = new global::System.Data.DataColumn("status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTestNumber}, true));
                 this.columnTestNumber.AllowDBNull = false;
                 this.columnTestNumber.Unique = true;
+                this.columnstandard.MaxLength = 10;
+                this.columnstatus.MaxLength = 4;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4119,9 +4239,7 @@ namespace PTAS {
                 this.columntestDate.AllowDBNull = false;
                 this.columntestEngr.AllowDBNull = false;
                 this.columntestEngr.MaxLength = 20;
-                this.columntestWeather.MaxLength = 10;
-                this.columntestPrimWT.AllowDBNull = false;
-                this.columntestSecWT.AllowDBNull = false;
+                this.columntestWeather.MaxLength = 20;
                 this.columntestXformer.AllowDBNull = false;
                 this.columntestXformer.MaxLength = 10;
                 this.columntestSub.AllowDBNull = false;
@@ -5715,6 +5833,524 @@ namespace PTAS {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class tblStandardsDataTable : global::System.Data.TypedTableBase<tblStandardsRow> {
+            
+            private global::System.Data.DataColumn columnstandards;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsDataTable() {
+                this.TableName = "tblStandards";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal tblStandardsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected tblStandardsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn standardsColumn {
+                get {
+                    return this.columnstandards;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow this[int index] {
+                get {
+                    return ((tblStandardsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStandardsRowChangeEventHandler tblStandardsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStandardsRowChangeEventHandler tblStandardsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStandardsRowChangeEventHandler tblStandardsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStandardsRowChangeEventHandler tblStandardsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddtblStandardsRow(tblStandardsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow AddtblStandardsRow(string standards) {
+                tblStandardsRow rowtblStandardsRow = ((tblStandardsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        standards};
+                rowtblStandardsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtblStandardsRow);
+                return rowtblStandardsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow FindBystandards(string standards) {
+                return ((tblStandardsRow)(this.Rows.Find(new object[] {
+                            standards})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                tblStandardsDataTable cln = ((tblStandardsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new tblStandardsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnstandards = base.Columns["standards"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnstandards = new global::System.Data.DataColumn("standards", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstandards);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnstandards}, true));
+                this.columnstandards.AllowDBNull = false;
+                this.columnstandards.Unique = true;
+                this.columnstandards.MaxLength = 10;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow NewtblStandardsRow() {
+                return ((tblStandardsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new tblStandardsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(tblStandardsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.tblStandardsRowChanged != null)) {
+                    this.tblStandardsRowChanged(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.tblStandardsRowChanging != null)) {
+                    this.tblStandardsRowChanging(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.tblStandardsRowDeleted != null)) {
+                    this.tblStandardsRowDeleted(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.tblStandardsRowDeleting != null)) {
+                    this.tblStandardsRowDeleting(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemovetblStandardsRow(tblStandardsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dtbPTASDataSet ds = new dtbPTASDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "tblStandardsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class tblStatusDataTable : global::System.Data.TypedTableBase<tblStatusRow> {
+            
+            private global::System.Data.DataColumn columnstatus;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStatusDataTable() {
+                this.TableName = "tblStatus";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal tblStatusDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected tblStatusDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn statusColumn {
+                get {
+                    return this.columnstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStatusRow this[int index] {
+                get {
+                    return ((tblStatusRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStatusRowChangeEventHandler tblStatusRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStatusRowChangeEventHandler tblStatusRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStatusRowChangeEventHandler tblStatusRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStatusRowChangeEventHandler tblStatusRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddtblStatusRow(tblStatusRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStatusRow AddtblStatusRow(string status) {
+                tblStatusRow rowtblStatusRow = ((tblStatusRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        status};
+                rowtblStatusRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtblStatusRow);
+                return rowtblStatusRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStatusRow FindBystatus(string status) {
+                return ((tblStatusRow)(this.Rows.Find(new object[] {
+                            status})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                tblStatusDataTable cln = ((tblStatusDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new tblStatusDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnstatus = base.Columns["status"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnstatus = new global::System.Data.DataColumn("status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatus);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnstatus}, true));
+                this.columnstatus.AllowDBNull = false;
+                this.columnstatus.Unique = true;
+                this.columnstatus.MaxLength = 4;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStatusRow NewtblStatusRow() {
+                return ((tblStatusRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new tblStatusRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(tblStatusRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.tblStatusRowChanged != null)) {
+                    this.tblStatusRowChanged(this, new tblStatusRowChangeEvent(((tblStatusRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.tblStatusRowChanging != null)) {
+                    this.tblStatusRowChanging(this, new tblStatusRowChangeEvent(((tblStatusRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.tblStatusRowDeleted != null)) {
+                    this.tblStatusRowDeleted(this, new tblStatusRowChangeEvent(((tblStatusRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.tblStatusRowDeleting != null)) {
+                    this.tblStatusRowDeleting(this, new tblStatusRowChangeEvent(((tblStatusRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemovetblStatusRow(tblStatusRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dtbPTASDataSet ds = new dtbPTASDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "tblStatusDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class tblBushingRow : global::System.Data.DataRow {
@@ -6950,12 +7586,66 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string standard {
+                get {
+                    try {
+                        return ((string)(this[this.tabletblDielectric.standardColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'standard\' in table \'tblDielectric\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletblDielectric.standardColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string status {
+                get {
+                    try {
+                        return ((string)(this[this.tabletblDielectric.statusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'status\' in table \'tblDielectric\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletblDielectric.statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tblTestRow tblTestRow {
                 get {
                     return ((tblTestRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblDielectric_tblTest"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_tblDielectric_tblTest"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow tblStandardsRow {
+                get {
+                    return ((tblStandardsRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblDielectric_tblStandards"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblDielectric_tblStandards"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStatusRow tblStatusRow {
+                get {
+                    return ((tblStatusRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblDielectric_tblStatus"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblDielectric_tblStatus"]);
                 }
             }
             
@@ -7101,6 +7791,30 @@ namespace PTAS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetoltcAveNull() {
                 this[this.tabletblDielectric.oltcAveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsstandardNull() {
+                return this.IsNull(this.tabletblDielectric.standardColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetstandardNull() {
+                this[this.tabletblDielectric.standardColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsstatusNull() {
+                return this.IsNull(this.tabletblDielectric.statusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetstatusNull() {
+                this[this.tabletblDielectric.statusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8306,7 +9020,12 @@ namespace PTAS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int testPrimWT {
                 get {
-                    return ((int)(this[this.tabletblTest.testPrimWTColumn]));
+                    try {
+                        return ((int)(this[this.tabletblTest.testPrimWTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'testPrimWT\' in table \'tblTest\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tabletblTest.testPrimWTColumn] = value;
@@ -8317,7 +9036,12 @@ namespace PTAS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int testSecWT {
                 get {
-                    return ((int)(this[this.tabletblTest.testSecWTColumn]));
+                    try {
+                        return ((int)(this[this.tabletblTest.testSecWTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'testSecWT\' in table \'tblTest\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tabletblTest.testSecWTColumn] = value;
@@ -8484,6 +9208,30 @@ namespace PTAS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SettestOilNull() {
                 this[this.tabletblTest.testOilColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IstestPrimWTNull() {
+                return this.IsNull(this.tabletblTest.testPrimWTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SettestPrimWTNull() {
+                this[this.tabletblTest.testPrimWTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IstestSecWTNull() {
+                return this.IsNull(this.tabletblTest.testSecWTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SettestSecWTNull() {
+                this[this.tabletblTest.testSecWTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9778,6 +10526,80 @@ namespace PTAS {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class tblStandardsRow : global::System.Data.DataRow {
+            
+            private tblStandardsDataTable tabletblStandards;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal tblStandardsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabletblStandards = ((tblStandardsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string standards {
+                get {
+                    return ((string)(this[this.tabletblStandards.standardsColumn]));
+                }
+                set {
+                    this[this.tabletblStandards.standardsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblDielectricRow[] GettblDielectricRows() {
+                if ((this.Table.ChildRelations["FK_tblDielectric_tblStandards"] == null)) {
+                    return new tblDielectricRow[0];
+                }
+                else {
+                    return ((tblDielectricRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblDielectric_tblStandards"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class tblStatusRow : global::System.Data.DataRow {
+            
+            private tblStatusDataTable tabletblStatus;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal tblStatusRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabletblStatus = ((tblStatusDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string status {
+                get {
+                    return ((string)(this[this.tabletblStatus.statusColumn]));
+                }
+                set {
+                    this[this.tabletblStatus.statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblDielectricRow[] GettblDielectricRows() {
+                if ((this.Table.ChildRelations["FK_tblDielectric_tblStatus"] == null)) {
+                    return new tblDielectricRow[0];
+                }
+                else {
+                    return ((tblDielectricRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblDielectric_tblStatus"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -10137,6 +10959,74 @@ namespace PTAS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tblWindingRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class tblStandardsRowChangeEvent : global::System.EventArgs {
+            
+            private tblStandardsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRowChangeEvent(tblStandardsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class tblStatusRowChangeEvent : global::System.EventArgs {
+            
+            private tblStatusRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStatusRowChangeEvent(tblStatusRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStatusRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -12105,10 +12995,12 @@ SELECT TestNumber, nameH1, nameH2, nameH3, nameH0X0, nameX1, nameX2, nameX3, pfC
             tableMapping.ColumnMappings.Add("oltc4", "oltc4");
             tableMapping.ColumnMappings.Add("oltc5", "oltc5");
             tableMapping.ColumnMappings.Add("oltcAve", "oltcAve");
+            tableMapping.ColumnMappings.Add("standard", "standard");
+            tableMapping.ColumnMappings.Add("status", "status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tblDielectric] WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_main1 = 1 AND [main1] IS NULL) OR ([main1] = @Original_main1)) AND ((@IsNull_main2 = 1 AND [main2] IS NULL) OR ([main2] = @Original_main2)) AND ((@IsNull_main3 = 1 AND [main3] IS NULL) OR ([main3] = @Original_main3)) AND ((@IsNull_main4 = 1 AND [main4] IS NULL) OR ([main4] = @Original_main4)) AND ((@IsNull_main5 = 1 AND [main5] IS NULL) OR ([main5] = @Original_main5)) AND ((@IsNull_mainAve = 1 AND [mainAve] IS NULL) OR ([mainAve] = @Original_mainAve)) AND ((@IsNull_oltc1 = 1 AND [oltc1] IS NULL) OR ([oltc1] = @Original_oltc1)) AND ((@IsNull_oltc2 = 1 AND [oltc2] IS NULL) OR ([oltc2] = @Original_oltc2)) AND ((@IsNull_oltc3 = 1 AND [oltc3] IS NULL) OR ([oltc3] = @Original_oltc3)) AND ((@IsNull_oltc4 = 1 AND [oltc4] IS NULL) OR ([oltc4] = @Original_oltc4)) AND ((@IsNull_oltc5 = 1 AND [oltc5] IS NULL) OR ([oltc5] = @Original_oltc5)) AND ((@IsNull_oltcAve = 1 AND [oltcAve] IS NULL) OR ([oltcAve] = @Original_oltcAve)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tblDielectric] WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_main1 = 1 AND [main1] IS NULL) OR ([main1] = @Original_main1)) AND ((@IsNull_main2 = 1 AND [main2] IS NULL) OR ([main2] = @Original_main2)) AND ((@IsNull_main3 = 1 AND [main3] IS NULL) OR ([main3] = @Original_main3)) AND ((@IsNull_main4 = 1 AND [main4] IS NULL) OR ([main4] = @Original_main4)) AND ((@IsNull_main5 = 1 AND [main5] IS NULL) OR ([main5] = @Original_main5)) AND ((@IsNull_mainAve = 1 AND [mainAve] IS NULL) OR ([mainAve] = @Original_mainAve)) AND ((@IsNull_oltc1 = 1 AND [oltc1] IS NULL) OR ([oltc1] = @Original_oltc1)) AND ((@IsNull_oltc2 = 1 AND [oltc2] IS NULL) OR ([oltc2] = @Original_oltc2)) AND ((@IsNull_oltc3 = 1 AND [oltc3] IS NULL) OR ([oltc3] = @Original_oltc3)) AND ((@IsNull_oltc4 = 1 AND [oltc4] IS NULL) OR ([oltc4] = @Original_oltc4)) AND ((@IsNull_oltc5 = 1 AND [oltc5] IS NULL) OR ([oltc5] = @Original_oltc5)) AND ((@IsNull_oltcAve = 1 AND [oltcAve] IS NULL) OR ([oltcAve] = @Original_oltcAve)) AND ((@IsNull_standard = 1 AND [standard] IS NULL) OR ([standard] = @Original_standard)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_main1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "main1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -12135,10 +13027,14 @@ SELECT TestNumber, nameH1, nameH2, nameH3, nameH0X0, nameX1, nameX2, nameX3, pfC
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_oltc5", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltc5", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_oltcAve", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltcAve", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_oltcAve", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltcAve", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_standard", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standard", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standard", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standard", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tblDielectric] ([TestNumber], [main1], [main2], [main3], [main4], [main5], [mainAve], [oltc1], [oltc2], [oltc3], [oltc4], [oltc5], [oltcAve]) VALUES (@TestNumber, @main1, @main2, @main3, @main4, @main5, @mainAve, @oltc1, @oltc2, @oltc3, @oltc4, @oltc5, @oltcAve);
-SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve FROM tblDielectric WHERE (TestNumber = @TestNumber)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblDielectric] ([TestNumber], [main1], [main2], [main3], [main4], [main5], [mainAve], [oltc1], [oltc2], [oltc3], [oltc4], [oltc5], [oltcAve], [standard], [status]) VALUES (@TestNumber, @main1, @main2, @main3, @main4, @main5, @mainAve, @oltc1, @oltc2, @oltc3, @oltc4, @oltc5, @oltcAve, @standard, @status);
+SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve, standard, status FROM tblDielectric WHERE (TestNumber = @TestNumber)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@main1", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "main1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12153,10 +13049,31 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oltc4", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltc4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oltc5", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltc5", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oltcAve", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltcAve", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standard", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standard", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tblDielectric] SET [TestNumber] = @TestNumber, [main1] = @main1, [main2] = @main2, [main3] = @main3, [main4] = @main4, [main5] = @main5, [mainAve] = @mainAve, [oltc1] = @oltc1, [oltc2] = @oltc2, [oltc3] = @oltc3, [oltc4] = @oltc4, [oltc5] = @oltc5, [oltcAve] = @oltcAve WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_main1 = 1 AND [main1] IS NULL) OR ([main1] = @Original_main1)) AND ((@IsNull_main2 = 1 AND [main2] IS NULL) OR ([main2] = @Original_main2)) AND ((@IsNull_main3 = 1 AND [main3] IS NULL) OR ([main3] = @Original_main3)) AND ((@IsNull_main4 = 1 AND [main4] IS NULL) OR ([main4] = @Original_main4)) AND ((@IsNull_main5 = 1 AND [main5] IS NULL) OR ([main5] = @Original_main5)) AND ((@IsNull_mainAve = 1 AND [mainAve] IS NULL) OR ([mainAve] = @Original_mainAve)) AND ((@IsNull_oltc1 = 1 AND [oltc1] IS NULL) OR ([oltc1] = @Original_oltc1)) AND ((@IsNull_oltc2 = 1 AND [oltc2] IS NULL) OR ([oltc2] = @Original_oltc2)) AND ((@IsNull_oltc3 = 1 AND [oltc3] IS NULL) OR ([oltc3] = @Original_oltc3)) AND ((@IsNull_oltc4 = 1 AND [oltc4] IS NULL) OR ([oltc4] = @Original_oltc4)) AND ((@IsNull_oltc5 = 1 AND [oltc5] IS NULL) OR ([oltc5] = @Original_oltc5)) AND ((@IsNull_oltcAve = 1 AND [oltcAve] IS NULL) OR ([oltcAve] = @Original_oltcAve)));
-SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve FROM tblDielectric WHERE (TestNumber = @TestNumber)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [tblDielectric] SET [TestNumber] = @TestNumber, [main1] = @main1, [main2] " +
+                "= @main2, [main3] = @main3, [main4] = @main4, [main5] = @main5, [mainAve] = @mai" +
+                "nAve, [oltc1] = @oltc1, [oltc2] = @oltc2, [oltc3] = @oltc3, [oltc4] = @oltc4, [o" +
+                "ltc5] = @oltc5, [oltcAve] = @oltcAve, [standard] = @standard, [status] = @status" +
+                " WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_main1 = 1 AND [main1" +
+                "] IS NULL) OR ([main1] = @Original_main1)) AND ((@IsNull_main2 = 1 AND [main2] I" +
+                "S NULL) OR ([main2] = @Original_main2)) AND ((@IsNull_main3 = 1 AND [main3] IS N" +
+                "ULL) OR ([main3] = @Original_main3)) AND ((@IsNull_main4 = 1 AND [main4] IS NULL" +
+                ") OR ([main4] = @Original_main4)) AND ((@IsNull_main5 = 1 AND [main5] IS NULL) O" +
+                "R ([main5] = @Original_main5)) AND ((@IsNull_mainAve = 1 AND [mainAve] IS NULL) " +
+                "OR ([mainAve] = @Original_mainAve)) AND ((@IsNull_oltc1 = 1 AND [oltc1] IS NULL)" +
+                " OR ([oltc1] = @Original_oltc1)) AND ((@IsNull_oltc2 = 1 AND [oltc2] IS NULL) OR" +
+                " ([oltc2] = @Original_oltc2)) AND ((@IsNull_oltc3 = 1 AND [oltc3] IS NULL) OR ([" +
+                "oltc3] = @Original_oltc3)) AND ((@IsNull_oltc4 = 1 AND [oltc4] IS NULL) OR ([olt" +
+                "c4] = @Original_oltc4)) AND ((@IsNull_oltc5 = 1 AND [oltc5] IS NULL) OR ([oltc5]" +
+                " = @Original_oltc5)) AND ((@IsNull_oltcAve = 1 AND [oltcAve] IS NULL) OR ([oltcA" +
+                "ve] = @Original_oltcAve)) AND ((@IsNull_standard = 1 AND [standard] IS NULL) OR " +
+                "([standard] = @Original_standard)) AND ((@IsNull_status = 1 AND [status] IS NULL" +
+                ") OR ([status] = @Original_status)));\r\nSELECT TestNumber, main1, main2, main3, m" +
+                "ain4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve, standard, stat" +
+                "us FROM tblDielectric WHERE (TestNumber = @TestNumber)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@main1", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "main1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12171,6 +13088,8 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oltc4", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltc4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oltc5", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltc5", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oltcAve", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltcAve", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standard", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standard", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_main1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "main1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_main1", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "main1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -12196,6 +13115,10 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_oltc5", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltc5", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_oltcAve", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltcAve", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_oltcAve", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oltcAve", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_standard", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standard", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standard", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standard", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12212,7 +13135,7 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc" +
-                "3, oltc4, oltc5, oltcAve FROM dbo.tblDielectric";
+                "3, oltc4, oltc5, oltcAve, standard, status FROM tblDielectric";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12273,7 +13196,7 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal Original_TestNumber, global::System.Nullable<float> Original_main1, global::System.Nullable<float> Original_main2, global::System.Nullable<float> Original_main3, global::System.Nullable<float> Original_main4, global::System.Nullable<float> Original_main5, global::System.Nullable<float> Original_mainAve, global::System.Nullable<float> Original_oltc1, global::System.Nullable<float> Original_oltc2, global::System.Nullable<float> Original_oltc3, global::System.Nullable<float> Original_oltc4, global::System.Nullable<float> Original_oltc5, global::System.Nullable<float> Original_oltcAve) {
+        public virtual int Delete(decimal Original_TestNumber, global::System.Nullable<float> Original_main1, global::System.Nullable<float> Original_main2, global::System.Nullable<float> Original_main3, global::System.Nullable<float> Original_main4, global::System.Nullable<float> Original_main5, global::System.Nullable<float> Original_mainAve, global::System.Nullable<float> Original_oltc1, global::System.Nullable<float> Original_oltc2, global::System.Nullable<float> Original_oltc3, global::System.Nullable<float> Original_oltc4, global::System.Nullable<float> Original_oltc5, global::System.Nullable<float> Original_oltcAve, string Original_standard, string Original_status) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_TestNumber));
             if ((Original_main1.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -12371,6 +13294,22 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
+            if ((Original_standard == null)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_standard));
+            }
+            if ((Original_status == null)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_status));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12391,7 +13330,7 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal TestNumber, global::System.Nullable<float> main1, global::System.Nullable<float> main2, global::System.Nullable<float> main3, global::System.Nullable<float> main4, global::System.Nullable<float> main5, global::System.Nullable<float> mainAve, global::System.Nullable<float> oltc1, global::System.Nullable<float> oltc2, global::System.Nullable<float> oltc3, global::System.Nullable<float> oltc4, global::System.Nullable<float> oltc5, global::System.Nullable<float> oltcAve) {
+        public virtual int Insert(decimal TestNumber, global::System.Nullable<float> main1, global::System.Nullable<float> main2, global::System.Nullable<float> main3, global::System.Nullable<float> main4, global::System.Nullable<float> main5, global::System.Nullable<float> mainAve, global::System.Nullable<float> oltc1, global::System.Nullable<float> oltc2, global::System.Nullable<float> oltc3, global::System.Nullable<float> oltc4, global::System.Nullable<float> oltc5, global::System.Nullable<float> oltcAve, string standard, string status) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(TestNumber));
             if ((main1.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((float)(main1.Value));
@@ -12465,6 +13404,18 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
+            if ((standard == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(standard));
+            }
+            if ((status == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(status));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12499,6 +13450,8 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
                     global::System.Nullable<float> oltc4, 
                     global::System.Nullable<float> oltc5, 
                     global::System.Nullable<float> oltcAve, 
+                    string standard, 
+                    string status, 
                     decimal Original_TestNumber, 
                     global::System.Nullable<float> Original_main1, 
                     global::System.Nullable<float> Original_main2, 
@@ -12511,7 +13464,9 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
                     global::System.Nullable<float> Original_oltc3, 
                     global::System.Nullable<float> Original_oltc4, 
                     global::System.Nullable<float> Original_oltc5, 
-                    global::System.Nullable<float> Original_oltcAve) {
+                    global::System.Nullable<float> Original_oltcAve, 
+                    string Original_standard, 
+                    string Original_status) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(TestNumber));
             if ((main1.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((float)(main1.Value));
@@ -12585,102 +13540,130 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_TestNumber));
-            if ((Original_main1.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((float)(Original_main1.Value));
+            if ((standard == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(standard));
             }
-            if ((Original_main2.HasValue == true)) {
+            if ((status == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(status));
+            }
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_TestNumber));
+            if ((Original_main1.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((float)(Original_main2.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((float)(Original_main1.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            if ((Original_main3.HasValue == true)) {
+            if ((Original_main2.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((float)(Original_main3.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((float)(Original_main2.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            if ((Original_main4.HasValue == true)) {
+            if ((Original_main3.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((float)(Original_main4.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((float)(Original_main3.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Original_main5.HasValue == true)) {
+            if ((Original_main4.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((float)(Original_main5.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((float)(Original_main4.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((Original_mainAve.HasValue == true)) {
+            if ((Original_main5.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((float)(Original_mainAve.Value));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((float)(Original_main5.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((Original_oltc1.HasValue == true)) {
+            if ((Original_mainAve.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((float)(Original_oltc1.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((float)(Original_mainAve.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((Original_oltc2.HasValue == true)) {
+            if ((Original_oltc1.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((float)(Original_oltc2.Value));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((float)(Original_oltc1.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((Original_oltc3.HasValue == true)) {
+            if ((Original_oltc2.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((float)(Original_oltc3.Value));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((float)(Original_oltc2.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
-            if ((Original_oltc4.HasValue == true)) {
+            if ((Original_oltc3.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((float)(Original_oltc4.Value));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((float)(Original_oltc3.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
-            if ((Original_oltc5.HasValue == true)) {
+            if ((Original_oltc4.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((float)(Original_oltc5.Value));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((float)(Original_oltc4.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((Original_oltcAve.HasValue == true)) {
+            if ((Original_oltc5.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((float)(Original_oltcAve.Value));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((float)(Original_oltc5.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((Original_oltcAve.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((float)(Original_oltcAve.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((Original_standard == null)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_standard));
+            }
+            if ((Original_status == null)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12715,6 +13698,8 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
                     global::System.Nullable<float> oltc4, 
                     global::System.Nullable<float> oltc5, 
                     global::System.Nullable<float> oltcAve, 
+                    string standard, 
+                    string status, 
                     decimal Original_TestNumber, 
                     global::System.Nullable<float> Original_main1, 
                     global::System.Nullable<float> Original_main2, 
@@ -12727,8 +13712,10 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
                     global::System.Nullable<float> Original_oltc3, 
                     global::System.Nullable<float> Original_oltc4, 
                     global::System.Nullable<float> Original_oltc5, 
-                    global::System.Nullable<float> Original_oltcAve) {
-            return this.Update(Original_TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve, Original_TestNumber, Original_main1, Original_main2, Original_main3, Original_main4, Original_main5, Original_mainAve, Original_oltc1, Original_oltc2, Original_oltc3, Original_oltc4, Original_oltc5, Original_oltcAve);
+                    global::System.Nullable<float> Original_oltcAve, 
+                    string Original_standard, 
+                    string Original_status) {
+            return this.Update(Original_TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve, standard, status, Original_TestNumber, Original_main1, Original_main2, Original_main3, Original_main4, Original_main5, Original_mainAve, Original_oltc1, Original_oltc2, Original_oltc3, Original_oltc4, Original_oltc5, Original_oltcAve, Original_standard, Original_status);
         }
     }
     
@@ -12861,7 +13848,7 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tblExcitation] WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_excHVA = 1 AND [excHVA] IS NULL) OR ([excHVA] = @Original_excHVA)) AND ((@IsNull_excHVB = 1 AND [excHVB] IS NULL) OR ([excHVB] = @Original_excHVB)) AND ((@IsNull_excHVC = 1 AND [excHVC] IS NULL) OR ([excHVC] = @Original_excHVC)) AND ((@IsNull_TestVoltage = 1 AND [TestVoltage] IS NULL) OR ([TestVoltage] = @Original_TestVoltage)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tblExcitation] WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_excHVA = 1 AND [excHVA] IS NULL) OR ([excHVA] = @Original_excHVA)) AND ((@IsNull_excHVB = 1 AND [excHVB] IS NULL) OR ([excHVB] = @Original_excHVB)) AND ((@IsNull_excHVC = 1 AND [excHVC] IS NULL) OR ([excHVC] = @Original_excHVC)) AND ((@IsNull_TestVoltage = 1 AND [TestVoltage] IS NULL) OR ([TestVoltage] = @Original_TestVoltage)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_excHVA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "excHVA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -12874,7 +13861,7 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TestVoltage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TestVoltage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblExcitation] ([TestNumber], [excHVA], [excHVB], [excHVC], [TestVoltage]) VALUES (@TestNumber, @excHVA, @excHVB, @excHVC, @TestVoltage);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tblExcitation] ([TestNumber], [excHVA], [excHVB], [excHVC], [TestVoltage]) VALUES (@TestNumber, @excHVA, @excHVB, @excHVC, @TestVoltage);
 SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage FROM tblExcitation WHERE (TestNumber = @TestNumber)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12884,7 +13871,7 @@ SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage FROM tblExcitation WHERE 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestVoltage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TestVoltage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [tblExcitation] SET [TestNumber] = @TestNumber, [excHVA] = @excHVA, [excHVB] = @excHVB, [excHVC] = @excHVC, [TestVoltage] = @TestVoltage WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_excHVA = 1 AND [excHVA] IS NULL) OR ([excHVA] = @Original_excHVA)) AND ((@IsNull_excHVB = 1 AND [excHVB] IS NULL) OR ([excHVB] = @Original_excHVB)) AND ((@IsNull_excHVC = 1 AND [excHVC] IS NULL) OR ([excHVC] = @Original_excHVC)) AND ((@IsNull_TestVoltage = 1 AND [TestVoltage] IS NULL) OR ([TestVoltage] = @Original_TestVoltage)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tblExcitation] SET [TestNumber] = @TestNumber, [excHVA] = @excHVA, [excHVB] = @excHVB, [excHVC] = @excHVC, [TestVoltage] = @TestVoltage WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_excHVA = 1 AND [excHVA] IS NULL) OR ([excHVA] = @Original_excHVA)) AND ((@IsNull_excHVB = 1 AND [excHVB] IS NULL) OR ([excHVB] = @Original_excHVB)) AND ((@IsNull_excHVC = 1 AND [excHVC] IS NULL) OR ([excHVC] = @Original_excHVC)) AND ((@IsNull_TestVoltage = 1 AND [TestVoltage] IS NULL) OR ([TestVoltage] = @Original_TestVoltage)));
 SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage FROM tblExcitation WHERE (TestNumber = @TestNumber)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12916,7 +13903,7 @@ SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage FROM tblExcitation WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage FROM tblExcitation";
+            this._commandCollection[0].CommandText = "SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage FROM dbo.tblExcitation";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -13312,36 +14299,36 @@ SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage FROM tblExcitation WHERE 
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [tblIPF] WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_i" +
-                "pfMCHCHL = 1 AND [ipfMCHCHL] IS NULL) OR ([ipfMCHCHL] = @Original_ipfMCHCHL)) AN" +
-                "D ((@IsNull_ipfMCH = 1 AND [ipfMCH] IS NULL) OR ([ipfMCH] = @Original_ipfMCH)) A" +
-                "ND ((@IsNull_ipfMCHLU = 1 AND [ipfMCHLU] IS NULL) OR ([ipfMCHLU] = @Original_ipf" +
-                "MCHLU)) AND ((@IsNull_ipfMCHL = 1 AND [ipfMCHL] IS NULL) OR ([ipfMCHL] = @Origin" +
-                "al_ipfMCHL)) AND ((@IsNull_ipfMCLCHL = 1 AND [ipfMCLCHL] IS NULL) OR ([ipfMCLCHL" +
-                "] = @Original_ipfMCLCHL)) AND ((@IsNull_ipfMCL = 1 AND [ipfMCL] IS NULL) OR ([ip" +
-                "fMCL] = @Original_ipfMCL)) AND ((@IsNull_ipfMCHLUlv = 1 AND [ipfMCHLUlv] IS NULL" +
-                ") OR ([ipfMCHLUlv] = @Original_ipfMCHLUlv)) AND ((@IsNull_ipfMCHLlv = 1 AND [ipf" +
-                "MCHLlv] IS NULL) OR ([ipfMCHLlv] = @Original_ipfMCHLlv)) AND ((@IsNull_ipfCF = 1" +
-                " AND [ipfCF] IS NULL) OR ([ipfCF] = @Original_ipfCF)) AND ((@IsNull_ipfCCHCHL = " +
-                "1 AND [ipfCCHCHL] IS NULL) OR ([ipfCCHCHL] = @Original_ipfCCHCHL)) AND ((@IsNull" +
-                "_ipfCCH = 1 AND [ipfCCH] IS NULL) OR ([ipfCCH] = @Original_ipfCCH)) AND ((@IsNul" +
-                "l_ipfCCHLU = 1 AND [ipfCCHLU] IS NULL) OR ([ipfCCHLU] = @Original_ipfCCHLU)) AND" +
-                " ((@IsNull_ipfCCHL = 1 AND [ipfCCHL] IS NULL) OR ([ipfCCHL] = @Original_ipfCCHL)" +
-                ") AND ((@IsNull_ipfCCL = 1 AND [ipfCCL] IS NULL) OR ([ipfCCL] = @Original_ipfCCL" +
-                ")) AND ((@IsNull_ipfCCHLUlv = 1 AND [ipfCCHLUlv] IS NULL) OR ([ipfCCHLUlv] = @Or" +
-                "iginal_ipfCCHLUlv)) AND ((@IsNull_ipfCCHLlv = 1 AND [ipfCCHLlv] IS NULL) OR ([ip" +
-                "fCCHLlv] = @Original_ipfCCHLlv)) AND ((@IsNull_ipfACHCHL = 1 AND [ipfACHCHL] IS " +
-                "NULL) OR ([ipfACHCHL] = @Original_ipfACHCHL)) AND ((@IsNull_ipfACH = 1 AND [ipfA" +
-                "CH] IS NULL) OR ([ipfACH] = @Original_ipfACH)) AND ((@IsNull_ipfACHLU = 1 AND [i" +
-                "pfACHLU] IS NULL) OR ([ipfACHLU] = @Original_ipfACHLU)) AND ((@IsNull_ipfACHL = " +
-                "1 AND [ipfACHL] IS NULL) OR ([ipfACHL] = @Original_ipfACHL)) AND ((@IsNull_ipfAC" +
-                "LCHL = 1 AND [ipfACLCHL] IS NULL) OR ([ipfACLCHL] = @Original_ipfACLCHL)) AND ((" +
-                "@IsNull_ipfACL = 1 AND [ipfACL] IS NULL) OR ([ipfACL] = @Original_ipfACL)) AND (" +
-                "(@IsNull_ipfACHLUlv = 1 AND [ipfACHLUlv] IS NULL) OR ([ipfACHLUlv] = @Original_i" +
-                "pfACHLUlv)) AND ((@IsNull_ipfACHLlv = 1 AND [ipfACHLlv] IS NULL) OR ([ipfACHLlv]" +
-                " = @Original_ipfACHLlv)) AND ((@IsNull_ipfCCLCHL = 1 AND [ipfCCLCHL] IS NULL) OR" +
-                " ([ipfCCLCHL] = @Original_ipfCCLCHL)) AND ((@IsNull_TestVoltage = 1 AND [TestVol" +
-                "tage] IS NULL) OR ([TestVoltage] = @Original_TestVoltage)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblIPF] WHERE (([TestNumber] = @Original_TestNumber) AND ((@Is" +
+                "Null_ipfMCHCHL = 1 AND [ipfMCHCHL] IS NULL) OR ([ipfMCHCHL] = @Original_ipfMCHCH" +
+                "L)) AND ((@IsNull_ipfMCH = 1 AND [ipfMCH] IS NULL) OR ([ipfMCH] = @Original_ipfM" +
+                "CH)) AND ((@IsNull_ipfMCHLU = 1 AND [ipfMCHLU] IS NULL) OR ([ipfMCHLU] = @Origin" +
+                "al_ipfMCHLU)) AND ((@IsNull_ipfMCHL = 1 AND [ipfMCHL] IS NULL) OR ([ipfMCHL] = @" +
+                "Original_ipfMCHL)) AND ((@IsNull_ipfMCLCHL = 1 AND [ipfMCLCHL] IS NULL) OR ([ipf" +
+                "MCLCHL] = @Original_ipfMCLCHL)) AND ((@IsNull_ipfMCL = 1 AND [ipfMCL] IS NULL) O" +
+                "R ([ipfMCL] = @Original_ipfMCL)) AND ((@IsNull_ipfMCHLUlv = 1 AND [ipfMCHLUlv] I" +
+                "S NULL) OR ([ipfMCHLUlv] = @Original_ipfMCHLUlv)) AND ((@IsNull_ipfMCHLlv = 1 AN" +
+                "D [ipfMCHLlv] IS NULL) OR ([ipfMCHLlv] = @Original_ipfMCHLlv)) AND ((@IsNull_ipf" +
+                "CF = 1 AND [ipfCF] IS NULL) OR ([ipfCF] = @Original_ipfCF)) AND ((@IsNull_ipfCCH" +
+                "CHL = 1 AND [ipfCCHCHL] IS NULL) OR ([ipfCCHCHL] = @Original_ipfCCHCHL)) AND ((@" +
+                "IsNull_ipfCCH = 1 AND [ipfCCH] IS NULL) OR ([ipfCCH] = @Original_ipfCCH)) AND ((" +
+                "@IsNull_ipfCCHLU = 1 AND [ipfCCHLU] IS NULL) OR ([ipfCCHLU] = @Original_ipfCCHLU" +
+                ")) AND ((@IsNull_ipfCCHL = 1 AND [ipfCCHL] IS NULL) OR ([ipfCCHL] = @Original_ip" +
+                "fCCHL)) AND ((@IsNull_ipfCCL = 1 AND [ipfCCL] IS NULL) OR ([ipfCCL] = @Original_" +
+                "ipfCCL)) AND ((@IsNull_ipfCCHLUlv = 1 AND [ipfCCHLUlv] IS NULL) OR ([ipfCCHLUlv]" +
+                " = @Original_ipfCCHLUlv)) AND ((@IsNull_ipfCCHLlv = 1 AND [ipfCCHLlv] IS NULL) O" +
+                "R ([ipfCCHLlv] = @Original_ipfCCHLlv)) AND ((@IsNull_ipfACHCHL = 1 AND [ipfACHCH" +
+                "L] IS NULL) OR ([ipfACHCHL] = @Original_ipfACHCHL)) AND ((@IsNull_ipfACH = 1 AND" +
+                " [ipfACH] IS NULL) OR ([ipfACH] = @Original_ipfACH)) AND ((@IsNull_ipfACHLU = 1 " +
+                "AND [ipfACHLU] IS NULL) OR ([ipfACHLU] = @Original_ipfACHLU)) AND ((@IsNull_ipfA" +
+                "CHL = 1 AND [ipfACHL] IS NULL) OR ([ipfACHL] = @Original_ipfACHL)) AND ((@IsNull" +
+                "_ipfACLCHL = 1 AND [ipfACLCHL] IS NULL) OR ([ipfACLCHL] = @Original_ipfACLCHL)) " +
+                "AND ((@IsNull_ipfACL = 1 AND [ipfACL] IS NULL) OR ([ipfACL] = @Original_ipfACL))" +
+                " AND ((@IsNull_ipfACHLUlv = 1 AND [ipfACHLUlv] IS NULL) OR ([ipfACHLUlv] = @Orig" +
+                "inal_ipfACHLUlv)) AND ((@IsNull_ipfACHLlv = 1 AND [ipfACHLlv] IS NULL) OR ([ipfA" +
+                "CHLlv] = @Original_ipfACHLlv)) AND ((@IsNull_ipfCCLCHL = 1 AND [ipfCCLCHL] IS NU" +
+                "LL) OR ([ipfCCLCHL] = @Original_ipfCCLCHL)) AND ((@IsNull_TestVoltage = 1 AND [T" +
+                "estVoltage] IS NULL) OR ([TestVoltage] = @Original_TestVoltage)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ipfMCHCHL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ipfMCHCHL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -13398,7 +14385,7 @@ SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage FROM tblExcitation WHERE 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TestVoltage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TestVoltage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblIPF] ([TestNumber], [ipfMCHCHL], [ipfMCH], [ipfMCHLU], [ipfMCHL], [ipfMCLCHL], [ipfMCL], [ipfMCHLUlv], [ipfMCHLlv], [ipfCF], [ipfCCHCHL], [ipfCCH], [ipfCCHLU], [ipfCCHL], [ipfCCL], [ipfCCHLUlv], [ipfCCHLlv], [ipfACHCHL], [ipfACH], [ipfACHLU], [ipfACHL], [ipfACLCHL], [ipfACL], [ipfACHLUlv], [ipfACHLlv], [ipfCCLCHL], [TestVoltage]) VALUES (@TestNumber, @ipfMCHCHL, @ipfMCH, @ipfMCHLU, @ipfMCHL, @ipfMCLCHL, @ipfMCL, @ipfMCHLUlv, @ipfMCHLlv, @ipfCF, @ipfCCHCHL, @ipfCCH, @ipfCCHLU, @ipfCCHL, @ipfCCL, @ipfCCHLUlv, @ipfCCHLlv, @ipfACHCHL, @ipfACH, @ipfACHLU, @ipfACHL, @ipfACLCHL, @ipfACL, @ipfACHLUlv, @ipfACHLlv, @ipfCCLCHL, @TestVoltage);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tblIPF] ([TestNumber], [ipfMCHCHL], [ipfMCH], [ipfMCHLU], [ipfMCHL], [ipfMCLCHL], [ipfMCL], [ipfMCHLUlv], [ipfMCHLlv], [ipfCF], [ipfCCHCHL], [ipfCCH], [ipfCCHLU], [ipfCCHL], [ipfCCL], [ipfCCHLUlv], [ipfCCHLlv], [ipfACHCHL], [ipfACH], [ipfACHLU], [ipfACHL], [ipfACLCHL], [ipfACL], [ipfACHLUlv], [ipfACHLlv], [ipfCCLCHL], [TestVoltage]) VALUES (@TestNumber, @ipfMCHCHL, @ipfMCH, @ipfMCHLU, @ipfMCHL, @ipfMCLCHL, @ipfMCL, @ipfMCHLUlv, @ipfMCHLlv, @ipfCF, @ipfCCHCHL, @ipfCCH, @ipfCCHLU, @ipfCCHL, @ipfCCL, @ipfCCHLUlv, @ipfCCHLlv, @ipfACHCHL, @ipfACH, @ipfACHLU, @ipfACHL, @ipfACLCHL, @ipfACL, @ipfACHLUlv, @ipfACHLlv, @ipfCCLCHL, @TestVoltage);
 SELECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCHLUlv, ipfMCHLlv, ipfCF, ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCL, ipfCCHLUlv, ipfCCHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, ipfACLCHL, ipfACL, ipfACHLUlv, ipfACHLlv, ipfCCLCHL, TestVoltage FROM tblIPF WHERE (TestNumber = @TestNumber)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13430,48 +14417,49 @@ SELECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfM
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestVoltage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TestVoltage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [tblIPF] SET [TestNumber] = @TestNumber, [ipfMCHCHL] = @ipfMCHCHL, [ipfMCH" +
-                "] = @ipfMCH, [ipfMCHLU] = @ipfMCHLU, [ipfMCHL] = @ipfMCHL, [ipfMCLCHL] = @ipfMCL" +
-                "CHL, [ipfMCL] = @ipfMCL, [ipfMCHLUlv] = @ipfMCHLUlv, [ipfMCHLlv] = @ipfMCHLlv, [" +
-                "ipfCF] = @ipfCF, [ipfCCHCHL] = @ipfCCHCHL, [ipfCCH] = @ipfCCH, [ipfCCHLU] = @ipf" +
-                "CCHLU, [ipfCCHL] = @ipfCCHL, [ipfCCL] = @ipfCCL, [ipfCCHLUlv] = @ipfCCHLUlv, [ip" +
-                "fCCHLlv] = @ipfCCHLlv, [ipfACHCHL] = @ipfACHCHL, [ipfACH] = @ipfACH, [ipfACHLU] " +
-                "= @ipfACHLU, [ipfACHL] = @ipfACHL, [ipfACLCHL] = @ipfACLCHL, [ipfACL] = @ipfACL," +
-                " [ipfACHLUlv] = @ipfACHLUlv, [ipfACHLlv] = @ipfACHLlv, [ipfCCLCHL] = @ipfCCLCHL," +
-                " [TestVoltage] = @TestVoltage WHERE (([TestNumber] = @Original_TestNumber) AND (" +
-                "(@IsNull_ipfMCHCHL = 1 AND [ipfMCHCHL] IS NULL) OR ([ipfMCHCHL] = @Original_ipfM" +
-                "CHCHL)) AND ((@IsNull_ipfMCH = 1 AND [ipfMCH] IS NULL) OR ([ipfMCH] = @Original_" +
-                "ipfMCH)) AND ((@IsNull_ipfMCHLU = 1 AND [ipfMCHLU] IS NULL) OR ([ipfMCHLU] = @Or" +
-                "iginal_ipfMCHLU)) AND ((@IsNull_ipfMCHL = 1 AND [ipfMCHL] IS NULL) OR ([ipfMCHL]" +
-                " = @Original_ipfMCHL)) AND ((@IsNull_ipfMCLCHL = 1 AND [ipfMCLCHL] IS NULL) OR (" +
-                "[ipfMCLCHL] = @Original_ipfMCLCHL)) AND ((@IsNull_ipfMCL = 1 AND [ipfMCL] IS NUL" +
-                "L) OR ([ipfMCL] = @Original_ipfMCL)) AND ((@IsNull_ipfMCHLUlv = 1 AND [ipfMCHLUl" +
-                "v] IS NULL) OR ([ipfMCHLUlv] = @Original_ipfMCHLUlv)) AND ((@IsNull_ipfMCHLlv = " +
-                "1 AND [ipfMCHLlv] IS NULL) OR ([ipfMCHLlv] = @Original_ipfMCHLlv)) AND ((@IsNull" +
-                "_ipfCF = 1 AND [ipfCF] IS NULL) OR ([ipfCF] = @Original_ipfCF)) AND ((@IsNull_ip" +
-                "fCCHCHL = 1 AND [ipfCCHCHL] IS NULL) OR ([ipfCCHCHL] = @Original_ipfCCHCHL)) AND" +
-                " ((@IsNull_ipfCCH = 1 AND [ipfCCH] IS NULL) OR ([ipfCCH] = @Original_ipfCCH)) AN" +
-                "D ((@IsNull_ipfCCHLU = 1 AND [ipfCCHLU] IS NULL) OR ([ipfCCHLU] = @Original_ipfC" +
-                "CHLU)) AND ((@IsNull_ipfCCHL = 1 AND [ipfCCHL] IS NULL) OR ([ipfCCHL] = @Origina" +
-                "l_ipfCCHL)) AND ((@IsNull_ipfCCL = 1 AND [ipfCCL] IS NULL) OR ([ipfCCL] = @Origi" +
-                "nal_ipfCCL)) AND ((@IsNull_ipfCCHLUlv = 1 AND [ipfCCHLUlv] IS NULL) OR ([ipfCCHL" +
-                "Ulv] = @Original_ipfCCHLUlv)) AND ((@IsNull_ipfCCHLlv = 1 AND [ipfCCHLlv] IS NUL" +
-                "L) OR ([ipfCCHLlv] = @Original_ipfCCHLlv)) AND ((@IsNull_ipfACHCHL = 1 AND [ipfA" +
-                "CHCHL] IS NULL) OR ([ipfACHCHL] = @Original_ipfACHCHL)) AND ((@IsNull_ipfACH = 1" +
-                " AND [ipfACH] IS NULL) OR ([ipfACH] = @Original_ipfACH)) AND ((@IsNull_ipfACHLU " +
-                "= 1 AND [ipfACHLU] IS NULL) OR ([ipfACHLU] = @Original_ipfACHLU)) AND ((@IsNull_" +
-                "ipfACHL = 1 AND [ipfACHL] IS NULL) OR ([ipfACHL] = @Original_ipfACHL)) AND ((@Is" +
-                "Null_ipfACLCHL = 1 AND [ipfACLCHL] IS NULL) OR ([ipfACLCHL] = @Original_ipfACLCH" +
-                "L)) AND ((@IsNull_ipfACL = 1 AND [ipfACL] IS NULL) OR ([ipfACL] = @Original_ipfA" +
-                "CL)) AND ((@IsNull_ipfACHLUlv = 1 AND [ipfACHLUlv] IS NULL) OR ([ipfACHLUlv] = @" +
-                "Original_ipfACHLUlv)) AND ((@IsNull_ipfACHLlv = 1 AND [ipfACHLlv] IS NULL) OR ([" +
-                "ipfACHLlv] = @Original_ipfACHLlv)) AND ((@IsNull_ipfCCLCHL = 1 AND [ipfCCLCHL] I" +
-                "S NULL) OR ([ipfCCLCHL] = @Original_ipfCCLCHL)) AND ((@IsNull_TestVoltage = 1 AN" +
-                "D [TestVoltage] IS NULL) OR ([TestVoltage] = @Original_TestVoltage)));\r\nSELECT T" +
-                "estNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCHLUlv, " +
-                "ipfMCHLlv, ipfCF, ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCL, ipfCCHLUlv, ipfC" +
-                "CHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, ipfACLCHL, ipfACL, ipfACHLUlv, ipfA" +
-                "CHLlv, ipfCCLCHL, TestVoltage FROM tblIPF WHERE (TestNumber = @TestNumber)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblIPF] SET [TestNumber] = @TestNumber, [ipfMCHCHL] = @ipfMCHCHL, [" +
+                "ipfMCH] = @ipfMCH, [ipfMCHLU] = @ipfMCHLU, [ipfMCHL] = @ipfMCHL, [ipfMCLCHL] = @" +
+                "ipfMCLCHL, [ipfMCL] = @ipfMCL, [ipfMCHLUlv] = @ipfMCHLUlv, [ipfMCHLlv] = @ipfMCH" +
+                "Llv, [ipfCF] = @ipfCF, [ipfCCHCHL] = @ipfCCHCHL, [ipfCCH] = @ipfCCH, [ipfCCHLU] " +
+                "= @ipfCCHLU, [ipfCCHL] = @ipfCCHL, [ipfCCL] = @ipfCCL, [ipfCCHLUlv] = @ipfCCHLUl" +
+                "v, [ipfCCHLlv] = @ipfCCHLlv, [ipfACHCHL] = @ipfACHCHL, [ipfACH] = @ipfACH, [ipfA" +
+                "CHLU] = @ipfACHLU, [ipfACHL] = @ipfACHL, [ipfACLCHL] = @ipfACLCHL, [ipfACL] = @i" +
+                "pfACL, [ipfACHLUlv] = @ipfACHLUlv, [ipfACHLlv] = @ipfACHLlv, [ipfCCLCHL] = @ipfC" +
+                "CLCHL, [TestVoltage] = @TestVoltage WHERE (([TestNumber] = @Original_TestNumber)" +
+                " AND ((@IsNull_ipfMCHCHL = 1 AND [ipfMCHCHL] IS NULL) OR ([ipfMCHCHL] = @Origina" +
+                "l_ipfMCHCHL)) AND ((@IsNull_ipfMCH = 1 AND [ipfMCH] IS NULL) OR ([ipfMCH] = @Ori" +
+                "ginal_ipfMCH)) AND ((@IsNull_ipfMCHLU = 1 AND [ipfMCHLU] IS NULL) OR ([ipfMCHLU]" +
+                " = @Original_ipfMCHLU)) AND ((@IsNull_ipfMCHL = 1 AND [ipfMCHL] IS NULL) OR ([ip" +
+                "fMCHL] = @Original_ipfMCHL)) AND ((@IsNull_ipfMCLCHL = 1 AND [ipfMCLCHL] IS NULL" +
+                ") OR ([ipfMCLCHL] = @Original_ipfMCLCHL)) AND ((@IsNull_ipfMCL = 1 AND [ipfMCL] " +
+                "IS NULL) OR ([ipfMCL] = @Original_ipfMCL)) AND ((@IsNull_ipfMCHLUlv = 1 AND [ipf" +
+                "MCHLUlv] IS NULL) OR ([ipfMCHLUlv] = @Original_ipfMCHLUlv)) AND ((@IsNull_ipfMCH" +
+                "Llv = 1 AND [ipfMCHLlv] IS NULL) OR ([ipfMCHLlv] = @Original_ipfMCHLlv)) AND ((@" +
+                "IsNull_ipfCF = 1 AND [ipfCF] IS NULL) OR ([ipfCF] = @Original_ipfCF)) AND ((@IsN" +
+                "ull_ipfCCHCHL = 1 AND [ipfCCHCHL] IS NULL) OR ([ipfCCHCHL] = @Original_ipfCCHCHL" +
+                ")) AND ((@IsNull_ipfCCH = 1 AND [ipfCCH] IS NULL) OR ([ipfCCH] = @Original_ipfCC" +
+                "H)) AND ((@IsNull_ipfCCHLU = 1 AND [ipfCCHLU] IS NULL) OR ([ipfCCHLU] = @Origina" +
+                "l_ipfCCHLU)) AND ((@IsNull_ipfCCHL = 1 AND [ipfCCHL] IS NULL) OR ([ipfCCHL] = @O" +
+                "riginal_ipfCCHL)) AND ((@IsNull_ipfCCL = 1 AND [ipfCCL] IS NULL) OR ([ipfCCL] = " +
+                "@Original_ipfCCL)) AND ((@IsNull_ipfCCHLUlv = 1 AND [ipfCCHLUlv] IS NULL) OR ([i" +
+                "pfCCHLUlv] = @Original_ipfCCHLUlv)) AND ((@IsNull_ipfCCHLlv = 1 AND [ipfCCHLlv] " +
+                "IS NULL) OR ([ipfCCHLlv] = @Original_ipfCCHLlv)) AND ((@IsNull_ipfACHCHL = 1 AND" +
+                " [ipfACHCHL] IS NULL) OR ([ipfACHCHL] = @Original_ipfACHCHL)) AND ((@IsNull_ipfA" +
+                "CH = 1 AND [ipfACH] IS NULL) OR ([ipfACH] = @Original_ipfACH)) AND ((@IsNull_ipf" +
+                "ACHLU = 1 AND [ipfACHLU] IS NULL) OR ([ipfACHLU] = @Original_ipfACHLU)) AND ((@I" +
+                "sNull_ipfACHL = 1 AND [ipfACHL] IS NULL) OR ([ipfACHL] = @Original_ipfACHL)) AND" +
+                " ((@IsNull_ipfACLCHL = 1 AND [ipfACLCHL] IS NULL) OR ([ipfACLCHL] = @Original_ip" +
+                "fACLCHL)) AND ((@IsNull_ipfACL = 1 AND [ipfACL] IS NULL) OR ([ipfACL] = @Origina" +
+                "l_ipfACL)) AND ((@IsNull_ipfACHLUlv = 1 AND [ipfACHLUlv] IS NULL) OR ([ipfACHLUl" +
+                "v] = @Original_ipfACHLUlv)) AND ((@IsNull_ipfACHLlv = 1 AND [ipfACHLlv] IS NULL)" +
+                " OR ([ipfACHLlv] = @Original_ipfACHLlv)) AND ((@IsNull_ipfCCLCHL = 1 AND [ipfCCL" +
+                "CHL] IS NULL) OR ([ipfCCLCHL] = @Original_ipfCCLCHL)) AND ((@IsNull_TestVoltage " +
+                "= 1 AND [TestVoltage] IS NULL) OR ([TestVoltage] = @Original_TestVoltage)));\r\nSE" +
+                "LECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCH" +
+                "LUlv, ipfMCHLlv, ipfCF, ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCL, ipfCCHLUlv" +
+                ", ipfCCHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, ipfACLCHL, ipfACL, ipfACHLUlv" +
+                ", ipfACHLlv, ipfCCLCHL, TestVoltage FROM tblIPF WHERE (TestNumber = @TestNumber)" +
+                "";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ipfMCHCHL", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ipfMCHCHL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13568,7 +14556,7 @@ SELECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfM
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCHLUlv, ipfMCHLlv, ipfCF, ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCL, ipfCCHLUlv, ipfCCHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, ipfACLCHL, ipfACL, ipfACHLUlv, ipfACHLlv, ipfCCLCHL, TestVoltage FROM tblIPF";
+            this._commandCollection[0].CommandText = @"SELECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCHLUlv, ipfMCHLlv, ipfCF, ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCL, ipfCCHLUlv, ipfCCHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, ipfACLCHL, ipfACL, ipfACHLUlv, ipfACHLlv, ipfCCLCHL, TestVoltage FROM dbo.tblIPF";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -15803,18 +16791,20 @@ SELECT subID, subName, subAddress FROM tblSubstation WHERE (subID = @subID)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tblTest] WHERE (([TestNumber] = @Original_TestNumber) AND ([testDate] = @Original_testDate) AND ([testEngr] = @Original_testEngr) AND ((@IsNull_testWeather = 1 AND [testWeather] IS NULL) OR ([testWeather] = @Original_testWeather)) AND ((@IsNull_testAmbient = 1 AND [testAmbient] IS NULL) OR ([testAmbient] = @Original_testAmbient)) AND ((@IsNull_testOil = 1 AND [testOil] IS NULL) OR ([testOil] = @Original_testOil)) AND ([testPrimWT] = @Original_testPrimWT) AND ([testSecWT] = @Original_testSecWT) AND ((@IsNull_testTertWT = 1 AND [testTertWT] IS NULL) OR ([testTertWT] = @Original_testTertWT)) AND ([testXformer] = @Original_testXformer) AND ([testSub] = @Original_testSub) AND ([testExcite] = @Original_testExcite) AND ([testIPF] = @Original_testIPF) AND ([testBushing] = @Original_testBushing) AND ([testTTR] = @Original_testTTR) AND ([testDCWR] = @Original_testDCWR) AND ([testOilBD] = @Original_testOilBD) AND ([testOilPF] = @Original_testOilPF))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tblTest] WHERE (([TestNumber] = @Original_TestNumber) AND ([testDate] = @Original_testDate) AND ([testEngr] = @Original_testEngr) AND ((@IsNull_testWeather = 1 AND [testWeather] IS NULL) OR ([testWeather] = @Original_testWeather)) AND ((@IsNull_testAmbient = 1 AND [testAmbient] IS NULL) OR ([testAmbient] = @Original_testAmbient)) AND ((@IsNull_testOil = 1 AND [testOil] IS NULL) OR ([testOil] = @Original_testOil)) AND ((@IsNull_testPrimWT = 1 AND [testPrimWT] IS NULL) OR ([testPrimWT] = @Original_testPrimWT)) AND ((@IsNull_testSecWT = 1 AND [testSecWT] IS NULL) OR ([testSecWT] = @Original_testSecWT)) AND ((@IsNull_testTertWT = 1 AND [testTertWT] IS NULL) OR ([testTertWT] = @Original_testTertWT)) AND ([testXformer] = @Original_testXformer) AND ([testSub] = @Original_testSub) AND ([testExcite] = @Original_testExcite) AND ([testIPF] = @Original_testIPF) AND ([testBushing] = @Original_testBushing) AND ([testTTR] = @Original_testTTR) AND ([testDCWR] = @Original_testDCWR) AND ([testOilBD] = @Original_testOilBD) AND ([testOilPF] = @Original_testOilPF))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testEngr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testEngr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testWeather", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testWeather", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testWeather", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testPrimWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testPrimWT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testPrimWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testPrimWT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testSecWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSecWT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testSecWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSecWT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -15835,7 +16825,7 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testEngr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testEngr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testWeather", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testWeather", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testPrimWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testPrimWT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15863,22 +16853,23 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                 "r = 1 AND [testWeather] IS NULL) OR ([testWeather] = @Original_testWeather)) AND" +
                 " ((@IsNull_testAmbient = 1 AND [testAmbient] IS NULL) OR ([testAmbient] = @Origi" +
                 "nal_testAmbient)) AND ((@IsNull_testOil = 1 AND [testOil] IS NULL) OR ([testOil]" +
-                " = @Original_testOil)) AND ([testPrimWT] = @Original_testPrimWT) AND ([testSecWT" +
-                "] = @Original_testSecWT) AND ((@IsNull_testTertWT = 1 AND [testTertWT] IS NULL) " +
-                "OR ([testTertWT] = @Original_testTertWT)) AND ([testXformer] = @Original_testXfo" +
-                "rmer) AND ([testSub] = @Original_testSub) AND ([testExcite] = @Original_testExci" +
-                "te) AND ([testIPF] = @Original_testIPF) AND ([testBushing] = @Original_testBushi" +
-                "ng) AND ([testTTR] = @Original_testTTR) AND ([testDCWR] = @Original_testDCWR) AN" +
-                "D ([testOilBD] = @Original_testOilBD) AND ([testOilPF] = @Original_testOilPF));\r" +
-                "\nSELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testP" +
-                "rimWT, testSecWT, testTertWT, testXformer, testSub, testExcite, testIPF, testBus" +
-                "hing, testTTR, testDCWR, testOilBD, testOilPF FROM tblTest WHERE (TestNumber = @" +
-                "TestNumber)";
+                " = @Original_testOil)) AND ((@IsNull_testPrimWT = 1 AND [testPrimWT] IS NULL) OR" +
+                " ([testPrimWT] = @Original_testPrimWT)) AND ((@IsNull_testSecWT = 1 AND [testSec" +
+                "WT] IS NULL) OR ([testSecWT] = @Original_testSecWT)) AND ((@IsNull_testTertWT = " +
+                "1 AND [testTertWT] IS NULL) OR ([testTertWT] = @Original_testTertWT)) AND ([test" +
+                "Xformer] = @Original_testXformer) AND ([testSub] = @Original_testSub) AND ([test" +
+                "Excite] = @Original_testExcite) AND ([testIPF] = @Original_testIPF) AND ([testBu" +
+                "shing] = @Original_testBushing) AND ([testTTR] = @Original_testTTR) AND ([testDC" +
+                "WR] = @Original_testDCWR) AND ([testOilBD] = @Original_testOilBD) AND ([testOilP" +
+                "F] = @Original_testOilPF));\r\nSELECT TestNumber, testDate, testEngr, testWeather," +
+                " testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer, testSub, " +
+                "testExcite, testIPF, testBushing, testTTR, testDCWR, testOilBD, testOilPF FROM t" +
+                "blTest WHERE (TestNumber = @TestNumber)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testEngr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testEngr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testWeather", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testWeather", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testPrimWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testPrimWT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15897,12 +16888,14 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testEngr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testEngr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testWeather", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testWeather", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testWeather", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testPrimWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testPrimWT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testPrimWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testPrimWT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testSecWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSecWT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testSecWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSecWT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -16000,8 +16993,8 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     string Original_testWeather, 
                     global::System.Nullable<int> Original_testAmbient, 
                     global::System.Nullable<int> Original_testOil, 
-                    int Original_testPrimWT, 
-                    int Original_testSecWT, 
+                    global::System.Nullable<int> Original_testPrimWT, 
+                    global::System.Nullable<int> Original_testSecWT, 
                     global::System.Nullable<int> Original_testTertWT, 
                     string Original_testXformer, 
                     string Original_testSub, 
@@ -16044,35 +17037,49 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_testPrimWT));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_testSecWT));
-            if ((Original_testTertWT.HasValue == true)) {
+            if ((Original_testPrimWT.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_testPrimWT.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_testSecWT.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_testTertWT.Value));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_testSecWT.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
+            if ((Original_testTertWT.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_testTertWT.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
             if ((Original_testXformer == null)) {
                 throw new global::System.ArgumentNullException("Original_testXformer");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_testXformer));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_testXformer));
             }
             if ((Original_testSub == null)) {
                 throw new global::System.ArgumentNullException("Original_testSub");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_testSub));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_testSub));
             }
-            this.Adapter.DeleteCommand.Parameters[15].Value = ((bool)(Original_testExcite));
-            this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_testIPF));
-            this.Adapter.DeleteCommand.Parameters[17].Value = ((bool)(Original_testBushing));
-            this.Adapter.DeleteCommand.Parameters[18].Value = ((bool)(Original_testTTR));
-            this.Adapter.DeleteCommand.Parameters[19].Value = ((bool)(Original_testDCWR));
-            this.Adapter.DeleteCommand.Parameters[20].Value = ((bool)(Original_testOilBD));
-            this.Adapter.DeleteCommand.Parameters[21].Value = ((bool)(Original_testOilPF));
+            this.Adapter.DeleteCommand.Parameters[17].Value = ((bool)(Original_testExcite));
+            this.Adapter.DeleteCommand.Parameters[18].Value = ((bool)(Original_testIPF));
+            this.Adapter.DeleteCommand.Parameters[19].Value = ((bool)(Original_testBushing));
+            this.Adapter.DeleteCommand.Parameters[20].Value = ((bool)(Original_testTTR));
+            this.Adapter.DeleteCommand.Parameters[21].Value = ((bool)(Original_testDCWR));
+            this.Adapter.DeleteCommand.Parameters[22].Value = ((bool)(Original_testOilBD));
+            this.Adapter.DeleteCommand.Parameters[23].Value = ((bool)(Original_testOilPF));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -16100,8 +17107,8 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     string testWeather, 
                     global::System.Nullable<int> testAmbient, 
                     global::System.Nullable<int> testOil, 
-                    int testPrimWT, 
-                    int testSecWT, 
+                    global::System.Nullable<int> testPrimWT, 
+                    global::System.Nullable<int> testSecWT, 
                     global::System.Nullable<int> testTertWT, 
                     string testXformer, 
                     string testSub, 
@@ -16138,8 +17145,18 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(testPrimWT));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(testSecWT));
+            if ((testPrimWT.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(testPrimWT.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((testSecWT.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(testSecWT.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             if ((testTertWT.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((int)(testTertWT.Value));
             }
@@ -16192,8 +17209,8 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     string testWeather, 
                     global::System.Nullable<int> testAmbient, 
                     global::System.Nullable<int> testOil, 
-                    int testPrimWT, 
-                    int testSecWT, 
+                    global::System.Nullable<int> testPrimWT, 
+                    global::System.Nullable<int> testSecWT, 
                     global::System.Nullable<int> testTertWT, 
                     string testXformer, 
                     string testSub, 
@@ -16210,8 +17227,8 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     string Original_testWeather, 
                     global::System.Nullable<int> Original_testAmbient, 
                     global::System.Nullable<int> Original_testOil, 
-                    int Original_testPrimWT, 
-                    int Original_testSecWT, 
+                    global::System.Nullable<int> Original_testPrimWT, 
+                    global::System.Nullable<int> Original_testSecWT, 
                     global::System.Nullable<int> Original_testTertWT, 
                     string Original_testXformer, 
                     string Original_testSub, 
@@ -16248,8 +17265,18 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(testPrimWT));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(testSecWT));
+            if ((testPrimWT.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(testPrimWT.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((testSecWT.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(testSecWT.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             if ((testTertWT.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(testTertWT.Value));
             }
@@ -16307,35 +17334,49 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_testPrimWT));
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_testSecWT));
-            if ((Original_testTertWT.HasValue == true)) {
+            if ((Original_testPrimWT.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_testPrimWT.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_testSecWT.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_testTertWT.Value));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_testSecWT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
+            if ((Original_testTertWT.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_testTertWT.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
             if ((Original_testXformer == null)) {
                 throw new global::System.ArgumentNullException("Original_testXformer");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_testXformer));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_testXformer));
             }
             if ((Original_testSub == null)) {
                 throw new global::System.ArgumentNullException("Original_testSub");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_testSub));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_testSub));
             }
-            this.Adapter.UpdateCommand.Parameters[33].Value = ((bool)(Original_testExcite));
-            this.Adapter.UpdateCommand.Parameters[34].Value = ((bool)(Original_testIPF));
-            this.Adapter.UpdateCommand.Parameters[35].Value = ((bool)(Original_testBushing));
-            this.Adapter.UpdateCommand.Parameters[36].Value = ((bool)(Original_testTTR));
-            this.Adapter.UpdateCommand.Parameters[37].Value = ((bool)(Original_testDCWR));
-            this.Adapter.UpdateCommand.Parameters[38].Value = ((bool)(Original_testOilBD));
-            this.Adapter.UpdateCommand.Parameters[39].Value = ((bool)(Original_testOilPF));
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((bool)(Original_testExcite));
+            this.Adapter.UpdateCommand.Parameters[36].Value = ((bool)(Original_testIPF));
+            this.Adapter.UpdateCommand.Parameters[37].Value = ((bool)(Original_testBushing));
+            this.Adapter.UpdateCommand.Parameters[38].Value = ((bool)(Original_testTTR));
+            this.Adapter.UpdateCommand.Parameters[39].Value = ((bool)(Original_testDCWR));
+            this.Adapter.UpdateCommand.Parameters[40].Value = ((bool)(Original_testOilBD));
+            this.Adapter.UpdateCommand.Parameters[41].Value = ((bool)(Original_testOilPF));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -16362,8 +17403,8 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     string testWeather, 
                     global::System.Nullable<int> testAmbient, 
                     global::System.Nullable<int> testOil, 
-                    int testPrimWT, 
-                    int testSecWT, 
+                    global::System.Nullable<int> testPrimWT, 
+                    global::System.Nullable<int> testSecWT, 
                     global::System.Nullable<int> testTertWT, 
                     string testXformer, 
                     string testSub, 
@@ -16380,8 +17421,8 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     string Original_testWeather, 
                     global::System.Nullable<int> Original_testAmbient, 
                     global::System.Nullable<int> Original_testOil, 
-                    int Original_testPrimWT, 
-                    int Original_testSecWT, 
+                    global::System.Nullable<int> Original_testPrimWT, 
+                    global::System.Nullable<int> Original_testSecWT, 
                     global::System.Nullable<int> Original_testTertWT, 
                     string Original_testXformer, 
                     string Original_testSub, 
@@ -19023,6 +20064,625 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class tblStandardsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public tblStandardsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "tblStandards";
+            tableMapping.ColumnMappings.Add("standards", "standards");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblStandards] WHERE (([standards] = @Original_standards))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblStandards] ([standards]) VALUES (@standards);\r\nSELECT stand" +
+                "ards FROM tblStandards WHERE (standards = @standards)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblStandards] SET [standards] = @standards WHERE (([standards] = @O" +
+                "riginal_standards));\r\nSELECT standards FROM tblStandards WHERE (standards = @sta" +
+                "ndards)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::PTAS.Properties.Settings.Default.dtbPTASConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT standards FROM dbo.tblStandards";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dtbPTASDataSet.tblStandardsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dtbPTASDataSet.tblStandardsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblStandardsDataTable dataTable = new dtbPTASDataSet.tblStandardsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dtbPTASDataSet.tblStandardsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dtbPTASDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "tblStandards");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_standards) {
+            if ((Original_standards == null)) {
+                throw new global::System.ArgumentNullException("Original_standards");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_standards));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string standards) {
+            if ((standards == null)) {
+                throw new global::System.ArgumentNullException("standards");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(standards));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string standards, string Original_standards) {
+            if ((standards == null)) {
+                throw new global::System.ArgumentNullException("standards");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(standards));
+            }
+            if ((Original_standards == null)) {
+                throw new global::System.ArgumentNullException("Original_standards");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Original_standards));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Original_standards) {
+            return this.Update(Original_standards, Original_standards);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class tblStatusTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public tblStatusTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "tblStatus";
+            tableMapping.ColumnMappings.Add("status", "status");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblStatus] WHERE (([status] = @Original_status))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblStatus] ([status]) VALUES (@status);\r\nSELECT status FROM tb" +
+                "lStatus WHERE (status = @status)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblStatus] SET [status] = @status WHERE (([status] = @Original_stat" +
+                "us));\r\nSELECT status FROM tblStatus WHERE (status = @status)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::PTAS.Properties.Settings.Default.dtbPTASConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT status FROM dbo.tblStatus";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dtbPTASDataSet.tblStatusDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dtbPTASDataSet.tblStatusDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblStatusDataTable dataTable = new dtbPTASDataSet.tblStatusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dtbPTASDataSet.tblStatusDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dtbPTASDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "tblStatus");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_status) {
+            if ((Original_status == null)) {
+                throw new global::System.ArgumentNullException("Original_status");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_status));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string status) {
+            if ((status == null)) {
+                throw new global::System.ArgumentNullException("status");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(status));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string status, string Original_status) {
+            if ((status == null)) {
+                throw new global::System.ArgumentNullException("status");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(status));
+            }
+            if ((Original_status == null)) {
+                throw new global::System.ArgumentNullException("Original_status");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Original_status));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Original_status) {
+            return this.Update(Original_status, Original_status);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -19055,6 +20715,10 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
         private tblTTRTableAdapter _tblTTRTableAdapter;
         
         private tblWindingTableAdapter _tblWindingTableAdapter;
+        
+        private tblStandardsTableAdapter _tblStandardsTableAdapter;
+        
+        private tblStatusTableAdapter _tblStatusTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -19227,6 +20891,34 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public tblStandardsTableAdapter tblStandardsTableAdapter {
+            get {
+                return this._tblStandardsTableAdapter;
+            }
+            set {
+                this._tblStandardsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public tblStatusTableAdapter tblStatusTableAdapter {
+            get {
+                return this._tblStatusTableAdapter;
+            }
+            set {
+                this._tblStatusTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -19288,6 +20980,14 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
                             && (this._tblWindingTableAdapter.Connection != null))) {
                     return this._tblWindingTableAdapter.Connection;
                 }
+                if (((this._tblStandardsTableAdapter != null) 
+                            && (this._tblStandardsTableAdapter.Connection != null))) {
+                    return this._tblStandardsTableAdapter.Connection;
+                }
+                if (((this._tblStatusTableAdapter != null) 
+                            && (this._tblStatusTableAdapter.Connection != null))) {
+                    return this._tblStatusTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -19334,6 +21034,12 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
                 if ((this._tblWindingTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._tblStandardsTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._tblStatusTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -19369,6 +21075,24 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tblTestTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tblStandardsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tblStandards.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tblStandardsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tblStatusTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tblStatus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tblStatusTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -19475,6 +21199,22 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._tblTestTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tblStandardsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tblStandards.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tblStandardsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tblStatusTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tblStatus.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tblStatusTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -19616,6 +21356,22 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._tblStatusTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tblStatus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tblStatusTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tblStandardsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tblStandards.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tblStandardsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._tblTestTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tblTest.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -19731,6 +21487,16 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
             }
             if (((this._tblWindingTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tblWindingTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._tblStandardsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tblStandardsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._tblStatusTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tblStatusTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -19865,6 +21631,24 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tblWindingTableAdapter.Adapter);
                     }
                 }
+                if ((this._tblStandardsTableAdapter != null)) {
+                    revertConnections.Add(this._tblStandardsTableAdapter, this._tblStandardsTableAdapter.Connection);
+                    this._tblStandardsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tblStandardsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tblStandardsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tblStandardsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tblStandardsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._tblStatusTableAdapter != null)) {
+                    revertConnections.Add(this._tblStatusTableAdapter, this._tblStatusTableAdapter.Connection);
+                    this._tblStatusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tblStatusTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tblStatusTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tblStatusTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tblStatusTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -19966,6 +21750,14 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
                 if ((this._tblWindingTableAdapter != null)) {
                     this._tblWindingTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblWindingTableAdapter]));
                     this._tblWindingTableAdapter.Transaction = null;
+                }
+                if ((this._tblStandardsTableAdapter != null)) {
+                    this._tblStandardsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblStandardsTableAdapter]));
+                    this._tblStandardsTableAdapter.Transaction = null;
+                }
+                if ((this._tblStatusTableAdapter != null)) {
+                    this._tblStatusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblStatusTableAdapter]));
+                    this._tblStatusTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

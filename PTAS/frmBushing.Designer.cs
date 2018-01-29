@@ -52,7 +52,7 @@
             this.txtAssessH3 = new System.Windows.Forms.TextBox();
             this.txtAssessH2 = new System.Windows.Forms.TextBox();
             this.txtAssessH1 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpName = new System.Windows.Forms.GroupBox();
             this.nameH1TextBox = new System.Windows.Forms.TextBox();
             this.tblBushingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtbPTASDataSet = new PTAS.dtbPTASDataSet();
@@ -62,7 +62,7 @@
             this.nameX1TextBox = new System.Windows.Forms.TextBox();
             this.nameX2TextBox = new System.Windows.Forms.TextBox();
             this.nameX3TextBox = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpC1pf = new System.Windows.Forms.GroupBox();
             this.pfC1H1TextBox = new System.Windows.Forms.TextBox();
             this.pfC1X3TextBox = new System.Windows.Forms.TextBox();
             this.pfC1X2TextBox = new System.Windows.Forms.TextBox();
@@ -70,7 +70,7 @@
             this.pfC1H0X0TextBox = new System.Windows.Forms.TextBox();
             this.pfC1H3TextBox = new System.Windows.Forms.TextBox();
             this.pfC1H2TextBox = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grpC2pf = new System.Windows.Forms.GroupBox();
             this.pfC2H1TextBox = new System.Windows.Forms.TextBox();
             this.pfC2X3TextBox = new System.Windows.Forms.TextBox();
             this.pfC2X2TextBox = new System.Windows.Forms.TextBox();
@@ -78,7 +78,7 @@
             this.pfC2H0X0TextBox = new System.Windows.Forms.TextBox();
             this.pfC2H3TextBox = new System.Windows.Forms.TextBox();
             this.pfC2H2TextBox = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.grpC1Cap = new System.Windows.Forms.GroupBox();
             this.capC1H1TextBox = new System.Windows.Forms.TextBox();
             this.capC1X3TextBox = new System.Windows.Forms.TextBox();
             this.capC1X2TextBox = new System.Windows.Forms.TextBox();
@@ -86,7 +86,7 @@
             this.capC1H0X0TextBox = new System.Windows.Forms.TextBox();
             this.capC1H3TextBox = new System.Windows.Forms.TextBox();
             this.capC1H2TextBox = new System.Windows.Forms.TextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.grpC2Cap = new System.Windows.Forms.GroupBox();
             this.capC2H1TextBox = new System.Windows.Forms.TextBox();
             this.capC2X3TextBox = new System.Windows.Forms.TextBox();
             this.capC2X2TextBox = new System.Windows.Forms.TextBox();
@@ -94,7 +94,7 @@
             this.capC2H0X0TextBox = new System.Windows.Forms.TextBox();
             this.capC2H3TextBox = new System.Windows.Forms.TextBox();
             this.capC2H2TextBox = new System.Windows.Forms.TextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.grpAssess = new System.Windows.Forms.GroupBox();
             this.tblBushingTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblBushingTableAdapter();
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
             this.testNumberTextBox = new System.Windows.Forms.TextBox();
@@ -102,14 +102,14 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             testNumberLabel = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.grpName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblBushingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.grpC1pf.SuspendLayout();
+            this.grpC2pf.SuspendLayout();
+            this.grpC1Cap.SuspendLayout();
+            this.grpC2Cap.SuspendLayout();
+            this.grpAssess.SuspendLayout();
             this.SuspendLayout();
             // 
             // testNumberLabel
@@ -127,7 +127,7 @@
             this.label2.Location = new System.Drawing.Point(82, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 7;
             this.label2.Text = "H1";
             // 
             // label3
@@ -136,7 +136,7 @@
             this.label3.Location = new System.Drawing.Point(227, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 13);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 9;
             this.label3.Text = "H2";
             // 
             // label4
@@ -145,7 +145,7 @@
             this.label4.Location = new System.Drawing.Point(372, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 13);
-            this.label4.TabIndex = 5;
+            this.label4.TabIndex = 11;
             this.label4.Text = "H3";
             // 
             // label5
@@ -154,7 +154,7 @@
             this.label5.Location = new System.Drawing.Point(372, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 13);
-            this.label5.TabIndex = 11;
+            this.label5.TabIndex = 12;
             this.label5.Text = "X3";
             // 
             // label6
@@ -163,7 +163,7 @@
             this.label6.Location = new System.Drawing.Point(227, 61);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(20, 13);
-            this.label6.TabIndex = 9;
+            this.label6.TabIndex = 10;
             this.label6.Text = "X2";
             // 
             // label7
@@ -172,7 +172,7 @@
             this.label7.Location = new System.Drawing.Point(82, 61);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(20, 13);
-            this.label7.TabIndex = 7;
+            this.label7.TabIndex = 8;
             this.label7.Text = "X1";
             // 
             // label10
@@ -235,7 +235,7 @@
             this.label15.Location = new System.Drawing.Point(517, 35);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(34, 13);
-            this.label15.TabIndex = 71;
+            this.label15.TabIndex = 13;
             this.label15.Text = "H0X0";
             // 
             // label16
@@ -255,6 +255,7 @@
             this.btnAssess.TabIndex = 78;
             this.btnAssess.Text = "Assess";
             this.btnAssess.UseVisualStyleBackColor = true;
+            this.btnAssess.Click += new System.EventHandler(this.btnAssess_Click);
             // 
             // txtAssessX3
             // 
@@ -262,7 +263,7 @@
             this.txtAssessX3.Name = "txtAssessX3";
             this.txtAssessX3.ReadOnly = true;
             this.txtAssessX3.Size = new System.Drawing.Size(101, 20);
-            this.txtAssessX3.TabIndex = 97;
+            this.txtAssessX3.TabIndex = 6;
             // 
             // txtAssessX2
             // 
@@ -270,7 +271,7 @@
             this.txtAssessX2.Name = "txtAssessX2";
             this.txtAssessX2.ReadOnly = true;
             this.txtAssessX2.Size = new System.Drawing.Size(101, 20);
-            this.txtAssessX2.TabIndex = 96;
+            this.txtAssessX2.TabIndex = 5;
             // 
             // txtAssessX1
             // 
@@ -278,7 +279,7 @@
             this.txtAssessX1.Name = "txtAssessX1";
             this.txtAssessX1.ReadOnly = true;
             this.txtAssessX1.Size = new System.Drawing.Size(101, 20);
-            this.txtAssessX1.TabIndex = 95;
+            this.txtAssessX1.TabIndex = 4;
             // 
             // txtAssessH0X0
             // 
@@ -286,7 +287,7 @@
             this.txtAssessH0X0.Name = "txtAssessH0X0";
             this.txtAssessH0X0.ReadOnly = true;
             this.txtAssessH0X0.Size = new System.Drawing.Size(101, 20);
-            this.txtAssessH0X0.TabIndex = 94;
+            this.txtAssessH0X0.TabIndex = 3;
             // 
             // txtAssessH3
             // 
@@ -294,7 +295,7 @@
             this.txtAssessH3.Name = "txtAssessH3";
             this.txtAssessH3.ReadOnly = true;
             this.txtAssessH3.Size = new System.Drawing.Size(101, 20);
-            this.txtAssessH3.TabIndex = 93;
+            this.txtAssessH3.TabIndex = 2;
             // 
             // txtAssessH2
             // 
@@ -302,7 +303,7 @@
             this.txtAssessH2.Name = "txtAssessH2";
             this.txtAssessH2.ReadOnly = true;
             this.txtAssessH2.Size = new System.Drawing.Size(101, 20);
-            this.txtAssessH2.TabIndex = 92;
+            this.txtAssessH2.TabIndex = 1;
             // 
             // txtAssessH1
             // 
@@ -310,30 +311,30 @@
             this.txtAssessH1.Name = "txtAssessH1";
             this.txtAssessH1.ReadOnly = true;
             this.txtAssessH1.Size = new System.Drawing.Size(101, 20);
-            this.txtAssessH1.TabIndex = 91;
+            this.txtAssessH1.TabIndex = 0;
             // 
-            // groupBox1
+            // grpName
             // 
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.nameH1TextBox);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.nameH2TextBox);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.nameH3TextBox);
-            this.groupBox1.Controls.Add(this.nameH0X0TextBox);
-            this.groupBox1.Controls.Add(this.nameX1TextBox);
-            this.groupBox1.Controls.Add(this.nameX2TextBox);
-            this.groupBox1.Controls.Add(this.nameX3TextBox);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(97, 52);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(722, 93);
-            this.groupBox1.TabIndex = 98;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Capacitance Nameplate";
+            this.grpName.Controls.Add(this.label15);
+            this.grpName.Controls.Add(this.nameH1TextBox);
+            this.grpName.Controls.Add(this.label5);
+            this.grpName.Controls.Add(this.nameH2TextBox);
+            this.grpName.Controls.Add(this.label6);
+            this.grpName.Controls.Add(this.nameH3TextBox);
+            this.grpName.Controls.Add(this.nameH0X0TextBox);
+            this.grpName.Controls.Add(this.nameX1TextBox);
+            this.grpName.Controls.Add(this.nameX2TextBox);
+            this.grpName.Controls.Add(this.nameX3TextBox);
+            this.grpName.Controls.Add(this.label7);
+            this.grpName.Controls.Add(this.label4);
+            this.grpName.Controls.Add(this.label3);
+            this.grpName.Controls.Add(this.label2);
+            this.grpName.Location = new System.Drawing.Point(97, 52);
+            this.grpName.Name = "grpName";
+            this.grpName.Size = new System.Drawing.Size(722, 93);
+            this.grpName.TabIndex = 2;
+            this.grpName.TabStop = false;
+            this.grpName.Text = "Capacitance Nameplate";
             // 
             // nameH1TextBox
             // 
@@ -341,7 +342,7 @@
             this.nameH1TextBox.Location = new System.Drawing.Point(109, 32);
             this.nameH1TextBox.Name = "nameH1TextBox";
             this.nameH1TextBox.Size = new System.Drawing.Size(68, 20);
-            this.nameH1TextBox.TabIndex = 107;
+            this.nameH1TextBox.TabIndex = 0;
             // 
             // tblBushingBindingSource
             // 
@@ -359,7 +360,7 @@
             this.nameH2TextBox.Location = new System.Drawing.Point(254, 32);
             this.nameH2TextBox.Name = "nameH2TextBox";
             this.nameH2TextBox.Size = new System.Drawing.Size(68, 20);
-            this.nameH2TextBox.TabIndex = 109;
+            this.nameH2TextBox.TabIndex = 1;
             // 
             // nameH3TextBox
             // 
@@ -367,7 +368,7 @@
             this.nameH3TextBox.Location = new System.Drawing.Point(399, 32);
             this.nameH3TextBox.Name = "nameH3TextBox";
             this.nameH3TextBox.Size = new System.Drawing.Size(68, 20);
-            this.nameH3TextBox.TabIndex = 111;
+            this.nameH3TextBox.TabIndex = 2;
             // 
             // nameH0X0TextBox
             // 
@@ -375,7 +376,7 @@
             this.nameH0X0TextBox.Location = new System.Drawing.Point(557, 32);
             this.nameH0X0TextBox.Name = "nameH0X0TextBox";
             this.nameH0X0TextBox.Size = new System.Drawing.Size(68, 20);
-            this.nameH0X0TextBox.TabIndex = 113;
+            this.nameH0X0TextBox.TabIndex = 3;
             // 
             // nameX1TextBox
             // 
@@ -383,7 +384,7 @@
             this.nameX1TextBox.Location = new System.Drawing.Point(109, 58);
             this.nameX1TextBox.Name = "nameX1TextBox";
             this.nameX1TextBox.Size = new System.Drawing.Size(68, 20);
-            this.nameX1TextBox.TabIndex = 115;
+            this.nameX1TextBox.TabIndex = 4;
             // 
             // nameX2TextBox
             // 
@@ -391,7 +392,7 @@
             this.nameX2TextBox.Location = new System.Drawing.Point(254, 58);
             this.nameX2TextBox.Name = "nameX2TextBox";
             this.nameX2TextBox.Size = new System.Drawing.Size(68, 20);
-            this.nameX2TextBox.TabIndex = 117;
+            this.nameX2TextBox.TabIndex = 5;
             // 
             // nameX3TextBox
             // 
@@ -399,23 +400,23 @@
             this.nameX3TextBox.Location = new System.Drawing.Point(398, 58);
             this.nameX3TextBox.Name = "nameX3TextBox";
             this.nameX3TextBox.Size = new System.Drawing.Size(68, 20);
-            this.nameX3TextBox.TabIndex = 119;
+            this.nameX3TextBox.TabIndex = 6;
             // 
-            // groupBox2
+            // grpC1pf
             // 
-            this.groupBox2.Controls.Add(this.pfC1H1TextBox);
-            this.groupBox2.Controls.Add(this.pfC1X3TextBox);
-            this.groupBox2.Controls.Add(this.pfC1X2TextBox);
-            this.groupBox2.Controls.Add(this.pfC1X1TextBox);
-            this.groupBox2.Controls.Add(this.pfC1H0X0TextBox);
-            this.groupBox2.Controls.Add(this.pfC1H3TextBox);
-            this.groupBox2.Controls.Add(this.pfC1H2TextBox);
-            this.groupBox2.Location = new System.Drawing.Point(96, 166);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(129, 227);
-            this.groupBox2.TabIndex = 99;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "C1 %pf";
+            this.grpC1pf.Controls.Add(this.pfC1H1TextBox);
+            this.grpC1pf.Controls.Add(this.pfC1X3TextBox);
+            this.grpC1pf.Controls.Add(this.pfC1X2TextBox);
+            this.grpC1pf.Controls.Add(this.pfC1X1TextBox);
+            this.grpC1pf.Controls.Add(this.pfC1H0X0TextBox);
+            this.grpC1pf.Controls.Add(this.pfC1H3TextBox);
+            this.grpC1pf.Controls.Add(this.pfC1H2TextBox);
+            this.grpC1pf.Location = new System.Drawing.Point(96, 166);
+            this.grpC1pf.Name = "grpC1pf";
+            this.grpC1pf.Size = new System.Drawing.Size(129, 227);
+            this.grpC1pf.TabIndex = 3;
+            this.grpC1pf.TabStop = false;
+            this.grpC1pf.Text = "C1 %pf";
             // 
             // pfC1H1TextBox
             // 
@@ -423,7 +424,7 @@
             this.pfC1H1TextBox.Location = new System.Drawing.Point(30, 25);
             this.pfC1H1TextBox.Name = "pfC1H1TextBox";
             this.pfC1H1TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC1H1TextBox.TabIndex = 121;
+            this.pfC1H1TextBox.TabIndex = 0;
             // 
             // pfC1X3TextBox
             // 
@@ -431,7 +432,7 @@
             this.pfC1X3TextBox.Location = new System.Drawing.Point(30, 181);
             this.pfC1X3TextBox.Name = "pfC1X3TextBox";
             this.pfC1X3TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC1X3TextBox.TabIndex = 133;
+            this.pfC1X3TextBox.TabIndex = 6;
             // 
             // pfC1X2TextBox
             // 
@@ -439,7 +440,7 @@
             this.pfC1X2TextBox.Location = new System.Drawing.Point(30, 155);
             this.pfC1X2TextBox.Name = "pfC1X2TextBox";
             this.pfC1X2TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC1X2TextBox.TabIndex = 131;
+            this.pfC1X2TextBox.TabIndex = 5;
             // 
             // pfC1X1TextBox
             // 
@@ -447,7 +448,7 @@
             this.pfC1X1TextBox.Location = new System.Drawing.Point(30, 129);
             this.pfC1X1TextBox.Name = "pfC1X1TextBox";
             this.pfC1X1TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC1X1TextBox.TabIndex = 129;
+            this.pfC1X1TextBox.TabIndex = 4;
             // 
             // pfC1H0X0TextBox
             // 
@@ -455,7 +456,7 @@
             this.pfC1H0X0TextBox.Location = new System.Drawing.Point(30, 103);
             this.pfC1H0X0TextBox.Name = "pfC1H0X0TextBox";
             this.pfC1H0X0TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC1H0X0TextBox.TabIndex = 127;
+            this.pfC1H0X0TextBox.TabIndex = 3;
             // 
             // pfC1H3TextBox
             // 
@@ -463,7 +464,7 @@
             this.pfC1H3TextBox.Location = new System.Drawing.Point(30, 77);
             this.pfC1H3TextBox.Name = "pfC1H3TextBox";
             this.pfC1H3TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC1H3TextBox.TabIndex = 125;
+            this.pfC1H3TextBox.TabIndex = 2;
             // 
             // pfC1H2TextBox
             // 
@@ -471,23 +472,23 @@
             this.pfC1H2TextBox.Location = new System.Drawing.Point(30, 51);
             this.pfC1H2TextBox.Name = "pfC1H2TextBox";
             this.pfC1H2TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC1H2TextBox.TabIndex = 123;
+            this.pfC1H2TextBox.TabIndex = 1;
             // 
-            // groupBox3
+            // grpC2pf
             // 
-            this.groupBox3.Controls.Add(this.pfC2H1TextBox);
-            this.groupBox3.Controls.Add(this.pfC2X3TextBox);
-            this.groupBox3.Controls.Add(this.pfC2X2TextBox);
-            this.groupBox3.Controls.Add(this.pfC2X1TextBox);
-            this.groupBox3.Controls.Add(this.pfC2H0X0TextBox);
-            this.groupBox3.Controls.Add(this.pfC2H3TextBox);
-            this.groupBox3.Controls.Add(this.pfC2H2TextBox);
-            this.groupBox3.Location = new System.Drawing.Point(258, 166);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(129, 227);
-            this.groupBox3.TabIndex = 100;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "C2 %pf";
+            this.grpC2pf.Controls.Add(this.pfC2H1TextBox);
+            this.grpC2pf.Controls.Add(this.pfC2X3TextBox);
+            this.grpC2pf.Controls.Add(this.pfC2X2TextBox);
+            this.grpC2pf.Controls.Add(this.pfC2X1TextBox);
+            this.grpC2pf.Controls.Add(this.pfC2H0X0TextBox);
+            this.grpC2pf.Controls.Add(this.pfC2H3TextBox);
+            this.grpC2pf.Controls.Add(this.pfC2H2TextBox);
+            this.grpC2pf.Location = new System.Drawing.Point(258, 166);
+            this.grpC2pf.Name = "grpC2pf";
+            this.grpC2pf.Size = new System.Drawing.Size(129, 227);
+            this.grpC2pf.TabIndex = 4;
+            this.grpC2pf.TabStop = false;
+            this.grpC2pf.Text = "C2 %pf";
             // 
             // pfC2H1TextBox
             // 
@@ -495,7 +496,7 @@
             this.pfC2H1TextBox.Location = new System.Drawing.Point(30, 25);
             this.pfC2H1TextBox.Name = "pfC2H1TextBox";
             this.pfC2H1TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC2H1TextBox.TabIndex = 135;
+            this.pfC2H1TextBox.TabIndex = 0;
             // 
             // pfC2X3TextBox
             // 
@@ -503,7 +504,7 @@
             this.pfC2X3TextBox.Location = new System.Drawing.Point(30, 181);
             this.pfC2X3TextBox.Name = "pfC2X3TextBox";
             this.pfC2X3TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC2X3TextBox.TabIndex = 147;
+            this.pfC2X3TextBox.TabIndex = 6;
             // 
             // pfC2X2TextBox
             // 
@@ -511,7 +512,7 @@
             this.pfC2X2TextBox.Location = new System.Drawing.Point(30, 155);
             this.pfC2X2TextBox.Name = "pfC2X2TextBox";
             this.pfC2X2TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC2X2TextBox.TabIndex = 145;
+            this.pfC2X2TextBox.TabIndex = 5;
             // 
             // pfC2X1TextBox
             // 
@@ -519,7 +520,7 @@
             this.pfC2X1TextBox.Location = new System.Drawing.Point(30, 129);
             this.pfC2X1TextBox.Name = "pfC2X1TextBox";
             this.pfC2X1TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC2X1TextBox.TabIndex = 143;
+            this.pfC2X1TextBox.TabIndex = 4;
             // 
             // pfC2H0X0TextBox
             // 
@@ -527,7 +528,7 @@
             this.pfC2H0X0TextBox.Location = new System.Drawing.Point(30, 103);
             this.pfC2H0X0TextBox.Name = "pfC2H0X0TextBox";
             this.pfC2H0X0TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC2H0X0TextBox.TabIndex = 141;
+            this.pfC2H0X0TextBox.TabIndex = 3;
             // 
             // pfC2H3TextBox
             // 
@@ -535,7 +536,7 @@
             this.pfC2H3TextBox.Location = new System.Drawing.Point(30, 77);
             this.pfC2H3TextBox.Name = "pfC2H3TextBox";
             this.pfC2H3TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC2H3TextBox.TabIndex = 139;
+            this.pfC2H3TextBox.TabIndex = 2;
             // 
             // pfC2H2TextBox
             // 
@@ -543,23 +544,23 @@
             this.pfC2H2TextBox.Location = new System.Drawing.Point(30, 51);
             this.pfC2H2TextBox.Name = "pfC2H2TextBox";
             this.pfC2H2TextBox.Size = new System.Drawing.Size(68, 20);
-            this.pfC2H2TextBox.TabIndex = 137;
+            this.pfC2H2TextBox.TabIndex = 1;
             // 
-            // groupBox4
+            // grpC1Cap
             // 
-            this.groupBox4.Controls.Add(this.capC1H1TextBox);
-            this.groupBox4.Controls.Add(this.capC1X3TextBox);
-            this.groupBox4.Controls.Add(this.capC1X2TextBox);
-            this.groupBox4.Controls.Add(this.capC1X1TextBox);
-            this.groupBox4.Controls.Add(this.capC1H0X0TextBox);
-            this.groupBox4.Controls.Add(this.capC1H3TextBox);
-            this.groupBox4.Controls.Add(this.capC1H2TextBox);
-            this.groupBox4.Location = new System.Drawing.Point(420, 166);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(129, 227);
-            this.groupBox4.TabIndex = 101;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "C1 Capacitance";
+            this.grpC1Cap.Controls.Add(this.capC1H1TextBox);
+            this.grpC1Cap.Controls.Add(this.capC1X3TextBox);
+            this.grpC1Cap.Controls.Add(this.capC1X2TextBox);
+            this.grpC1Cap.Controls.Add(this.capC1X1TextBox);
+            this.grpC1Cap.Controls.Add(this.capC1H0X0TextBox);
+            this.grpC1Cap.Controls.Add(this.capC1H3TextBox);
+            this.grpC1Cap.Controls.Add(this.capC1H2TextBox);
+            this.grpC1Cap.Location = new System.Drawing.Point(420, 166);
+            this.grpC1Cap.Name = "grpC1Cap";
+            this.grpC1Cap.Size = new System.Drawing.Size(129, 227);
+            this.grpC1Cap.TabIndex = 5;
+            this.grpC1Cap.TabStop = false;
+            this.grpC1Cap.Text = "C1 Capacitance";
             // 
             // capC1H1TextBox
             // 
@@ -567,7 +568,7 @@
             this.capC1H1TextBox.Location = new System.Drawing.Point(14, 25);
             this.capC1H1TextBox.Name = "capC1H1TextBox";
             this.capC1H1TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC1H1TextBox.TabIndex = 149;
+            this.capC1H1TextBox.TabIndex = 0;
             // 
             // capC1X3TextBox
             // 
@@ -575,7 +576,7 @@
             this.capC1X3TextBox.Location = new System.Drawing.Point(14, 181);
             this.capC1X3TextBox.Name = "capC1X3TextBox";
             this.capC1X3TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC1X3TextBox.TabIndex = 161;
+            this.capC1X3TextBox.TabIndex = 6;
             // 
             // capC1X2TextBox
             // 
@@ -583,7 +584,7 @@
             this.capC1X2TextBox.Location = new System.Drawing.Point(14, 155);
             this.capC1X2TextBox.Name = "capC1X2TextBox";
             this.capC1X2TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC1X2TextBox.TabIndex = 159;
+            this.capC1X2TextBox.TabIndex = 5;
             // 
             // capC1X1TextBox
             // 
@@ -591,7 +592,7 @@
             this.capC1X1TextBox.Location = new System.Drawing.Point(14, 129);
             this.capC1X1TextBox.Name = "capC1X1TextBox";
             this.capC1X1TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC1X1TextBox.TabIndex = 157;
+            this.capC1X1TextBox.TabIndex = 4;
             // 
             // capC1H0X0TextBox
             // 
@@ -599,7 +600,7 @@
             this.capC1H0X0TextBox.Location = new System.Drawing.Point(14, 103);
             this.capC1H0X0TextBox.Name = "capC1H0X0TextBox";
             this.capC1H0X0TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC1H0X0TextBox.TabIndex = 155;
+            this.capC1H0X0TextBox.TabIndex = 3;
             // 
             // capC1H3TextBox
             // 
@@ -607,7 +608,7 @@
             this.capC1H3TextBox.Location = new System.Drawing.Point(14, 77);
             this.capC1H3TextBox.Name = "capC1H3TextBox";
             this.capC1H3TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC1H3TextBox.TabIndex = 153;
+            this.capC1H3TextBox.TabIndex = 2;
             // 
             // capC1H2TextBox
             // 
@@ -615,23 +616,23 @@
             this.capC1H2TextBox.Location = new System.Drawing.Point(14, 51);
             this.capC1H2TextBox.Name = "capC1H2TextBox";
             this.capC1H2TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC1H2TextBox.TabIndex = 151;
+            this.capC1H2TextBox.TabIndex = 1;
             // 
-            // groupBox5
+            // grpC2Cap
             // 
-            this.groupBox5.Controls.Add(this.capC2H1TextBox);
-            this.groupBox5.Controls.Add(this.capC2X3TextBox);
-            this.groupBox5.Controls.Add(this.capC2X2TextBox);
-            this.groupBox5.Controls.Add(this.capC2X1TextBox);
-            this.groupBox5.Controls.Add(this.capC2H0X0TextBox);
-            this.groupBox5.Controls.Add(this.capC2H3TextBox);
-            this.groupBox5.Controls.Add(this.capC2H2TextBox);
-            this.groupBox5.Location = new System.Drawing.Point(582, 166);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(129, 227);
-            this.groupBox5.TabIndex = 102;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "C2 Capacitance";
+            this.grpC2Cap.Controls.Add(this.capC2H1TextBox);
+            this.grpC2Cap.Controls.Add(this.capC2X3TextBox);
+            this.grpC2Cap.Controls.Add(this.capC2X2TextBox);
+            this.grpC2Cap.Controls.Add(this.capC2X1TextBox);
+            this.grpC2Cap.Controls.Add(this.capC2H0X0TextBox);
+            this.grpC2Cap.Controls.Add(this.capC2H3TextBox);
+            this.grpC2Cap.Controls.Add(this.capC2H2TextBox);
+            this.grpC2Cap.Location = new System.Drawing.Point(582, 166);
+            this.grpC2Cap.Name = "grpC2Cap";
+            this.grpC2Cap.Size = new System.Drawing.Size(129, 227);
+            this.grpC2Cap.TabIndex = 6;
+            this.grpC2Cap.TabStop = false;
+            this.grpC2Cap.Text = "C2 Capacitance";
             // 
             // capC2H1TextBox
             // 
@@ -639,7 +640,7 @@
             this.capC2H1TextBox.Location = new System.Drawing.Point(14, 25);
             this.capC2H1TextBox.Name = "capC2H1TextBox";
             this.capC2H1TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC2H1TextBox.TabIndex = 163;
+            this.capC2H1TextBox.TabIndex = 0;
             // 
             // capC2X3TextBox
             // 
@@ -647,7 +648,7 @@
             this.capC2X3TextBox.Location = new System.Drawing.Point(14, 181);
             this.capC2X3TextBox.Name = "capC2X3TextBox";
             this.capC2X3TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC2X3TextBox.TabIndex = 175;
+            this.capC2X3TextBox.TabIndex = 6;
             // 
             // capC2X2TextBox
             // 
@@ -655,7 +656,7 @@
             this.capC2X2TextBox.Location = new System.Drawing.Point(14, 155);
             this.capC2X2TextBox.Name = "capC2X2TextBox";
             this.capC2X2TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC2X2TextBox.TabIndex = 173;
+            this.capC2X2TextBox.TabIndex = 5;
             // 
             // capC2X1TextBox
             // 
@@ -663,7 +664,7 @@
             this.capC2X1TextBox.Location = new System.Drawing.Point(14, 129);
             this.capC2X1TextBox.Name = "capC2X1TextBox";
             this.capC2X1TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC2X1TextBox.TabIndex = 171;
+            this.capC2X1TextBox.TabIndex = 4;
             // 
             // capC2H0X0TextBox
             // 
@@ -671,7 +672,7 @@
             this.capC2H0X0TextBox.Location = new System.Drawing.Point(14, 103);
             this.capC2H0X0TextBox.Name = "capC2H0X0TextBox";
             this.capC2H0X0TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC2H0X0TextBox.TabIndex = 169;
+            this.capC2H0X0TextBox.TabIndex = 3;
             // 
             // capC2H3TextBox
             // 
@@ -679,7 +680,7 @@
             this.capC2H3TextBox.Location = new System.Drawing.Point(14, 77);
             this.capC2H3TextBox.Name = "capC2H3TextBox";
             this.capC2H3TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC2H3TextBox.TabIndex = 167;
+            this.capC2H3TextBox.TabIndex = 2;
             // 
             // capC2H2TextBox
             // 
@@ -687,23 +688,23 @@
             this.capC2H2TextBox.Location = new System.Drawing.Point(14, 51);
             this.capC2H2TextBox.Name = "capC2H2TextBox";
             this.capC2H2TextBox.Size = new System.Drawing.Size(101, 20);
-            this.capC2H2TextBox.TabIndex = 165;
+            this.capC2H2TextBox.TabIndex = 1;
             // 
-            // groupBox6
+            // grpAssess
             // 
-            this.groupBox6.Controls.Add(this.txtAssessH1);
-            this.groupBox6.Controls.Add(this.txtAssessH2);
-            this.groupBox6.Controls.Add(this.txtAssessH3);
-            this.groupBox6.Controls.Add(this.txtAssessH0X0);
-            this.groupBox6.Controls.Add(this.txtAssessX1);
-            this.groupBox6.Controls.Add(this.txtAssessX2);
-            this.groupBox6.Controls.Add(this.txtAssessX3);
-            this.groupBox6.Location = new System.Drawing.Point(744, 166);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(129, 227);
-            this.groupBox6.TabIndex = 103;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Assessment";
+            this.grpAssess.Controls.Add(this.txtAssessH1);
+            this.grpAssess.Controls.Add(this.txtAssessH2);
+            this.grpAssess.Controls.Add(this.txtAssessH3);
+            this.grpAssess.Controls.Add(this.txtAssessH0X0);
+            this.grpAssess.Controls.Add(this.txtAssessX1);
+            this.grpAssess.Controls.Add(this.txtAssessX2);
+            this.grpAssess.Controls.Add(this.txtAssessX3);
+            this.grpAssess.Location = new System.Drawing.Point(744, 166);
+            this.grpAssess.Name = "grpAssess";
+            this.grpAssess.Size = new System.Drawing.Size(129, 227);
+            this.grpAssess.TabIndex = 7;
+            this.grpAssess.TabStop = false;
+            this.grpAssess.Text = "Assessment";
             // 
             // tblBushingTableAdapter
             // 
@@ -718,6 +719,8 @@
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
+            this.tableAdapterManager.tblStandardsTableAdapter = null;
+            this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
@@ -731,14 +734,14 @@
             this.testNumberTextBox.Location = new System.Drawing.Point(206, 26);
             this.testNumberTextBox.Name = "testNumberTextBox";
             this.testNumberTextBox.Size = new System.Drawing.Size(68, 20);
-            this.testNumberTextBox.TabIndex = 105;
+            this.testNumberTextBox.TabIndex = 1;
             // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(185, 432);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(67, 32);
-            this.btnDelete.TabIndex = 108;
+            this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -748,7 +751,7 @@
             this.btnSave.Location = new System.Drawing.Point(112, 432);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(67, 32);
-            this.btnSave.TabIndex = 107;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -758,7 +761,7 @@
             this.btnAdd.Location = new System.Drawing.Point(39, 432);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(67, 32);
-            this.btnAdd.TabIndex = 106;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
@@ -773,12 +776,12 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(testNumberLabel);
             this.Controls.Add(this.testNumberTextBox);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpAssess);
+            this.Controls.Add(this.grpC2Cap);
+            this.Controls.Add(this.grpC1Cap);
+            this.Controls.Add(this.grpC2pf);
+            this.Controls.Add(this.grpC1pf);
+            this.Controls.Add(this.grpName);
             this.Controls.Add(this.btnAssess);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label36);
@@ -792,20 +795,20 @@
             this.Text = "frmBushing";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmBushing_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpName.ResumeLayout(false);
+            this.grpName.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblBushingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.grpC1pf.ResumeLayout(false);
+            this.grpC1pf.PerformLayout();
+            this.grpC2pf.ResumeLayout(false);
+            this.grpC2pf.PerformLayout();
+            this.grpC1Cap.ResumeLayout(false);
+            this.grpC1Cap.PerformLayout();
+            this.grpC2Cap.ResumeLayout(false);
+            this.grpC2Cap.PerformLayout();
+            this.grpAssess.ResumeLayout(false);
+            this.grpAssess.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -834,12 +837,12 @@
         private System.Windows.Forms.TextBox txtAssessH3;
         private System.Windows.Forms.TextBox txtAssessH2;
         private System.Windows.Forms.TextBox txtAssessH1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox grpName;
+        private System.Windows.Forms.GroupBox grpC1pf;
+        private System.Windows.Forms.GroupBox grpC2pf;
+        private System.Windows.Forms.GroupBox grpC1Cap;
+        private System.Windows.Forms.GroupBox grpC2Cap;
+        private System.Windows.Forms.GroupBox grpAssess;
         private dtbPTASDataSet dtbPTASDataSet;
         private System.Windows.Forms.BindingSource tblBushingBindingSource;
         private dtbPTASDataSetTableAdapters.tblBushingTableAdapter tblBushingTableAdapter;

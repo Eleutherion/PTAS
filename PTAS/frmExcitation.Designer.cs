@@ -49,15 +49,17 @@
             this.testVoltageTextBox = new System.Windows.Forms.TextBox();
             this.tblExcitationTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblExcitationTableAdapter();
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             testNumberLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tblExcitationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // testNumberLabel
             // 
             testNumberLabel.AutoSize = true;
-            testNumberLabel.Location = new System.Drawing.Point(40, 44);
+            testNumberLabel.Location = new System.Drawing.Point(73, 44);
             testNumberLabel.Name = "testNumberLabel";
             testNumberLabel.Size = new System.Drawing.Size(71, 13);
             testNumberLabel.TabIndex = 18;
@@ -65,17 +67,18 @@
             // 
             // btnAssess
             // 
-            this.btnAssess.Location = new System.Drawing.Point(212, 235);
+            this.btnAssess.Location = new System.Drawing.Point(229, 272);
             this.btnAssess.Name = "btnAssess";
             this.btnAssess.Size = new System.Drawing.Size(160, 36);
             this.btnAssess.TabIndex = 8;
             this.btnAssess.Text = "Assess";
             this.btnAssess.UseVisualStyleBackColor = true;
+            this.btnAssess.Click += new System.EventHandler(this.btnAssess_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 110);
+            this.label1.Location = new System.Drawing.Point(11, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 0;
@@ -84,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 136);
+            this.label2.Location = new System.Drawing.Point(11, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 0;
@@ -93,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 162);
+            this.label3.Location = new System.Drawing.Point(11, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 13);
             this.label3.TabIndex = 0;
@@ -102,7 +105,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(40, 70);
+            this.label7.Location = new System.Drawing.Point(73, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 0;
@@ -110,7 +113,7 @@
             // 
             // txtAssess
             // 
-            this.txtAssess.Location = new System.Drawing.Point(184, 185);
+            this.txtAssess.Location = new System.Drawing.Point(217, 222);
             this.txtAssess.Name = "txtAssess";
             this.txtAssess.ReadOnly = true;
             this.txtAssess.Size = new System.Drawing.Size(134, 20);
@@ -119,7 +122,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(40, 188);
+            this.label8.Location = new System.Drawing.Point(73, 225);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 13);
             this.label8.TabIndex = 0;
@@ -128,7 +131,7 @@
             // testNumberTextBox
             // 
             this.testNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "TestNumber", true));
-            this.testNumberTextBox.Location = new System.Drawing.Point(184, 41);
+            this.testNumberTextBox.Location = new System.Drawing.Point(217, 41);
             this.testNumberTextBox.Name = "testNumberTextBox";
             this.testNumberTextBox.Size = new System.Drawing.Size(134, 20);
             this.testNumberTextBox.TabIndex = 19;
@@ -146,7 +149,7 @@
             // excHVATextBox
             // 
             this.excHVATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "excHVA", true));
-            this.excHVATextBox.Location = new System.Drawing.Point(184, 107);
+            this.excHVATextBox.Location = new System.Drawing.Point(155, 28);
             this.excHVATextBox.Name = "excHVATextBox";
             this.excHVATextBox.Size = new System.Drawing.Size(134, 20);
             this.excHVATextBox.TabIndex = 21;
@@ -154,7 +157,7 @@
             // excHVBTextBox
             // 
             this.excHVBTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "excHVB", true));
-            this.excHVBTextBox.Location = new System.Drawing.Point(184, 133);
+            this.excHVBTextBox.Location = new System.Drawing.Point(155, 54);
             this.excHVBTextBox.Name = "excHVBTextBox";
             this.excHVBTextBox.Size = new System.Drawing.Size(134, 20);
             this.excHVBTextBox.TabIndex = 23;
@@ -162,14 +165,14 @@
             // excHVCTextBox
             // 
             this.excHVCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "excHVC", true));
-            this.excHVCTextBox.Location = new System.Drawing.Point(184, 159);
+            this.excHVCTextBox.Location = new System.Drawing.Point(155, 80);
             this.excHVCTextBox.Name = "excHVCTextBox";
             this.excHVCTextBox.Size = new System.Drawing.Size(134, 20);
             this.excHVCTextBox.TabIndex = 25;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(189, 292);
+            this.btnDelete.Location = new System.Drawing.Point(189, 329);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(67, 32);
             this.btnDelete.TabIndex = 57;
@@ -179,7 +182,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(116, 292);
+            this.btnSave.Location = new System.Drawing.Point(116, 329);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(67, 32);
             this.btnSave.TabIndex = 56;
@@ -189,7 +192,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(43, 292);
+            this.btnAdd.Location = new System.Drawing.Point(43, 329);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(67, 32);
             this.btnAdd.TabIndex = 55;
@@ -200,7 +203,7 @@
             // testVoltageTextBox
             // 
             this.testVoltageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "TestVoltage", true));
-            this.testVoltageTextBox.Location = new System.Drawing.Point(184, 67);
+            this.testVoltageTextBox.Location = new System.Drawing.Point(217, 67);
             this.testVoltageTextBox.Name = "testVoltageTextBox";
             this.testVoltageTextBox.Size = new System.Drawing.Size(134, 20);
             this.testVoltageTextBox.TabIndex = 58;
@@ -218,6 +221,8 @@
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
+            this.tableAdapterManager.tblStandardsTableAdapter = null;
+            this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
@@ -225,27 +230,37 @@
             this.tableAdapterManager.tblWindingTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.excHVATextBox);
+            this.groupBox1.Controls.Add(this.excHVBTextBox);
+            this.groupBox1.Controls.Add(this.excHVCTextBox);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(61, 93);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(301, 123);
+            this.groupBox1.TabIndex = 59;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Test Parameters";
+            // 
             // frmExcitation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(434, 367);
+            this.ClientSize = new System.Drawing.Size(434, 420);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.testVoltageTextBox);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(testNumberLabel);
             this.Controls.Add(this.testNumberTextBox);
-            this.Controls.Add(this.excHVATextBox);
-            this.Controls.Add(this.excHVBTextBox);
-            this.Controls.Add(this.excHVCTextBox);
             this.Controls.Add(this.txtAssess);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAssess);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmExcitation";
@@ -254,6 +269,8 @@
             this.Load += new System.EventHandler(this.frmExcitation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tblExcitationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +297,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox testVoltageTextBox;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -176,10 +176,10 @@
             // testNumberTextBox
             // 
             this.testNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblOilPFBindingSource, "TestNumber", true));
-            this.testNumberTextBox.Location = new System.Drawing.Point(162, 43);
+            this.testNumberTextBox.Location = new System.Drawing.Point(164, 43);
             this.testNumberTextBox.Name = "testNumberTextBox";
             this.testNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.testNumberTextBox.TabIndex = 59;
+            this.testNumberTextBox.TabIndex = 60;
             // 
             // pfMainTextBox
             // 
@@ -187,7 +187,7 @@
             this.pfMainTextBox.Location = new System.Drawing.Point(162, 96);
             this.pfMainTextBox.Name = "pfMainTextBox";
             this.pfMainTextBox.Size = new System.Drawing.Size(155, 20);
-            this.pfMainTextBox.TabIndex = 61;
+            this.pfMainTextBox.TabIndex = 62;
             // 
             // pfOLTCTextBox
             // 
@@ -195,17 +195,17 @@
             this.pfOLTCTextBox.Location = new System.Drawing.Point(162, 122);
             this.pfOLTCTextBox.Name = "pfOLTCTextBox";
             this.pfOLTCTextBox.Size = new System.Drawing.Size(155, 20);
-            this.pfOLTCTextBox.TabIndex = 63;
+            this.pfOLTCTextBox.TabIndex = 64;
             // 
             // frmOilPF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 290);
-            this.Controls.Add(testNumberLabel);
+            this.ClientSize = new System.Drawing.Size(558, 300);
             this.Controls.Add(this.testNumberTextBox);
             this.Controls.Add(this.pfMainTextBox);
             this.Controls.Add(this.pfOLTCTextBox);
+            this.Controls.Add(testNumberLabel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);

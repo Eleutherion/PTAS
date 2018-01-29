@@ -297,6 +297,8 @@ namespace PTAS
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            this.tblSubstationTableAdapter.Fill(this.dtbPTASDataSet.tblSubstation);
+            this.tblTransformerTableAdapter.Fill(this.dtbPTASDataSet.tblTransformer);
             this.tblTestTableAdapter.Fill(this.dtbPTASDataSet.tblTest);
         }
 
@@ -318,61 +320,13 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dtbPTAS.mdf;Integrated Security=True");
-                //string query = "INSERT INTO tblTest (TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer, " +
-                //        "testSub, testExcite, testIPF, testBushing, testTTR, testDCWR, testOilBD, testOilPF)" +
-                //        "VALUES (@testnumber, @testdate, @testengr, @testweather, @testambient, @testoil, @testprim, @testsec, @testtert, @testxf, @testsub, " +
-                //        "@testexcite, @testIPF, @testbushing, @testTTR, @testDCWR, @testoilBD, @testoilPF)";
-                //DataSet ds = dtbPTASDataSet;
-                //using (SqlCommand cmd = new SqlCommand(query, con))
-                //{
-                //    cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-                //    cmd.Parameters.AddWithValue("@testdate", testDateDateTimePicker.Value);
-                //    cmd.Parameters.AddWithValue("@testengr", testEngrTextBox.Text);
-                //    cmd.Parameters.AddWithValue("@testweather", testWeatherTextBox.Text);
-                //    cmd.Parameters.AddWithValue("@testambient", testAmbientTextBox.Text);
-                //    cmd.Parameters.AddWithValue("@testoil", testOilTextBox.Text);
-                //    cmd.Parameters.AddWithValue("@testprim", testPrimWTTextBox.Text);
-                //    cmd.Parameters.AddWithValue("@testsec", testSecWTTextBox.Text);
-                //    cmd.Parameters.AddWithValue("@testtert", testTertWTTextBox.Text);
-                //    cmd.Parameters.AddWithValue("@testxf", cboXf.SelectedValue);
-                //    cmd.Parameters.AddWithValue("@testsub", cboSub.SelectedValue);
-                //    cmd.Parameters.AddWithValue("@testexcite", chkExcite.Checked);
-                //    cmd.Parameters.AddWithValue("@testIPF", chkIPF.Checked);
-                //    cmd.Parameters.AddWithValue("@testbushing", chkBushing.Checked);
-                //    cmd.Parameters.AddWithValue("@testTTR", chkTTR.Checked);
-                //    cmd.Parameters.AddWithValue("@testDCWR", chkDCWR.Checked);
-                //    cmd.Parameters.AddWithValue("@testoilBD", chkDielectric.Checked);
-                //    cmd.Parameters.AddWithValue("@testoilPF", chkOilPF.Checked);
-
-                //    con.Open();
-
-                //    try
-                //    {
-                //        cmd.ExecuteNonQuery();
-
-                //        MessageBox.Show("Record saved.");
-
-                //        ds.Clear();
-                //        this.tblTestTableAdapter.Fill(this.dtbPTASDataSet.tblTest);
-                //        OnPassTestNumber(testNumberTextBox.Text);
-                //        con.Close();
-                //    }
-                //    catch (SqlException ex)
-                //    {
-                //        MessageBox.Show(ex.ToString());
-                //    }
-                //}
-                //DataSet ds = dtbPTASDataSet;
-
+                
                 this.Validate();
                 this.tblTestBindingSource.EndEdit();
                 this.tableAdapterManager.UpdateAll(dtbPTASDataSet);
                 
                 MessageBox.Show("Record saved.");
 
-                //ds.Clear();
-                //this.tblTestTableAdapter.Fill(this.dtbPTASDataSet.tblTest);
                 OnPassTestNumber(testNumberTextBox.Text);
             }
 
@@ -461,6 +415,14 @@ namespace PTAS
         {
             frmRegister f = new frmRegister();
             f.Show();
+        }
+
+        private void tblTestBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tblTestBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dtbPTASDataSet);
+
         }
     }
 

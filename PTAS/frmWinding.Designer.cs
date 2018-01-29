@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label testNumberLabel;
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpHV = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,14 +39,14 @@
             this.dtbPTASDataSet = new PTAS.dtbPTASDataSet();
             this.windPrimCTextBox = new System.Windows.Forms.TextBox();
             this.windPrimBTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpLV = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.windSecBTextBox = new System.Windows.Forms.TextBox();
             this.windSecCTextBox = new System.Windows.Forms.TextBox();
             this.windSecATextBox = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grpTV = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,11 +63,11 @@
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
             this.testNumberTextBox = new System.Windows.Forms.TextBox();
             testNumberLabel = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.grpHV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblWindingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.grpLV.SuspendLayout();
+            this.grpTV.SuspendLayout();
             this.SuspendLayout();
             // 
             // testNumberLabel
@@ -79,20 +79,20 @@
             testNumberLabel.TabIndex = 58;
             testNumberLabel.Text = "Test Number:";
             // 
-            // groupBox1
+            // grpHV
             // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.windPrimATextBox);
-            this.groupBox1.Controls.Add(this.windPrimCTextBox);
-            this.groupBox1.Controls.Add(this.windPrimBTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(34, 81);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(240, 127);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "High Voltage";
+            this.grpHV.Controls.Add(this.label3);
+            this.grpHV.Controls.Add(this.label1);
+            this.grpHV.Controls.Add(this.label2);
+            this.grpHV.Controls.Add(this.windPrimATextBox);
+            this.grpHV.Controls.Add(this.windPrimCTextBox);
+            this.grpHV.Controls.Add(this.windPrimBTextBox);
+            this.grpHV.Location = new System.Drawing.Point(34, 81);
+            this.grpHV.Name = "grpHV";
+            this.grpHV.Size = new System.Drawing.Size(240, 127);
+            this.grpHV.TabIndex = 0;
+            this.grpHV.TabStop = false;
+            this.grpHV.Text = "High Voltage";
             // 
             // label3
             // 
@@ -155,20 +155,20 @@
             this.windPrimBTextBox.Size = new System.Drawing.Size(122, 20);
             this.windPrimBTextBox.TabIndex = 63;
             // 
-            // groupBox2
+            // grpLV
             // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.windSecBTextBox);
-            this.groupBox2.Controls.Add(this.windSecCTextBox);
-            this.groupBox2.Controls.Add(this.windSecATextBox);
-            this.groupBox2.Location = new System.Drawing.Point(299, 81);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(240, 127);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Low Voltage";
+            this.grpLV.Controls.Add(this.label4);
+            this.grpLV.Controls.Add(this.label5);
+            this.grpLV.Controls.Add(this.label6);
+            this.grpLV.Controls.Add(this.windSecBTextBox);
+            this.grpLV.Controls.Add(this.windSecCTextBox);
+            this.grpLV.Controls.Add(this.windSecATextBox);
+            this.grpLV.Location = new System.Drawing.Point(299, 81);
+            this.grpLV.Name = "grpLV";
+            this.grpLV.Size = new System.Drawing.Size(240, 127);
+            this.grpLV.TabIndex = 7;
+            this.grpLV.TabStop = false;
+            this.grpLV.Text = "Low Voltage";
             // 
             // label4
             // 
@@ -221,20 +221,20 @@
             this.windSecATextBox.Size = new System.Drawing.Size(122, 20);
             this.windSecATextBox.TabIndex = 67;
             // 
-            // groupBox3
+            // grpTV
             // 
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.windTertBTextBox);
-            this.groupBox3.Controls.Add(this.windTertCTextBox);
-            this.groupBox3.Controls.Add(this.windTertATextBox);
-            this.groupBox3.Location = new System.Drawing.Point(564, 81);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(240, 127);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tertiary Voltage";
+            this.grpTV.Controls.Add(this.label7);
+            this.grpTV.Controls.Add(this.label8);
+            this.grpTV.Controls.Add(this.label9);
+            this.grpTV.Controls.Add(this.windTertBTextBox);
+            this.grpTV.Controls.Add(this.windTertCTextBox);
+            this.grpTV.Controls.Add(this.windTertATextBox);
+            this.grpTV.Location = new System.Drawing.Point(564, 81);
+            this.grpTV.Name = "grpTV";
+            this.grpTV.Size = new System.Drawing.Size(240, 127);
+            this.grpTV.TabIndex = 8;
+            this.grpTV.TabStop = false;
+            this.grpTV.Text = "Tertiary Voltage";
             // 
             // label7
             // 
@@ -356,6 +356,8 @@
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
+            this.tableAdapterManager.tblStandardsTableAdapter = null;
+            this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
@@ -384,22 +386,22 @@
             this.Controls.Add(this.txtAssess);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.btnAssess);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpTV);
+            this.Controls.Add(this.grpLV);
+            this.Controls.Add(this.grpHV);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmWinding";
             this.Text = "frmWinding";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmWinding_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpHV.ResumeLayout(false);
+            this.grpHV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblWindingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpLV.ResumeLayout(false);
+            this.grpLV.PerformLayout();
+            this.grpTV.ResumeLayout(false);
+            this.grpTV.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,15 +409,15 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpHV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpLV;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grpTV;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

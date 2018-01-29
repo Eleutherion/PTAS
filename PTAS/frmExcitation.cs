@@ -157,5 +157,46 @@ namespace PTAS
             else
                 this.Focus();
         }
+
+        private void btnAssess_Click(object sender, EventArgs e)
+        {
+            float[] exc = new float[3];
+            var textboxes = groupBox1.Controls.
+                            OfType<TextBox>().
+                            OrderByDescending(v => v.Text).
+                            ToArray();
+
+            for (int i = 0; i < 3; i++)
+            {
+                exc[i] = float.Parse(textboxes[i].Text);
+            }
+
+            float difference = Math.Abs(exc[0] - exc[1]);
+            float result = (difference / exc[1]) * 100;
+
+            if(exc[0] <= 50 && exc[1] <= 50)
+            {
+                if(result <= 10)
+                {
+                    txtAssess.Text = "PASSED";
+                }
+                else
+                {
+                    txtAssess.Text = "FAILED";
+                }
+            }
+
+            else
+            {
+                if(result <= 5)
+                {
+                    txtAssess.Text = "PASSED";
+                }
+                else
+                {
+                    txtAssess.Text = "FAILED";
+                }
+            }
+        }
     }
 }

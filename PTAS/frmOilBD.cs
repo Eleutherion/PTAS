@@ -75,6 +75,10 @@ namespace PTAS
 
         private void frmOilBD_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dtbPTASDataSet.tblStatus' table. You can move, or remove it, as needed.
+            this.tblStatusTableAdapter.Fill(this.dtbPTASDataSet.tblStatus);
+            // TODO: This line of code loads data into the 'dtbPTASDataSet.tblStandards' table. You can move, or remove it, as needed.
+            this.tblStandardsTableAdapter.Fill(this.dtbPTASDataSet.tblStandards);
             this.tblDielectricTableAdapter.Fill(this.dtbPTASDataSet.tblDielectric);
         }
 
@@ -179,34 +183,91 @@ namespace PTAS
                 this.Focus();
         }
 
-        private void main5TextBox_TextChanged(object sender, EventArgs e)
+        float main;
+        float oltc;
+
+        private void btnAssess_Click(object sender, EventArgs e)
         {
-            float[] main = new float[5];
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("Data Directory", path);
 
-            main[0] = float.Parse(main1TextBox.Text);
-            main[1] = float.Parse(main2TextBox.Text);
-            main[2] = float.Parse(main3TextBox.Text);
-            main[3] = float.Parse(main4TextBox.Text);
-            main[4] = float.Parse(main5TextBox.Text);
+            
+            float kv;
+            string query = "SELECT tblTransformer.xfID, tblTransformer.xfPrimVolt FROM tblDielectric LEFT OUTER JOIN tblTest ON tblDielectric.TestNumber = tblTest.TestNumber " +
+                "LEFT OUTER JOIN tblTransformer ON tblTest.testXformer = tblTransformer.xfID WHERE tblDielectric.TestNumber = @testnumber";
+            
+            using(SqlConnection con = new SqlConnection(constring))
+            {
+                using(SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+                    
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
 
-            float average = (float)((main[0] + main[1] + main[2] + main[3] + main[4]) / 5);
+                    while (dr.Read())
+                    {
+                        kv = float.Parse(dr["tblTransformer.xfPrimVolt"].ToString());
+                    }
+                    con.Close();
+                }
+            }
 
-            mainAveTextBox.Text = average.ToString();
+            if (!string.IsNullOrEmpty(mainAveTextBox.Text))
+                float.TryParse(mainAveTextBox.Text, out main);
+            if (!string.IsNullOrEmpty(oltcAveTextBox.Text))
+                float.TryParse(oltcAveTextBox.Text, out oltc);
+
+            if(standardComboBox.SelectedValue.ToString() == "ASTM D1816")
+            {
+                if(statusComboBox.SelectedValue.ToString() == "AGED")
+                {
+
+                }
+            }
+
+            else
+            {
+                if (main < 26)
+                {
+                    txtMainAssess.Text = "FAILED";
+                }
+                else
+                {
+                    txtMainAssess.Text = "PASSED";
+                }
+            }
         }
 
-        private void oltc5TextBox_TextChanged(object sender, EventArgs e)
+        private void btnCompute_Click(object sender, EventArgs e)
         {
+            float[] main = new float[5];
             float[] oltc = new float[5];
 
-            float.TryParse(oltc1TextBox.Text, out oltc[0]);
-            float.TryParse(oltc2TextBox.Text, out oltc[1]);
-            float.TryParse(oltc3TextBox.Text, out oltc[2]);
-            float.TryParse(oltc4TextBox.Text, out oltc[3]);
-            float.TryParse(oltc5TextBox.Text, out oltc[4]);
+            var textmain = grpMain.Controls.
+                           OfType<TextBox>().
+                           ToArray();
 
-            float average = (float)((oltc[0] + oltc[1] + oltc[2] + oltc[3] + oltc[4]) / 5);
+            var textoltc = grpOLTC.Controls.
+                           OfType<TextBox>().
+                           ToArray();
 
-            oltcAveTextBox.Text = average.ToString();
+            for(int i = 0; i < 5; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(textmain[i].Text))
+                {
+                    main[i] = float.Parse(textmain[i].Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(textoltc[i].Text))
+                {
+                    oltc[i] = float.Parse(textoltc[i].Text);
+                }
+            }
+
+            mainAveTextBox.Text = ((main.Sum()) / main.Count()).ToString();
+            oltcAveTextBox.Text = ((oltc.Sum()) / oltc.Count()).ToString();
         }
     }
 }

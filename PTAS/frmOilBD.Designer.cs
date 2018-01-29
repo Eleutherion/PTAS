@@ -30,10 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label testNumberLabel;
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtMainAssess = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label standardLabel;
+            System.Windows.Forms.Label statusLabel;
+            this.grpMain = new System.Windows.Forms.GroupBox();
             this.main1TextBox = new System.Windows.Forms.TextBox();
             this.tblDielectricBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtbPTASDataSet = new PTAS.dtbPTASDataSet();
@@ -44,24 +43,27 @@
             this.label4 = new System.Windows.Forms.Label();
             this.main3TextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.mainAveTextBox = new System.Windows.Forms.TextBox();
             this.main4TextBox = new System.Windows.Forms.TextBox();
             this.main5TextBox = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtOLTCAssess = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.txtMainAssess = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.mainAveTextBox = new System.Windows.Forms.TextBox();
+            this.grpOLTC = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.oltcAveTextBox = new System.Windows.Forms.TextBox();
             this.oltc1TextBox = new System.Windows.Forms.TextBox();
             this.oltc5TextBox = new System.Windows.Forms.TextBox();
             this.oltc4TextBox = new System.Windows.Forms.TextBox();
             this.oltc2TextBox = new System.Windows.Forms.TextBox();
             this.oltc3TextBox = new System.Windows.Forms.TextBox();
+            this.txtOLTCAssess = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.oltcAveTextBox = new System.Windows.Forms.TextBox();
             this.btnAssess = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -69,11 +71,22 @@
             this.tblDielectricTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblDielectricTableAdapter();
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
             this.testNumberTextBox = new System.Windows.Forms.TextBox();
+            this.standardComboBox = new System.Windows.Forms.ComboBox();
+            this.tblStandardsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
+            this.tblStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblStandardsTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblStandardsTableAdapter();
+            this.tblStatusTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblStatusTableAdapter();
+            this.btnCompute = new System.Windows.Forms.Button();
             testNumberLabel = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            standardLabel = new System.Windows.Forms.Label();
+            statusLabel = new System.Windows.Forms.Label();
+            this.grpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblDielectricBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.grpOLTC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblStandardsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblStatusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // testNumberLabel
@@ -85,54 +98,42 @@
             testNumberLabel.TabIndex = 58;
             testNumberLabel.Text = "Test Number:";
             // 
-            // groupBox1
+            // standardLabel
             // 
-            this.groupBox1.Controls.Add(this.txtMainAssess);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.main1TextBox);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.main2TextBox);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.main3TextBox);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.mainAveTextBox);
-            this.groupBox1.Controls.Add(this.main4TextBox);
-            this.groupBox1.Controls.Add(this.main5TextBox);
-            this.groupBox1.Location = new System.Drawing.Point(54, 72);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 217);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Main Tank";
+            standardLabel.AutoSize = true;
+            standardLabel.Location = new System.Drawing.Point(319, 44);
+            standardLabel.Name = "standardLabel";
+            standardLabel.Size = new System.Drawing.Size(78, 13);
+            standardLabel.TabIndex = 59;
+            standardLabel.Text = "Standard Used";
             // 
-            // txtMainAssess
+            // statusLabel
             // 
-            this.txtMainAssess.Location = new System.Drawing.Point(89, 176);
-            this.txtMainAssess.Name = "txtMainAssess";
-            this.txtMainAssess.ReadOnly = true;
-            this.txtMainAssess.Size = new System.Drawing.Size(123, 20);
-            this.txtMainAssess.TabIndex = 14;
+            statusLabel.AutoSize = true;
+            statusLabel.Location = new System.Drawing.Point(345, 71);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new System.Drawing.Size(52, 13);
+            statusLabel.TabIndex = 60;
+            statusLabel.Text = "Oil Status";
             // 
-            // label13
+            // grpMain
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(18, 179);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Assessment";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 153);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Average";
+            this.grpMain.Controls.Add(this.main1TextBox);
+            this.grpMain.Controls.Add(this.label1);
+            this.grpMain.Controls.Add(this.label2);
+            this.grpMain.Controls.Add(this.main2TextBox);
+            this.grpMain.Controls.Add(this.label6);
+            this.grpMain.Controls.Add(this.label4);
+            this.grpMain.Controls.Add(this.main3TextBox);
+            this.grpMain.Controls.Add(this.label3);
+            this.grpMain.Controls.Add(this.main4TextBox);
+            this.grpMain.Controls.Add(this.main5TextBox);
+            this.grpMain.Location = new System.Drawing.Point(54, 104);
+            this.grpMain.Name = "grpMain";
+            this.grpMain.Size = new System.Drawing.Size(230, 164);
+            this.grpMain.TabIndex = 0;
+            this.grpMain.TabStop = false;
+            this.grpMain.Text = "Main Tank";
             // 
             // main1TextBox
             // 
@@ -213,15 +214,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Trial 4";
             // 
-            // mainAveTextBox
-            // 
-            this.mainAveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "mainAve", true));
-            this.mainAveTextBox.Location = new System.Drawing.Point(89, 150);
-            this.mainAveTextBox.Name = "mainAveTextBox";
-            this.mainAveTextBox.ReadOnly = true;
-            this.mainAveTextBox.Size = new System.Drawing.Size(123, 20);
-            this.mainAveTextBox.TabIndex = 71;
-            // 
             // main4TextBox
             // 
             this.main4TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "main4", true));
@@ -237,56 +229,60 @@
             this.main5TextBox.Name = "main5TextBox";
             this.main5TextBox.Size = new System.Drawing.Size(123, 20);
             this.main5TextBox.TabIndex = 69;
-            this.main5TextBox.TextChanged += new System.EventHandler(this.main5TextBox_TextChanged);
             // 
-            // groupBox2
+            // txtMainAssess
             // 
-            this.groupBox2.Controls.Add(this.txtOLTCAssess);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.oltcAveTextBox);
-            this.groupBox2.Controls.Add(this.oltc1TextBox);
-            this.groupBox2.Controls.Add(this.oltc5TextBox);
-            this.groupBox2.Controls.Add(this.oltc4TextBox);
-            this.groupBox2.Controls.Add(this.oltc2TextBox);
-            this.groupBox2.Controls.Add(this.oltc3TextBox);
-            this.groupBox2.Location = new System.Drawing.Point(316, 72);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(230, 217);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "OLTC";
+            this.txtMainAssess.Location = new System.Drawing.Point(143, 300);
+            this.txtMainAssess.Name = "txtMainAssess";
+            this.txtMainAssess.ReadOnly = true;
+            this.txtMainAssess.Size = new System.Drawing.Size(123, 20);
+            this.txtMainAssess.TabIndex = 14;
             // 
-            // txtOLTCAssess
+            // label13
             // 
-            this.txtOLTCAssess.Location = new System.Drawing.Point(89, 176);
-            this.txtOLTCAssess.Name = "txtOLTCAssess";
-            this.txtOLTCAssess.ReadOnly = true;
-            this.txtOLTCAssess.Size = new System.Drawing.Size(123, 20);
-            this.txtOLTCAssess.TabIndex = 14;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(72, 303);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Assessment";
             // 
-            // label14
+            // label5
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(18, 179);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 13);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Assessment";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(72, 277);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Average";
             // 
-            // label7
+            // mainAveTextBox
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 153);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Average";
+            this.mainAveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "mainAve", true));
+            this.mainAveTextBox.Location = new System.Drawing.Point(143, 274);
+            this.mainAveTextBox.Name = "mainAveTextBox";
+            this.mainAveTextBox.ReadOnly = true;
+            this.mainAveTextBox.Size = new System.Drawing.Size(123, 20);
+            this.mainAveTextBox.TabIndex = 71;
+            // 
+            // grpOLTC
+            // 
+            this.grpOLTC.Controls.Add(this.label8);
+            this.grpOLTC.Controls.Add(this.label9);
+            this.grpOLTC.Controls.Add(this.label10);
+            this.grpOLTC.Controls.Add(this.label11);
+            this.grpOLTC.Controls.Add(this.label12);
+            this.grpOLTC.Controls.Add(this.oltc1TextBox);
+            this.grpOLTC.Controls.Add(this.oltc5TextBox);
+            this.grpOLTC.Controls.Add(this.oltc4TextBox);
+            this.grpOLTC.Controls.Add(this.oltc2TextBox);
+            this.grpOLTC.Controls.Add(this.oltc3TextBox);
+            this.grpOLTC.Location = new System.Drawing.Point(316, 104);
+            this.grpOLTC.Name = "grpOLTC";
+            this.grpOLTC.Size = new System.Drawing.Size(230, 164);
+            this.grpOLTC.TabIndex = 13;
+            this.grpOLTC.TabStop = false;
+            this.grpOLTC.Text = "OLTC";
             // 
             // label8
             // 
@@ -333,15 +329,6 @@
             this.label12.TabIndex = 7;
             this.label12.Text = "Trial 4";
             // 
-            // oltcAveTextBox
-            // 
-            this.oltcAveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "oltcAve", true));
-            this.oltcAveTextBox.Location = new System.Drawing.Point(89, 150);
-            this.oltcAveTextBox.Name = "oltcAveTextBox";
-            this.oltcAveTextBox.ReadOnly = true;
-            this.oltcAveTextBox.Size = new System.Drawing.Size(123, 20);
-            this.oltcAveTextBox.TabIndex = 83;
-            // 
             // oltc1TextBox
             // 
             this.oltc1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "oltc1", true));
@@ -357,7 +344,6 @@
             this.oltc5TextBox.Name = "oltc5TextBox";
             this.oltc5TextBox.Size = new System.Drawing.Size(123, 20);
             this.oltc5TextBox.TabIndex = 81;
-            this.oltc5TextBox.TextChanged += new System.EventHandler(this.oltc5TextBox_TextChanged);
             // 
             // oltc4TextBox
             // 
@@ -383,18 +369,54 @@
             this.oltc3TextBox.Size = new System.Drawing.Size(123, 20);
             this.oltc3TextBox.TabIndex = 77;
             // 
+            // txtOLTCAssess
+            // 
+            this.txtOLTCAssess.Location = new System.Drawing.Point(405, 300);
+            this.txtOLTCAssess.Name = "txtOLTCAssess";
+            this.txtOLTCAssess.ReadOnly = true;
+            this.txtOLTCAssess.Size = new System.Drawing.Size(123, 20);
+            this.txtOLTCAssess.TabIndex = 14;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(334, 303);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(63, 13);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Assessment";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(334, 277);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Average";
+            // 
+            // oltcAveTextBox
+            // 
+            this.oltcAveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "oltcAve", true));
+            this.oltcAveTextBox.Location = new System.Drawing.Point(405, 274);
+            this.oltcAveTextBox.Name = "oltcAveTextBox";
+            this.oltcAveTextBox.ReadOnly = true;
+            this.oltcAveTextBox.Size = new System.Drawing.Size(123, 20);
+            this.oltcAveTextBox.TabIndex = 83;
+            // 
             // btnAssess
             // 
-            this.btnAssess.Location = new System.Drawing.Point(405, 318);
+            this.btnAssess.Location = new System.Drawing.Point(386, 387);
             this.btnAssess.Name = "btnAssess";
             this.btnAssess.Size = new System.Drawing.Size(160, 36);
             this.btnAssess.TabIndex = 16;
             this.btnAssess.Text = "Assess";
             this.btnAssess.UseVisualStyleBackColor = true;
+            this.btnAssess.Click += new System.EventHandler(this.btnAssess_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(200, 320);
+            this.btnDelete.Location = new System.Drawing.Point(199, 389);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(67, 32);
             this.btnDelete.TabIndex = 57;
@@ -404,7 +426,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(127, 320);
+            this.btnSave.Location = new System.Drawing.Point(126, 389);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(67, 32);
             this.btnSave.TabIndex = 56;
@@ -414,7 +436,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(54, 320);
+            this.btnAdd.Location = new System.Drawing.Point(53, 389);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(67, 32);
             this.btnAdd.TabIndex = 55;
@@ -435,6 +457,8 @@
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
+            this.tableAdapterManager.tblStandardsTableAdapter = null;
+            this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
@@ -450,30 +474,99 @@
             this.testNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.testNumberTextBox.TabIndex = 59;
             // 
+            // standardComboBox
+            // 
+            this.standardComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "standard", true));
+            this.standardComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tblDielectricBindingSource, "standard", true));
+            this.standardComboBox.DataSource = this.tblStandardsBindingSource;
+            this.standardComboBox.DisplayMember = "standards";
+            this.standardComboBox.FormattingEnabled = true;
+            this.standardComboBox.Location = new System.Drawing.Point(407, 41);
+            this.standardComboBox.Name = "standardComboBox";
+            this.standardComboBox.Size = new System.Drawing.Size(121, 21);
+            this.standardComboBox.TabIndex = 60;
+            this.standardComboBox.ValueMember = "standards";
+            // 
+            // tblStandardsBindingSource
+            // 
+            this.tblStandardsBindingSource.DataMember = "tblStandards";
+            this.tblStandardsBindingSource.DataSource = this.dtbPTASDataSet;
+            // 
+            // statusComboBox
+            // 
+            this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "status", true));
+            this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tblDielectricBindingSource, "status", true));
+            this.statusComboBox.DataSource = this.tblStatusBindingSource;
+            this.statusComboBox.DisplayMember = "status";
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Location = new System.Drawing.Point(407, 68);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(121, 21);
+            this.statusComboBox.TabIndex = 61;
+            this.statusComboBox.ValueMember = "status";
+            // 
+            // tblStatusBindingSource
+            // 
+            this.tblStatusBindingSource.DataMember = "tblStatus";
+            this.tblStatusBindingSource.DataSource = this.dtbPTASDataSet;
+            // 
+            // tblStandardsTableAdapter
+            // 
+            this.tblStandardsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblStatusTableAdapter
+            // 
+            this.tblStatusTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnCompute
+            // 
+            this.btnCompute.Location = new System.Drawing.Point(386, 345);
+            this.btnCompute.Name = "btnCompute";
+            this.btnCompute.Size = new System.Drawing.Size(160, 36);
+            this.btnCompute.TabIndex = 84;
+            this.btnCompute.Text = "Compute";
+            this.btnCompute.UseVisualStyleBackColor = true;
+            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
+            // 
             // frmOilBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 397);
+            this.ClientSize = new System.Drawing.Size(618, 465);
+            this.Controls.Add(this.btnCompute);
+            this.Controls.Add(this.txtOLTCAssess);
+            this.Controls.Add(this.txtMainAssess);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(statusLabel);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.statusComboBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(standardLabel);
+            this.Controls.Add(this.standardComboBox);
             this.Controls.Add(testNumberLabel);
+            this.Controls.Add(this.oltcAveTextBox);
             this.Controls.Add(this.testNumberTextBox);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnAssess);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpOLTC);
+            this.Controls.Add(this.mainAveTextBox);
+            this.Controls.Add(this.grpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOilBD";
             this.Text = "frmOilBD";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmOilBD_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpMain.ResumeLayout(false);
+            this.grpMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblDielectricBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpOLTC.ResumeLayout(false);
+            this.grpOLTC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblStandardsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblStatusBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,14 +574,14 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpMain;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpOLTC;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -520,5 +613,12 @@
         private System.Windows.Forms.TextBox oltc2TextBox;
         private System.Windows.Forms.TextBox oltc3TextBox;
         private System.Windows.Forms.TextBox testNumberTextBox;
+        private System.Windows.Forms.ComboBox standardComboBox;
+        private System.Windows.Forms.ComboBox statusComboBox;
+        private System.Windows.Forms.BindingSource tblStandardsBindingSource;
+        private dtbPTASDataSetTableAdapters.tblStandardsTableAdapter tblStandardsTableAdapter;
+        private System.Windows.Forms.BindingSource tblStatusBindingSource;
+        private dtbPTASDataSetTableAdapters.tblStatusTableAdapter tblStatusTableAdapter;
+        private System.Windows.Forms.Button btnCompute;
     }
 }

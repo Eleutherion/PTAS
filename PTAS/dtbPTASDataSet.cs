@@ -6,10 +6,3 @@
     {
     }
 }
-
-namespace PTAS.dtbPTASDataSetTableAdapters {
-    
-    
-    public partial class tblTestTableAdapter {
-    }
-}
