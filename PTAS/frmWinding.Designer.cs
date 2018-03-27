@@ -53,7 +53,7 @@
             this.windTertBTextBox = new System.Windows.Forms.TextBox();
             this.windTertCTextBox = new System.Windows.Forms.TextBox();
             this.windTertATextBox = new System.Windows.Forms.TextBox();
-            this.txtAssess = new System.Windows.Forms.TextBox();
+            this.txtAssessTert = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btnAssess = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -62,6 +62,8 @@
             this.tblWindingTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblWindingTableAdapter();
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
             this.testNumberTextBox = new System.Windows.Forms.TextBox();
+            this.txtAssessLow = new System.Windows.Forms.TextBox();
+            this.txtAssessHigh = new System.Windows.Forms.TextBox();
             testNumberLabel = new System.Windows.Forms.Label();
             this.grpHV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblWindingBindingSource)).BeginInit();
@@ -287,18 +289,19 @@
             this.windTertATextBox.Size = new System.Drawing.Size(122, 20);
             this.windTertATextBox.TabIndex = 73;
             // 
-            // txtAssess
+            // txtAssessTert
             // 
-            this.txtAssess.Location = new System.Drawing.Point(636, 229);
-            this.txtAssess.Name = "txtAssess";
-            this.txtAssess.ReadOnly = true;
-            this.txtAssess.Size = new System.Drawing.Size(168, 20);
-            this.txtAssess.TabIndex = 28;
+            this.txtAssessTert.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windTertAssess", true));
+            this.txtAssessTert.Location = new System.Drawing.Point(664, 229);
+            this.txtAssessTert.Name = "txtAssessTert";
+            this.txtAssessTert.ReadOnly = true;
+            this.txtAssessTert.Size = new System.Drawing.Size(122, 20);
+            this.txtAssessTert.TabIndex = 28;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(533, 232);
+            this.label14.Location = new System.Drawing.Point(38, 211);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(63, 13);
             this.label14.TabIndex = 29;
@@ -312,6 +315,7 @@
             this.btnAssess.TabIndex = 30;
             this.btnAssess.Text = "Assess";
             this.btnAssess.UseVisualStyleBackColor = true;
+            this.btnAssess.Click += new System.EventHandler(this.btnAssess_Click);
             // 
             // btnDelete
             // 
@@ -355,10 +359,12 @@
             this.tableAdapterManager.tblExcitationTableAdapter = null;
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
+            this.tableAdapterManager.tblParamListTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
             this.tableAdapterManager.tblStandardsTableAdapter = null;
             this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
+            this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
             this.tableAdapterManager.tblTTRTableAdapter = null;
@@ -373,17 +379,37 @@
             this.testNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.testNumberTextBox.TabIndex = 59;
             // 
+            // txtAssessLow
+            // 
+            this.txtAssessLow.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windSecAssess", true));
+            this.txtAssessLow.Location = new System.Drawing.Point(399, 229);
+            this.txtAssessLow.Name = "txtAssessLow";
+            this.txtAssessLow.ReadOnly = true;
+            this.txtAssessLow.Size = new System.Drawing.Size(122, 20);
+            this.txtAssessLow.TabIndex = 60;
+            // 
+            // txtAssessHigh
+            // 
+            this.txtAssessHigh.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windPrimAssess", true));
+            this.txtAssessHigh.Location = new System.Drawing.Point(134, 229);
+            this.txtAssessHigh.Name = "txtAssessHigh";
+            this.txtAssessHigh.ReadOnly = true;
+            this.txtAssessHigh.Size = new System.Drawing.Size(122, 20);
+            this.txtAssessHigh.TabIndex = 61;
+            // 
             // frmWinding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 342);
+            this.Controls.Add(this.txtAssessHigh);
+            this.Controls.Add(this.txtAssessLow);
             this.Controls.Add(testNumberLabel);
             this.Controls.Add(this.testNumberTextBox);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtAssess);
+            this.Controls.Add(this.txtAssessTert);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.btnAssess);
             this.Controls.Add(this.grpTV);
@@ -421,7 +447,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtAssess;
+        private System.Windows.Forms.TextBox txtAssessTert;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnAssess;
         private System.Windows.Forms.Button btnDelete;
@@ -441,5 +467,7 @@
         private System.Windows.Forms.TextBox windTertATextBox;
         private System.Windows.Forms.TextBox windTertBTextBox;
         private System.Windows.Forms.TextBox windTertCTextBox;
+        private System.Windows.Forms.TextBox txtAssessLow;
+        private System.Windows.Forms.TextBox txtAssessHigh;
     }
 }

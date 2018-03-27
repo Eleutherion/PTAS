@@ -190,6 +190,7 @@
             // 
             // txtAssess
             // 
+            this.txtAssess.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfAssess", true));
             this.txtAssess.Location = new System.Drawing.Point(403, 382);
             this.txtAssess.Name = "txtAssess";
             this.txtAssess.ReadOnly = true;
@@ -210,7 +211,7 @@
             this.btnAssess.Location = new System.Drawing.Point(491, 418);
             this.btnAssess.Name = "btnAssess";
             this.btnAssess.Size = new System.Drawing.Size(160, 36);
-            this.btnAssess.TabIndex = 9;
+            this.btnAssess.TabIndex = 11;
             this.btnAssess.Text = "Assess";
             this.btnAssess.UseVisualStyleBackColor = true;
             this.btnAssess.Click += new System.EventHandler(this.btnAssess_Click);
@@ -239,7 +240,7 @@
             this.ipfCCLCHLTextBox.Name = "ipfCCLCHLTextBox";
             this.ipfCCLCHLTextBox.ReadOnly = true;
             this.ipfCCLCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCLCHLTextBox.TabIndex = 0;
+            this.ipfCCLCHLTextBox.TabIndex = 4;
             // 
             // tblIPFBindingSource
             // 
@@ -258,7 +259,7 @@
             this.ipfCCHLlvTextBox.Name = "ipfCCHLlvTextBox";
             this.ipfCCHLlvTextBox.ReadOnly = true;
             this.ipfCCHLlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHLlvTextBox.TabIndex = 0;
+            this.ipfCCHLlvTextBox.TabIndex = 7;
             // 
             // ipfCCHLUlvTextBox
             // 
@@ -267,7 +268,7 @@
             this.ipfCCHLUlvTextBox.Name = "ipfCCHLUlvTextBox";
             this.ipfCCHLUlvTextBox.ReadOnly = true;
             this.ipfCCHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHLUlvTextBox.TabIndex = 0;
+            this.ipfCCHLUlvTextBox.TabIndex = 6;
             // 
             // ipfCCLTextBox
             // 
@@ -276,7 +277,7 @@
             this.ipfCCLTextBox.Name = "ipfCCLTextBox";
             this.ipfCCLTextBox.ReadOnly = true;
             this.ipfCCLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCLTextBox.TabIndex = 0;
+            this.ipfCCLTextBox.TabIndex = 5;
             // 
             // ipfCCHLTextBox
             // 
@@ -285,7 +286,7 @@
             this.ipfCCHLTextBox.Name = "ipfCCHLTextBox";
             this.ipfCCHLTextBox.ReadOnly = true;
             this.ipfCCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHLTextBox.TabIndex = 0;
+            this.ipfCCHLTextBox.TabIndex = 3;
             // 
             // ipfCCHLUTextBox
             // 
@@ -294,7 +295,7 @@
             this.ipfCCHLUTextBox.Name = "ipfCCHLUTextBox";
             this.ipfCCHLUTextBox.ReadOnly = true;
             this.ipfCCHLUTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHLUTextBox.TabIndex = 0;
+            this.ipfCCHLUTextBox.TabIndex = 2;
             // 
             // ipfCCHTextBox
             // 
@@ -303,7 +304,7 @@
             this.ipfCCHTextBox.Name = "ipfCCHTextBox";
             this.ipfCCHTextBox.ReadOnly = true;
             this.ipfCCHTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHTextBox.TabIndex = 0;
+            this.ipfCCHTextBox.TabIndex = 1;
             // 
             // ipfCCHCHLTextBox
             // 
@@ -345,7 +346,7 @@
             this.ipfMCHCHLTextBox.Location = new System.Drawing.Point(25, 18);
             this.ipfMCHCHLTextBox.Name = "ipfMCHCHLTextBox";
             this.ipfMCHCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHCHLTextBox.TabIndex = 1;
+            this.ipfMCHCHLTextBox.TabIndex = 0;
             // 
             // ipfMCHLlvTextBox
             // 
@@ -353,7 +354,7 @@
             this.ipfMCHLlvTextBox.Location = new System.Drawing.Point(25, 200);
             this.ipfMCHLlvTextBox.Name = "ipfMCHLlvTextBox";
             this.ipfMCHLlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHLlvTextBox.TabIndex = 8;
+            this.ipfMCHLlvTextBox.TabIndex = 7;
             // 
             // ipfMCLCHLTextBox
             // 
@@ -361,7 +362,7 @@
             this.ipfMCLCHLTextBox.Location = new System.Drawing.Point(25, 122);
             this.ipfMCLCHLTextBox.Name = "ipfMCLCHLTextBox";
             this.ipfMCLCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCLCHLTextBox.TabIndex = 5;
+            this.ipfMCLCHLTextBox.TabIndex = 4;
             // 
             // ipfMCHLUTextBox
             // 
@@ -369,7 +370,7 @@
             this.ipfMCHLUTextBox.Location = new System.Drawing.Point(25, 70);
             this.ipfMCHLUTextBox.Name = "ipfMCHLUTextBox";
             this.ipfMCHLUTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHLUTextBox.TabIndex = 3;
+            this.ipfMCHLUTextBox.TabIndex = 2;
             // 
             // ipfMCHLUlvTextBox
             // 
@@ -377,7 +378,7 @@
             this.ipfMCHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
             this.ipfMCHLUlvTextBox.Name = "ipfMCHLUlvTextBox";
             this.ipfMCHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHLUlvTextBox.TabIndex = 7;
+            this.ipfMCHLUlvTextBox.TabIndex = 6;
             // 
             // ipfMCHTextBox
             // 
@@ -385,7 +386,7 @@
             this.ipfMCHTextBox.Location = new System.Drawing.Point(25, 44);
             this.ipfMCHTextBox.Name = "ipfMCHTextBox";
             this.ipfMCHTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHTextBox.TabIndex = 2;
+            this.ipfMCHTextBox.TabIndex = 1;
             // 
             // ipfMCHLTextBox
             // 
@@ -393,7 +394,7 @@
             this.ipfMCHLTextBox.Location = new System.Drawing.Point(25, 96);
             this.ipfMCHLTextBox.Name = "ipfMCHLTextBox";
             this.ipfMCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHLTextBox.TabIndex = 4;
+            this.ipfMCHLTextBox.TabIndex = 3;
             // 
             // ipfMCLTextBox
             // 
@@ -401,7 +402,7 @@
             this.ipfMCLTextBox.Location = new System.Drawing.Point(25, 148);
             this.ipfMCLTextBox.Name = "ipfMCLTextBox";
             this.ipfMCLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCLTextBox.TabIndex = 6;
+            this.ipfMCLTextBox.TabIndex = 5;
             // 
             // grpCap
             // 
@@ -426,7 +427,7 @@
             this.ipfACHLlvTextBox.Location = new System.Drawing.Point(25, 200);
             this.ipfACHLlvTextBox.Name = "ipfACHLlvTextBox";
             this.ipfACHLlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHLlvTextBox.TabIndex = 0;
+            this.ipfACHLlvTextBox.TabIndex = 7;
             // 
             // ipfACHLUlvTextBox
             // 
@@ -434,7 +435,7 @@
             this.ipfACHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
             this.ipfACHLUlvTextBox.Name = "ipfACHLUlvTextBox";
             this.ipfACHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHLUlvTextBox.TabIndex = 7;
+            this.ipfACHLUlvTextBox.TabIndex = 6;
             // 
             // ipfACLTextBox
             // 
@@ -442,7 +443,7 @@
             this.ipfACLTextBox.Location = new System.Drawing.Point(25, 148);
             this.ipfACLTextBox.Name = "ipfACLTextBox";
             this.ipfACLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACLTextBox.TabIndex = 6;
+            this.ipfACLTextBox.TabIndex = 5;
             // 
             // ipfACLCHLTextBox
             // 
@@ -450,7 +451,7 @@
             this.ipfACLCHLTextBox.Location = new System.Drawing.Point(25, 122);
             this.ipfACLCHLTextBox.Name = "ipfACLCHLTextBox";
             this.ipfACLCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACLCHLTextBox.TabIndex = 5;
+            this.ipfACLCHLTextBox.TabIndex = 4;
             // 
             // ipfACHLTextBox
             // 
@@ -458,7 +459,7 @@
             this.ipfACHLTextBox.Location = new System.Drawing.Point(25, 96);
             this.ipfACHLTextBox.Name = "ipfACHLTextBox";
             this.ipfACHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHLTextBox.TabIndex = 4;
+            this.ipfACHLTextBox.TabIndex = 3;
             // 
             // ipfACHLUTextBox
             // 
@@ -466,7 +467,7 @@
             this.ipfACHLUTextBox.Location = new System.Drawing.Point(25, 70);
             this.ipfACHLUTextBox.Name = "ipfACHLUTextBox";
             this.ipfACHLUTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHLUTextBox.TabIndex = 3;
+            this.ipfACHLUTextBox.TabIndex = 2;
             // 
             // ipfACHTextBox
             // 
@@ -474,7 +475,7 @@
             this.ipfACHTextBox.Location = new System.Drawing.Point(25, 44);
             this.ipfACHTextBox.Name = "ipfACHTextBox";
             this.ipfACHTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHTextBox.TabIndex = 2;
+            this.ipfACHTextBox.TabIndex = 1;
             // 
             // ipfACHCHLTextBox
             // 
@@ -482,7 +483,7 @@
             this.ipfACHCHLTextBox.Location = new System.Drawing.Point(25, 18);
             this.ipfACHCHLTextBox.Name = "ipfACHCHLTextBox";
             this.ipfACHCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHCHLTextBox.TabIndex = 1;
+            this.ipfACHCHLTextBox.TabIndex = 0;
             // 
             // testNumberTextBox
             // 
@@ -497,7 +498,7 @@
             this.btnDelete.Location = new System.Drawing.Point(193, 420);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(67, 32);
-            this.btnDelete.TabIndex = 8;
+            this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -507,7 +508,7 @@
             this.btnSave.Location = new System.Drawing.Point(120, 420);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(67, 32);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -517,7 +518,7 @@
             this.btnAdd.Location = new System.Drawing.Point(47, 420);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(67, 32);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -534,10 +535,12 @@
             this.tableAdapterManager.tblExcitationTableAdapter = null;
             this.tableAdapterManager.tblIPFTableAdapter = this.tblIPFTableAdapter;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
+            this.tableAdapterManager.tblParamListTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
             this.tableAdapterManager.tblStandardsTableAdapter = null;
             this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
+            this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
             this.tableAdapterManager.tblTTRTableAdapter = null;

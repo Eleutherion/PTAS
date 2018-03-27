@@ -35,10 +35,28 @@ namespace PTAS
             string path = (System.IO.Path.GetDirectoryName(executable));
             AppDomain.CurrentDomain.SetData("Data Directory", path);
 
+            frmIPF f = new frmIPF();
+
+            //var t = f.Controls.OfType<TextBox>().ToArray();
+
+            var tm = grpPFM.Controls.
+                     OfType<TextBox>().
+                     OrderBy(t => t.TabIndex).
+                     ToArray();
+
+            var cap = grpCap.Controls.
+                      OfType<TextBox>().
+                      ToArray();
+
+            var tc = grpPFC.Controls.
+                     OfType<TextBox>().
+                     OrderBy(v => v.TabIndex).
+                     ToArray();
+
             string query = "SELECT COUNT (*) FROM tblIPF WHERE TestNumber = @testnumber";
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using(SqlCommand cmd = new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@testnumber", TestNumber);
                     con.Open();
@@ -81,12 +99,28 @@ namespace PTAS
                                 ipfACHLUlvTextBox.Text = (dr["ipfACHLUlv"].ToString());
                                 ipfACHLlvTextBox.Text = (dr["ipfACHLlv"].ToString());
                                 testVoltageTextBox.Text = (dr["TestVoltage"].ToString());
+                                txtAssess.Text = (dr["ipfAssess"].ToString());
                             }
                         }
                     }
+                    //else
+                    //{
+                    //    testNumberTextBox.Clear();
+                    //    testVoltageTextBox.Clear();
+                    //    ipfCFTextBox.Clear();
+                    //    txtAssess.Clear();
+                    //    //for(int i = 0; i < 4; i++)
+                    //    //{
+                    //    //    //t[i].Clear();
+                    //    //    tm[i].Text = "";
+                    //    //    tc[i].Text = "";
+                    //    //    cap[i].Text = "";
+                    //    //}
+                    //}
                     con.Close();
                 }
             }
+
         }
 
         private void frmIPF_Load(object sender, EventArgs e)
@@ -101,67 +135,72 @@ namespace PTAS
             AppDomain.CurrentDomain.SetData("Data Directory", path);
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
 
-            string query = "INSERT INTO tblIPF (TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCHLUlv, ipfMCHLlv, ipfCf, " +
-                "ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCLCHL, ipfCCL, ipfCCHLUlv, ipfCCHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, ipfACLCHL, ipfACL, ipfACHLUlv, ipfACHLlv, TestVoltage)" +
-                "VALUES (@testnumber, @mchchl, @mch, @mchlu, @mchl, @mclchl, @mcl, @mchlulv, @mchllv, @cf, @cchchl, @cch, @cchlu, @cchl, @cclchl, @ccl, @cchlulv, @cchllv, " +
-                "@achchl, @ach, @achlu, @achl, @aclchl, @acl, @achlulv, @achllv, @testvoltage)";
+            //string query = "INSERT INTO tblIPF (TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCHLUlv, ipfMCHLlv, ipfCf, " +
+            //    "ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCLCHL, ipfCCL, ipfCCHLUlv, ipfCCHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, ipfACLCHL, ipfACL, ipfACHLUlv, ipfACHLlv, TestVoltage)" +
+            //    "VALUES (@testnumber, @mchchl, @mch, @mchlu, @mchl, @mclchl, @mcl, @mchlulv, @mchllv, @cf, @cchchl, @cch, @cchlu, @cchl, @cclchl, @ccl, @cchlulv, @cchllv, " +
+            //    "@achchl, @ach, @achlu, @achl, @aclchl, @acl, @achlulv, @achllv, @testvoltage)";
 
-            DataSet ds = dtbPTASDataSet;
+            //DataSet ds = dtbPTASDataSet;
 
             if (dr == DialogResult.Yes)
             {
-                using (SqlConnection con = new SqlConnection(constring))
-                {
-                    using (SqlCommand cmd = new SqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-                        cmd.Parameters.AddWithValue("@mchchl", ipfMCHCHLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@mch", ipfMCHTextBox.Text);
-                        cmd.Parameters.AddWithValue("@mchlu", ipfMCHLUTextBox.Text);
-                        cmd.Parameters.AddWithValue("@mclchl", ipfMCLCHLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@mcl", ipfMCLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@mchlulv", ipfMCHLUlvTextBox.Text);
-                        cmd.Parameters.AddWithValue("@mchllv", ipfMCHLlvTextBox.Text);
-                        cmd.Parameters.AddWithValue("@cf", ipfCFTextBox.Text);
-                        cmd.Parameters.AddWithValue("@cchchl", ipfCCHCHLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@cch", ipfCCHTextBox.Text);
-                        cmd.Parameters.AddWithValue("@cchlu", ipfCCHLUTextBox.Text);
-                        cmd.Parameters.AddWithValue("@cchl", ipfCCHLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@cclchl", ipfCCLCHLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ccl", ipfCCLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@cchlulv", ipfCCHLUlvTextBox.Text);
-                        cmd.Parameters.AddWithValue("@cchllv", ipfCCHLlvTextBox.Text);
-                        cmd.Parameters.AddWithValue("@achchl", ipfACHCHLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ach", ipfACHTextBox.Text);
-                        cmd.Parameters.AddWithValue("@achlu", ipfACHLUTextBox.Text);
-                        cmd.Parameters.AddWithValue("@achl", ipfACHLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@aclchl", ipfACLCHLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@acl", ipfACLTextBox.Text);
-                        cmd.Parameters.AddWithValue("@achlulv", ipfACHLUlvTextBox.Text);
-                        cmd.Parameters.AddWithValue("@achllv", ipfACHLlvTextBox.Text);
-                        cmd.Parameters.AddWithValue("@testvoltage", testVoltageTextBox.Text);
+                //using (SqlConnection con = new SqlConnection(constring))
+                //{
+                //    using (SqlCommand cmd = new SqlCommand(query, con))
+                //    {
+                //        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@mchchl", ipfMCHCHLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@mch", ipfMCHTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@mchlu", ipfMCHLUTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@mclchl", ipfMCLCHLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@mcl", ipfMCLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@mchlulv", ipfMCHLUlvTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@mchllv", ipfMCHLlvTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@cf", ipfCFTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@cchchl", ipfCCHCHLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@cch", ipfCCHTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@cchlu", ipfCCHLUTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@cchl", ipfCCHLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@cclchl", ipfCCLCHLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ccl", ipfCCLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@cchlulv", ipfCCHLUlvTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@cchllv", ipfCCHLlvTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@achchl", ipfACHCHLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ach", ipfACHTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@achlu", ipfACHLUTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@achl", ipfACHLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@aclchl", ipfACLCHLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@acl", ipfACLTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@achlulv", ipfACHLUlvTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@achllv", ipfACHLlvTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@testvoltage", testVoltageTextBox.Text);
 
-                        con.Open();
+                //        con.Open();
 
-                        try
-                        {
-                            cmd.ExecuteNonQuery();
+                //        try
+                //        {
+                //            cmd.ExecuteNonQuery();
 
-                            MessageBox.Show("Record saved.");
+                //            MessageBox.Show("Record saved.");
 
-                            ds.Clear();
-                            tblIPFTableAdapter.Fill(dtbPTASDataSet.tblIPF);
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show(ex.ToString());
-                        }
-                        con.Close();
-                    }
-                }
+                //            ds.Clear();
+                //            tblIPFTableAdapter.Fill(dtbPTASDataSet.tblIPF);
+                //        }
+                //        catch (SqlException ex)
+                //        {
+                //            MessageBox.Show(ex.ToString());
+                //        }
+                //        con.Close();
+                //    }
+                //}
+                Validate();
+                tblIPFBindingSource.EndEdit();
+                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+
+                MessageBox.Show("Record saved.");
             }
             else
-                this.Focus();
+                Focus();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -206,7 +245,7 @@ namespace PTAS
                 }
             }
             else
-                this.Focus();
+                Focus();
         }
         
         private void btnCompute_Click(object sender, EventArgs e)
@@ -282,10 +321,10 @@ namespace PTAS
 
             string xf;
             
-            string query = "SELECT tblTest.TestNumber, tblTransformer.xfID, tblTransformer.xfPrimVolt FROM tblTest LEFT OUTER JOIN tblTransformer ON tblTest.testXformer = tblTransformer.xfID " +
+            string query = "SELECT tblTest.TestNumber AS TestNumber, tblTransformer.xfID AS xfID, tblTransformer.xfPrimVolt AS xfPrimVolt FROM tblTest LEFT OUTER JOIN tblTransformer ON tblTest.testXformer = tblTransformer.xfID " +
                 "WHERE tblTest.TestNumber = @testnumber";
             string query2 = "SELECT TOP 1 tblTest.testXformer, tblIPF.* FROM tblIPF LEFT OUTER JOIN tblTest ON tblIPF.TestNumber = tblTest.TestNumber " +
-                "ORDER BY tblIPF.TestNumber DESC WHERE tblIPF.TestNumber = @testnumber";
+                "WHERE tblIPF.TestNumber < @testnumber ORDER BY tblIPF.TestNumber DESC";
 
             using (SqlConnection con = new SqlConnection(constring))
             {
@@ -298,15 +337,17 @@ namespace PTAS
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        xf = (dr["tblTransformer.xfID"].ToString());
-                        kv = float.Parse(dr["tblTransformer.xfPrimVolt"].ToString());
+                        xf = (dr["xfID"].ToString());
+                        kv = float.Parse(dr["xfPrimVolt"].ToString());
                     }
-                    
-                    using(SqlCommand cmd2 = new SqlCommand(query2, con))
+                    dr.Close();
+
+                    using (SqlCommand cmd2 = new SqlCommand(query2, con))
                     {
                         cmd2.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
 
                         SqlDataReader dr2 = cmd2.ExecuteReader();
+                        dr2.Read();
                         while (dr2.Read())
                         {
                             previous[0] = float.Parse(dr["ipfCCHCHL"].ToString());
@@ -326,6 +367,7 @@ namespace PTAS
                             previouscap[6] = float.Parse(dr["ipfACHLUlv"].ToString());
                             previouscap[7] = float.Parse(dr["ipfACHLlv"].ToString());
                         }
+                        dr.Close();
                         con.Close();
                     }
                 }
@@ -340,23 +382,7 @@ namespace PTAS
             {
                 if (Array.TrueForAll(corrected, v => v <= 0.5))
                 {
-                    //txtAssess.Text = "PASSED";
-                    for (int i = 0; i < 8; i++)
-                    {
-                        if (previous[i] != 0 || corrected[i] != 0)
-                        {
-                            compare[i] = ((corrected[i] - previous[i]) / corrected[i]) * 100;
-                        }
-
-                        else compare[i] = 0;
-                    }
-
-                    if (Array.TrueForAll(compare, v => v <= 20))
-                    {
-                        txtAssess.Text = "PASSED";
-                    }
-
-                    else txtAssess.Text = "INVESTIGATE. RESULT HIGHER THAN PREVIOUS";
+                    txtAssess.Text = "PASSED";
                 }
                 else if (Array.TrueForAll(corrected, v => v > 1))
                 {
@@ -364,7 +390,15 @@ namespace PTAS
                 }
                 else
                 {
-                    txtAssess.Text = "INVESTIGATE";
+                    int[] check = new int[8];
+                    for(int i = 0; i < 8; i++)
+                    {
+                        if(corrected[i] > 0.5)
+                        {
+                            if (previous[i] <= 0.5) txtAssess.Text = "INVESTIGATE";
+                            else txtAssess.Text = "MONITOR";
+                        }
+                    }
                 }
             }
 
@@ -372,23 +406,7 @@ namespace PTAS
             {
                 if (Array.TrueForAll(corrected, v => v <= 0.4))
                 {
-                    //txtAssess.Text = "PASSED";
-                    for (int i = 0; i < 8; i++)
-                    {
-                        if (previous[i] != 0 || corrected[i] != 0)
-                        {
-                            compare[i] = ((corrected[i] - previous[i]) / corrected[i]) * 100;
-                        }
-
-                        else compare[i] = 0;
-                    }
-
-                    if (Array.TrueForAll(compare, v => v <= 20))
-                    {
-                        txtAssess.Text = "PASSED";
-                    }
-
-                    else txtAssess.Text = "INVESTIGATE. RESULT HIGHER THAN PREVIOUS";
+                    txtAssess.Text = "PASSED";
                 }
                 else if (Array.TrueForAll(corrected, v => v > 1))
                 {
@@ -396,7 +414,15 @@ namespace PTAS
                 }
                 else
                 {
-                    txtAssess.Text = "INVESTIGATE";
+                    int[] check = new int[8];
+                    for (int i = 0; i < 8; i++)
+                    {
+                        if (corrected[i] > 0.5)
+                        {
+                            if (previous[i] <= 0.5) txtAssess.Text = "INVESTIGATE";
+                            else txtAssess.Text = "MONITOR";
+                        }
+                    }
                 }
             }
         }

@@ -56,205 +56,205 @@ namespace PTAS
             }
         }
 
-        private TabPage tabExcite = new TabPage();
-        private TabPage tabIPF = new TabPage();
-        private TabPage tabBushing = new TabPage();
-        private TabPage tabTTR = new TabPage();
-        private TabPage tabDCWR = new TabPage();
-        private TabPage tabDielectric = new TabPage();
-        private TabPage tabOilPF = new TabPage();
+        //private TabPage tabExcite = new TabPage();
+        //private TabPage tabIPF = new TabPage();
+        //private TabPage tabBushing = new TabPage();
+        //private TabPage tabTTR = new TabPage();
+        //private TabPage tabDCWR = new TabPage();
+        //private TabPage tabDielectric = new TabPage();
+        //private TabPage tabOilPF = new TabPage();
 
         private void chkExcite_CheckStateChanged(object sender, EventArgs e)
         {
-            frmExcitation form = new frmExcitation
-            {
-                TopLevel = false
-            };
+            //frmExcitation form = new frmExcitation
+            //{
+            //    TopLevel = false
+            //};
 
-            if (chkExcite.Checked)
-            {
-                tabExcite.Text = "Excitation Current";
-                tbcTest.TabPages.Add(tabExcite);
-                tabExcite.Show();
+            //if (chkExcite.Checked)
+            //{
+            //    tabExcite.Text = "Excitation Current";
+            //    tbcTest.TabPages.Add(tabExcite);
+            //    tabExcite.Show();
 
-                form.Parent = tabExcite;
-                form.Show();
-            }
-            else
-            {
-                tbcTest.SelectedIndex = 0;
-                tabExcite.Hide();
-                tbcTest.TabPages.Remove(tabExcite);
-                form.Dispose();
-            }
+            //    form.Parent = tabExcite;
+            //    form.Show();
+            //}
+            //else
+            //{
+            //    tbcTest.SelectedIndex = 0;
+            //    tabExcite.Hide();
+            //    tbcTest.TabPages.Remove(tabExcite);
+            //    form.Close();
+            //}
         }
 
         private void chkIPF_CheckStateChanged(object sender, EventArgs e)
         {
-            frmIPF form = new frmIPF
-            {
-                TopLevel = false
-            };
+            //frmIPF form = new frmIPF
+            //{
+            //    TopLevel = false
+            //};
 
-            if (chkIPF.Checked)
-            {
-                tabIPF.Text = "Insulation Power Factor";
-                tbcTest.TabPages.Add(tabIPF);
-                tabIPF.Show();
+            //if (chkIPF.Checked)
+            //{
+            //    tabIPF.Text = "Insulation Power Factor";
+            //    tbcTest.TabPages.Add(tabIPF);
+            //    tabIPF.Show();
 
-                form.Parent = tabIPF;
-                form.Show();
-            }
-            else
-            {
-                if (tbcTest.SelectedIndex != 0)
-                {
-                    tbcTest.SelectedIndex = 0;
-                }
-                tabIPF.Hide();
-                tbcTest.TabPages.Remove(tabIPF);
-                form.Dispose();
-            }
+            //    form.Parent = tabIPF;
+            //    form.Show();
+            //}
+            //else
+            //{
+            //    if (tbcTest.SelectedIndex != 0)
+            //    {
+            //        tbcTest.SelectedIndex = 0;
+            //    }
+            //    tabIPF.Hide();
+            //    tbcTest.TabPages.Remove(tabIPF);
+            //    form.Close();
+            //}
         }
 
         private void chkBushing_CheckStateChanged(object sender, EventArgs e)
         {
-            frmBushing form = new frmBushing
-            {
-                TopLevel = false
-            };
+            //frmBushing form = new frmBushing
+            //{
+            //    TopLevel = false
+            //};
 
-            if (chkBushing.Checked)
-            {
-                tabBushing.Text = "Bushing C1/C2";
-                tbcTest.TabPages.Add(tabBushing);
-                tabBushing.Show();
+            //if (chkBushing.Checked)
+            //{
+            //    tabBushing.Text = "Bushing C1/C2";
+            //    tbcTest.TabPages.Add(tabBushing);
+            //    tabBushing.Show();
 
-                form.Parent = tabBushing;
-                form.Show();
-            }
-            else
-            {
-                if(tbcTest.SelectedIndex != 0)
-                {
-                    tbcTest.SelectedIndex = 0;
-                }
-                tabBushing.Hide();
-                tbcTest.TabPages.Remove(tabBushing);
-                form.Dispose();
-            }
+            //    form.Parent = tabBushing;
+            //    form.Show();
+            //}
+            //else
+            //{
+            //    if(tbcTest.SelectedIndex != 0)
+            //    {
+            //        tbcTest.SelectedIndex = 0;
+            //    }
+            //    tabBushing.Hide();
+            //    tbcTest.TabPages.Remove(tabBushing);
+            //    form.Close();
+            //}
         }
 
         private void chkTTR_CheckStateChanged(object sender, EventArgs e)
         {
-            frmTTR form = new frmTTR
-            {
-                TopLevel = false
-            };
+            //frmTTR form = new frmTTR
+            //{
+            //    TopLevel = false
+            //};
 
-            if (chkTTR.Checked)
-            {
-                tabTTR.Text = "Transformer Turns Ratio";
-                tbcTest.TabPages.Add(tabTTR);
-                tabTTR.Show();
+            //if (chkTTR.Checked)
+            //{
+            //    tabTTR.Text = "Transformer Turns Ratio";
+            //    tbcTest.TabPages.Add(tabTTR);
+            //    tabTTR.Show();
 
-                form.Parent = tabTTR;
-                form.Show();
-            }
-            else
-            {
-                if (tbcTest.SelectedIndex != 0)
-                {
-                    tbcTest.SelectedIndex = 0;
-                }
-                tabTTR.Hide();
-                tbcTest.TabPages.Remove(tabTTR);
-                form.Dispose();
-            }
+            //    form.Parent = tabTTR;
+            //    form.Show();
+            //}
+            //else
+            //{
+            //    if (tbcTest.SelectedIndex != 0)
+            //    {
+            //        tbcTest.SelectedIndex = 0;
+            //    }
+            //    tabTTR.Hide();
+            //    tbcTest.TabPages.Remove(tabTTR);
+            //    form.Close();
+            //}
         }
 
         private void chkDCWR_CheckStateChanged(object sender, EventArgs e)
         {
-            frmWinding form = new frmWinding
-            {
-                TopLevel = false
-            };
+            //frmWinding form = new frmWinding
+            //{
+            //    TopLevel = false
+            //};
 
-            if (chkDCWR.Checked)
-            {
-                tabDCWR.Text = "DC Winding Resistance";
-                tbcTest.TabPages.Add(tabDCWR);
-                tabDCWR.Show();
+            //if (chkDCWR.Checked)
+            //{
+            //    tabDCWR.Text = "DC Winding Resistance";
+            //    tbcTest.TabPages.Add(tabDCWR);
+            //    tabDCWR.Show();
 
-                form.Parent = tabDCWR;
-                form.Show();
-            }
-            else
-            {
-                if (tbcTest.SelectedIndex != 0)
-                {
-                    tbcTest.SelectedIndex = 0;
-                }
-                tabDCWR.Hide();
-                tbcTest.TabPages.Remove(tabDCWR);
-                form.Dispose();
-            }
+            //    form.Parent = tabDCWR;
+            //    form.Show();
+            //}
+            //else
+            //{
+            //    if (tbcTest.SelectedIndex != 0)
+            //    {
+            //        tbcTest.SelectedIndex = 0;
+            //    }
+            //    tabDCWR.Hide();
+            //    tbcTest.TabPages.Remove(tabDCWR);
+            //    form.Close();
+            //}
         }
 
         private void chkDielectric_CheckStateChanged(object sender, EventArgs e)
         {
-            frmOilBD form = new frmOilBD
-            {
-                TopLevel = false
-            };
+            //frmOilBD form = new frmOilBD
+            //{
+            //    TopLevel = false
+            //};
 
-            if (chkDielectric.Checked)
-            {
-                tabDielectric.Text = "Oil Dielectric Strength";
-                tbcTest.TabPages.Add(tabDielectric);
-                tabDielectric.Show();
+            //if (chkDielectric.Checked)
+            //{
+            //    tabDielectric.Text = "Oil Dielectric Strength";
+            //    tbcTest.TabPages.Add(tabDielectric);
+            //    tabDielectric.Show();
 
-                form.Parent = tabDielectric;
-                form.Show();
-            }
-            else
-            {
-                if (tbcTest.SelectedIndex != 0)
-                {
-                    tbcTest.SelectedIndex = 0;
-                }
-                tabDielectric.Hide();
-                tbcTest.TabPages.Remove(tabDielectric);
-                form.Dispose();
-            }
+            //    form.Parent = tabDielectric;
+            //    form.Show();
+            //}
+            //else
+            //{
+            //    if (tbcTest.SelectedIndex != 0)
+            //    {
+            //        tbcTest.SelectedIndex = 0;
+            //    }
+            //    tabDielectric.Hide();
+            //    tbcTest.TabPages.Remove(tabDielectric);
+            //    //form.Dispose();
+            //}
         }
 
         private void chkOilPF_CheckStateChanged(object sender, EventArgs e)
         {
-            frmOilPF form = new frmOilPF
-            {
-                TopLevel = false
-            };
+            //frmOilPF form = new frmOilPF
+            //{
+            //    TopLevel = false
+            //};
 
-            if (chkOilPF.Checked)
-            {
-                tabOilPF.Text = "Oil Power Factor";
-                tbcTest.TabPages.Add(tabOilPF);
-                tabOilPF.Show();
+            //if (chkOilPF.Checked)
+            //{
+            //    tabOilPF.Text = "Oil Power Factor";
+            //    tbcTest.TabPages.Add(tabOilPF);
+            //    tabOilPF.Show();
 
-                form.Parent = tabOilPF;
-                form.Show();
-            }
-            else
-            {
-                if (tbcTest.SelectedIndex != 0)
-                {
-                    tbcTest.SelectedIndex = 0;
-                }
-                tabOilPF.Hide();
-                tbcTest.TabPages.Remove(tabOilPF);
-                form.Dispose();
-            }
+            //    form.Parent = tabOilPF;
+            //    form.Show();
+            //}
+            //else
+            //{
+            //    if (tbcTest.SelectedIndex != 0)
+            //    {
+            //        tbcTest.SelectedIndex = 0;
+            //    }
+            //    tabOilPF.Hide();
+            //    tbcTest.TabPages.Remove(tabOilPF);
+            //    //form.Dispose();
+            //}
         }
 
         private void transformerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -300,6 +300,71 @@ namespace PTAS
             this.tblSubstationTableAdapter.Fill(this.dtbPTASDataSet.tblSubstation);
             this.tblTransformerTableAdapter.Fill(this.dtbPTASDataSet.tblTransformer);
             this.tblTestTableAdapter.Fill(this.dtbPTASDataSet.tblTest);
+
+            frmExcitation excite = new frmExcitation
+            {
+                TopLevel = false
+            };
+
+            frmIPF ipf = new frmIPF
+            {
+                TopLevel = false
+            };
+
+            frmBushing bushing = new frmBushing
+            {
+                TopLevel = false
+            };
+
+            frmTTR ttr = new frmTTR
+            {
+                TopLevel = false
+            };
+
+            frmWinding winding = new frmWinding
+            {
+                TopLevel = false
+            };
+
+            frmOilBD oilbd = new frmOilBD
+            {
+                TopLevel = false
+            };
+
+            frmOilPF oilpf = new frmOilPF
+            {
+                TopLevel = false
+            };
+
+            //tabExcite.Text = "Excitation Current";
+            //tbcTest.TabPages.Add(tabExcite);
+            //tabExcite.Show();
+            //excite.Parent = tabExcite;
+            //excite.Show();
+
+            //tabIPF.Text = "Insulation Power Factor";
+            //tbcTest.TabPages.Add(tabIPF);
+
+            excite.Parent = tabExcite;
+            excite.Show();
+
+            ipf.Parent = tabIPF;
+            ipf.Show();
+
+            bushing.Parent = tabBushing;
+            bushing.Show();
+
+            ttr.Parent = tabTTR;
+            ttr.Show();
+
+            winding.Parent = tabWinding;
+            winding.Show();
+
+            oilbd.Parent = tabOilBD;
+            oilbd.Show();
+
+            oilpf.Parent = tabOilPF;
+            oilpf.Show();
         }
 
         private void cboSub_SelectedIndexChanged(object sender, EventArgs e)
@@ -321,9 +386,9 @@ namespace PTAS
             if (dr == DialogResult.Yes)
             {
                 
-                this.Validate();
-                this.tblTestBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                Validate();
+                tblTestBindingSource.EndEdit();
+                tableAdapterManager.UpdateAll(dtbPTASDataSet);
                 
                 MessageBox.Show("Record saved.");
 
@@ -331,7 +396,7 @@ namespace PTAS
             }
 
             else
-                this.Focus();
+                Focus();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -343,7 +408,7 @@ namespace PTAS
             chkDCWR.Checked = false;
             chkDielectric.Checked = false;
             chkOilPF.Checked = false;
-            this.tblTestBindingSource.AddNew();
+            tblTestBindingSource.AddNew();
             chkExcite.Checked = false;
             chkIPF.Checked = false;
             chkBushing.Checked = false;
@@ -388,18 +453,18 @@ namespace PTAS
                 con.Close();
             }
             else
-                this.Focus();
+                Focus();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            this.tblTestBindingSource.MoveNext();
+            tblTestBindingSource.MoveNext();
             OnDataChanged(testNumberTextBox.Text);
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            this.tblTestBindingSource.MovePrevious();
+            tblTestBindingSource.MovePrevious();
             OnDataChanged(testNumberTextBox.Text);
         }
 
@@ -417,12 +482,37 @@ namespace PTAS
             f.Show();
         }
 
-        private void tblTestBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void btnFirst_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.tblTestBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dtbPTASDataSet);
+            tblTestBindingSource.MoveFirst();
+            OnDataChanged(testNumberTextBox.Text);
+        }
 
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            tblTestBindingSource.MoveLast();
+            OnDataChanged(testNumberTextBox.Text);
+        }
+
+        private void viewGraphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGraph f = new frmGraph();
+
+            f.Show();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmReport f = new frmReport();
+            f.Show();
+
+            OnPassTestNumber(testNumberTextBox.Text);
+        }
+
+        private void aboutUsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 f = new AboutBox1();
+            f.Show();
         }
     }
 

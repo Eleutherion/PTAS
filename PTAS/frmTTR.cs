@@ -22,6 +22,11 @@ namespace PTAS
         private float m, n;
         private int clock;
 
+        float[] measure = new float[6];
+        float[] compute = new float[6];
+
+        float[] previous = new float[6];
+
         string constring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dtbPTAS.mdf;Integrated Security=True";
         string TestData;
 
@@ -152,8 +157,6 @@ namespace PTAS
                         break;
                 }
             }
-            textBox5.Text = m.ToString();
-            textBox6.Text = n.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -162,59 +165,64 @@ namespace PTAS
             string path = (System.IO.Path.GetDirectoryName(executable));
             AppDomain.CurrentDomain.SetData("Data Directory", path);
 
-            string query = "INSERT INTO tblTTR (TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, " +
-                "ttrAHVLV, ttrBHVLV, ttrCHVLV, ttrAHVTV, ttrBHVTV, ttrCHVTV, ttrAHVLVe, ttrBHVLVe, ttrCHVLVe, ttrAHVTVe, ttrBHVTVe, ttrCHVTVe)" +
-                "VALUES (@TestNumber, @ttrTap, @ttrHV, @ttrLV, @ttrTV, @ttrRHVLV, @ttrRHVTV, " +
-                "@ttrAHVLV, @ttrBHVLV, @ttrCHVLV, @ttrAHVTV, @ttrBHVTV, @ttrCHVTV, @ttrAHVLVe, @ttrBHVLVe, @ttrCHVLVe, @ttrAHVTVe, @ttrBHVTVe, @ttrCHVTVe)";
+            //string query = "INSERT INTO tblTTR (TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, " +
+            //    "ttrAHVLV, ttrBHVLV, ttrCHVLV, ttrAHVTV, ttrBHVTV, ttrCHVTV, ttrAHVLVe, ttrBHVLVe, ttrCHVLVe, ttrAHVTVe, ttrBHVTVe, ttrCHVTVe)" +
+            //    "VALUES (@TestNumber, @ttrTap, @ttrHV, @ttrLV, @ttrTV, @ttrRHVLV, @ttrRHVTV, " +
+            //    "@ttrAHVLV, @ttrBHVLV, @ttrCHVLV, @ttrAHVTV, @ttrBHVTV, @ttrCHVTV, @ttrAHVLVe, @ttrBHVLVe, @ttrCHVLVe, @ttrAHVTVe, @ttrBHVTVe, @ttrCHVTVe)";
 
-            DataSet ds = dtbPTASDataSet;
+            //DataSet ds = dtbPTASDataSet;
 
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                using (SqlConnection con = new SqlConnection(constring))
-                {
-                    using (SqlCommand cmd = new SqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@TestNumber", testNumberTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrTap", ttrTapTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrHV", ttrHVTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrLV", ttrLVTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrTV", ttrTVTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrAHVLV", ttrAHVLVTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrBHVLV", ttrBHVLVTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrCHVLV", ttrCHVLVTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrAHVTV", ttrAHVTVTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrBHVTV", ttrBHVTVTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrCHVTV", ttrCHVTVTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrAHVLVe", ttrAHVLVeTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrBHVLVe", ttrBHVLVeTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrCHVLVe", ttrCHVLVeTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrAHVTVe", ttrAHVTVeTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrBHVTVe", ttrBHVTVeTextBox.Text);
-                        cmd.Parameters.AddWithValue("@ttrCHVTVe", ttrCHVTVeTextBox.Text);
+                //using (SqlConnection con = new SqlConnection(constring))
+                //{
+                //    using (SqlCommand cmd = new SqlCommand(query, con))
+                //    {
+                //        cmd.Parameters.AddWithValue("@TestNumber", testNumberTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrTap", ttrTapTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrHV", ttrHVTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrLV", ttrLVTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrTV", ttrTVTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrAHVLV", ttrAHVLVTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrBHVLV", ttrBHVLVTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrCHVLV", ttrCHVLVTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrAHVTV", ttrAHVTVTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrBHVTV", ttrBHVTVTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrCHVTV", ttrCHVTVTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrAHVLVe", ttrAHVLVeTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrBHVLVe", ttrBHVLVeTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrCHVLVe", ttrCHVLVeTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrAHVTVe", ttrAHVTVeTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrBHVTVe", ttrBHVTVeTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@ttrCHVTVe", ttrCHVTVeTextBox.Text);
 
-                        con.Open();
+                //        con.Open();
 
-                        try
-                        {
-                            cmd.ExecuteNonQuery();
+                //        try
+                //        {
+                //            cmd.ExecuteNonQuery();
 
-                            MessageBox.Show("Record saved.");
+                //            MessageBox.Show("Record saved.");
 
-                            ds.Clear();
-                            tblTTRTableAdapter.Fill(dtbPTASDataSet.tblTTR);
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show(ex.ToString());
-                        }
-                        con.Close();
-                    }
-                }
+                //            ds.Clear();
+                //            tblTTRTableAdapter.Fill(dtbPTASDataSet.tblTTR);
+                //        }
+                //        catch (SqlException ex)
+                //        {
+                //            MessageBox.Show(ex.ToString());
+                //        }
+                //        con.Close();
+                //    }
+                //}
+                Validate();
+                tblTTRBindingSource.EndEdit();
+                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+
+                MessageBox.Show("Record saved.");
             }
             else
-                this.Focus();
+                Focus();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -253,141 +261,161 @@ namespace PTAS
                     con.Close();
                 }
             }
-            else
-                this.Focus();
+            else Focus();
         }
-        
-        private void ttrLVTextBox_TextChanged(object sender, EventArgs e)
+
+        private void btnCompute_Click(object sender, EventArgs e)
         {
-            float hv = float.Parse(ttrHVTextBox.Text);
-            float lv = float.Parse(ttrLVTextBox.Text);
-
-            LVRatio = (float)((hv / lv) * 1.732);
-
-            string query = "SELECT tblTest.TestNumber, tblTest.testXformer, tblTransformer.* FROM tblTest INNER JOIN tblTransformer ON tblTest.testXformer = tblTransformer.xfID WHERE tblTest.TestNumber = @testnumber";
-
-            using (SqlConnection con = new SqlConnection(constring))
+            if(!string.IsNullOrWhiteSpace(ttrHVTextBox.Text) && !string.IsNullOrWhiteSpace(ttrLVTextBox.Text))
             {
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                float hv = float.Parse(ttrHVTextBox.Text);
+                float lv = float.Parse(ttrLVTextBox.Text);
+                float.TryParse(ttrTVTextBox.Text, out float tv);
+
+                LVRatio = hv / lv;
+                if (tv != 0)
+                    TVRatio = hv / tv;
+
+                var measured = grpMeasured.Controls.
+                               OfType<TextBox>().
+                               OrderBy(v => v.TabIndex).
+                               ToArray();
+
+                var error = grpError.Controls.
+                            OfType<TextBox>().
+                            OrderBy(v => v.TabIndex).
+                            ToArray();
+
+                if (Array.TrueForAll(measured, v => string.IsNullOrWhiteSpace(v.Text)))
+                    MessageBox.Show("Please input a value in the textbox(es) in 'measured' group box.");
+                else
                 {
-                    cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-
-                    con.Open();
-
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    while (dr.Read())
+                    for(int i = 0; i < 6; i++)
                     {
-                        textBox1.Text = (dr["xfPrimW"].ToString());
-                        textBox3.Text = (dr["xfSecW"].ToString());
-                        textBox2.Text = (dr["xfAuto"].ToString());
-                        textBox4.Text = (dr["xfSecClock"].ToString());
+                        float.TryParse(measured[i].Text, out measure[i]);
+                        float ratio;
+                        if (i < 3) ratio = LVRatio;
+                        else ratio = TVRatio;
+
+                        compute[i] = Truncate(Math.Abs(((measure[i] - ratio) / ratio) * 100), 2);
+                        if (string.IsNullOrWhiteSpace(measured[i].Text))
+                            error[i].Text = compute[i].ToString();
+                    }
+                }
+                //if (Array.TrueForAll(compute, v => v <= 0.5))
+                //{
+                //    string query = "SELECT testXformer FROM tblTest WHERE TestNumber = @testnumber";
+                //    string query2 = "SELECT TOP 1 tblTest.testXformer, tblTTR.* FROM tblTTR LEFT OUTER JOIN" +
+                //        "tblTest ON tblTTR.TestNumber = tblTest.TestNumber ORDER BY tblTTR.TestNumber DESC" +
+                //        "WHERE tblTTR.TestNumber < @testnumber";
+
+                //    using (SqlConnection con = new SqlConnection(constring))
+                //    {
+                //        using (SqlCommand cmd = new SqlCommand(query, con))
+                //        {
+                //            cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+
+                //            con.Open();
+
+                //            SqlDataReader dr = cmd.ExecuteReader();
+                //            while (dr.Read())
+                //            {
+                //                xf = (dr["tblTest.testXformer"].ToString());
+                //            }
+
+                //            using (SqlCommand cmd2 = new SqlCommand(query2, con))
+                //            {
+                //                cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+
+                //                SqlDataReader dr2 = cmd2.ExecuteReader();
+                //                while (dr2.Read())
+                //                {
+                //                    float.TryParse(dr2["ttrAHVLVe"].ToString(), out previous[0]);
+                //                    float.TryParse(dr2["ttrBHVLVe"].ToString(), out previous[1]);
+                //                    float.TryParse(dr2["ttrCHVLVe"].ToString(), out previous[2]);
+                //                    float.TryParse(dr2["ttrAHVTVe"].ToString(), out previous[3]);
+                //                    float.TryParse(dr2["ttrBHVTVe"].ToString(), out previous[4]);
+                //                    float.TryParse(dr2["ttrCHVTVe"].ToString(), out previous[5]);
+                //                }
+                //            }
+                //        }
+                //        con.Close();
+                //    }
+
+                //    for (int i = 0; i < 6; i++)
+                //    {
+                //        diff[i] = Truncate(Math.Abs(((previous[i] - compute[i]) / previous[i]) * 100), 2);
+                //    }
+
+                //    if (Array.TrueForAll(diff, v => v <= 0.5)) txtAssess.Text = "PASSED";
+                //    else txtAssess.Text = "INVESTIGATE WINDING";
+                //}
+                //else txtAssess.Text = "FAILED";
+            }
+        }
+
+        private void btnAssess_Click(object sender, EventArgs e)
+        {
+            if (Array.TrueForAll(compute, v => v <= 0.5))
+            {
+                string query = "SELECT testXformer FROM tblTest WHERE TestNumber = @testnumber";
+                string query2 = "SELECT TOP 1 tblTest.testXformer, tblTTR.* FROM tblTTR LEFT OUTER JOIN" +
+                    "tblTest ON tblTTR.TestNumber = tblTest.TestNumber ORDER BY tblTTR.TestNumber DESC" +
+                    "WHERE tblTTR.TestNumber < @testnumber";
+
+                float[] diff = new float[6];
+
+                string xf;
+
+                using (SqlConnection con = new SqlConnection(constring))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+
+                        con.Open();
+
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            xf = (dr["tblTest.testXformer"].ToString());
+                        }
+
+                        using (SqlCommand cmd2 = new SqlCommand(query2, con))
+                        {
+                            cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+
+                            SqlDataReader dr2 = cmd2.ExecuteReader();
+                            while (dr2.Read())
+                            {
+                                float.TryParse(dr2["ttrAHVLVe"].ToString(), out previous[0]);
+                                float.TryParse(dr2["ttrBHVLVe"].ToString(), out previous[1]);
+                                float.TryParse(dr2["ttrCHVLVe"].ToString(), out previous[2]);
+                                float.TryParse(dr2["ttrAHVTVe"].ToString(), out previous[3]);
+                                float.TryParse(dr2["ttrBHVTVe"].ToString(), out previous[4]);
+                                float.TryParse(dr2["ttrCHVTVe"].ToString(), out previous[5]);
+                            }
+                        }
                     }
                     con.Close();
                 }
-            }
 
-            if (textBox2.Text == "a")
-                m = 1;
-            else
-            {
-                switch (textBox1.Text)
+                for (int i = 0; i < 6; i++)
                 {
-                    case "YN" when textBox3.Text == "d ":
-                        m = (float)(1 / 1.732);
-                        break;
-                    case "D " when textBox3.Text == "yn":
-                        m = (float)1.732;
-                        break;
-                    default:
-                        m = 1;
-                        break;
+                    diff[i] = Truncate(Math.Abs(((previous[i] - compute[i]) / previous[i]) * 100), 2);
                 }
+
+                if (Array.TrueForAll(diff, v => v <= 0.5)) txtAssess.Text = "PASSED";
+                else txtAssess.Text = "INVESTIGATE WINDING";
             }
-
-            textBox5.Text = m.ToString();
-
-            float truncated = (float)(Math.Truncate((double)LVRatio * 100.0) / 100.0);
-            float rounded = (float)(Math.Round((double)LVRatio, 4));
-            ttrRHVLVTextBox.Text = rounded.ToString();
+            else txtAssess.Text = "FAILED";
         }
 
-        private void ttrTVTextBox_TextChanged(object sender, EventArgs e)
+        public static float Truncate(float value, int digits)
         {
-            float hv = float.Parse(ttrHVTextBox.Text);
-            float.TryParse(ttrTVTextBox.Text, out float tv);
-
-            TVRatio = hv / tv;
-
-            float truncated = (float)(Math.Truncate((double)TVRatio * 100.0) / 100.0);
-            float rounded = (float)(Math.Round((double)TVRatio, 4));
-            ttrRHVTVTextBox.Text = rounded.ToString();
-        }
-
-        private void ttrAHVLVTextBox_TextChanged(object sender, EventArgs e)
-        {
-            float.TryParse(ttrAHVLVTextBox.Text, out float lva);
-
-            float RatioLVA = ((lva - LVRatio) / LVRatio) * 100;
-
-            float truncated = (float)(Math.Truncate((double)RatioLVA * 100.0) / 100.0);
-            float rounded = (float)(Math.Round((double)RatioLVA, 2));
-            ttrAHVLVeTextBox.Text = rounded.ToString();
-        }
-
-        private void ttrBHVLVTextBox_TextChanged(object sender, EventArgs e)
-        {
-            float.TryParse(ttrBHVLVTextBox.Text, out float lvb);
-
-            float RatioLVB = ((lvb - LVRatio) / LVRatio) * 100;
-
-            float truncated = (float)(Math.Truncate((double)RatioLVB * 100.0) / 100.0);
-            float rounded = (float)(Math.Round((double)RatioLVB, 2));
-            ttrBHVLVeTextBox.Text = rounded.ToString();
-        }
-
-        private void ttrCHVLVTextBox_TextChanged(object sender, EventArgs e)
-        {
-            float.TryParse(ttrCHVLVTextBox.Text, out float lvc);
-
-            float RatioLVC = ((lvc - LVRatio) / LVRatio) * 100;
-
-            float truncated = (float)(Math.Truncate((double)RatioLVC * 100.0) / 100.0);
-            float rounded = (float)(Math.Round((double)RatioLVC, 2));
-            ttrCHVLVeTextBox.Text = rounded.ToString();
-        }
-
-        private void ttrAHVTVTextBox_TextChanged(object sender, EventArgs e)
-        {
-            float.TryParse(ttrAHVTVTextBox.Text, out float tva);
-
-            float RatioTVA = ((tva - TVRatio) / TVRatio) * 100;
-
-            float truncated = (float)(Math.Truncate((double)RatioTVA * 100.0) / 100.0);
-            float rounded = (float)(Math.Round((double)RatioTVA, 2));
-            ttrAHVTVeTextBox.Text = rounded.ToString();
-        }
-
-        private void ttrBHVTVTextBox_TextChanged(object sender, EventArgs e)
-        {
-            float.TryParse(ttrBHVTVTextBox.Text, out float tvb);
-
-            float RatioTVB = ((tvb - TVRatio) / TVRatio) * 100;
-
-            float truncated = (float)(Math.Truncate((double)RatioTVB * 100.0) / 100.0);
-            float rounded = (float)(Math.Round((double)RatioTVB, 2));
-            ttrBHVTVeTextBox.Text = rounded.ToString();
-        }
-
-        private void ttrCHVTVTextBox_TextChanged(object sender, EventArgs e)
-        {
-            float.TryParse(ttrCHVTVTextBox.Text, out float tvc);
-
-            float RatioTVC = ((tvc - TVRatio) / TVRatio) * 100;
-
-            float truncated = (float)(Math.Truncate((double)RatioTVC * 100.0) / 100.0);
-            float rounded = (float)(Math.Round((double)RatioTVC, 2));
-            ttrCHVTVeTextBox.Text = rounded.ToString();
+            double mult = Math.Pow(10.0, digits);
+            double result = Math.Truncate(mult * value) / mult;
+            return (float)result;
         }
     }
 }

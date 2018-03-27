@@ -33,6 +33,10 @@ namespace PTAS
             string path = (System.IO.Path.GetDirectoryName(executable));
             AppDomain.CurrentDomain.SetData("Data Directory", path);
 
+            frmExcitation f = new frmExcitation();
+
+            var excite = f.Controls.OfType<TextBox>().ToArray();
+
             string query = "SELECT COUNT (*) FROM tblExcitation WHERE TestNumber = @testnumber";
 
             using (SqlConnection con = new SqlConnection(constring))
@@ -43,10 +47,10 @@ namespace PTAS
                     con.Open();
                     int record = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if(record == 1)
+                    if (record == 1)
                     {
                         string query2 = "SELECT * FROM tblExcitation WHERE TestNumber = @testnumber";
-                        using(SqlCommand cmd2 = new SqlCommand(query2, con))
+                        using (SqlCommand cmd2 = new SqlCommand(query2, con))
                         {
                             cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
                             SqlDataReader dr = cmd2.ExecuteReader();
@@ -58,10 +62,11 @@ namespace PTAS
                                 excHVATextBox.Text = (dr["excHVA"].ToString());
                                 excHVBTextBox.Text = (dr["excHVB"].ToString());
                                 excHVCTextBox.Text = (dr["excHVC"].ToString());
+                                txtDeviation.Text = (dr["excDeviation"].ToString());
+                                txtAssess.Text = (dr["excAssess"].ToString());
                             }
                         }
                     }
-                    con.Close();
                 }
             }
         }
@@ -79,38 +84,44 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                string query = "INSERT INTO tblExcitation (TestNumber, excHVA, excHVB, excHVC, TestVoltage) VALUES " +
-                    "(@testnumber, @hva, @hvb, @hvc, @testvoltage)";
-                DataSet ds = dtbPTASDataSet;
-                using (SqlConnection con = new SqlConnection(constring))
-                {
-                    using(SqlCommand cmd = new SqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-                        cmd.Parameters.AddWithValue("@hva", excHVATextBox.Text);
-                        cmd.Parameters.AddWithValue("@hvb", excHVBTextBox.Text);
-                        cmd.Parameters.AddWithValue("@hvc", excHVCTextBox.Text);
-                        cmd.Parameters.AddWithValue("@testvoltage", testVoltageTextBox.Text);
+                //string query = "INSERT INTO tblExcitation (TestNumber, excHVA, excHVB, excHVC, TestVoltage) VALUES " +
+                //    "(@testnumber, @hva, @hvb, @hvc, @testvoltage)";
+                //DataSet ds = dtbPTASDataSet;
+                //using (SqlConnection con = new SqlConnection(constring))
+                //{
+                //    using(SqlCommand cmd = new SqlCommand(query, con))
+                //    {
+                //        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@hva", excHVATextBox.Text);
+                //        cmd.Parameters.AddWithValue("@hvb", excHVBTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@hvc", excHVCTextBox.Text);
+                //        cmd.Parameters.AddWithValue("@testvoltage", testVoltageTextBox.Text);
 
-                        con.Open();
+                //        con.Open();
 
-                        try
-                        {
-                            cmd.ExecuteNonQuery();
+                //        try
+                //        {
+                //            cmd.ExecuteNonQuery();
 
-                            MessageBox.Show("Record saved.");
+                //            MessageBox.Show("Record saved.");
 
-                            ds.Clear();
-                            this.tblExcitationTableAdapter.Fill(dtbPTASDataSet.tblExcitation);
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show(ex.ToString());
-                        }
-                        con.Close();
-                    }
-                }
+                //            ds.Clear();
+                //            tblExcitationTableAdapter.Fill(dtbPTASDataSet.tblExcitation);
+                //        }
+                //        catch (SqlException ex)
+                //        {
+                //            MessageBox.Show(ex.ToString());
+                //        }
+                //        con.Close();
+                //    }
+                //}
+                Validate();
+                tblExcitationBindingSource.EndEdit();
+                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+
+                MessageBox.Show("Record saved.");
             }
+            else Focus();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -166,13 +177,7 @@ namespace PTAS
                             OrderByDescending(v => v.Text).
                             ToArray();
 
-            for (int i = 0; i < 3; i++)
-            {
-                exc[i] = float.Parse(textboxes[i].Text);
-            }
-
-            float difference = Math.Abs(exc[0] - exc[1]);
-            float result = (difference / exc[1]) * 100;
+            float.TryParse(txtDeviation.Text, out float result);
 
             if(exc[0] <= 50 && exc[1] <= 50)
             {
@@ -197,6 +202,32 @@ namespace PTAS
                     txtAssess.Text = "FAILED";
                 }
             }
+        }
+
+        private void btnCompute_Click(object sender, EventArgs e)
+        {
+            float[] exc = new float[3];
+            var textboxes = groupBox1.Controls.
+                            OfType<TextBox>().
+                            OrderByDescending(v => v.Text).
+                            ToArray();
+
+            for (int i = 0; i < 3; i++)
+            {
+                exc[i] = float.Parse(textboxes[i].Text);
+            }
+
+            float difference = Math.Abs(exc[0] - exc[1]);
+            float result = Truncate((difference / exc[1]) * 100, 2);
+
+            txtDeviation.Text = result.ToString();
+        }
+
+        public static float Truncate(float value, int digits)
+        {
+            double mult = Math.Pow(10.0, digits);
+            double result = Math.Truncate(mult * value) / mult;
+            return (float)result;
         }
     }
 }

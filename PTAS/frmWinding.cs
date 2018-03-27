@@ -168,5 +168,59 @@ namespace PTAS
             else
                 Focus();
         }
+
+        private void btnAssess_Click(object sender, EventArgs e)
+        {
+            float highave, lowave, tertave;
+            float[] high = new float[3];
+            float[] low = new float[3];
+            float[] tert = new float[3];
+
+            float[] highdiff = new float[3];
+            float[] lowdiff = new float[3];
+            float[] tertdiff = new float[3];
+
+            var hv = grpHV.Controls.OfType<TextBox>().ToArray();
+            var lv = grpLV.Controls.OfType<TextBox>().ToArray();
+            var tv = grpTV.Controls.OfType<TextBox>().ToArray();
+
+            for(int i = 0; i < 3; i++)
+            {
+                float.TryParse(hv[i].Text, out high[i]);
+                float.TryParse(lv[i].Text, out low[i]);
+                float.TryParse(tv[i].Text, out tert[i]);
+            }
+
+            float sumhigh = 0; float sumlow = 0; float sumtert = 0;
+            for(int i =0; i < 3; i++)
+            {
+                sumhigh += high[i];
+                sumlow += low[i];
+                sumtert += tert[i];
+            }
+
+            highave = sumhigh / hv.Length;
+            lowave = sumlow / lv.Length;
+            tertave = sumtert / tv.Length;
+
+            for(int i = 0; i < 3; i++)
+            {
+                highdiff[i] = ((high[i] - highave) / highave) * 100;
+                lowdiff[i] = ((low[i] - lowave) / lowave) * 100;
+                tertdiff[i] = ((tert[i] - tertave) / tertave) * 100;
+            }
+
+            if (Array.TrueForAll(highdiff, v => v <= 2)) txtAssessHigh.Text = "PASSED";
+            else txtAssessHigh.Text = "FAILED";
+
+            if (Array.TrueForAll(lowdiff, v => v <= 2)) txtAssessLow.Text = "PASSED";
+            else txtAssessLow.Text = "FAILED";
+
+            if (!string.IsNullOrEmpty(tv[0].Text))
+            {
+                if (Array.TrueForAll(tertdiff, v => v <= 2)) txtAssessTert.Text = "PASSED";
+                else txtAssessTert.Text = "FAILED";
+            }
+        }
     }
 }

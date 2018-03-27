@@ -90,6 +90,7 @@
             // 
             // txtAssessOLTC
             // 
+            this.txtAssessOLTC.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblOilPFBindingSource, "pfOLTCAssess", true));
             this.txtAssessOLTC.Location = new System.Drawing.Point(323, 122);
             this.txtAssessOLTC.Name = "txtAssessOLTC";
             this.txtAssessOLTC.ReadOnly = true;
@@ -98,6 +99,7 @@
             // 
             // txtAssessMain
             // 
+            this.txtAssessMain.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblOilPFBindingSource, "pfMainAssess", true));
             this.txtAssessMain.Location = new System.Drawing.Point(323, 96);
             this.txtAssessMain.Name = "txtAssessMain";
             this.txtAssessMain.ReadOnly = true;
@@ -165,8 +167,12 @@
             this.tableAdapterManager.tblExcitationTableAdapter = null;
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = this.tblOilPFTableAdapter;
+            this.tableAdapterManager.tblParamListTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
+            this.tableAdapterManager.tblStandardsTableAdapter = null;
+            this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
+            this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
             this.tableAdapterManager.tblTTRTableAdapter = null;

@@ -38,6 +38,7 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transformerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.substationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,12 +58,13 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.tbcTest = new System.Windows.Forms.TabControl();
-            this.tabDGV = new System.Windows.Forms.TabPage();
-            this.tblTestDataGridView = new System.Windows.Forms.DataGridView();
+            this.tblTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtbPTASDataSet = new PTAS.dtbPTASDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.cboSub = new System.Windows.Forms.ComboBox();
+            this.tblSubstationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cboXf = new System.Windows.Forms.ComboBox();
+            this.tblTransformerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testNumberTextBox = new System.Windows.Forms.TextBox();
             this.testDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.testEngrTextBox = new System.Windows.Forms.TextBox();
@@ -79,40 +81,27 @@
             this.chkDCWR = new System.Windows.Forms.CheckBox();
             this.chkDielectric = new System.Windows.Forms.CheckBox();
             this.chkOilPF = new System.Windows.Forms.CheckBox();
-            this.tblTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dtbPTASDataSet = new PTAS.dtbPTASDataSet();
-            this.testNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testEngrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testWeatherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testAmbientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testOilDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testPrimWTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testSecWTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testTertWTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testXformerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testSubDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testExciteDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.testIPFDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.testBushingDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.testTTRDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.testDCWRDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.testOilBDDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.testOilPFDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tblTestTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTestTableAdapter();
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
-            this.tblTransformerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblTransformerTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTransformerTableAdapter();
-            this.tblSubstationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblSubstationTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblSubstationTableAdapter();
+            this.tbcTest = new System.Windows.Forms.TabControl();
+            this.tabExcite = new System.Windows.Forms.TabPage();
+            this.tabIPF = new System.Windows.Forms.TabPage();
+            this.tabBushing = new System.Windows.Forms.TabPage();
+            this.tabTTR = new System.Windows.Forms.TabPage();
+            this.tabWinding = new System.Windows.Forms.TabPage();
+            this.tabOilBD = new System.Windows.Forms.TabPage();
+            this.tabOilPF = new System.Windows.Forms.TabPage();
+            this.btnLast = new System.Windows.Forms.Button();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            this.tbcTest.SuspendLayout();
-            this.tabDGV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTestDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblTestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).BeginInit();
+            this.tbcTest.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -123,7 +112,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -161,7 +150,8 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem});
+            this.addToolStripMenuItem,
+            this.viewGraphToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -189,6 +179,13 @@
             this.substationToolStripMenuItem.Text = "Substation";
             this.substationToolStripMenuItem.Click += new System.EventHandler(this.substationToolStripMenuItem_Click);
             // 
+            // viewGraphToolStripMenuItem
+            // 
+            this.viewGraphToolStripMenuItem.Name = "viewGraphToolStripMenuItem";
+            this.viewGraphToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.viewGraphToolStripMenuItem.Text = "View Graph";
+            this.viewGraphToolStripMenuItem.Click += new System.EventHandler(this.viewGraphToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -201,14 +198,16 @@
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.manualToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             // 
             // aboutUsToolStripMenuItem
             // 
             this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutUsToolStripMenuItem.Text = "About us";
+            this.aboutUsToolStripMenuItem.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -294,7 +293,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(22, 457);
+            this.label11.Location = new System.Drawing.Point(22, 505);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(113, 13);
             this.label11.TabIndex = 23;
@@ -359,56 +358,15 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // tbcTest
+            // tblTestBindingSource
             // 
-            this.tbcTest.Controls.Add(this.tabDGV);
-            this.tbcTest.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tbcTest.Location = new System.Drawing.Point(996, 24);
-            this.tbcTest.Name = "tbcTest";
-            this.tbcTest.SelectedIndex = 0;
-            this.tbcTest.Size = new System.Drawing.Size(928, 730);
-            this.tbcTest.TabIndex = 93;
+            this.tblTestBindingSource.DataMember = "tblTest";
+            this.tblTestBindingSource.DataSource = this.dtbPTASDataSet;
             // 
-            // tabDGV
+            // dtbPTASDataSet
             // 
-            this.tabDGV.Controls.Add(this.tblTestDataGridView);
-            this.tabDGV.Location = new System.Drawing.Point(4, 22);
-            this.tabDGV.Name = "tabDGV";
-            this.tabDGV.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDGV.Size = new System.Drawing.Size(920, 704);
-            this.tabDGV.TabIndex = 0;
-            this.tabDGV.Text = "Data Grid View";
-            this.tabDGV.UseVisualStyleBackColor = true;
-            // 
-            // tblTestDataGridView
-            // 
-            this.tblTestDataGridView.AutoGenerateColumns = false;
-            this.tblTestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblTestDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.testNumberDataGridViewTextBoxColumn,
-            this.testDateDataGridViewTextBoxColumn,
-            this.testEngrDataGridViewTextBoxColumn,
-            this.testWeatherDataGridViewTextBoxColumn,
-            this.testAmbientDataGridViewTextBoxColumn,
-            this.testOilDataGridViewTextBoxColumn,
-            this.testPrimWTDataGridViewTextBoxColumn,
-            this.testSecWTDataGridViewTextBoxColumn,
-            this.testTertWTDataGridViewTextBoxColumn,
-            this.testXformerDataGridViewTextBoxColumn,
-            this.testSubDataGridViewTextBoxColumn,
-            this.testExciteDataGridViewCheckBoxColumn,
-            this.testIPFDataGridViewCheckBoxColumn,
-            this.testBushingDataGridViewCheckBoxColumn,
-            this.testTTRDataGridViewCheckBoxColumn,
-            this.testDCWRDataGridViewCheckBoxColumn,
-            this.testOilBDDataGridViewCheckBoxColumn,
-            this.testOilPFDataGridViewCheckBoxColumn});
-            this.tblTestDataGridView.DataSource = this.tblTestBindingSource;
-            this.tblTestDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblTestDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.tblTestDataGridView.Name = "tblTestDataGridView";
-            this.tblTestDataGridView.Size = new System.Drawing.Size(914, 698);
-            this.tblTestDataGridView.TabIndex = 0;
+            this.dtbPTASDataSet.DataSetName = "dtbPTASDataSet";
+            this.dtbPTASDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label3
             // 
@@ -430,6 +388,11 @@
             this.cboSub.TabIndex = 56;
             this.cboSub.SelectedIndexChanged += new System.EventHandler(this.cboSub_SelectedIndexChanged);
             // 
+            // tblSubstationBindingSource
+            // 
+            this.tblSubstationBindingSource.DataMember = "tblSubstation";
+            this.tblSubstationBindingSource.DataSource = this.dtbPTASDataSet;
+            // 
             // cboXf
             // 
             this.cboXf.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tblTestBindingSource, "testXformer", true));
@@ -439,6 +402,11 @@
             this.cboXf.Name = "cboXf";
             this.cboXf.Size = new System.Drawing.Size(99, 21);
             this.cboXf.TabIndex = 57;
+            // 
+            // tblTransformerBindingSource
+            // 
+            this.tblTransformerBindingSource.DataMember = "tblTransformer";
+            this.tblTransformerBindingSource.DataSource = this.dtbPTASDataSet;
             // 
             // testNumberTextBox
             // 
@@ -515,197 +483,72 @@
             // chkExcite
             // 
             this.chkExcite.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testExcite", true));
-            this.chkExcite.Location = new System.Drawing.Point(42, 483);
+            this.chkExcite.Location = new System.Drawing.Point(42, 531);
             this.chkExcite.Name = "chkExcite";
             this.chkExcite.Size = new System.Drawing.Size(200, 24);
             this.chkExcite.TabIndex = 153;
             this.chkExcite.Text = "Excitation Current";
             this.chkExcite.UseVisualStyleBackColor = true;
-            this.chkExcite.CheckStateChanged += new System.EventHandler(this.chkExcite_CheckStateChanged);
             // 
             // chkIPF
             // 
             this.chkIPF.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testIPF", true));
-            this.chkIPF.Location = new System.Drawing.Point(42, 513);
+            this.chkIPF.Location = new System.Drawing.Point(42, 561);
             this.chkIPF.Name = "chkIPF";
             this.chkIPF.Size = new System.Drawing.Size(200, 24);
             this.chkIPF.TabIndex = 155;
             this.chkIPF.Text = "Overall Insulation Power Factor";
             this.chkIPF.UseVisualStyleBackColor = true;
-            this.chkIPF.CheckStateChanged += new System.EventHandler(this.chkIPF_CheckStateChanged);
             // 
             // chkBushing
             // 
             this.chkBushing.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testBushing", true));
-            this.chkBushing.Location = new System.Drawing.Point(42, 543);
+            this.chkBushing.Location = new System.Drawing.Point(42, 591);
             this.chkBushing.Name = "chkBushing";
             this.chkBushing.Size = new System.Drawing.Size(200, 24);
             this.chkBushing.TabIndex = 157;
             this.chkBushing.Text = "Bushing C1/C2 Capacitance";
             this.chkBushing.UseVisualStyleBackColor = true;
-            this.chkBushing.CheckStateChanged += new System.EventHandler(this.chkBushing_CheckStateChanged);
             // 
             // chkTTR
             // 
             this.chkTTR.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testTTR", true));
-            this.chkTTR.Location = new System.Drawing.Point(42, 573);
+            this.chkTTR.Location = new System.Drawing.Point(42, 621);
             this.chkTTR.Name = "chkTTR";
             this.chkTTR.Size = new System.Drawing.Size(200, 24);
             this.chkTTR.TabIndex = 159;
             this.chkTTR.Text = "Transformer Turns Ratio";
             this.chkTTR.UseVisualStyleBackColor = true;
-            this.chkTTR.CheckStateChanged += new System.EventHandler(this.chkTTR_CheckStateChanged);
             // 
             // chkDCWR
             // 
             this.chkDCWR.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testDCWR", true));
-            this.chkDCWR.Location = new System.Drawing.Point(42, 603);
+            this.chkDCWR.Location = new System.Drawing.Point(42, 651);
             this.chkDCWR.Name = "chkDCWR";
             this.chkDCWR.Size = new System.Drawing.Size(200, 24);
             this.chkDCWR.TabIndex = 161;
             this.chkDCWR.Text = "DC Winding Resistance";
             this.chkDCWR.UseVisualStyleBackColor = true;
-            this.chkDCWR.CheckStateChanged += new System.EventHandler(this.chkDCWR_CheckStateChanged);
             // 
             // chkDielectric
             // 
             this.chkDielectric.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testOilBD", true));
-            this.chkDielectric.Location = new System.Drawing.Point(42, 633);
+            this.chkDielectric.Location = new System.Drawing.Point(42, 681);
             this.chkDielectric.Name = "chkDielectric";
             this.chkDielectric.Size = new System.Drawing.Size(200, 24);
             this.chkDielectric.TabIndex = 163;
             this.chkDielectric.Text = "Oil Dielectric Breakdown Strength";
             this.chkDielectric.UseVisualStyleBackColor = true;
-            this.chkDielectric.CheckStateChanged += new System.EventHandler(this.chkDielectric_CheckStateChanged);
             // 
             // chkOilPF
             // 
             this.chkOilPF.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testOilPF", true));
-            this.chkOilPF.Location = new System.Drawing.Point(42, 663);
+            this.chkOilPF.Location = new System.Drawing.Point(42, 711);
             this.chkOilPF.Name = "chkOilPF";
             this.chkOilPF.Size = new System.Drawing.Size(200, 24);
             this.chkOilPF.TabIndex = 165;
             this.chkOilPF.Text = "Oil Power Factor";
             this.chkOilPF.UseVisualStyleBackColor = true;
-            this.chkOilPF.CheckStateChanged += new System.EventHandler(this.chkOilPF_CheckStateChanged);
-            // 
-            // tblTestBindingSource
-            // 
-            this.tblTestBindingSource.DataMember = "tblTest";
-            this.tblTestBindingSource.DataSource = this.dtbPTASDataSet;
-            // 
-            // dtbPTASDataSet
-            // 
-            this.dtbPTASDataSet.DataSetName = "dtbPTASDataSet";
-            this.dtbPTASDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // testNumberDataGridViewTextBoxColumn
-            // 
-            this.testNumberDataGridViewTextBoxColumn.DataPropertyName = "TestNumber";
-            this.testNumberDataGridViewTextBoxColumn.HeaderText = "TestNumber";
-            this.testNumberDataGridViewTextBoxColumn.Name = "testNumberDataGridViewTextBoxColumn";
-            // 
-            // testDateDataGridViewTextBoxColumn
-            // 
-            this.testDateDataGridViewTextBoxColumn.DataPropertyName = "testDate";
-            this.testDateDataGridViewTextBoxColumn.HeaderText = "testDate";
-            this.testDateDataGridViewTextBoxColumn.Name = "testDateDataGridViewTextBoxColumn";
-            // 
-            // testEngrDataGridViewTextBoxColumn
-            // 
-            this.testEngrDataGridViewTextBoxColumn.DataPropertyName = "testEngr";
-            this.testEngrDataGridViewTextBoxColumn.HeaderText = "testEngr";
-            this.testEngrDataGridViewTextBoxColumn.Name = "testEngrDataGridViewTextBoxColumn";
-            // 
-            // testWeatherDataGridViewTextBoxColumn
-            // 
-            this.testWeatherDataGridViewTextBoxColumn.DataPropertyName = "testWeather";
-            this.testWeatherDataGridViewTextBoxColumn.HeaderText = "testWeather";
-            this.testWeatherDataGridViewTextBoxColumn.Name = "testWeatherDataGridViewTextBoxColumn";
-            // 
-            // testAmbientDataGridViewTextBoxColumn
-            // 
-            this.testAmbientDataGridViewTextBoxColumn.DataPropertyName = "testAmbient";
-            this.testAmbientDataGridViewTextBoxColumn.HeaderText = "testAmbient";
-            this.testAmbientDataGridViewTextBoxColumn.Name = "testAmbientDataGridViewTextBoxColumn";
-            // 
-            // testOilDataGridViewTextBoxColumn
-            // 
-            this.testOilDataGridViewTextBoxColumn.DataPropertyName = "testOil";
-            this.testOilDataGridViewTextBoxColumn.HeaderText = "testOil";
-            this.testOilDataGridViewTextBoxColumn.Name = "testOilDataGridViewTextBoxColumn";
-            // 
-            // testPrimWTDataGridViewTextBoxColumn
-            // 
-            this.testPrimWTDataGridViewTextBoxColumn.DataPropertyName = "testPrimWT";
-            this.testPrimWTDataGridViewTextBoxColumn.HeaderText = "testPrimWT";
-            this.testPrimWTDataGridViewTextBoxColumn.Name = "testPrimWTDataGridViewTextBoxColumn";
-            // 
-            // testSecWTDataGridViewTextBoxColumn
-            // 
-            this.testSecWTDataGridViewTextBoxColumn.DataPropertyName = "testSecWT";
-            this.testSecWTDataGridViewTextBoxColumn.HeaderText = "testSecWT";
-            this.testSecWTDataGridViewTextBoxColumn.Name = "testSecWTDataGridViewTextBoxColumn";
-            // 
-            // testTertWTDataGridViewTextBoxColumn
-            // 
-            this.testTertWTDataGridViewTextBoxColumn.DataPropertyName = "testTertWT";
-            this.testTertWTDataGridViewTextBoxColumn.HeaderText = "testTertWT";
-            this.testTertWTDataGridViewTextBoxColumn.Name = "testTertWTDataGridViewTextBoxColumn";
-            // 
-            // testXformerDataGridViewTextBoxColumn
-            // 
-            this.testXformerDataGridViewTextBoxColumn.DataPropertyName = "testXformer";
-            this.testXformerDataGridViewTextBoxColumn.HeaderText = "testXformer";
-            this.testXformerDataGridViewTextBoxColumn.Name = "testXformerDataGridViewTextBoxColumn";
-            // 
-            // testSubDataGridViewTextBoxColumn
-            // 
-            this.testSubDataGridViewTextBoxColumn.DataPropertyName = "testSub";
-            this.testSubDataGridViewTextBoxColumn.HeaderText = "testSub";
-            this.testSubDataGridViewTextBoxColumn.Name = "testSubDataGridViewTextBoxColumn";
-            // 
-            // testExciteDataGridViewCheckBoxColumn
-            // 
-            this.testExciteDataGridViewCheckBoxColumn.DataPropertyName = "testExcite";
-            this.testExciteDataGridViewCheckBoxColumn.HeaderText = "testExcite";
-            this.testExciteDataGridViewCheckBoxColumn.Name = "testExciteDataGridViewCheckBoxColumn";
-            // 
-            // testIPFDataGridViewCheckBoxColumn
-            // 
-            this.testIPFDataGridViewCheckBoxColumn.DataPropertyName = "testIPF";
-            this.testIPFDataGridViewCheckBoxColumn.HeaderText = "testIPF";
-            this.testIPFDataGridViewCheckBoxColumn.Name = "testIPFDataGridViewCheckBoxColumn";
-            // 
-            // testBushingDataGridViewCheckBoxColumn
-            // 
-            this.testBushingDataGridViewCheckBoxColumn.DataPropertyName = "testBushing";
-            this.testBushingDataGridViewCheckBoxColumn.HeaderText = "testBushing";
-            this.testBushingDataGridViewCheckBoxColumn.Name = "testBushingDataGridViewCheckBoxColumn";
-            // 
-            // testTTRDataGridViewCheckBoxColumn
-            // 
-            this.testTTRDataGridViewCheckBoxColumn.DataPropertyName = "testTTR";
-            this.testTTRDataGridViewCheckBoxColumn.HeaderText = "testTTR";
-            this.testTTRDataGridViewCheckBoxColumn.Name = "testTTRDataGridViewCheckBoxColumn";
-            // 
-            // testDCWRDataGridViewCheckBoxColumn
-            // 
-            this.testDCWRDataGridViewCheckBoxColumn.DataPropertyName = "testDCWR";
-            this.testDCWRDataGridViewCheckBoxColumn.HeaderText = "testDCWR";
-            this.testDCWRDataGridViewCheckBoxColumn.Name = "testDCWRDataGridViewCheckBoxColumn";
-            // 
-            // testOilBDDataGridViewCheckBoxColumn
-            // 
-            this.testOilBDDataGridViewCheckBoxColumn.DataPropertyName = "testOilBD";
-            this.testOilBDDataGridViewCheckBoxColumn.HeaderText = "testOilBD";
-            this.testOilBDDataGridViewCheckBoxColumn.Name = "testOilBDDataGridViewCheckBoxColumn";
-            // 
-            // testOilPFDataGridViewCheckBoxColumn
-            // 
-            this.testOilPFDataGridViewCheckBoxColumn.DataPropertyName = "testOilPF";
-            this.testOilPFDataGridViewCheckBoxColumn.HeaderText = "testOilPF";
-            this.testOilPFDataGridViewCheckBoxColumn.Name = "testOilPFDataGridViewCheckBoxColumn";
             // 
             // tblTestTableAdapter
             // 
@@ -719,40 +562,145 @@
             this.tableAdapterManager.tblExcitationTableAdapter = null;
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
+            this.tableAdapterManager.tblParamListTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
             this.tableAdapterManager.tblStandardsTableAdapter = null;
             this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
+            this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = this.tblTestTableAdapter;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
             this.tableAdapterManager.tblTTRTableAdapter = null;
             this.tableAdapterManager.tblWindingTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tblTransformerBindingSource
-            // 
-            this.tblTransformerBindingSource.DataMember = "tblTransformer";
-            this.tblTransformerBindingSource.DataSource = this.dtbPTASDataSet;
-            // 
             // tblTransformerTableAdapter
             // 
             this.tblTransformerTableAdapter.ClearBeforeFill = true;
             // 
-            // tblSubstationBindingSource
-            // 
-            this.tblSubstationBindingSource.DataMember = "tblSubstation";
-            this.tblSubstationBindingSource.DataSource = this.dtbPTASDataSet;
-            // 
             // tblSubstationTableAdapter
             // 
             this.tblSubstationTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbcTest
+            // 
+            this.tbcTest.Controls.Add(this.tabExcite);
+            this.tbcTest.Controls.Add(this.tabIPF);
+            this.tbcTest.Controls.Add(this.tabBushing);
+            this.tbcTest.Controls.Add(this.tabTTR);
+            this.tbcTest.Controls.Add(this.tabWinding);
+            this.tbcTest.Controls.Add(this.tabOilBD);
+            this.tbcTest.Controls.Add(this.tabOilPF);
+            this.tbcTest.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tbcTest.Location = new System.Drawing.Point(442, 24);
+            this.tbcTest.Name = "tbcTest";
+            this.tbcTest.SelectedIndex = 0;
+            this.tbcTest.Size = new System.Drawing.Size(928, 725);
+            this.tbcTest.TabIndex = 93;
+            // 
+            // tabExcite
+            // 
+            this.tabExcite.Location = new System.Drawing.Point(4, 22);
+            this.tabExcite.Name = "tabExcite";
+            this.tabExcite.Padding = new System.Windows.Forms.Padding(3);
+            this.tabExcite.Size = new System.Drawing.Size(920, 699);
+            this.tabExcite.TabIndex = 0;
+            this.tabExcite.Text = "Excitation Current";
+            this.tabExcite.UseVisualStyleBackColor = true;
+            // 
+            // tabIPF
+            // 
+            this.tabIPF.Location = new System.Drawing.Point(4, 22);
+            this.tabIPF.Name = "tabIPF";
+            this.tabIPF.Size = new System.Drawing.Size(920, 699);
+            this.tabIPF.TabIndex = 1;
+            this.tabIPF.Text = "Insulation Power Factor";
+            this.tabIPF.UseVisualStyleBackColor = true;
+            // 
+            // tabBushing
+            // 
+            this.tabBushing.Location = new System.Drawing.Point(4, 22);
+            this.tabBushing.Name = "tabBushing";
+            this.tabBushing.Size = new System.Drawing.Size(920, 699);
+            this.tabBushing.TabIndex = 2;
+            this.tabBushing.Text = "Bushing C1/C2 Capacitance";
+            this.tabBushing.UseVisualStyleBackColor = true;
+            // 
+            // tabTTR
+            // 
+            this.tabTTR.Location = new System.Drawing.Point(4, 22);
+            this.tabTTR.Name = "tabTTR";
+            this.tabTTR.Size = new System.Drawing.Size(920, 699);
+            this.tabTTR.TabIndex = 3;
+            this.tabTTR.Text = "Transformer Turns Ratio";
+            this.tabTTR.UseVisualStyleBackColor = true;
+            // 
+            // tabWinding
+            // 
+            this.tabWinding.Location = new System.Drawing.Point(4, 22);
+            this.tabWinding.Name = "tabWinding";
+            this.tabWinding.Size = new System.Drawing.Size(920, 699);
+            this.tabWinding.TabIndex = 4;
+            this.tabWinding.Text = "DC Winding Resistance";
+            this.tabWinding.UseVisualStyleBackColor = true;
+            // 
+            // tabOilBD
+            // 
+            this.tabOilBD.Location = new System.Drawing.Point(4, 22);
+            this.tabOilBD.Name = "tabOilBD";
+            this.tabOilBD.Size = new System.Drawing.Size(920, 699);
+            this.tabOilBD.TabIndex = 5;
+            this.tabOilBD.Text = "Oil Dielectric Breakdown Strength";
+            this.tabOilBD.UseVisualStyleBackColor = true;
+            // 
+            // tabOilPF
+            // 
+            this.tabOilPF.Location = new System.Drawing.Point(4, 22);
+            this.tabOilPF.Name = "tabOilPF";
+            this.tabOilPF.Size = new System.Drawing.Size(920, 699);
+            this.tabOilPF.TabIndex = 6;
+            this.tabOilPF.Text = "Oil Power Factor";
+            this.tabOilPF.UseVisualStyleBackColor = true;
+            // 
+            // btnLast
+            // 
+            this.btnLast.Location = new System.Drawing.Point(235, 446);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(79, 31);
+            this.btnLast.TabIndex = 167;
+            this.btnLast.Text = "Last";
+            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(25, 446);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(79, 31);
+            this.btnFirst.TabIndex = 166;
+            this.btnFirst.Text = "First";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(130, 409);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(79, 31);
+            this.btnReport.TabIndex = 168;
+            this.btnReport.Text = "Report";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1924, 754);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.btnReport);
+            this.Controls.Add(this.btnLast);
+            this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.testNumberTextBox);
             this.Controls.Add(this.testDateDateTimePicker);
             this.Controls.Add(this.testEngrTextBox);
@@ -797,13 +745,11 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tbcTest.ResumeLayout(false);
-            this.tabDGV.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tblTestDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblTestBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).EndInit();
+            this.tbcTest.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -837,13 +783,10 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.TabControl tbcTest;
-        private System.Windows.Forms.TabPage tabDGV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboSub;
         private System.Windows.Forms.ComboBox cboXf;
         private System.Windows.Forms.ToolStripMenuItem registerAccountToolStripMenuItem;
-        private System.Windows.Forms.DataGridView tblTestDataGridView;
         private dtbPTASDataSet dtbPTASDataSet;
         private System.Windows.Forms.BindingSource tblTestBindingSource;
         private dtbPTASDataSetTableAdapters.tblTestTableAdapter tblTestTableAdapter;
@@ -864,27 +807,21 @@
         private System.Windows.Forms.CheckBox chkDCWR;
         private System.Windows.Forms.CheckBox chkDielectric;
         private System.Windows.Forms.CheckBox chkOilPF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testEngrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testWeatherDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testAmbientDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testOilDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testPrimWTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testSecWTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testTertWTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testXformerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testSubDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn testExciteDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn testIPFDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn testBushingDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn testTTRDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn testDCWRDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn testOilBDDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn testOilPFDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource tblTransformerBindingSource;
         private dtbPTASDataSetTableAdapters.tblTransformerTableAdapter tblTransformerTableAdapter;
         private System.Windows.Forms.BindingSource tblSubstationBindingSource;
         private dtbPTASDataSetTableAdapters.tblSubstationTableAdapter tblSubstationTableAdapter;
+        private System.Windows.Forms.TabControl tbcTest;
+        private System.Windows.Forms.TabPage tabExcite;
+        private System.Windows.Forms.TabPage tabIPF;
+        private System.Windows.Forms.TabPage tabBushing;
+        private System.Windows.Forms.TabPage tabTTR;
+        private System.Windows.Forms.TabPage tabWinding;
+        private System.Windows.Forms.TabPage tabOilBD;
+        private System.Windows.Forms.TabPage tabOilPF;
+        private System.Windows.Forms.ToolStripMenuItem viewGraphToolStripMenuItem;
+        private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Button btnReport;
     }
 }

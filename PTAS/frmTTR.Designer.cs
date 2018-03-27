@@ -45,7 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ttrTVTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpMeasured = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.ttrAHVTVTextBox = new System.Windows.Forms.TextBox();
             this.ttrBHVLVTextBox = new System.Windows.Forms.TextBox();
             this.ttrCHVLVTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grpError = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -80,18 +80,13 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.btnCompute = new System.Windows.Forms.Button();
             testNumberLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblTTRBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.grpMeasured.SuspendLayout();
+            this.grpError.SuspendLayout();
             this.SuspendLayout();
             // 
             // testNumberLabel
@@ -211,7 +206,6 @@
             this.ttrLVTextBox.Name = "ttrLVTextBox";
             this.ttrLVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrLVTextBox.TabIndex = 57;
-            this.ttrLVTextBox.TextChanged += new System.EventHandler(this.ttrLVTextBox_TextChanged);
             // 
             // label1
             // 
@@ -238,28 +232,27 @@
             this.ttrTVTextBox.Name = "ttrTVTextBox";
             this.ttrTVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrTVTextBox.TabIndex = 59;
-            this.ttrTVTextBox.TextChanged += new System.EventHandler(this.ttrTVTextBox_TextChanged);
             // 
-            // groupBox2
+            // grpMeasured
             // 
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.ttrAHVLVTextBox);
-            this.groupBox2.Controls.Add(this.ttrCHVTVTextBox);
-            this.groupBox2.Controls.Add(this.ttrBHVTVTextBox);
-            this.groupBox2.Controls.Add(this.ttrAHVTVTextBox);
-            this.groupBox2.Controls.Add(this.ttrBHVLVTextBox);
-            this.groupBox2.Controls.Add(this.ttrCHVLVTextBox);
-            this.groupBox2.Location = new System.Drawing.Point(104, 230);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(242, 241);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Ratio Measured";
+            this.grpMeasured.Controls.Add(this.label9);
+            this.grpMeasured.Controls.Add(this.label11);
+            this.grpMeasured.Controls.Add(this.label5);
+            this.grpMeasured.Controls.Add(this.label6);
+            this.grpMeasured.Controls.Add(this.label8);
+            this.grpMeasured.Controls.Add(this.label7);
+            this.grpMeasured.Controls.Add(this.ttrAHVLVTextBox);
+            this.grpMeasured.Controls.Add(this.ttrCHVTVTextBox);
+            this.grpMeasured.Controls.Add(this.ttrBHVTVTextBox);
+            this.grpMeasured.Controls.Add(this.ttrAHVTVTextBox);
+            this.grpMeasured.Controls.Add(this.ttrBHVLVTextBox);
+            this.grpMeasured.Controls.Add(this.ttrCHVLVTextBox);
+            this.grpMeasured.Location = new System.Drawing.Point(104, 230);
+            this.grpMeasured.Name = "grpMeasured";
+            this.grpMeasured.Size = new System.Drawing.Size(242, 241);
+            this.grpMeasured.TabIndex = 1;
+            this.grpMeasured.TabStop = false;
+            this.grpMeasured.Text = "Ratio Measured";
             // 
             // label9
             // 
@@ -321,8 +314,7 @@
             this.ttrAHVLVTextBox.Location = new System.Drawing.Point(144, 46);
             this.ttrAHVLVTextBox.Name = "ttrAHVLVTextBox";
             this.ttrAHVLVTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrAHVLVTextBox.TabIndex = 65;
-            this.ttrAHVLVTextBox.TextChanged += new System.EventHandler(this.ttrAHVLVTextBox_TextChanged);
+            this.ttrAHVLVTextBox.TabIndex = 0;
             // 
             // ttrCHVTVTextBox
             // 
@@ -330,8 +322,7 @@
             this.ttrCHVTVTextBox.Location = new System.Drawing.Point(144, 176);
             this.ttrCHVTVTextBox.Name = "ttrCHVTVTextBox";
             this.ttrCHVTVTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrCHVTVTextBox.TabIndex = 75;
-            this.ttrCHVTVTextBox.TextChanged += new System.EventHandler(this.ttrCHVTVTextBox_TextChanged);
+            this.ttrCHVTVTextBox.TabIndex = 5;
             // 
             // ttrBHVTVTextBox
             // 
@@ -339,8 +330,7 @@
             this.ttrBHVTVTextBox.Location = new System.Drawing.Point(144, 150);
             this.ttrBHVTVTextBox.Name = "ttrBHVTVTextBox";
             this.ttrBHVTVTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrBHVTVTextBox.TabIndex = 73;
-            this.ttrBHVTVTextBox.TextChanged += new System.EventHandler(this.ttrBHVTVTextBox_TextChanged);
+            this.ttrBHVTVTextBox.TabIndex = 4;
             // 
             // ttrAHVTVTextBox
             // 
@@ -348,8 +338,7 @@
             this.ttrAHVTVTextBox.Location = new System.Drawing.Point(144, 124);
             this.ttrAHVTVTextBox.Name = "ttrAHVTVTextBox";
             this.ttrAHVTVTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrAHVTVTextBox.TabIndex = 71;
-            this.ttrAHVTVTextBox.TextChanged += new System.EventHandler(this.ttrAHVTVTextBox_TextChanged);
+            this.ttrAHVTVTextBox.TabIndex = 3;
             // 
             // ttrBHVLVTextBox
             // 
@@ -357,8 +346,7 @@
             this.ttrBHVLVTextBox.Location = new System.Drawing.Point(144, 72);
             this.ttrBHVLVTextBox.Name = "ttrBHVLVTextBox";
             this.ttrBHVLVTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrBHVLVTextBox.TabIndex = 67;
-            this.ttrBHVLVTextBox.TextChanged += new System.EventHandler(this.ttrBHVLVTextBox_TextChanged);
+            this.ttrBHVLVTextBox.TabIndex = 1;
             // 
             // ttrCHVLVTextBox
             // 
@@ -366,29 +354,28 @@
             this.ttrCHVLVTextBox.Location = new System.Drawing.Point(144, 98);
             this.ttrCHVLVTextBox.Name = "ttrCHVLVTextBox";
             this.ttrCHVLVTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrCHVLVTextBox.TabIndex = 69;
-            this.ttrCHVLVTextBox.TextChanged += new System.EventHandler(this.ttrCHVLVTextBox_TextChanged);
+            this.ttrCHVLVTextBox.TabIndex = 2;
             // 
-            // groupBox3
+            // grpError
             // 
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.label24);
-            this.groupBox3.Controls.Add(this.label25);
-            this.groupBox3.Controls.Add(this.ttrAHVLVeTextBox);
-            this.groupBox3.Controls.Add(this.ttrCHVTVeTextBox);
-            this.groupBox3.Controls.Add(this.ttrBHVTVeTextBox);
-            this.groupBox3.Controls.Add(this.ttrAHVTVeTextBox);
-            this.groupBox3.Controls.Add(this.ttrCHVLVeTextBox);
-            this.groupBox3.Controls.Add(this.ttrBHVLVeTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(375, 230);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(242, 241);
-            this.groupBox3.TabIndex = 46;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "% Error Computed";
+            this.grpError.Controls.Add(this.label20);
+            this.grpError.Controls.Add(this.label21);
+            this.grpError.Controls.Add(this.label22);
+            this.grpError.Controls.Add(this.label23);
+            this.grpError.Controls.Add(this.label24);
+            this.grpError.Controls.Add(this.label25);
+            this.grpError.Controls.Add(this.ttrAHVLVeTextBox);
+            this.grpError.Controls.Add(this.ttrCHVTVeTextBox);
+            this.grpError.Controls.Add(this.ttrBHVTVeTextBox);
+            this.grpError.Controls.Add(this.ttrAHVTVeTextBox);
+            this.grpError.Controls.Add(this.ttrCHVLVeTextBox);
+            this.grpError.Controls.Add(this.ttrBHVLVeTextBox);
+            this.grpError.Location = new System.Drawing.Point(375, 230);
+            this.grpError.Name = "grpError";
+            this.grpError.Size = new System.Drawing.Size(242, 241);
+            this.grpError.TabIndex = 46;
+            this.grpError.TabStop = false;
+            this.grpError.Text = "% Error Computed";
             // 
             // label20
             // 
@@ -451,7 +438,7 @@
             this.ttrAHVLVeTextBox.Name = "ttrAHVLVeTextBox";
             this.ttrAHVLVeTextBox.ReadOnly = true;
             this.ttrAHVLVeTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrAHVLVeTextBox.TabIndex = 77;
+            this.ttrAHVLVeTextBox.TabIndex = 0;
             // 
             // ttrCHVTVeTextBox
             // 
@@ -460,7 +447,7 @@
             this.ttrCHVTVeTextBox.Name = "ttrCHVTVeTextBox";
             this.ttrCHVTVeTextBox.ReadOnly = true;
             this.ttrCHVTVeTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrCHVTVeTextBox.TabIndex = 87;
+            this.ttrCHVTVeTextBox.TabIndex = 5;
             // 
             // ttrBHVTVeTextBox
             // 
@@ -469,7 +456,7 @@
             this.ttrBHVTVeTextBox.Name = "ttrBHVTVeTextBox";
             this.ttrBHVTVeTextBox.ReadOnly = true;
             this.ttrBHVTVeTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrBHVTVeTextBox.TabIndex = 85;
+            this.ttrBHVTVeTextBox.TabIndex = 4;
             // 
             // ttrAHVTVeTextBox
             // 
@@ -478,7 +465,7 @@
             this.ttrAHVTVeTextBox.Name = "ttrAHVTVeTextBox";
             this.ttrAHVTVeTextBox.ReadOnly = true;
             this.ttrAHVTVeTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrAHVTVeTextBox.TabIndex = 83;
+            this.ttrAHVTVeTextBox.TabIndex = 3;
             // 
             // ttrCHVLVeTextBox
             // 
@@ -487,7 +474,7 @@
             this.ttrCHVLVeTextBox.Name = "ttrCHVLVeTextBox";
             this.ttrCHVLVeTextBox.ReadOnly = true;
             this.ttrCHVLVeTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrCHVLVeTextBox.TabIndex = 81;
+            this.ttrCHVLVeTextBox.TabIndex = 2;
             // 
             // ttrBHVLVeTextBox
             // 
@@ -496,10 +483,11 @@
             this.ttrBHVLVeTextBox.Name = "ttrBHVLVeTextBox";
             this.ttrBHVLVeTextBox.ReadOnly = true;
             this.ttrBHVLVeTextBox.Size = new System.Drawing.Size(68, 20);
-            this.ttrBHVLVeTextBox.TabIndex = 79;
+            this.ttrBHVLVeTextBox.TabIndex = 1;
             // 
             // txtAssess
             // 
+            this.txtAssess.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrAssess", true));
             this.txtAssess.Location = new System.Drawing.Point(449, 487);
             this.txtAssess.Name = "txtAssess";
             this.txtAssess.ReadOnly = true;
@@ -523,6 +511,7 @@
             this.btnAssess.TabIndex = 49;
             this.btnAssess.Text = "Assess";
             this.btnAssess.UseVisualStyleBackColor = true;
+            this.btnAssess.Click += new System.EventHandler(this.btnAssess_Click);
             // 
             // tblTTRTableAdapter
             // 
@@ -536,8 +525,12 @@
             this.tableAdapterManager.tblExcitationTableAdapter = null;
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
+            this.tableAdapterManager.tblParamListTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
+            this.tableAdapterManager.tblStandardsTableAdapter = null;
+            this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
+            this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
             this.tableAdapterManager.tblTTRTableAdapter = this.tblTTRTableAdapter;
@@ -582,63 +575,22 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // textBox1
+            // btnCompute
             // 
-            this.textBox1.Location = new System.Drawing.Point(263, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(49, 20);
-            this.textBox1.TabIndex = 55;
-            this.textBox1.Visible = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(318, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(49, 20);
-            this.textBox2.TabIndex = 56;
-            this.textBox2.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(373, 30);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(49, 20);
-            this.textBox3.TabIndex = 57;
-            this.textBox3.Visible = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(428, 30);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(49, 20);
-            this.textBox4.TabIndex = 58;
-            this.textBox4.Visible = false;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(483, 30);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(49, 20);
-            this.textBox5.TabIndex = 59;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(538, 30);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(49, 20);
-            this.textBox6.TabIndex = 60;
+            this.btnCompute.Location = new System.Drawing.Point(300, 511);
+            this.btnCompute.Name = "btnCompute";
+            this.btnCompute.Size = new System.Drawing.Size(67, 32);
+            this.btnCompute.TabIndex = 55;
+            this.btnCompute.Text = "Compute";
+            this.btnCompute.UseVisualStyleBackColor = true;
+            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
             // 
             // frmTTR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 589);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnCompute);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
@@ -647,8 +599,8 @@
             this.Controls.Add(this.txtAssess);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.btnAssess);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grpError);
+            this.Controls.Add(this.grpMeasured);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTTR";
@@ -659,10 +611,10 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblTTRBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpMeasured.ResumeLayout(false);
+            this.grpMeasured.PerformLayout();
+            this.grpError.ResumeLayout(false);
+            this.grpError.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -677,14 +629,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpMeasured;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grpError;
         private System.Windows.Forms.TextBox txtAssess;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnAssess;
@@ -720,11 +672,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button btnCompute;
     }
 }

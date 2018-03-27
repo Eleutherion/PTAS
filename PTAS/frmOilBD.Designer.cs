@@ -232,6 +232,7 @@
             // 
             // txtMainAssess
             // 
+            this.txtMainAssess.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "mainAssess", true));
             this.txtMainAssess.Location = new System.Drawing.Point(143, 300);
             this.txtMainAssess.Name = "txtMainAssess";
             this.txtMainAssess.ReadOnly = true;
@@ -371,6 +372,7 @@
             // 
             // txtOLTCAssess
             // 
+            this.txtOLTCAssess.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "oltcAssess", true));
             this.txtOLTCAssess.Location = new System.Drawing.Point(405, 300);
             this.txtOLTCAssess.Name = "txtOLTCAssess";
             this.txtOLTCAssess.ReadOnly = true;
@@ -456,10 +458,12 @@
             this.tableAdapterManager.tblExcitationTableAdapter = null;
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
+            this.tableAdapterManager.tblParamListTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
             this.tableAdapterManager.tblStandardsTableAdapter = null;
             this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = null;
+            this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
             this.tableAdapterManager.tblTTRTableAdapter = null;
