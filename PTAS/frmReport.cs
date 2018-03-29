@@ -117,6 +117,8 @@ namespace PTAS
             CrystalReport11.SetDataSource(ds);
             crystalReportViewer1.ReportSource = CrystalReport11;
             crystalReportViewer1.Refresh();
+
+            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
         }
 
         string TestData;

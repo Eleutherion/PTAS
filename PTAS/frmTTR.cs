@@ -37,7 +37,11 @@ namespace PTAS
             frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
         }
 
-        private void FrmMain_OnPassTestNumber(string TestNumber) => TestData = TestNumber;
+        private void FrmMain_OnPassTestNumber(string TestNumber)
+        {
+            TestData = TestNumber;
+            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
+        }
 
         private void FrmMain_OnDataChanged(string TestNumber)
         {
@@ -90,6 +94,7 @@ namespace PTAS
                     con.Close();
                 }
             }
+            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
         }
 
         private void frmTTR_Load(object sender, EventArgs e)
@@ -164,57 +169,10 @@ namespace PTAS
             string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string path = (System.IO.Path.GetDirectoryName(executable));
             AppDomain.CurrentDomain.SetData("Data Directory", path);
-
-            //string query = "INSERT INTO tblTTR (TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, " +
-            //    "ttrAHVLV, ttrBHVLV, ttrCHVLV, ttrAHVTV, ttrBHVTV, ttrCHVTV, ttrAHVLVe, ttrBHVLVe, ttrCHVLVe, ttrAHVTVe, ttrBHVTVe, ttrCHVTVe)" +
-            //    "VALUES (@TestNumber, @ttrTap, @ttrHV, @ttrLV, @ttrTV, @ttrRHVLV, @ttrRHVTV, " +
-            //    "@ttrAHVLV, @ttrBHVLV, @ttrCHVLV, @ttrAHVTV, @ttrBHVTV, @ttrCHVTV, @ttrAHVLVe, @ttrBHVLVe, @ttrCHVLVe, @ttrAHVTVe, @ttrBHVTVe, @ttrCHVTVe)";
-
-            //DataSet ds = dtbPTASDataSet;
-
+            
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                //using (SqlConnection con = new SqlConnection(constring))
-                //{
-                //    using (SqlCommand cmd = new SqlCommand(query, con))
-                //    {
-                //        cmd.Parameters.AddWithValue("@TestNumber", testNumberTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrTap", ttrTapTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrHV", ttrHVTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrLV", ttrLVTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrTV", ttrTVTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrAHVLV", ttrAHVLVTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrBHVLV", ttrBHVLVTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrCHVLV", ttrCHVLVTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrAHVTV", ttrAHVTVTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrBHVTV", ttrBHVTVTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrCHVTV", ttrCHVTVTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrAHVLVe", ttrAHVLVeTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrBHVLVe", ttrBHVLVeTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrCHVLVe", ttrCHVLVeTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrAHVTVe", ttrAHVTVeTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrBHVTVe", ttrBHVTVeTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ttrCHVTVe", ttrCHVTVeTextBox.Text);
-
-                //        con.Open();
-
-                //        try
-                //        {
-                //            cmd.ExecuteNonQuery();
-
-                //            MessageBox.Show("Record saved.");
-
-                //            ds.Clear();
-                //            tblTTRTableAdapter.Fill(dtbPTASDataSet.tblTTR);
-                //        }
-                //        catch (SqlException ex)
-                //        {
-                //            MessageBox.Show(ex.ToString());
-                //        }
-                //        con.Close();
-                //    }
-                //}
                 Validate();
                 tblTTRBindingSource.EndEdit();
                 tableAdapterManager.UpdateAll(dtbPTASDataSet);

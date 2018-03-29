@@ -60,7 +60,7 @@ namespace PTAS
 
                             frmMain form = new frmMain();
                             form.Show();
-                            this.Hide();
+                            Hide();
                         }
                     }
                 }

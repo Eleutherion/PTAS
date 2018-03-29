@@ -27,6 +27,7 @@ namespace PTAS
         private void FrmMain_OnPassTestNumber(string TestNumber)
         {
             TestData = TestNumber;
+            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
         }
 
         private void FrmMain_OnDataChanged(string TestNumber)
@@ -84,6 +85,7 @@ namespace PTAS
                     //con.Close();
                 }
             }
+            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
         }
 
         private void frmOilBD_Load(object sender, EventArgs e)
@@ -103,54 +105,10 @@ namespace PTAS
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = (System.IO.Path.GetDirectoryName(executable));
-            AppDomain.CurrentDomain.SetData("Data Directory", path);
-
-            //string query = "INSERT INTO tblDielectric (TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve) " +
-            //    "VALUES (@testnumber, @main1, @main2, @main3, @main4, @main5, @mainAve, @oltc1, @oltc2, @oltc3, @oltc4, @oltc5, @oltcAve)";
-
-            //DataSet ds = dtbPTASDataSet;
-
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                //using (SqlConnection con = new SqlConnection(constring))
-                //{
-                //    using (SqlCommand cmd = new SqlCommand(query, con))
-                //    {
-                //        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@main1", main1TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@main2", main2TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@main3", main3TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@main4", main4TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@main5", main5TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@mainAve", mainAveTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@oltc1", oltc1TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@oltc2", oltc2TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@oltc3", oltc3TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@oltc4", oltc4TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@oltc5", oltc5TextBox.Text);
-                //        cmd.Parameters.AddWithValue("@oltcAve", oltcAveTextBox.Text);
-
-                //        con.Open();
-
-                //        try
-                //        {
-                //            cmd.ExecuteNonQuery();
-
-                //            MessageBox.Show("Record saved.");
-
-                //            ds.Clear();
-                //            tblDielectricTableAdapter.Fill(dtbPTASDataSet.tblDielectric);
-                //        }
-                //        catch (SqlException ex)
-                //        {
-                //            MessageBox.Show(ex.ToString());
-                //        }
-                //        con.Close();
-                //    }
-                //}
+                
                 Validate();
                 tblDielectricBindingSource.EndEdit();
                 tableAdapterManager.UpdateAll(dtbPTASDataSet);
@@ -208,7 +166,6 @@ namespace PTAS
             string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string path = (System.IO.Path.GetDirectoryName(executable));
             AppDomain.CurrentDomain.SetData("Data Directory", path);
-
             
             float kv;
             string query = "SELECT tblTransformer.xfID, tblTransformer.xfPrimVolt FROM tblDielectric LEFT OUTER JOIN tblTest ON tblDielectric.TestNumber = tblTest.TestNumber " +

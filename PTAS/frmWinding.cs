@@ -22,7 +22,11 @@ namespace PTAS
             frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
         }
 
-        private void FrmMain_OnPassTestNumber(string TestNumber) => TestData = TestNumber;
+        private void FrmMain_OnPassTestNumber(string TestNumber)
+        {
+            TestData = TestNumber;
+            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
+        }
 
         private void FrmMain_OnDataChanged(string TestNumber)
         {
@@ -65,6 +69,7 @@ namespace PTAS
                     con.Close();
                 }
             }
+            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
         }
 
         private void frmWinding_Load(object sender, EventArgs e)

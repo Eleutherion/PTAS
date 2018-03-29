@@ -25,6 +25,7 @@ namespace PTAS
         private void FrmMain_OnPassTestNumber(string TestNumber)
         {
             TestData = TestNumber;
+            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
         }
 
         private void FrmMain_OnDataChanged(string TestNumber)
@@ -61,6 +62,7 @@ namespace PTAS
                     con.Close();
                 }
             }
+            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
         }
 
         private void frmOilPF_Load(object sender, EventArgs e)
@@ -76,43 +78,12 @@ namespace PTAS
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            //string path = (System.IO.Path.GetDirectoryName(executable));
-            //AppDomain.CurrentDomain.SetData("Data Directory", path);
-
-            //string query = "INSERT INTO tblOilPF (TestNumber, pfMain, pfOLTC) VALUES (@testnumber, @pfmain, @pfoltc)";
-
-            //DataSet ds = dtbPTASDataSet;
-
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                //using (SqlConnection con = new SqlConnection(constring))
-                //{
-                //    using (SqlCommand cmd = new SqlCommand(query, con))
-                //    {
-                //        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@pfmain", pfMainTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@pfoltc", pfOLTCTextBox.Text);
-
-                //        con.Open();
-
-                //        try
-                //        {
-                //            cmd.ExecuteNonQuery();
-
-                //            MessageBox.Show("Record saved.");
-
-                //            ds.Clear();
-                //            tblOilPFTableAdapter.Fill(dtbPTASDataSet.tblOilPF);
-                //        }
-                //        catch (SqlException ex)
-                //        {
-                //            MessageBox.Show(ex.ToString());
-                //        }
-                //        con.Close();
-                //    }
-                //}
+                Validate();
+                tblOilPFBindingSource.EndEdit();
+                tableAdapterManager.UpdateAll(dtbPTASDataSet);
             }
             else
                 this.Focus();

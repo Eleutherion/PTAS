@@ -101,50 +101,57 @@ namespace PTAS
             string path = (System.IO.Path.GetDirectoryName(executable));
             AppDomain.CurrentDomain.SetData("Data Directory", path);
 
-            string test = cboTest.SelectedValue.ToString();
-            string parameter = cboParam.SelectedValue.ToString();
-
-            string scalar = "SELECT COUNT (*) FROM "+test+" LEFT OUTER JOIN tblTest ON "+test+".TestNumber = tblTest.TestNumber " +
-                "WHERE tblTest.testXformer = @xf";
-
-            string values = "SELECT " + test + "." + parameter + " AS "+parameter+", tblTest.testXformer, tblTest.testDate AS Date FROM " + test + " LEFT OUTER JOIN " +
-                "tblTest ON " + test + ".TestNumber = tblTest.TestNumber WHERE tblTest.testXformer = @xf";
-
-            int count = 0;
-
-            List<float> trend = new List<float>();
-            List<DateTime> datetime = new List<DateTime>();
-            using (SqlConnection con = new SqlConnection(constring))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand(scalar, con))
+                string test = cboTest.SelectedValue.ToString();
+                string parameter = cboParam.SelectedValue.ToString();
+
+                string scalar = "SELECT COUNT (*) FROM " + test + " LEFT OUTER JOIN tblTest ON " + test + ".TestNumber = tblTest.TestNumber " +
+                    "WHERE tblTest.testXformer = @xf";
+
+                string values = "SELECT " + test + "." + parameter + " AS " + parameter + ", tblTest.testXformer, tblTest.testDate AS Date FROM " + test + " LEFT OUTER JOIN " +
+                    "tblTest ON " + test + ".TestNumber = tblTest.TestNumber WHERE tblTest.testXformer = @xf";
+
+                int count = 0;
+
+                List<float> trend = new List<float>();
+                List<DateTime> datetime = new List<DateTime>();
+                using (SqlConnection con = new SqlConnection(constring))
                 {
-                    cmd.Parameters.AddWithValue("@xf", cboXf.Text.ToString());
-
-                    con.Open();
-
-                    count = Convert.ToInt32(cmd.ExecuteScalar());
-                }
-                using (SqlCommand cmd2 = new SqlCommand(values, con))
-                {
-                    cmd2.Parameters.AddWithValue("@xf", cboXf.Text.ToString());
-
-                    SqlDataAdapter da = new SqlDataAdapter(cmd2);
-                    DataTable dt = new DataTable();
-                    DataSet ds = new DataSet();
-                    da.Fill(ds, "parameters");
-
-                    foreach (DataRow row in ds.Tables["parameters"].Rows)
+                    using (SqlCommand cmd = new SqlCommand(scalar, con))
                     {
-                        trend.Add(row[parameter].Equals(DBNull.Value) ? 0 : float.Parse(row[parameter].ToString()));
-                        datetime.Add(Convert.ToDateTime(row["Date"].ToString()));
-                    }
-                }
-                con.Close();
-            }
+                        cmd.Parameters.AddWithValue("@xf", cboXf.Text.ToString());
 
-            for (int i = 0; i < count; i++)
+                        con.Open();
+
+                        count = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                    using (SqlCommand cmd2 = new SqlCommand(values, con))
+                    {
+                        cmd2.Parameters.AddWithValue("@xf", cboXf.Text.ToString());
+
+                        SqlDataAdapter da = new SqlDataAdapter(cmd2);
+                        DataTable dt = new DataTable();
+                        DataSet ds = new DataSet();
+                        da.Fill(ds, "parameters");
+
+                        foreach (DataRow row in ds.Tables["parameters"].Rows)
+                        {
+                            trend.Add(row[parameter].Equals(DBNull.Value) ? 0 : float.Parse(row[parameter].ToString()));
+                            datetime.Add(Convert.ToDateTime(row["Date"].ToString()));
+                        }
+                    }
+                    con.Close();
+                }
+
+                for (int i = 0; i < count; i++)
+                {
+                    chtTrend.Series["Series1"].Points.AddXY(datetime[i], trend[i]);
+                }
+            }
+            catch(NullReferenceException)
             {
-                chtTrend.Series["Series1"].Points.AddXY(datetime[i],trend[i]);
+                MessageBox.Show("Please select parameters.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

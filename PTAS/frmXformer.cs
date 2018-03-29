@@ -45,12 +45,10 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                //this.Validate();
-                //this.tblTransformerBindingSource.EndEdit();
-                //this.tableAdapterManager.UpdateAll(dtbPTASDataSet);
-
-
-
+                this.Validate();
+                this.tblTransformerBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                
                 MessageBox.Show("Record saved.");
             }
             else
@@ -78,6 +76,13 @@ namespace PTAS
         private void btnNext_Click(object sender, EventArgs e)
         {
             this.tblTransformerBindingSource.MoveNext();
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            frmMain f = new frmMain();
+            f.Show();
+            this.Dispose();
         }
     }
 }

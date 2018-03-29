@@ -42,6 +42,7 @@
             this.subIDTextBox = new System.Windows.Forms.TextBox();
             this.subNameTextBox = new System.Windows.Forms.TextBox();
             this.subAddressTextBox = new System.Windows.Forms.TextBox();
+            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
             this.SuspendLayout();
@@ -125,8 +126,12 @@
             this.tableAdapterManager.tblExcitationTableAdapter = null;
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
+            this.tableAdapterManager.tblParamListTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
+            this.tableAdapterManager.tblStandardsTableAdapter = null;
+            this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = this.tblSubstationTableAdapter;
+            this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
             this.tableAdapterManager.tblTransformerTableAdapter = null;
             this.tableAdapterManager.tblTTRTableAdapter = null;
@@ -157,11 +162,22 @@
             this.subAddressTextBox.Size = new System.Drawing.Size(119, 20);
             this.subAddressTextBox.TabIndex = 41;
             // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(334, 184);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(110, 33);
+            this.btnReturn.TabIndex = 42;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // frmSubstation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 234);
+            this.ClientSize = new System.Drawing.Size(506, 253);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.subIDTextBox);
             this.Controls.Add(this.subNameTextBox);
             this.Controls.Add(this.subAddressTextBox);
@@ -197,5 +213,6 @@
         private System.Windows.Forms.TextBox subIDTextBox;
         private System.Windows.Forms.TextBox subNameTextBox;
         private System.Windows.Forms.TextBox subAddressTextBox;
+        private System.Windows.Forms.Button btnReturn;
     }
 }

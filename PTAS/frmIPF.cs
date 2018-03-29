@@ -27,6 +27,7 @@ namespace PTAS
         private void FrmMain_OnPassTestNumber(string TestNumber)
         {
             TestData = TestNumber;
+            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
         }
 
         private void FrmMain_OnDataChanged(string TestNumber)
@@ -120,7 +121,7 @@ namespace PTAS
                     con.Close();
                 }
             }
-
+            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
         }
 
         private void frmIPF_Load(object sender, EventArgs e)
@@ -135,64 +136,9 @@ namespace PTAS
             AppDomain.CurrentDomain.SetData("Data Directory", path);
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
 
-            //string query = "INSERT INTO tblIPF (TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCHLUlv, ipfMCHLlv, ipfCf, " +
-            //    "ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCLCHL, ipfCCL, ipfCCHLUlv, ipfCCHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, ipfACLCHL, ipfACL, ipfACHLUlv, ipfACHLlv, TestVoltage)" +
-            //    "VALUES (@testnumber, @mchchl, @mch, @mchlu, @mchl, @mclchl, @mcl, @mchlulv, @mchllv, @cf, @cchchl, @cch, @cchlu, @cchl, @cclchl, @ccl, @cchlulv, @cchllv, " +
-            //    "@achchl, @ach, @achlu, @achl, @aclchl, @acl, @achlulv, @achllv, @testvoltage)";
-
-            //DataSet ds = dtbPTASDataSet;
-
             if (dr == DialogResult.Yes)
             {
-                //using (SqlConnection con = new SqlConnection(constring))
-                //{
-                //    using (SqlCommand cmd = new SqlCommand(query, con))
-                //    {
-                //        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@mchchl", ipfMCHCHLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@mch", ipfMCHTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@mchlu", ipfMCHLUTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@mclchl", ipfMCLCHLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@mcl", ipfMCLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@mchlulv", ipfMCHLUlvTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@mchllv", ipfMCHLlvTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@cf", ipfCFTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@cchchl", ipfCCHCHLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@cch", ipfCCHTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@cchlu", ipfCCHLUTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@cchl", ipfCCHLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@cclchl", ipfCCLCHLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ccl", ipfCCLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@cchlulv", ipfCCHLUlvTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@cchllv", ipfCCHLlvTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@achchl", ipfACHCHLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@ach", ipfACHTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@achlu", ipfACHLUTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@achl", ipfACHLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@aclchl", ipfACLCHLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@acl", ipfACLTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@achlulv", ipfACHLUlvTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@achllv", ipfACHLlvTextBox.Text);
-                //        cmd.Parameters.AddWithValue("@testvoltage", testVoltageTextBox.Text);
-
-                //        con.Open();
-
-                //        try
-                //        {
-                //            cmd.ExecuteNonQuery();
-
-                //            MessageBox.Show("Record saved.");
-
-                //            ds.Clear();
-                //            tblIPFTableAdapter.Fill(dtbPTASDataSet.tblIPF);
-                //        }
-                //        catch (SqlException ex)
-                //        {
-                //            MessageBox.Show(ex.ToString());
-                //        }
-                //        con.Close();
-                //    }
-                //}
+                
                 Validate();
                 tblIPFBindingSource.EndEdit();
                 tableAdapterManager.UpdateAll(dtbPTASDataSet);

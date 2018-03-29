@@ -60,5 +60,12 @@ namespace PTAS
             else
                 this.Focus();
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            frmMain f = new frmMain();
+            f.Show();
+            this.Dispose();
+        }
     }
 }

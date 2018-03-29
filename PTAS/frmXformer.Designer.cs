@@ -52,6 +52,8 @@
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
+            this.tblSubstationTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblSubstationTableAdapter();
+            this.tblTestTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTestTableAdapter();
             this.xfIDTextBox = new System.Windows.Forms.TextBox();
             this.xfMakeTextBox = new System.Windows.Forms.TextBox();
             this.xfSerialTextBox = new System.Windows.Forms.TextBox();
@@ -70,7 +72,7 @@
             this.xfImpedanceBTextBox = new System.Windows.Forms.TextBox();
             this.xfImpedanceCTextBox = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tblTestTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTestTableAdapter();
+            this.tblSubstationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblTransformerDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,8 +92,7 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tblSubstationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblSubstationTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblSubstationTableAdapter();
+            this.btnReturn = new System.Windows.Forms.Button();
             xfIDLabel = new System.Windows.Forms.Label();
             xfSubIDLabel = new System.Windows.Forms.Label();
             xfMakeLabel = new System.Windows.Forms.Label();
@@ -108,9 +109,135 @@
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // xfIDLabel
+            // 
+            xfIDLabel.AutoSize = true;
+            xfIDLabel.Location = new System.Drawing.Point(67, 61);
+            xfIDLabel.Name = "xfIDLabel";
+            xfIDLabel.Size = new System.Drawing.Size(77, 13);
+            xfIDLabel.TabIndex = 38;
+            xfIDLabel.Text = "Transformer ID";
+            // 
+            // xfSubIDLabel
+            // 
+            xfSubIDLabel.AutoSize = true;
+            xfSubIDLabel.Location = new System.Drawing.Point(67, 87);
+            xfSubIDLabel.Name = "xfSubIDLabel";
+            xfSubIDLabel.Size = new System.Drawing.Size(57, 13);
+            xfSubIDLabel.TabIndex = 40;
+            xfSubIDLabel.Text = "Substation";
+            // 
+            // xfMakeLabel
+            // 
+            xfMakeLabel.AutoSize = true;
+            xfMakeLabel.Location = new System.Drawing.Point(67, 113);
+            xfMakeLabel.Name = "xfMakeLabel";
+            xfMakeLabel.Size = new System.Drawing.Size(34, 13);
+            xfMakeLabel.TabIndex = 42;
+            xfMakeLabel.Text = "Make";
+            // 
+            // xfSerialLabel
+            // 
+            xfSerialLabel.AutoSize = true;
+            xfSerialLabel.Location = new System.Drawing.Point(67, 139);
+            xfSerialLabel.Name = "xfSerialLabel";
+            xfSerialLabel.Size = new System.Drawing.Size(73, 13);
+            xfSerialLabel.TabIndex = 44;
+            xfSerialLabel.Text = "Serial Number";
+            // 
+            // xfClassLabel
+            // 
+            xfClassLabel.AutoSize = true;
+            xfClassLabel.Location = new System.Drawing.Point(67, 165);
+            xfClassLabel.Name = "xfClassLabel";
+            xfClassLabel.Size = new System.Drawing.Size(32, 13);
+            xfClassLabel.TabIndex = 46;
+            xfClassLabel.Text = "Class";
+            // 
+            // xfCapLabel
+            // 
+            xfCapLabel.AutoSize = true;
+            xfCapLabel.Location = new System.Drawing.Point(67, 191);
+            xfCapLabel.Name = "xfCapLabel";
+            xfCapLabel.Size = new System.Drawing.Size(91, 13);
+            xfCapLabel.TabIndex = 48;
+            xfCapLabel.Text = "Capacity (in MVA)";
+            // 
+            // xfDateLabel
+            // 
+            xfDateLabel.AutoSize = true;
+            xfDateLabel.Location = new System.Drawing.Point(67, 243);
+            xfDateLabel.Name = "xfDateLabel";
+            xfDateLabel.Size = new System.Drawing.Size(99, 13);
+            xfDateLabel.TabIndex = 50;
+            xfDateLabel.Text = "Date Manufactured";
+            // 
+            // xfPrimVoltLabel
+            // 
+            xfPrimVoltLabel.AutoSize = true;
+            xfPrimVoltLabel.Location = new System.Drawing.Point(90, 295);
+            xfPrimVoltLabel.Name = "xfPrimVoltLabel";
+            xfPrimVoltLabel.Size = new System.Drawing.Size(41, 13);
+            xfPrimVoltLabel.TabIndex = 52;
+            xfPrimVoltLabel.Text = "Primary";
+            // 
+            // xfSecVoltLabel
+            // 
+            xfSecVoltLabel.AutoSize = true;
+            xfSecVoltLabel.Location = new System.Drawing.Point(90, 321);
+            xfSecVoltLabel.Name = "xfSecVoltLabel";
+            xfSecVoltLabel.Size = new System.Drawing.Size(58, 13);
+            xfSecVoltLabel.TabIndex = 54;
+            xfSecVoltLabel.Text = "Secondary";
+            // 
+            // xfTertVoltLabel
+            // 
+            xfTertVoltLabel.AutoSize = true;
+            xfTertVoltLabel.Location = new System.Drawing.Point(90, 347);
+            xfTertVoltLabel.Name = "xfTertVoltLabel";
+            xfTertVoltLabel.Size = new System.Drawing.Size(42, 13);
+            xfTertVoltLabel.TabIndex = 56;
+            xfTertVoltLabel.Text = "Tertiary";
+            // 
+            // xfPrimWLabel
+            // 
+            xfPrimWLabel.AutoSize = true;
+            xfPrimWLabel.Location = new System.Drawing.Point(68, 373);
+            xfPrimWLabel.Name = "xfPrimWLabel";
+            xfPrimWLabel.Size = new System.Drawing.Size(70, 13);
+            xfPrimWLabel.TabIndex = 58;
+            xfPrimWLabel.Text = "Vector Group";
+            // 
+            // xfPhaseLabel
+            // 
+            xfPhaseLabel.AutoSize = true;
+            xfPhaseLabel.Location = new System.Drawing.Point(67, 399);
+            xfPhaseLabel.Name = "xfPhaseLabel";
+            xfPhaseLabel.Size = new System.Drawing.Size(51, 13);
+            xfPhaseLabel.TabIndex = 66;
+            xfPhaseLabel.Text = "xf Phase:";
+            // 
+            // xfImpedanceALabel
+            // 
+            xfImpedanceALabel.AutoSize = true;
+            xfImpedanceALabel.Location = new System.Drawing.Point(68, 217);
+            xfImpedanceALabel.Name = "xfImpedanceALabel";
+            xfImpedanceALabel.Size = new System.Drawing.Size(71, 13);
+            xfImpedanceALabel.TabIndex = 68;
+            xfImpedanceALabel.Text = "% Impedance";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(67, 269);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(72, 13);
+            label1.TabIndex = 75;
+            label1.Text = "Voltage Level";
             // 
             // btnAdd
             // 
@@ -184,22 +311,25 @@
             this.tableAdapterManager.tblExcitationTableAdapter = null;
             this.tableAdapterManager.tblIPFTableAdapter = null;
             this.tableAdapterManager.tblOilPFTableAdapter = null;
+            this.tableAdapterManager.tblParamListTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
+            this.tableAdapterManager.tblStandardsTableAdapter = null;
+            this.tableAdapterManager.tblStatusTableAdapter = null;
             this.tableAdapterManager.tblSubstationTableAdapter = this.tblSubstationTableAdapter;
+            this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = this.tblTestTableAdapter;
             this.tableAdapterManager.tblTransformerTableAdapter = this.tblTransformerTableAdapter;
             this.tableAdapterManager.tblTTRTableAdapter = null;
             this.tableAdapterManager.tblWindingTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // xfIDLabel
+            // tblSubstationTableAdapter
             // 
-            xfIDLabel.AutoSize = true;
-            xfIDLabel.Location = new System.Drawing.Point(67, 61);
-            xfIDLabel.Name = "xfIDLabel";
-            xfIDLabel.Size = new System.Drawing.Size(77, 13);
-            xfIDLabel.TabIndex = 38;
-            xfIDLabel.Text = "Transformer ID";
+            this.tblSubstationTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblTestTableAdapter
+            // 
+            this.tblTestTableAdapter.ClearBeforeFill = true;
             // 
             // xfIDTextBox
             // 
@@ -209,24 +339,6 @@
             this.xfIDTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfIDTextBox.TabIndex = 39;
             // 
-            // xfSubIDLabel
-            // 
-            xfSubIDLabel.AutoSize = true;
-            xfSubIDLabel.Location = new System.Drawing.Point(67, 87);
-            xfSubIDLabel.Name = "xfSubIDLabel";
-            xfSubIDLabel.Size = new System.Drawing.Size(57, 13);
-            xfSubIDLabel.TabIndex = 40;
-            xfSubIDLabel.Text = "Substation";
-            // 
-            // xfMakeLabel
-            // 
-            xfMakeLabel.AutoSize = true;
-            xfMakeLabel.Location = new System.Drawing.Point(67, 113);
-            xfMakeLabel.Name = "xfMakeLabel";
-            xfMakeLabel.Size = new System.Drawing.Size(34, 13);
-            xfMakeLabel.TabIndex = 42;
-            xfMakeLabel.Text = "Make";
-            // 
             // xfMakeTextBox
             // 
             this.xfMakeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTransformerBindingSource, "xfMake", true));
@@ -234,15 +346,6 @@
             this.xfMakeTextBox.Name = "xfMakeTextBox";
             this.xfMakeTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfMakeTextBox.TabIndex = 43;
-            // 
-            // xfSerialLabel
-            // 
-            xfSerialLabel.AutoSize = true;
-            xfSerialLabel.Location = new System.Drawing.Point(67, 139);
-            xfSerialLabel.Name = "xfSerialLabel";
-            xfSerialLabel.Size = new System.Drawing.Size(73, 13);
-            xfSerialLabel.TabIndex = 44;
-            xfSerialLabel.Text = "Serial Number";
             // 
             // xfSerialTextBox
             // 
@@ -252,15 +355,6 @@
             this.xfSerialTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfSerialTextBox.TabIndex = 45;
             // 
-            // xfClassLabel
-            // 
-            xfClassLabel.AutoSize = true;
-            xfClassLabel.Location = new System.Drawing.Point(67, 165);
-            xfClassLabel.Name = "xfClassLabel";
-            xfClassLabel.Size = new System.Drawing.Size(32, 13);
-            xfClassLabel.TabIndex = 46;
-            xfClassLabel.Text = "Class";
-            // 
             // xfClassTextBox
             // 
             this.xfClassTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTransformerBindingSource, "xfClass", true));
@@ -268,15 +362,6 @@
             this.xfClassTextBox.Name = "xfClassTextBox";
             this.xfClassTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfClassTextBox.TabIndex = 47;
-            // 
-            // xfCapLabel
-            // 
-            xfCapLabel.AutoSize = true;
-            xfCapLabel.Location = new System.Drawing.Point(67, 191);
-            xfCapLabel.Name = "xfCapLabel";
-            xfCapLabel.Size = new System.Drawing.Size(91, 13);
-            xfCapLabel.TabIndex = 48;
-            xfCapLabel.Text = "Capacity (in MVA)";
             // 
             // xfCapTextBox
             // 
@@ -286,15 +371,6 @@
             this.xfCapTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfCapTextBox.TabIndex = 49;
             // 
-            // xfDateLabel
-            // 
-            xfDateLabel.AutoSize = true;
-            xfDateLabel.Location = new System.Drawing.Point(67, 243);
-            xfDateLabel.Name = "xfDateLabel";
-            xfDateLabel.Size = new System.Drawing.Size(99, 13);
-            xfDateLabel.TabIndex = 50;
-            xfDateLabel.Text = "Date Manufactured";
-            // 
             // xfDateTextBox
             // 
             this.xfDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTransformerBindingSource, "xfDate", true));
@@ -302,15 +378,6 @@
             this.xfDateTextBox.Name = "xfDateTextBox";
             this.xfDateTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfDateTextBox.TabIndex = 51;
-            // 
-            // xfPrimVoltLabel
-            // 
-            xfPrimVoltLabel.AutoSize = true;
-            xfPrimVoltLabel.Location = new System.Drawing.Point(90, 295);
-            xfPrimVoltLabel.Name = "xfPrimVoltLabel";
-            xfPrimVoltLabel.Size = new System.Drawing.Size(41, 13);
-            xfPrimVoltLabel.TabIndex = 52;
-            xfPrimVoltLabel.Text = "Primary";
             // 
             // xfPrimVoltTextBox
             // 
@@ -320,15 +387,6 @@
             this.xfPrimVoltTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfPrimVoltTextBox.TabIndex = 53;
             // 
-            // xfSecVoltLabel
-            // 
-            xfSecVoltLabel.AutoSize = true;
-            xfSecVoltLabel.Location = new System.Drawing.Point(90, 321);
-            xfSecVoltLabel.Name = "xfSecVoltLabel";
-            xfSecVoltLabel.Size = new System.Drawing.Size(58, 13);
-            xfSecVoltLabel.TabIndex = 54;
-            xfSecVoltLabel.Text = "Secondary";
-            // 
             // xfSecVoltTextBox
             // 
             this.xfSecVoltTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTransformerBindingSource, "xfSecVolt", true));
@@ -337,15 +395,6 @@
             this.xfSecVoltTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfSecVoltTextBox.TabIndex = 55;
             // 
-            // xfTertVoltLabel
-            // 
-            xfTertVoltLabel.AutoSize = true;
-            xfTertVoltLabel.Location = new System.Drawing.Point(90, 347);
-            xfTertVoltLabel.Name = "xfTertVoltLabel";
-            xfTertVoltLabel.Size = new System.Drawing.Size(42, 13);
-            xfTertVoltLabel.TabIndex = 56;
-            xfTertVoltLabel.Text = "Tertiary";
-            // 
             // xfTertVoltTextBox
             // 
             this.xfTertVoltTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTransformerBindingSource, "xfTertVolt", true));
@@ -353,15 +402,6 @@
             this.xfTertVoltTextBox.Name = "xfTertVoltTextBox";
             this.xfTertVoltTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfTertVoltTextBox.TabIndex = 57;
-            // 
-            // xfPrimWLabel
-            // 
-            xfPrimWLabel.AutoSize = true;
-            xfPrimWLabel.Location = new System.Drawing.Point(68, 373);
-            xfPrimWLabel.Name = "xfPrimWLabel";
-            xfPrimWLabel.Size = new System.Drawing.Size(70, 13);
-            xfPrimWLabel.TabIndex = 58;
-            xfPrimWLabel.Text = "Vector Group";
             // 
             // xfPrimWTextBox
             // 
@@ -395,15 +435,6 @@
             this.xfAutoTextBox.Size = new System.Drawing.Size(34, 20);
             this.xfAutoTextBox.TabIndex = 65;
             // 
-            // xfPhaseLabel
-            // 
-            xfPhaseLabel.AutoSize = true;
-            xfPhaseLabel.Location = new System.Drawing.Point(67, 399);
-            xfPhaseLabel.Name = "xfPhaseLabel";
-            xfPhaseLabel.Size = new System.Drawing.Size(51, 13);
-            xfPhaseLabel.TabIndex = 66;
-            xfPhaseLabel.Text = "xf Phase:";
-            // 
             // xfPhaseTextBox
             // 
             this.xfPhaseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTransformerBindingSource, "xfPhase", true));
@@ -411,15 +442,6 @@
             this.xfPhaseTextBox.Name = "xfPhaseTextBox";
             this.xfPhaseTextBox.Size = new System.Drawing.Size(152, 20);
             this.xfPhaseTextBox.TabIndex = 67;
-            // 
-            // xfImpedanceALabel
-            // 
-            xfImpedanceALabel.AutoSize = true;
-            xfImpedanceALabel.Location = new System.Drawing.Point(68, 217);
-            xfImpedanceALabel.Name = "xfImpedanceALabel";
-            xfImpedanceALabel.Size = new System.Drawing.Size(71, 13);
-            xfImpedanceALabel.TabIndex = 68;
-            xfImpedanceALabel.Text = "% Impedance";
             // 
             // xfImpedanceATextBox
             // 
@@ -457,18 +479,10 @@
             this.comboBox1.TabIndex = 74;
             this.comboBox1.ValueMember = "subID";
             // 
-            // tblTestTableAdapter
+            // tblSubstationBindingSource
             // 
-            this.tblTestTableAdapter.ClearBeforeFill = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(67, 269);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(72, 13);
-            label1.TabIndex = 75;
-            label1.Text = "Voltage Level";
+            this.tblSubstationBindingSource.DataMember = "tblSubstation";
+            this.tblSubstationBindingSource.DataSource = this.dtbPTASDataSet;
             // 
             // tblTransformerDataGridView
             // 
@@ -607,14 +621,15 @@
             this.dataGridViewTextBoxColumn18.HeaderText = "xfImpedanceC";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             // 
-            // tblSubstationBindingSource
+            // btnReturn
             // 
-            this.tblSubstationBindingSource.DataMember = "tblSubstation";
-            this.tblSubstationBindingSource.DataSource = this.dtbPTASDataSet;
-            // 
-            // tblSubstationTableAdapter
-            // 
-            this.tblSubstationTableAdapter.ClearBeforeFill = true;
+            this.btnReturn.Location = new System.Drawing.Point(423, 214);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(110, 33);
+            this.btnReturn.TabIndex = 76;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // frmXformer
             // 
@@ -622,6 +637,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1243, 471);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.tblTransformerDataGridView);
             this.Controls.Add(label1);
             this.Controls.Add(this.comboBox1);
@@ -666,8 +682,8 @@
             this.Load += new System.EventHandler(this.frmXformer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -723,5 +739,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private dtbPTASDataSetTableAdapters.tblSubstationTableAdapter tblSubstationTableAdapter;
         private System.Windows.Forms.BindingSource tblSubstationBindingSource;
+        private System.Windows.Forms.Button btnReturn;
     }
 }

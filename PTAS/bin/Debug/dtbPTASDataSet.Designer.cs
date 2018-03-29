@@ -46,13 +46,13 @@ namespace PTAS {
         
         private tblWindingDataTable tabletblWinding;
         
-        private tblStandardsDataTable tabletblStandards;
-        
         private tblStatusDataTable tabletblStatus;
         
         private tblParamListDataTable tabletblParamList;
         
         private tblTestListDataTable tabletblTestList;
+        
+        private tblStandardsDataTable tabletblStandards;
         
         private global::System.Data.DataRelation relationFK_tblBushing_tblTest;
         
@@ -72,11 +72,13 @@ namespace PTAS {
         
         private global::System.Data.DataRelation relationFK_tblWinding_tblTest;
         
-        private global::System.Data.DataRelation relationFK_tblDielectric_tblStandards;
-        
         private global::System.Data.DataRelation relationFK_tblDielectric_tblStatus;
         
         private global::System.Data.DataRelation relationFK_tblParamList_tblTestList;
+        
+        private global::System.Data.DataRelation relationFK_tblDielectric_tblStandards;
+        
+        private global::System.Data.DataRelation relationFK_tblStatus_tblStandards;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -139,9 +141,6 @@ namespace PTAS {
                 if ((ds.Tables["tblWinding"] != null)) {
                     base.Tables.Add(new tblWindingDataTable(ds.Tables["tblWinding"]));
                 }
-                if ((ds.Tables["tblStandards"] != null)) {
-                    base.Tables.Add(new tblStandardsDataTable(ds.Tables["tblStandards"]));
-                }
                 if ((ds.Tables["tblStatus"] != null)) {
                     base.Tables.Add(new tblStatusDataTable(ds.Tables["tblStatus"]));
                 }
@@ -150,6 +149,9 @@ namespace PTAS {
                 }
                 if ((ds.Tables["tblTestList"] != null)) {
                     base.Tables.Add(new tblTestListDataTable(ds.Tables["tblTestList"]));
+                }
+                if ((ds.Tables["tblStandards"] != null)) {
+                    base.Tables.Add(new tblStandardsDataTable(ds.Tables["tblStandards"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -283,16 +285,6 @@ namespace PTAS {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public tblStandardsDataTable tblStandards {
-            get {
-                return this.tabletblStandards;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public tblStatusDataTable tblStatus {
             get {
                 return this.tabletblStatus;
@@ -316,6 +308,16 @@ namespace PTAS {
         public tblTestListDataTable tblTestList {
             get {
                 return this.tabletblTestList;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public tblStandardsDataTable tblStandards {
+            get {
+                return this.tabletblStandards;
             }
         }
         
@@ -419,9 +421,6 @@ namespace PTAS {
                 if ((ds.Tables["tblWinding"] != null)) {
                     base.Tables.Add(new tblWindingDataTable(ds.Tables["tblWinding"]));
                 }
-                if ((ds.Tables["tblStandards"] != null)) {
-                    base.Tables.Add(new tblStandardsDataTable(ds.Tables["tblStandards"]));
-                }
                 if ((ds.Tables["tblStatus"] != null)) {
                     base.Tables.Add(new tblStatusDataTable(ds.Tables["tblStatus"]));
                 }
@@ -430,6 +429,9 @@ namespace PTAS {
                 }
                 if ((ds.Tables["tblTestList"] != null)) {
                     base.Tables.Add(new tblTestListDataTable(ds.Tables["tblTestList"]));
+                }
+                if ((ds.Tables["tblStandards"] != null)) {
+                    base.Tables.Add(new tblStandardsDataTable(ds.Tables["tblStandards"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -530,12 +532,6 @@ namespace PTAS {
                     this.tabletblWinding.InitVars();
                 }
             }
-            this.tabletblStandards = ((tblStandardsDataTable)(base.Tables["tblStandards"]));
-            if ((initTable == true)) {
-                if ((this.tabletblStandards != null)) {
-                    this.tabletblStandards.InitVars();
-                }
-            }
             this.tabletblStatus = ((tblStatusDataTable)(base.Tables["tblStatus"]));
             if ((initTable == true)) {
                 if ((this.tabletblStatus != null)) {
@@ -554,6 +550,12 @@ namespace PTAS {
                     this.tabletblTestList.InitVars();
                 }
             }
+            this.tabletblStandards = ((tblStandardsDataTable)(base.Tables["tblStandards"]));
+            if ((initTable == true)) {
+                if ((this.tabletblStandards != null)) {
+                    this.tabletblStandards.InitVars();
+                }
+            }
             this.relationFK_tblBushing_tblTest = this.Relations["FK_tblBushing_tblTest"];
             this.relationFK_tblDielectric_tblTest = this.Relations["FK_tblDielectric_tblTest"];
             this.relationFK_tblExcitation_tblTest = this.Relations["FK_tblExcitation_tblTest"];
@@ -563,9 +565,10 @@ namespace PTAS {
             this.relationFK_tblTransformer_tblSubstation = this.Relations["FK_tblTransformer_tblSubstation"];
             this.relationFK_tblTTR_tblTest = this.Relations["FK_tblTTR_tblTest"];
             this.relationFK_tblWinding_tblTest = this.Relations["FK_tblWinding_tblTest"];
-            this.relationFK_tblDielectric_tblStandards = this.Relations["FK_tblDielectric_tblStandards"];
             this.relationFK_tblDielectric_tblStatus = this.Relations["FK_tblDielectric_tblStatus"];
             this.relationFK_tblParamList_tblTestList = this.Relations["FK_tblParamList_tblTestList"];
+            this.relationFK_tblDielectric_tblStandards = this.Relations["FK_tblDielectric_tblStandards"];
+            this.relationFK_tblStatus_tblStandards = this.Relations["FK_tblStatus_tblStandards"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -598,14 +601,14 @@ namespace PTAS {
             base.Tables.Add(this.tabletblTTR);
             this.tabletblWinding = new tblWindingDataTable();
             base.Tables.Add(this.tabletblWinding);
-            this.tabletblStandards = new tblStandardsDataTable();
-            base.Tables.Add(this.tabletblStandards);
             this.tabletblStatus = new tblStatusDataTable();
             base.Tables.Add(this.tabletblStatus);
             this.tabletblParamList = new tblParamListDataTable();
             base.Tables.Add(this.tabletblParamList);
             this.tabletblTestList = new tblTestListDataTable();
             base.Tables.Add(this.tabletblTestList);
+            this.tabletblStandards = new tblStandardsDataTable();
+            base.Tables.Add(this.tabletblStandards);
             this.relationFK_tblBushing_tblTest = new global::System.Data.DataRelation("FK_tblBushing_tblTest", new global::System.Data.DataColumn[] {
                         this.tabletblTest.TestNumberColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblBushing.TestNumberColumn}, false);
@@ -642,10 +645,6 @@ namespace PTAS {
                         this.tabletblTest.TestNumberColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblWinding.TestNumberColumn}, false);
             this.Relations.Add(this.relationFK_tblWinding_tblTest);
-            this.relationFK_tblDielectric_tblStandards = new global::System.Data.DataRelation("FK_tblDielectric_tblStandards", new global::System.Data.DataColumn[] {
-                        this.tabletblStandards.standardsColumn}, new global::System.Data.DataColumn[] {
-                        this.tabletblDielectric.standardColumn}, false);
-            this.Relations.Add(this.relationFK_tblDielectric_tblStandards);
             this.relationFK_tblDielectric_tblStatus = new global::System.Data.DataRelation("FK_tblDielectric_tblStatus", new global::System.Data.DataColumn[] {
                         this.tabletblStatus.statusColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblDielectric.statusColumn}, false);
@@ -654,6 +653,14 @@ namespace PTAS {
                         this.tabletblTestList.TestNameColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblParamList.TestNameColumn}, false);
             this.Relations.Add(this.relationFK_tblParamList_tblTestList);
+            this.relationFK_tblDielectric_tblStandards = new global::System.Data.DataRelation("FK_tblDielectric_tblStandards", new global::System.Data.DataColumn[] {
+                        this.tabletblStandards.standardsColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblDielectric.standardColumn}, false);
+            this.Relations.Add(this.relationFK_tblDielectric_tblStandards);
+            this.relationFK_tblStatus_tblStandards = new global::System.Data.DataRelation("FK_tblStatus_tblStandards", new global::System.Data.DataColumn[] {
+                        this.tabletblStandards.standardsColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblStatus.standardsColumn}, false);
+            this.Relations.Add(this.relationFK_tblStatus_tblStandards);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -724,12 +731,6 @@ namespace PTAS {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializetblStandards() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializetblStatus() {
             return false;
         }
@@ -743,6 +744,12 @@ namespace PTAS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializetblTestList() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializetblStandards() {
             return false;
         }
         
@@ -835,9 +842,6 @@ namespace PTAS {
         public delegate void tblWindingRowChangeEventHandler(object sender, tblWindingRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void tblStandardsRowChangeEventHandler(object sender, tblStandardsRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void tblStatusRowChangeEventHandler(object sender, tblStatusRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -845,6 +849,9 @@ namespace PTAS {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void tblTestListRowChangeEventHandler(object sender, tblTestListRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void tblStandardsRowChangeEventHandler(object sender, tblStandardsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -6524,268 +6531,11 @@ namespace PTAS {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class tblStandardsDataTable : global::System.Data.TypedTableBase<tblStandardsRow> {
-            
-            private global::System.Data.DataColumn columnstandards;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblStandardsDataTable() {
-                this.TableName = "tblStandards";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal tblStandardsDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected tblStandardsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn standardsColumn {
-                get {
-                    return this.columnstandards;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblStandardsRow this[int index] {
-                get {
-                    return ((tblStandardsRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event tblStandardsRowChangeEventHandler tblStandardsRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event tblStandardsRowChangeEventHandler tblStandardsRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event tblStandardsRowChangeEventHandler tblStandardsRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event tblStandardsRowChangeEventHandler tblStandardsRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddtblStandardsRow(tblStandardsRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblStandardsRow AddtblStandardsRow(string standards) {
-                tblStandardsRow rowtblStandardsRow = ((tblStandardsRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        standards};
-                rowtblStandardsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtblStandardsRow);
-                return rowtblStandardsRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblStandardsRow FindBystandards(string standards) {
-                return ((tblStandardsRow)(this.Rows.Find(new object[] {
-                            standards})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                tblStandardsDataTable cln = ((tblStandardsDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new tblStandardsDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnstandards = base.Columns["standards"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnstandards = new global::System.Data.DataColumn("standards", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstandards);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnstandards}, true));
-                this.columnstandards.AllowDBNull = false;
-                this.columnstandards.Unique = true;
-                this.columnstandards.MaxLength = 10;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblStandardsRow NewtblStandardsRow() {
-                return ((tblStandardsRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new tblStandardsRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(tblStandardsRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.tblStandardsRowChanged != null)) {
-                    this.tblStandardsRowChanged(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.tblStandardsRowChanging != null)) {
-                    this.tblStandardsRowChanging(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.tblStandardsRowDeleted != null)) {
-                    this.tblStandardsRowDeleted(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.tblStandardsRowDeleting != null)) {
-                    this.tblStandardsRowDeleting(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemovetblStandardsRow(tblStandardsRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dtbPTASDataSet ds = new dtbPTASDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "tblStandardsDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class tblStatusDataTable : global::System.Data.TypedTableBase<tblStatusRow> {
             
             private global::System.Data.DataColumn columnstatus;
+            
+            private global::System.Data.DataColumn columnstandards;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -6830,6 +6580,14 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn standardsColumn {
+                get {
+                    return this.columnstandards;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6865,10 +6623,14 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblStatusRow AddtblStatusRow(string status) {
+            public tblStatusRow AddtblStatusRow(string status, tblStandardsRow parenttblStandardsRowByFK_tblStatus_tblStandards) {
                 tblStatusRow rowtblStatusRow = ((tblStatusRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        status};
+                        status,
+                        null};
+                if ((parenttblStandardsRowByFK_tblStatus_tblStandards != null)) {
+                    columnValuesArray[1] = parenttblStandardsRowByFK_tblStatus_tblStandards[0];
+                }
                 rowtblStatusRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtblStatusRow);
                 return rowtblStatusRow;
@@ -6899,6 +6661,7 @@ namespace PTAS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnstatus = base.Columns["status"];
+                this.columnstandards = base.Columns["standards"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6906,11 +6669,14 @@ namespace PTAS {
             private void InitClass() {
                 this.columnstatus = new global::System.Data.DataColumn("status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstatus);
+                this.columnstandards = new global::System.Data.DataColumn("standards", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstandards);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnstatus}, true));
                 this.columnstatus.AllowDBNull = false;
                 this.columnstatus.Unique = true;
                 this.columnstatus.MaxLength = 4;
+                this.columnstandards.MaxLength = 12;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7563,6 +7329,265 @@ namespace PTAS {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "tblTestListDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class tblStandardsDataTable : global::System.Data.TypedTableBase<tblStandardsRow> {
+            
+            private global::System.Data.DataColumn columnstandards;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsDataTable() {
+                this.TableName = "tblStandards";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal tblStandardsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected tblStandardsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn standardsColumn {
+                get {
+                    return this.columnstandards;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow this[int index] {
+                get {
+                    return ((tblStandardsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStandardsRowChangeEventHandler tblStandardsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStandardsRowChangeEventHandler tblStandardsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStandardsRowChangeEventHandler tblStandardsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tblStandardsRowChangeEventHandler tblStandardsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddtblStandardsRow(tblStandardsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow AddtblStandardsRow(string standards) {
+                tblStandardsRow rowtblStandardsRow = ((tblStandardsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        standards};
+                rowtblStandardsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtblStandardsRow);
+                return rowtblStandardsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow FindBystandards(string standards) {
+                return ((tblStandardsRow)(this.Rows.Find(new object[] {
+                            standards})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                tblStandardsDataTable cln = ((tblStandardsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new tblStandardsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnstandards = base.Columns["standards"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnstandards = new global::System.Data.DataColumn("standards", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstandards);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnstandards}, true));
+                this.columnstandards.AllowDBNull = false;
+                this.columnstandards.Unique = true;
+                this.columnstandards.MaxLength = 12;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow NewtblStandardsRow() {
+                return ((tblStandardsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new tblStandardsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(tblStandardsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.tblStandardsRowChanged != null)) {
+                    this.tblStandardsRowChanged(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.tblStandardsRowChanging != null)) {
+                    this.tblStandardsRowChanging(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.tblStandardsRowDeleted != null)) {
+                    this.tblStandardsRowDeleted(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.tblStandardsRowDeleting != null)) {
+                    this.tblStandardsRowDeleting(this, new tblStandardsRowChangeEvent(((tblStandardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemovetblStandardsRow(tblStandardsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dtbPTASDataSet ds = new dtbPTASDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "tblStandardsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -9698,23 +9723,23 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblStandardsRow tblStandardsRow {
-                get {
-                    return ((tblStandardsRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblDielectric_tblStandards"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblDielectric_tblStandards"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tblStatusRow tblStatusRow {
                 get {
                     return ((tblStatusRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblDielectric_tblStatus"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_tblDielectric_tblStatus"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow tblStandardsRow {
+                get {
+                    return ((tblStandardsRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblDielectric_tblStandards"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblDielectric_tblStandards"]);
                 }
             }
             
@@ -12873,43 +12898,6 @@ namespace PTAS {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class tblStandardsRow : global::System.Data.DataRow {
-            
-            private tblStandardsDataTable tabletblStandards;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal tblStandardsRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tabletblStandards = ((tblStandardsDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string standards {
-                get {
-                    return ((string)(this[this.tabletblStandards.standardsColumn]));
-                }
-                set {
-                    this[this.tabletblStandards.standardsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblDielectricRow[] GettblDielectricRows() {
-                if ((this.Table.ChildRelations["FK_tblDielectric_tblStandards"] == null)) {
-                    return new tblDielectricRow[0];
-                }
-                else {
-                    return ((tblDielectricRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblDielectric_tblStandards"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class tblStatusRow : global::System.Data.DataRow {
             
             private tblStatusDataTable tabletblStatus;
@@ -12930,6 +12918,45 @@ namespace PTAS {
                 set {
                     this[this.tabletblStatus.statusColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string standards {
+                get {
+                    try {
+                        return ((string)(this[this.tabletblStatus.standardsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'standards\' in table \'tblStatus\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletblStatus.standardsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow tblStandardsRow {
+                get {
+                    return ((tblStandardsRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblStatus_tblStandards"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblStatus_tblStandards"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsstandardsNull() {
+                return this.IsNull(this.tabletblStatus.standardsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetstandardsNull() {
+                this[this.tabletblStatus.standardsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13098,6 +13125,54 @@ namespace PTAS {
                 }
                 else {
                     return ((tblParamListRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblParamList_tblTestList"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class tblStandardsRow : global::System.Data.DataRow {
+            
+            private tblStandardsDataTable tabletblStandards;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal tblStandardsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabletblStandards = ((tblStandardsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string standards {
+                get {
+                    return ((string)(this[this.tabletblStandards.standardsColumn]));
+                }
+                set {
+                    this[this.tabletblStandards.standardsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblDielectricRow[] GettblDielectricRows() {
+                if ((this.Table.ChildRelations["FK_tblDielectric_tblStandards"] == null)) {
+                    return new tblDielectricRow[0];
+                }
+                else {
+                    return ((tblDielectricRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblDielectric_tblStandards"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStatusRow[] GettblStatusRows() {
+                if ((this.Table.ChildRelations["FK_tblStatus_tblStandards"] == null)) {
+                    return new tblStatusRow[0];
+                }
+                else {
+                    return ((tblStatusRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblStatus_tblStandards"])));
                 }
             }
         }
@@ -13480,40 +13555,6 @@ namespace PTAS {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class tblStandardsRowChangeEvent : global::System.EventArgs {
-            
-            private tblStandardsRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblStandardsRowChangeEvent(tblStandardsRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblStandardsRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public class tblStatusRowChangeEvent : global::System.EventArgs {
             
             private tblStatusRow eventRow;
@@ -13598,6 +13639,40 @@ namespace PTAS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tblTestListRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class tblStandardsRowChangeEvent : global::System.EventArgs {
+            
+            private tblStandardsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRowChangeEvent(tblStandardsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tblStandardsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -14030,7 +14105,8 @@ namespace PTAS.dtbPTASDataSetTableAdapters {
                 "nameX2, pfnameX3, C2nameH0X0, C2nameH1, C2nameH2, C2nameH3, C2nameX1, C2nameX2, " +
                 "C2nameX3, C2pfnameH0X0, C2pfnameH1, C2pfnameH2, C2pfnameH3, C2pfnameX1, C2pfname" +
                 "X2, C2pfnameX3, AssessH0X0, AssessH1, AssessH2, AssessH3, AssessX1, AssessX2, As" +
-                "sessX3 FROM tblBushing WHERE (TestNumber = @TestNumber)";
+                "sessX3 FROM tblBushing WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC" +
+                "";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nameH1", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameH1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14194,7 +14270,8 @@ namespace PTAS.dtbPTASDataSetTableAdapters {
                 "nameX1, pfnameX2, pfnameX3, C2nameH0X0, C2nameH1, C2nameH2, C2nameH3, C2nameX1, " +
                 "C2nameX2, C2nameX3, C2pfnameH0X0, C2pfnameH1, C2pfnameH2, C2pfnameH3, C2pfnameX1" +
                 ", C2pfnameX2, C2pfnameX3, AssessH0X0, AssessH1, AssessH2, AssessH3, AssessX1, As" +
-                "sessX2, AssessX3 FROM tblBushing WHERE (TestNumber = @TestNumber)";
+                "sessX2, AssessX3 FROM tblBushing WHERE (TestNumber = @TestNumber) ORDER BY TestN" +
+                "umber DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nameH1", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameH1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14399,11 +14476,21 @@ namespace PTAS.dtbPTASDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT TestNumber, nameH1, nameH2, nameH3, nameH0X0, nameX1, nameX2, nameX3, pfC1H1, pfC1H2, pfC1H3, pfC1H0X0, pfC1X1, pfC1X2, pfC1X3, pfC2H1, pfC2H2, pfC2H3, pfC2H0X0, pfC2X1, pfC2X2, pfC2X3, capC1H1, capC1H2, capC1H3, capC1H0X0, capC1X1, capC1X2, capC1X3, capC2H1, capC2H2, capC2H3, capC2H0X0, capC2X1, capC2X2, capC2X3, pfnameH0X0, pfnameH1, pfnameH2, pfnameH3, pfnameX1, pfnameX2, pfnameX3, C2nameH0X0, C2nameH1, C2nameH2, C2nameH3, C2nameX1, C2nameX2, C2nameX3, C2pfnameH0X0, C2pfnameH1, C2pfnameH2, C2pfnameH3, C2pfnameX1, C2pfnameX2, C2pfnameX3, AssessH0X0, AssessH1, AssessH2, AssessH3, AssessX1, AssessX2, AssessX3 FROM tblBushing";
+            this._commandCollection[0].CommandText = @"SELECT        TestNumber, nameH1, nameH2, nameH3, nameH0X0, nameX1, nameX2, nameX3, pfC1H1, pfC1H2, pfC1H3, pfC1H0X0, pfC1X1, pfC1X2, pfC1X3, pfC2H1, pfC2H2, pfC2H3, pfC2H0X0, pfC2X1, pfC2X2, pfC2X3, capC1H1, capC1H2, 
+                         capC1H3, capC1H0X0, capC1X1, capC1X2, capC1X3, capC2H1, capC2H2, capC2H3, capC2H0X0, capC2X1, capC2X2, capC2X3, pfnameH0X0, pfnameH1, pfnameH2, pfnameH3, pfnameX1, pfnameX2, pfnameX3, C2nameH0X0, 
+                         C2nameH1, C2nameH2, C2nameH3, C2nameX1, C2nameX2, C2nameX3, C2pfnameH0X0, C2pfnameH1, C2pfnameH2, C2pfnameH3, C2pfnameX1, C2pfnameX2, C2pfnameX3, AssessH0X0, AssessH1, AssessH2, AssessH3, 
+                         AssessX1, AssessX2, AssessX3
+FROM            tblBushing
+ORDER BY TestNumber DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT AssessH0X0, AssessH1, AssessH2, AssessH3, AssessX1, AssessX2, AssessX3, C2nameH0X0, C2nameH1, C2nameH2, C2nameH3, C2nameX1, C2nameX2, C2nameX3, C2pfnameH0X0, C2pfnameH1, C2pfnameH2, C2pfnameH3, C2pfnameX1, C2pfnameX2, C2pfnameX3, TestNumber, capC1H0X0, capC1H1, capC1H2, capC1H3, capC1X1, capC1X2, capC1X3, capC2H0X0, capC2H1, capC2H2, capC2H3, capC2X1, capC2X2, capC2X3, nameH0X0, nameH1, nameH2, nameH3, nameX1, nameX2, nameX3, pfC1H0X0, pfC1H1, pfC1H2, pfC1H3, pfC1X1, pfC1X2, pfC1X3, pfC2H0X0, pfC2H1, pfC2H2, pfC2H3, pfC2X1, pfC2X2, pfC2X3, pfnameH0X0, pfnameH1, pfnameH2, pfnameH3, pfnameX1, pfnameX2, pfnameX3 FROM tblBushing WHERE (TestNumber = @TestNumber)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14425,6 +14512,32 @@ namespace PTAS.dtbPTASDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dtbPTASDataSet.tblBushingDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblBushingDataTable dataTable = new dtbPTASDataSet.tblBushingDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTestNumber(dtbPTASDataSet.tblBushingDataTable dataTable, decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dtbPTASDataSet.tblBushingDataTable GetDataByTestNumber(decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
             dtbPTASDataSet.tblBushingDataTable dataTable = new dtbPTASDataSet.tblBushingDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -16861,7 +16974,7 @@ namespace PTAS.dtbPTASDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblDielectric] ([TestNumber], [main1], [main2], [main3], [main4], [main5], [mainAve], [oltc1], [oltc2], [oltc3], [oltc4], [oltc5], [oltcAve], [standard], [status], [mainAssess], [oltcAssess]) VALUES (@TestNumber, @main1, @main2, @main3, @main4, @main5, @mainAve, @oltc1, @oltc2, @oltc3, @oltc4, @oltc5, @oltcAve, @standard, @status, @mainAssess, @oltcAssess);
-SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve, standard, status, mainAssess, oltcAssess FROM tblDielectric WHERE (TestNumber = @TestNumber)";
+SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve, standard, status, mainAssess, oltcAssess FROM tblDielectric WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@main1", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "main1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -16906,7 +17019,7 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
                 "LL) OR ([oltcAssess] = @Original_oltcAssess)));\r\nSELECT TestNumber, main1, main2" +
                 ", main3, main4, main5, mainAve, oltc1, oltc2, oltc3, oltc4, oltc5, oltcAve, stan" +
                 "dard, status, mainAssess, oltcAssess FROM tblDielectric WHERE (TestNumber = @Tes" +
-                "tNumber)";
+                "tNumber) ORDER BY TestNumber DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@main1", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "main1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -16970,13 +17083,20 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, oltc" +
-                "3, oltc4, oltc5, oltcAve, standard, status, mainAssess, oltcAssess FROM tblDiele" +
-                "ctric";
+            this._commandCollection[0].CommandText = "SELECT        TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc" +
+                "2, oltc3, oltc4, oltc5, oltcAve, standard, status, mainAssess, oltcAssess\r\nFROM " +
+                "           tblDielectric\r\nORDER BY TestNumber DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT TestNumber, main1, main2, main3, main4, main5, mainAssess, mainAve, oltc1," +
+                " oltc2, oltc3, oltc4, oltc5, oltcAssess, oltcAve, standard, status FROM tblDiele" +
+                "ctric WHERE (TestNumber = @TestNumber)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16998,6 +17118,32 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dtbPTASDataSet.tblDielectricDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblDielectricDataTable dataTable = new dtbPTASDataSet.tblDielectricDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTestNumber(dtbPTASDataSet.tblDielectricDataTable dataTable, decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dtbPTASDataSet.tblDielectricDataTable GetDataByTestNumber(decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
             dtbPTASDataSet.tblDielectricDataTable dataTable = new dtbPTASDataSet.tblDielectricDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -17806,7 +17952,7 @@ SELECT TestNumber, main1, main2, main3, main4, main5, mainAve, oltc1, oltc2, olt
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblExcitation] ([TestNumber], [excHVA], [excHVB], [excHVC], [TestVoltage], [excAssess], [excDeviation]) VALUES (@TestNumber, @excHVA, @excHVB, @excHVC, @TestVoltage, @excAssess, @excDeviation);
-SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage, excAssess, excDeviation FROM tblExcitation WHERE (TestNumber = @TestNumber)";
+SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage, excAssess, excDeviation FROM tblExcitation WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@excHVA", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "excHVA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17818,7 +17964,7 @@ SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage, excAssess, excDeviation 
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [tblExcitation] SET [TestNumber] = @TestNumber, [excHVA] = @excHVA, [excHVB] = @excHVB, [excHVC] = @excHVC, [TestVoltage] = @TestVoltage, [excAssess] = @excAssess, [excDeviation] = @excDeviation WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_excHVA = 1 AND [excHVA] IS NULL) OR ([excHVA] = @Original_excHVA)) AND ((@IsNull_excHVB = 1 AND [excHVB] IS NULL) OR ([excHVB] = @Original_excHVB)) AND ((@IsNull_excHVC = 1 AND [excHVC] IS NULL) OR ([excHVC] = @Original_excHVC)) AND ((@IsNull_TestVoltage = 1 AND [TestVoltage] IS NULL) OR ([TestVoltage] = @Original_TestVoltage)) AND ((@IsNull_excAssess = 1 AND [excAssess] IS NULL) OR ([excAssess] = @Original_excAssess)) AND ((@IsNull_excDeviation = 1 AND [excDeviation] IS NULL) OR ([excDeviation] = @Original_excDeviation)));
-SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage, excAssess, excDeviation FROM tblExcitation WHERE (TestNumber = @TestNumber)";
+SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage, excAssess, excDeviation FROM tblExcitation WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@excHVA", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "excHVA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17852,12 +17998,18 @@ SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage, excAssess, excDeviation 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage, excAssess, excDeviation F" +
-                "ROM tblExcitation";
+            this._commandCollection[0].CommandText = "SELECT        TestNumber, excHVA, excHVB, excHVC, TestVoltage, excAssess, excDevi" +
+                "ation\r\nFROM            tblExcitation\r\nORDER BY TestNumber DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT TestNumber, TestVoltage, excAssess, excDeviation, excHVA, excHVB, excHVC F" +
+                "ROM tblExcitation WHERE (TestNumber = @TestNumber)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17879,6 +18031,32 @@ SELECT TestNumber, excHVA, excHVB, excHVC, TestVoltage, excAssess, excDeviation 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dtbPTASDataSet.tblExcitationDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblExcitationDataTable dataTable = new dtbPTASDataSet.tblExcitationDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTestNumber(dtbPTASDataSet.tblExcitationDataTable dataTable, decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dtbPTASDataSet.tblExcitationDataTable GetDataByTestNumber(decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
             dtbPTASDataSet.tblExcitationDataTable dataTable = new dtbPTASDataSet.tblExcitationDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -18571,11 +18749,19 @@ SELECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCHLUlv, ipfMCHLlv, ipfCF, ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCL, ipfCCHLUlv, ipfCCHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, ipfACLCHL, ipfACL, ipfACHLUlv, ipfACHLlv, ipfCCLCHL, TestVoltage, ipfAssess FROM tblIPF";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfMCHLUlv, ipfMCHLlv, ipfCF, ipfCCHCHL, ipfCCH, ipfCCHLU, ipfCCHL, ipfCCL, ipfCCHLUlv, ipfCCHLlv, ipfACHCHL, ipfACH, ipfACHLU, ipfACHL, 
+                         ipfACLCHL, ipfACL, ipfACHLUlv, ipfACHLlv, ipfCCLCHL, TestVoltage, ipfAssess
+FROM            tblIPF
+WHERE        (TestNumber = @TestNumber)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18597,6 +18783,32 @@ SELECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfM
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dtbPTASDataSet.tblIPFDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblIPFDataTable dataTable = new dtbPTASDataSet.tblIPFDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTestNumber(dtbPTASDataSet.tblIPFDataTable dataTable, decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dtbPTASDataSet.tblIPFDataTable GetDataByTestNumber(decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
             dtbPTASDataSet.tblIPFDataTable dataTable = new dtbPTASDataSet.tblIPFDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -19773,7 +19985,7 @@ SELECT TestNumber, ipfMCHCHL, ipfMCH, ipfMCHLU, ipfMCHL, ipfMCLCHL, ipfMCL, ipfM
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblOilPF] ([TestNumber], [pfMain], [pfOLTC], [pfMainAssess], [pfOLTCAssess]) VALUES (@TestNumber, @pfMain, @pfOLTC, @pfMainAssess, @pfOLTCAssess);
-SELECT TestNumber, pfMain, pfOLTC, pfMainAssess, pfOLTCAssess FROM tblOilPF WHERE (TestNumber = @TestNumber)";
+SELECT TestNumber, pfMain, pfOLTC, pfMainAssess, pfOLTCAssess FROM tblOilPF WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pfMain", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pfMain", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19783,7 +19995,7 @@ SELECT TestNumber, pfMain, pfOLTC, pfMainAssess, pfOLTCAssess FROM tblOilPF WHER
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [tblOilPF] SET [TestNumber] = @TestNumber, [pfMain] = @pfMain, [pfOLTC] = @pfOLTC, [pfMainAssess] = @pfMainAssess, [pfOLTCAssess] = @pfOLTCAssess WHERE (([TestNumber] = @Original_TestNumber) AND ((@IsNull_pfMain = 1 AND [pfMain] IS NULL) OR ([pfMain] = @Original_pfMain)) AND ((@IsNull_pfOLTC = 1 AND [pfOLTC] IS NULL) OR ([pfOLTC] = @Original_pfOLTC)) AND ((@IsNull_pfMainAssess = 1 AND [pfMainAssess] IS NULL) OR ([pfMainAssess] = @Original_pfMainAssess)) AND ((@IsNull_pfOLTCAssess = 1 AND [pfOLTCAssess] IS NULL) OR ([pfOLTCAssess] = @Original_pfOLTCAssess)));
-SELECT TestNumber, pfMain, pfOLTC, pfMainAssess, pfOLTCAssess FROM tblOilPF WHERE (TestNumber = @TestNumber)";
+SELECT TestNumber, pfMain, pfOLTC, pfMainAssess, pfOLTCAssess FROM tblOilPF WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pfMain", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pfMain", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19811,11 +20023,18 @@ SELECT TestNumber, pfMain, pfOLTC, pfMainAssess, pfOLTCAssess FROM tblOilPF WHER
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TestNumber, pfMain, pfOLTC, pfMainAssess, pfOLTCAssess FROM tblOilPF";
+            this._commandCollection[0].CommandText = "SELECT        TestNumber, pfMain, pfOLTC, pfMainAssess, pfOLTCAssess\r\nFROM       " +
+                "     tblOilPF\r\nORDER BY TestNumber DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT TestNumber, pfMain, pfMainAssess, pfOLTC, pfOLTCAssess FROM tblOilPF WHERE" +
+                " (TestNumber = @TestNumber)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19837,6 +20056,32 @@ SELECT TestNumber, pfMain, pfOLTC, pfMainAssess, pfOLTCAssess FROM tblOilPF WHER
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dtbPTASDataSet.tblOilPFDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblOilPFDataTable dataTable = new dtbPTASDataSet.tblOilPFDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTestNumber(dtbPTASDataSet.tblOilPFDataTable dataTable, decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dtbPTASDataSet.tblOilPFDataTable GetDataByTestNumber(decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
             dtbPTASDataSet.tblOilPFDataTable dataTable = new dtbPTASDataSet.tblOilPFDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -21039,13 +21284,26 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer, testSub, testExcite, testIPF, testBushing, testTTR, testDCWR, testOilBD, testOilPF
 FROM            tblTest
 ORDER BY TestNumber DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        COUNT(*) AS Expr1\r\nFROM            tblTest\r\nWHERE        (TestNumbe" +
+                "r = @TestNumber)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer, testSub, testExcite, testIPF, testBushing, testTTR, testDCWR, testOilBD, testOilPF
+FROM            tblTest
+WHERE        (TestNumber = @TestNumber)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21067,6 +21325,32 @@ ORDER BY TestNumber DESC";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dtbPTASDataSet.tblTestDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblTestDataTable dataTable = new dtbPTASDataSet.tblTestDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTestNumber(dtbPTASDataSet.tblTestDataTable dataTable, decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dtbPTASDataSet.tblTestDataTable GetDataByTestNumber(decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
             dtbPTASDataSet.tblTestDataTable dataTable = new dtbPTASDataSet.tblTestDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -21553,6 +21837,35 @@ ORDER BY TestNumber DESC";
                     bool Original_testOilBD, 
                     bool Original_testOilPF) {
             return this.Update(Original_TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer, testSub, testExcite, testIPF, testBushing, testTTR, testDCWR, testOilBD, testOilPF, Original_TestNumber, Original_testDate, Original_testEngr, Original_testWeather, Original_testAmbient, Original_testOil, Original_testPrimWT, Original_testSecWT, Original_testTertWT, Original_testXformer, Original_testSub, Original_testExcite, Original_testIPF, Original_testBushing, Original_testTTR, Original_testDCWR, Original_testOilBD, Original_testOilPF);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> CountAvailable(decimal TestNumber) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((decimal)(TestNumber));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     
@@ -22665,7 +22978,7 @@ SELECT xfID, xfSubID, xfMake, xfSerial, xfClass, xfCap, xfImpedanceA, xfImpedanc
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblTTR] ([TestNumber], [ttrTap], [ttrHV], [ttrLV], [ttrTV], [ttrRHVLV], [ttrRHVTV], [ttrAHVLV], [ttrBHVLV], [ttrCHVLV], [ttrAHVTV], [ttrBHVTV], [ttrCHVTV], [ttrAHVLVe], [ttrBHVLVe], [ttrCHVLVe], [ttrAHVTVe], [ttrBHVTVe], [ttrCHVTVe], [ttrAssess]) VALUES (@TestNumber, @ttrTap, @ttrHV, @ttrLV, @ttrTV, @ttrRHVLV, @ttrRHVTV, @ttrAHVLV, @ttrBHVLV, @ttrCHVLV, @ttrAHVTV, @ttrBHVTV, @ttrCHVTV, @ttrAHVLVe, @ttrBHVLVe, @ttrCHVLVe, @ttrAHVTVe, @ttrBHVTVe, @ttrCHVTVe, @ttrAssess);
-SELECT TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, ttrAHVLV, ttrBHVLV, ttrCHVLV, ttrAHVTV, ttrBHVTV, ttrCHVTV, ttrAHVLVe, ttrBHVLVe, ttrCHVLVe, ttrAHVTVe, ttrBHVTVe, ttrCHVTVe, ttrAssess FROM tblTTR WHERE (TestNumber = @TestNumber)";
+SELECT TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, ttrAHVLV, ttrBHVLV, ttrCHVLV, ttrAHVTV, ttrBHVTV, ttrCHVTV, ttrAHVLVe, ttrBHVLVe, ttrCHVLVe, ttrAHVTVe, ttrBHVTVe, ttrCHVTVe, ttrAssess FROM tblTTR WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ttrTap", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ttrTap", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22719,7 +23032,8 @@ SELECT TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, ttrAHVLV, tt
                 "ess] IS NULL) OR ([ttrAssess] = @Original_ttrAssess)));\r\nSELECT TestNumber, ttrT" +
                 "ap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, ttrAHVLV, ttrBHVLV, ttrCHVLV, ttrAH" +
                 "VTV, ttrBHVTV, ttrCHVTV, ttrAHVLVe, ttrBHVLVe, ttrCHVLVe, ttrAHVTVe, ttrBHVTVe, " +
-                "ttrCHVTVe, ttrAssess FROM tblTTR WHERE (TestNumber = @TestNumber)";
+                "ttrCHVTVe, ttrAssess FROM tblTTR WHERE (TestNumber = @TestNumber) ORDER BY TestN" +
+                "umber DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ttrTap", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ttrTap", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22792,13 +23106,21 @@ SELECT TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, ttrAHVLV, tt
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, ttrAHVLV, ttr" +
-                "BHVLV, ttrCHVLV, ttrAHVTV, ttrBHVTV, ttrCHVTV, ttrAHVLVe, ttrBHVLVe, ttrCHVLVe, " +
-                "ttrAHVTVe, ttrBHVTVe, ttrCHVTVe, ttrAssess FROM tblTTR";
+            this._commandCollection[0].CommandText = @"SELECT        TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, ttrAHVLV, ttrBHVLV, ttrCHVLV, ttrAHVTV, ttrBHVTV, ttrCHVTV, ttrAHVLVe, ttrBHVLVe, ttrCHVLVe, ttrAHVTVe, ttrBHVTVe, ttrCHVTVe, ttrAssess
+FROM            tblTTR
+ORDER BY TestNumber DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT TestNumber, ttrAHVLV, ttrAHVLVe, ttrAHVTV, ttrAHVTVe, ttrAssess, ttrBHVLV," +
+                " ttrBHVLVe, ttrBHVTV, ttrBHVTVe, ttrCHVLV, ttrCHVLVe, ttrCHVTV, ttrCHVTVe, ttrHV" +
+                ", ttrLV, ttrRHVLV, ttrRHVTV, ttrTV, ttrTap FROM tblTTR WHERE (TestNumber = @Test" +
+                "Number)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22820,6 +23142,32 @@ SELECT TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, ttrAHVLV, tt
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dtbPTASDataSet.tblTTRDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblTTRDataTable dataTable = new dtbPTASDataSet.tblTTRDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTestNumber(dtbPTASDataSet.tblTTRDataTable dataTable, decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dtbPTASDataSet.tblTTRDataTable GetDataByTestNumber(decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
             dtbPTASDataSet.tblTTRDataTable dataTable = new dtbPTASDataSet.tblTTRDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -23748,7 +24096,7 @@ SELECT TestNumber, ttrTap, ttrHV, ttrLV, ttrTV, ttrRHVLV, ttrRHVTV, ttrAHVLV, tt
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblWinding] ([TestNumber], [windPrimA], [windPrimB], [windPrimC], [windSecA], [windSecB], [windSecC], [windTertA], [windTertB], [windTertC], [windPrimAssess], [windSecAssess], [windTertAssess]) VALUES (@TestNumber, @windPrimA, @windPrimB, @windPrimC, @windSecA, @windSecB, @windSecC, @windTertA, @windTertB, @windTertC, @windPrimAssess, @windSecAssess, @windTertAssess);
-SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC, windTertA, windTertB, windTertC, windPrimAssess, windSecAssess, windTertAssess FROM tblWinding WHERE (TestNumber = @TestNumber)";
+SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC, windTertA, windTertB, windTertC, windPrimAssess, windSecAssess, windTertAssess FROM tblWinding WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@windPrimA", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "windPrimA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -23787,7 +24135,7 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
                 "rtAssess] IS NULL) OR ([windTertAssess] = @Original_windTertAssess)));\r\nSELECT T" +
                 "estNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC, windTe" +
                 "rtA, windTertB, windTertC, windPrimAssess, windSecAssess, windTertAssess FROM tb" +
-                "lWinding WHERE (TestNumber = @TestNumber)";
+                "lWinding WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@windPrimA", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "windPrimA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -23839,13 +24187,20 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC," +
-                " windTertA, windTertB, windTertC, windPrimAssess, windSecAssess, windTertAssess " +
-                "FROM tblWinding";
+            this._commandCollection[0].CommandText = "SELECT        TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, wi" +
+                "ndSecC, windTertA, windTertB, windTertC, windPrimAssess, windSecAssess, windTert" +
+                "Assess\r\nFROM            tblWinding\r\nORDER BY TestNumber DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT TestNumber, windPrimA, windPrimAssess, windPrimB, windPrimC, windSecA, win" +
+                "dSecAssess, windSecB, windSecC, windTertA, windTertAssess, windTertB, windTertC " +
+                "FROM tblWinding WHERE (TestNumber = @TestNumber)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23867,6 +24222,32 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dtbPTASDataSet.tblWindingDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblWindingDataTable dataTable = new dtbPTASDataSet.tblWindingDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTestNumber(dtbPTASDataSet.tblWindingDataTable dataTable, decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dtbPTASDataSet.tblWindingDataTable GetDataByTestNumber(decimal TestNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(TestNumber));
             dtbPTASDataSet.tblWindingDataTable dataTable = new dtbPTASDataSet.tblWindingDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -24373,316 +24754,6 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class tblStandardsTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public tblStandardsTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "tblStandards";
-            tableMapping.ColumnMappings.Add("standards", "standards");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblStandards] WHERE (([standards] = @Original_standards))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblStandards] ([standards]) VALUES (@standards);\r\nSELECT stand" +
-                "ards FROM tblStandards WHERE (standards = @standards)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblStandards] SET [standards] = @standards WHERE (([standards] = @O" +
-                "riginal_standards));\r\nSELECT standards FROM tblStandards WHERE (standards = @sta" +
-                "ndards)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::PTAS.Properties.Settings.Default.dtbPTASConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT standards FROM dbo.tblStandards";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dtbPTASDataSet.tblStandardsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dtbPTASDataSet.tblStandardsDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            dtbPTASDataSet.tblStandardsDataTable dataTable = new dtbPTASDataSet.tblStandardsDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dtbPTASDataSet.tblStandardsDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dtbPTASDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "tblStandards");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_standards) {
-            if ((Original_standards == null)) {
-                throw new global::System.ArgumentNullException("Original_standards");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_standards));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string standards) {
-            if ((standards == null)) {
-                throw new global::System.ArgumentNullException("standards");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(standards));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string standards, string Original_standards) {
-            if ((standards == null)) {
-                throw new global::System.ArgumentNullException("standards");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(standards));
-            }
-            if ((Original_standards == null)) {
-                throw new global::System.ArgumentNullException("Original_standards");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Original_standards));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Original_standards) {
-            return this.Update(Original_standards, Original_standards);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class tblStatusTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -24796,25 +24867,33 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "tblStatus";
             tableMapping.ColumnMappings.Add("status", "status");
+            tableMapping.ColumnMappings.Add("standards", "standards");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblStatus] WHERE (([status] = @Original_status))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [tblStatus] WHERE (([status] = @Original_status) AND ((@IsNull_standa" +
+                "rds = 1 AND [standards] IS NULL) OR ([standards] = @Original_standards)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_standards", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblStatus] ([status]) VALUES (@status);\r\nSELECT status FROM tb" +
-                "lStatus WHERE (status = @status)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [tblStatus] ([status], [standards]) VALUES (@status, @standards);\r\nSE" +
+                "LECT status, standards FROM tblStatus WHERE (status = @status)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblStatus] SET [status] = @status WHERE (([status] = @Original_stat" +
-                "us));\r\nSELECT status FROM tblStatus WHERE (status = @status)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [tblStatus] SET [status] = @status, [standards] = @standards WHERE (([status] = @Original_status) AND ((@IsNull_standards = 1 AND [standards] IS NULL) OR ([standards] = @Original_standards)));
+SELECT status, standards FROM tblStatus WHERE (status = @status)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_standards", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24830,7 +24909,7 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT status FROM dbo.tblStatus";
+            this._commandCollection[0].CommandText = "SELECT status, standards FROM tblStatus";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -24891,12 +24970,20 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_status) {
+        public virtual int Delete(string Original_status, string Original_standards) {
             if ((Original_status == null)) {
                 throw new global::System.ArgumentNullException("Original_status");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_status));
+            }
+            if ((Original_standards == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_standards));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -24918,12 +25005,18 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string status) {
+        public virtual int Insert(string status, string standards) {
             if ((status == null)) {
                 throw new global::System.ArgumentNullException("status");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(status));
+            }
+            if ((standards == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(standards));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -24945,18 +25038,32 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string status, string Original_status) {
+        public virtual int Update(string status, string standards, string Original_status, string Original_standards) {
             if ((status == null)) {
                 throw new global::System.ArgumentNullException("status");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(status));
             }
+            if ((standards == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(standards));
+            }
             if ((Original_status == null)) {
                 throw new global::System.ArgumentNullException("Original_status");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Original_status));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_status));
+            }
+            if ((Original_standards == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_standards));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -24978,8 +25085,8 @@ SELECT TestNumber, windPrimA, windPrimB, windPrimC, windSecA, windSecB, windSecC
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Original_status) {
-            return this.Update(Original_status, Original_status);
+        public virtual int Update(string standards, string Original_status, string Original_standards) {
+            return this.Update(Original_status, standards, Original_status, Original_standards);
         }
     }
     
@@ -25711,6 +25818,316 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class tblStandardsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public tblStandardsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "tblStandards";
+            tableMapping.ColumnMappings.Add("standards", "standards");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblStandards] WHERE (([standards] = @Original_standards))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblStandards] ([standards]) VALUES (@standards);\r\nSELECT stand" +
+                "ards FROM tblStandards WHERE (standards = @standards)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblStandards] SET [standards] = @standards WHERE (([standards] = @O" +
+                "riginal_standards));\r\nSELECT standards FROM tblStandards WHERE (standards = @sta" +
+                "ndards)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_standards", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "standards", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::PTAS.Properties.Settings.Default.dtbPTASConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT standards FROM dbo.tblStandards";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dtbPTASDataSet.tblStandardsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dtbPTASDataSet.tblStandardsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtbPTASDataSet.tblStandardsDataTable dataTable = new dtbPTASDataSet.tblStandardsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dtbPTASDataSet.tblStandardsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dtbPTASDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "tblStandards");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_standards) {
+            if ((Original_standards == null)) {
+                throw new global::System.ArgumentNullException("Original_standards");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_standards));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string standards) {
+            if ((standards == null)) {
+                throw new global::System.ArgumentNullException("standards");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(standards));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string standards, string Original_standards) {
+            if ((standards == null)) {
+                throw new global::System.ArgumentNullException("standards");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(standards));
+            }
+            if ((Original_standards == null)) {
+                throw new global::System.ArgumentNullException("Original_standards");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Original_standards));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Original_standards) {
+            return this.Update(Original_standards, Original_standards);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -25744,13 +26161,13 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
         
         private tblWindingTableAdapter _tblWindingTableAdapter;
         
-        private tblStandardsTableAdapter _tblStandardsTableAdapter;
-        
         private tblStatusTableAdapter _tblStatusTableAdapter;
         
         private tblParamListTableAdapter _tblParamListTableAdapter;
         
         private tblTestListTableAdapter _tblTestListTableAdapter;
+        
+        private tblStandardsTableAdapter _tblStandardsTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -25926,20 +26343,6 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public tblStandardsTableAdapter tblStandardsTableAdapter {
-            get {
-                return this._tblStandardsTableAdapter;
-            }
-            set {
-                this._tblStandardsTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public tblStatusTableAdapter tblStatusTableAdapter {
             get {
                 return this._tblStatusTableAdapter;
@@ -25974,6 +26377,20 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
             }
             set {
                 this._tblTestListTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public tblStandardsTableAdapter tblStandardsTableAdapter {
+            get {
+                return this._tblStandardsTableAdapter;
+            }
+            set {
+                this._tblStandardsTableAdapter = value;
             }
         }
         
@@ -26040,10 +26457,6 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                             && (this._tblWindingTableAdapter.Connection != null))) {
                     return this._tblWindingTableAdapter.Connection;
                 }
-                if (((this._tblStandardsTableAdapter != null) 
-                            && (this._tblStandardsTableAdapter.Connection != null))) {
-                    return this._tblStandardsTableAdapter.Connection;
-                }
                 if (((this._tblStatusTableAdapter != null) 
                             && (this._tblStatusTableAdapter.Connection != null))) {
                     return this._tblStatusTableAdapter.Connection;
@@ -26055,6 +26468,10 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                 if (((this._tblTestListTableAdapter != null) 
                             && (this._tblTestListTableAdapter.Connection != null))) {
                     return this._tblTestListTableAdapter.Connection;
+                }
+                if (((this._tblStandardsTableAdapter != null) 
+                            && (this._tblStandardsTableAdapter.Connection != null))) {
+                    return this._tblStandardsTableAdapter.Connection;
                 }
                 return null;
             }
@@ -26102,9 +26519,6 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                 if ((this._tblWindingTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._tblStandardsTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._tblStatusTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -26112,6 +26526,9 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                     count = (count + 1);
                 }
                 if ((this._tblTestListTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._tblStandardsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -26143,21 +26560,21 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tblTestTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tblTest.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tblTestTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._tblStandardsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.tblStandards.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tblStandardsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tblTestTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tblTest.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tblTestTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -26286,19 +26703,19 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tblTestTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tblTest.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tblTestTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._tblStandardsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.tblStandards.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._tblStandardsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tblTestTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tblTest.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tblTestTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -26488,19 +26905,19 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tblStandardsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tblStandards.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tblStandardsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._tblTestTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tblTest.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tblTestTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tblStandardsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tblStandards.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tblStandardsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -26614,11 +27031,6 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._tblStandardsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tblStandardsTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._tblStatusTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tblStatusTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -26631,6 +27043,11 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
             }
             if (((this._tblTestListTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tblTestListTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._tblStandardsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tblStandardsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -26765,15 +27182,6 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tblWindingTableAdapter.Adapter);
                     }
                 }
-                if ((this._tblStandardsTableAdapter != null)) {
-                    revertConnections.Add(this._tblStandardsTableAdapter, this._tblStandardsTableAdapter.Connection);
-                    this._tblStandardsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._tblStandardsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._tblStandardsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tblStandardsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tblStandardsTableAdapter.Adapter);
-                    }
-                }
                 if ((this._tblStatusTableAdapter != null)) {
                     revertConnections.Add(this._tblStatusTableAdapter, this._tblStatusTableAdapter.Connection);
                     this._tblStatusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -26799,6 +27207,15 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                     if (this._tblTestListTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._tblTestListTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tblTestListTableAdapter.Adapter);
+                    }
+                }
+                if ((this._tblStandardsTableAdapter != null)) {
+                    revertConnections.Add(this._tblStandardsTableAdapter, this._tblStandardsTableAdapter.Connection);
+                    this._tblStandardsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tblStandardsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tblStandardsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tblStandardsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tblStandardsTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -26903,10 +27320,6 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                     this._tblWindingTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblWindingTableAdapter]));
                     this._tblWindingTableAdapter.Transaction = null;
                 }
-                if ((this._tblStandardsTableAdapter != null)) {
-                    this._tblStandardsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblStandardsTableAdapter]));
-                    this._tblStandardsTableAdapter.Transaction = null;
-                }
                 if ((this._tblStatusTableAdapter != null)) {
                     this._tblStatusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblStatusTableAdapter]));
                     this._tblStatusTableAdapter.Transaction = null;
@@ -26918,6 +27331,10 @@ SELECT TestName, TestValue FROM tblTestList WHERE (TestName = @TestName)";
                 if ((this._tblTestListTableAdapter != null)) {
                     this._tblTestListTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblTestListTableAdapter]));
                     this._tblTestListTableAdapter.Transaction = null;
+                }
+                if ((this._tblStandardsTableAdapter != null)) {
+                    this._tblStandardsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblStandardsTableAdapter]));
+                    this._tblStandardsTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
