@@ -92,7 +92,6 @@
             this.chkOilPF = new System.Windows.Forms.CheckBox();
             this.tblTestTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTestTableAdapter();
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
-            this.tblTransformerTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTransformerTableAdapter();
             this.tblSubstationTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblSubstationTableAdapter();
             this.tbcTest = new System.Windows.Forms.TabControl();
             this.tabExcite = new System.Windows.Forms.TabPage();
@@ -111,10 +110,59 @@
             this.btnSaveExc = new System.Windows.Forms.Button();
             this.btnAddExc = new System.Windows.Forms.Button();
             this.txtTestNumberExc = new System.Windows.Forms.TextBox();
-            this.txtAssess = new System.Windows.Forms.TextBox();
+            this.txtAssessExc = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnAssessExc = new System.Windows.Forms.Button();
+            this.tabIPF = new System.Windows.Forms.TabPage();
+            this.btnComputeIPF = new System.Windows.Forms.Button();
+            this.ipfCFTextBox = new System.Windows.Forms.TextBox();
+            this.tblIPFBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtTestVoltageIPF = new System.Windows.Forms.TextBox();
+            this.btnDeleteIPF = new System.Windows.Forms.Button();
+            this.btnSaveIPF = new System.Windows.Forms.Button();
+            this.btnAddIPF = new System.Windows.Forms.Button();
+            this.txtTestNumberIPF = new System.Windows.Forms.TextBox();
+            this.grpCap = new System.Windows.Forms.GroupBox();
+            this.ipfACHLlvTextBox = new System.Windows.Forms.TextBox();
+            this.ipfACHLUlvTextBox = new System.Windows.Forms.TextBox();
+            this.ipfACLTextBox = new System.Windows.Forms.TextBox();
+            this.ipfACLCHLTextBox = new System.Windows.Forms.TextBox();
+            this.ipfACHLTextBox = new System.Windows.Forms.TextBox();
+            this.ipfACHLUTextBox = new System.Windows.Forms.TextBox();
+            this.ipfACHTextBox = new System.Windows.Forms.TextBox();
+            this.ipfACHCHLTextBox = new System.Windows.Forms.TextBox();
+            this.grpPFM = new System.Windows.Forms.GroupBox();
+            this.ipfMCHCHLTextBox = new System.Windows.Forms.TextBox();
+            this.ipfMCHLlvTextBox = new System.Windows.Forms.TextBox();
+            this.ipfMCLCHLTextBox = new System.Windows.Forms.TextBox();
+            this.ipfMCHLUTextBox = new System.Windows.Forms.TextBox();
+            this.ipfMCHLUlvTextBox = new System.Windows.Forms.TextBox();
+            this.ipfMCHTextBox = new System.Windows.Forms.TextBox();
+            this.ipfMCHLTextBox = new System.Windows.Forms.TextBox();
+            this.ipfMCLTextBox = new System.Windows.Forms.TextBox();
+            this.grpPFC = new System.Windows.Forms.GroupBox();
+            this.ipfCCLCHLTextBox = new System.Windows.Forms.TextBox();
+            this.ipfCCHLlvTextBox = new System.Windows.Forms.TextBox();
+            this.ipfCCHLUlvTextBox = new System.Windows.Forms.TextBox();
+            this.ipfCCLTextBox = new System.Windows.Forms.TextBox();
+            this.ipfCCHLTextBox = new System.Windows.Forms.TextBox();
+            this.ipfCCHLUTextBox = new System.Windows.Forms.TextBox();
+            this.ipfCCHTextBox = new System.Windows.Forms.TextBox();
+            this.ipfCCHCHLTextBox = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.btnAssessIPF = new System.Windows.Forms.Button();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
             this.tabBushing = new System.Windows.Forms.TabPage();
             this.grpNameC2pf = new System.Windows.Forms.GroupBox();
             this.c2pfnameX3TextBox = new System.Windows.Forms.TextBox();
@@ -229,55 +277,6 @@
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
-            this.tabIPF = new System.Windows.Forms.TabPage();
-            this.btnComputeIPF = new System.Windows.Forms.Button();
-            this.ipfCFTextBox = new System.Windows.Forms.TextBox();
-            this.tblIPFBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtTestVoltageIPF = new System.Windows.Forms.TextBox();
-            this.btnDeleteIPF = new System.Windows.Forms.Button();
-            this.btnSaveIPF = new System.Windows.Forms.Button();
-            this.btnAddIPF = new System.Windows.Forms.Button();
-            this.txtTestNumberIPF = new System.Windows.Forms.TextBox();
-            this.grpCap = new System.Windows.Forms.GroupBox();
-            this.ipfACHLlvTextBox = new System.Windows.Forms.TextBox();
-            this.ipfACHLUlvTextBox = new System.Windows.Forms.TextBox();
-            this.ipfACLTextBox = new System.Windows.Forms.TextBox();
-            this.ipfACLCHLTextBox = new System.Windows.Forms.TextBox();
-            this.ipfACHLTextBox = new System.Windows.Forms.TextBox();
-            this.ipfACHLUTextBox = new System.Windows.Forms.TextBox();
-            this.ipfACHTextBox = new System.Windows.Forms.TextBox();
-            this.ipfACHCHLTextBox = new System.Windows.Forms.TextBox();
-            this.grpPFM = new System.Windows.Forms.GroupBox();
-            this.ipfMCHCHLTextBox = new System.Windows.Forms.TextBox();
-            this.ipfMCHLlvTextBox = new System.Windows.Forms.TextBox();
-            this.ipfMCLCHLTextBox = new System.Windows.Forms.TextBox();
-            this.ipfMCHLUTextBox = new System.Windows.Forms.TextBox();
-            this.ipfMCHLUlvTextBox = new System.Windows.Forms.TextBox();
-            this.ipfMCHTextBox = new System.Windows.Forms.TextBox();
-            this.ipfMCHLTextBox = new System.Windows.Forms.TextBox();
-            this.ipfMCLTextBox = new System.Windows.Forms.TextBox();
-            this.grpPFC = new System.Windows.Forms.GroupBox();
-            this.ipfCCLCHLTextBox = new System.Windows.Forms.TextBox();
-            this.ipfCCHLlvTextBox = new System.Windows.Forms.TextBox();
-            this.ipfCCHLUlvTextBox = new System.Windows.Forms.TextBox();
-            this.ipfCCLTextBox = new System.Windows.Forms.TextBox();
-            this.ipfCCHLTextBox = new System.Windows.Forms.TextBox();
-            this.ipfCCHLUTextBox = new System.Windows.Forms.TextBox();
-            this.ipfCCHTextBox = new System.Windows.Forms.TextBox();
-            this.ipfCCHCHLTextBox = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.btnAssessIPF = new System.Windows.Forms.Button();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
             this.tabTTR = new System.Windows.Forms.TabPage();
             this.btnComputeTTR = new System.Windows.Forms.Button();
             this.btnDeleteTTR = new System.Windows.Forms.Button();
@@ -285,7 +284,7 @@
             this.btnAddTTR = new System.Windows.Forms.Button();
             this.txtTestNumberTTR = new System.Windows.Forms.TextBox();
             this.tblTTRBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtAssessTTR = new System.Windows.Forms.TextBox();
             this.label67 = new System.Windows.Forms.Label();
             this.btnAssessTTR = new System.Windows.Forms.Button();
             this.grpError = new System.Windows.Forms.GroupBox();
@@ -428,6 +427,7 @@
             this.label116 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.tblTransformerTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTransformerTableAdapter();
             testNumberLabel = new System.Windows.Forms.Label();
             label40 = new System.Windows.Forms.Label();
             testNumberLabel1 = new System.Windows.Forms.Label();
@@ -446,6 +446,11 @@
             this.tabExcite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblExcitationBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tabIPF.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblIPFBindingSource)).BeginInit();
+            this.grpCap.SuspendLayout();
+            this.grpPFM.SuspendLayout();
+            this.grpPFC.SuspendLayout();
             this.tabBushing.SuspendLayout();
             this.grpNameC2pf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblBushingBindingSource)).BeginInit();
@@ -457,11 +462,6 @@
             this.grpC2pf.SuspendLayout();
             this.grpC1pf.SuspendLayout();
             this.grpName.SuspendLayout();
-            this.tabIPF.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblIPFBindingSource)).BeginInit();
-            this.grpCap.SuspendLayout();
-            this.grpPFM.SuspendLayout();
-            this.grpPFC.SuspendLayout();
             this.tabTTR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblTTRBindingSource)).BeginInit();
             this.grpError.SuspendLayout();
@@ -853,7 +853,7 @@
             // 
             // cboXf
             // 
-            this.cboXf.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tblTestBindingSource, "testXformer", true));
+            this.cboXf.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testXformer", true));
             this.cboXf.DataSource = this.tblTransformerBindingSource;
             this.cboXf.FormattingEnabled = true;
             this.cboXf.Location = new System.Drawing.Point(268, 130);
@@ -1032,10 +1032,6 @@
             this.tableAdapterManager.tblWindingTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tblTransformerTableAdapter
-            // 
-            this.tblTransformerTableAdapter.ClearBeforeFill = true;
-            // 
             // tblSubstationTableAdapter
             // 
             this.tblSubstationTableAdapter.ClearBeforeFill = true;
@@ -1043,8 +1039,8 @@
             // tbcTest
             // 
             this.tbcTest.Controls.Add(this.tabExcite);
-            this.tbcTest.Controls.Add(this.tabBushing);
             this.tbcTest.Controls.Add(this.tabIPF);
+            this.tbcTest.Controls.Add(this.tabBushing);
             this.tbcTest.Controls.Add(this.tabTTR);
             this.tbcTest.Controls.Add(this.tabWinding);
             this.tbcTest.Controls.Add(this.tabDielectric);
@@ -1068,7 +1064,7 @@
             this.tabExcite.Controls.Add(this.btnAddExc);
             this.tabExcite.Controls.Add(testNumberLabel);
             this.tabExcite.Controls.Add(this.txtTestNumberExc);
-            this.tabExcite.Controls.Add(this.txtAssess);
+            this.tabExcite.Controls.Add(this.txtAssessExc);
             this.tabExcite.Controls.Add(this.label17);
             this.tabExcite.Controls.Add(this.label18);
             this.tabExcite.Controls.Add(this.btnAssessExc);
@@ -1120,6 +1116,7 @@
             // 
             // excHVATextBox
             // 
+            this.excHVATextBox.CausesValidation = false;
             this.excHVATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "excHVA", true));
             this.excHVATextBox.Location = new System.Drawing.Point(155, 28);
             this.excHVATextBox.Name = "excHVATextBox";
@@ -1128,6 +1125,7 @@
             // 
             // excHVBTextBox
             // 
+            this.excHVBTextBox.CausesValidation = false;
             this.excHVBTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "excHVB", true));
             this.excHVBTextBox.Location = new System.Drawing.Point(155, 54);
             this.excHVBTextBox.Name = "excHVBTextBox";
@@ -1136,6 +1134,7 @@
             // 
             // excHVCTextBox
             // 
+            this.excHVCTextBox.CausesValidation = false;
             this.excHVCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "excHVC", true));
             this.excHVCTextBox.Location = new System.Drawing.Point(155, 80);
             this.excHVCTextBox.Name = "excHVCTextBox";
@@ -1171,6 +1170,7 @@
             // 
             // txtTestVoltageExc
             // 
+            this.txtTestVoltageExc.CausesValidation = false;
             this.txtTestVoltageExc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "TestVoltage", true));
             this.txtTestVoltageExc.Location = new System.Drawing.Point(209, 52);
             this.txtTestVoltageExc.Name = "txtTestVoltageExc";
@@ -1216,14 +1216,14 @@
             this.txtTestNumberExc.Size = new System.Drawing.Size(134, 20);
             this.txtTestNumberExc.TabIndex = 68;
             // 
-            // txtAssess
+            // txtAssessExc
             // 
-            this.txtAssess.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "excAssess", true));
-            this.txtAssess.Location = new System.Drawing.Point(209, 233);
-            this.txtAssess.Name = "txtAssess";
-            this.txtAssess.ReadOnly = true;
-            this.txtAssess.Size = new System.Drawing.Size(134, 20);
-            this.txtAssess.TabIndex = 63;
+            this.txtAssessExc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblExcitationBindingSource, "excAssess", true));
+            this.txtAssessExc.Location = new System.Drawing.Point(209, 233);
+            this.txtAssessExc.Name = "txtAssessExc";
+            this.txtAssessExc.ReadOnly = true;
+            this.txtAssessExc.Size = new System.Drawing.Size(134, 20);
+            this.txtAssessExc.TabIndex = 63;
             // 
             // label17
             // 
@@ -1252,6 +1252,479 @@
             this.btnAssessExc.Text = "Assess";
             this.btnAssessExc.UseVisualStyleBackColor = true;
             this.btnAssessExc.Click += new System.EventHandler(this.btnAssessExc_Click);
+            // 
+            // tabIPF
+            // 
+            this.tabIPF.AutoScroll = true;
+            this.tabIPF.Controls.Add(this.btnComputeIPF);
+            this.tabIPF.Controls.Add(this.ipfCFTextBox);
+            this.tabIPF.Controls.Add(this.txtTestVoltageIPF);
+            this.tabIPF.Controls.Add(this.btnDeleteIPF);
+            this.tabIPF.Controls.Add(this.btnSaveIPF);
+            this.tabIPF.Controls.Add(this.btnAddIPF);
+            this.tabIPF.Controls.Add(testNumberLabel1);
+            this.tabIPF.Controls.Add(this.txtTestNumberIPF);
+            this.tabIPF.Controls.Add(this.grpCap);
+            this.tabIPF.Controls.Add(this.grpPFM);
+            this.tabIPF.Controls.Add(this.grpPFC);
+            this.tabIPF.Controls.Add(this.textBox5);
+            this.tabIPF.Controls.Add(this.label55);
+            this.tabIPF.Controls.Add(this.btnAssessIPF);
+            this.tabIPF.Controls.Add(this.label56);
+            this.tabIPF.Controls.Add(this.label57);
+            this.tabIPF.Controls.Add(this.label58);
+            this.tabIPF.Controls.Add(this.label59);
+            this.tabIPF.Controls.Add(this.label60);
+            this.tabIPF.Controls.Add(this.label61);
+            this.tabIPF.Controls.Add(this.label62);
+            this.tabIPF.Controls.Add(this.label63);
+            this.tabIPF.Controls.Add(this.label64);
+            this.tabIPF.Controls.Add(this.label65);
+            this.tabIPF.Location = new System.Drawing.Point(4, 22);
+            this.tabIPF.Name = "tabIPF";
+            this.tabIPF.Size = new System.Drawing.Size(920, 741);
+            this.tabIPF.TabIndex = 2;
+            this.tabIPF.Text = "Overall Insulation Power Factor";
+            this.tabIPF.UseVisualStyleBackColor = true;
+            // 
+            // btnComputeIPF
+            // 
+            this.btnComputeIPF.Location = new System.Drawing.Point(254, 405);
+            this.btnComputeIPF.Name = "btnComputeIPF";
+            this.btnComputeIPF.Size = new System.Drawing.Size(67, 32);
+            this.btnComputeIPF.TabIndex = 34;
+            this.btnComputeIPF.Text = "Compute";
+            this.btnComputeIPF.UseVisualStyleBackColor = true;
+            this.btnComputeIPF.Click += new System.EventHandler(this.btnComputeIPF_Click);
+            // 
+            // ipfCFTextBox
+            // 
+            this.ipfCFTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCF", true));
+            this.ipfCFTextBox.Location = new System.Drawing.Point(334, 88);
+            this.ipfCFTextBox.Name = "ipfCFTextBox";
+            this.ipfCFTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfCFTextBox.TabIndex = 27;
+            // 
+            // tblIPFBindingSource
+            // 
+            this.tblIPFBindingSource.DataMember = "tblIPF";
+            this.tblIPFBindingSource.DataSource = this.dtbPTASDataSet;
+            // 
+            // txtTestVoltageIPF
+            // 
+            this.txtTestVoltageIPF.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "TestVoltage", true));
+            this.txtTestVoltageIPF.Location = new System.Drawing.Point(135, 42);
+            this.txtTestVoltageIPF.Name = "txtTestVoltageIPF";
+            this.txtTestVoltageIPF.Size = new System.Drawing.Size(108, 20);
+            this.txtTestVoltageIPF.TabIndex = 26;
+            // 
+            // btnDeleteIPF
+            // 
+            this.btnDeleteIPF.Location = new System.Drawing.Point(181, 405);
+            this.btnDeleteIPF.Name = "btnDeleteIPF";
+            this.btnDeleteIPF.Size = new System.Drawing.Size(67, 32);
+            this.btnDeleteIPF.TabIndex = 33;
+            this.btnDeleteIPF.Text = "Delete";
+            this.btnDeleteIPF.UseVisualStyleBackColor = true;
+            this.btnDeleteIPF.Click += new System.EventHandler(this.btnDeleteIPF_Click);
+            // 
+            // btnSaveIPF
+            // 
+            this.btnSaveIPF.Location = new System.Drawing.Point(108, 405);
+            this.btnSaveIPF.Name = "btnSaveIPF";
+            this.btnSaveIPF.Size = new System.Drawing.Size(67, 32);
+            this.btnSaveIPF.TabIndex = 32;
+            this.btnSaveIPF.Text = "Save";
+            this.btnSaveIPF.UseVisualStyleBackColor = true;
+            this.btnSaveIPF.Click += new System.EventHandler(this.btnSaveIPF_Click);
+            // 
+            // btnAddIPF
+            // 
+            this.btnAddIPF.Location = new System.Drawing.Point(35, 405);
+            this.btnAddIPF.Name = "btnAddIPF";
+            this.btnAddIPF.Size = new System.Drawing.Size(67, 32);
+            this.btnAddIPF.TabIndex = 31;
+            this.btnAddIPF.Text = "Add";
+            this.btnAddIPF.UseVisualStyleBackColor = true;
+            this.btnAddIPF.Click += new System.EventHandler(this.btnAddIPF_Click);
+            // 
+            // txtTestNumberIPF
+            // 
+            this.txtTestNumberIPF.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "TestNumber", true));
+            this.txtTestNumberIPF.Location = new System.Drawing.Point(135, 16);
+            this.txtTestNumberIPF.Name = "txtTestNumberIPF";
+            this.txtTestNumberIPF.ReadOnly = true;
+            this.txtTestNumberIPF.Size = new System.Drawing.Size(108, 20);
+            this.txtTestNumberIPF.TabIndex = 25;
+            // 
+            // grpCap
+            // 
+            this.grpCap.Controls.Add(this.ipfACHLlvTextBox);
+            this.grpCap.Controls.Add(this.ipfACHLUlvTextBox);
+            this.grpCap.Controls.Add(this.ipfACLTextBox);
+            this.grpCap.Controls.Add(this.ipfACLCHLTextBox);
+            this.grpCap.Controls.Add(this.ipfACHLTextBox);
+            this.grpCap.Controls.Add(this.ipfACHLUTextBox);
+            this.grpCap.Controls.Add(this.ipfACHTextBox);
+            this.grpCap.Controls.Add(this.ipfACHCHLTextBox);
+            this.grpCap.Location = new System.Drawing.Point(482, 124);
+            this.grpCap.Name = "grpCap";
+            this.grpCap.Size = new System.Drawing.Size(158, 232);
+            this.grpCap.TabIndex = 30;
+            this.grpCap.TabStop = false;
+            this.grpCap.Text = "Capacitance";
+            // 
+            // ipfACHLlvTextBox
+            // 
+            this.ipfACHLlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHLlv", true));
+            this.ipfACHLlvTextBox.Location = new System.Drawing.Point(25, 200);
+            this.ipfACHLlvTextBox.Name = "ipfACHLlvTextBox";
+            this.ipfACHLlvTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfACHLlvTextBox.TabIndex = 7;
+            // 
+            // ipfACHLUlvTextBox
+            // 
+            this.ipfACHLUlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHLUlv", true));
+            this.ipfACHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
+            this.ipfACHLUlvTextBox.Name = "ipfACHLUlvTextBox";
+            this.ipfACHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfACHLUlvTextBox.TabIndex = 6;
+            // 
+            // ipfACLTextBox
+            // 
+            this.ipfACLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACL", true));
+            this.ipfACLTextBox.Location = new System.Drawing.Point(25, 148);
+            this.ipfACLTextBox.Name = "ipfACLTextBox";
+            this.ipfACLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfACLTextBox.TabIndex = 5;
+            // 
+            // ipfACLCHLTextBox
+            // 
+            this.ipfACLCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACLCHL", true));
+            this.ipfACLCHLTextBox.Location = new System.Drawing.Point(25, 122);
+            this.ipfACLCHLTextBox.Name = "ipfACLCHLTextBox";
+            this.ipfACLCHLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfACLCHLTextBox.TabIndex = 4;
+            // 
+            // ipfACHLTextBox
+            // 
+            this.ipfACHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHL", true));
+            this.ipfACHLTextBox.Location = new System.Drawing.Point(25, 96);
+            this.ipfACHLTextBox.Name = "ipfACHLTextBox";
+            this.ipfACHLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfACHLTextBox.TabIndex = 3;
+            // 
+            // ipfACHLUTextBox
+            // 
+            this.ipfACHLUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHLU", true));
+            this.ipfACHLUTextBox.Location = new System.Drawing.Point(25, 70);
+            this.ipfACHLUTextBox.Name = "ipfACHLUTextBox";
+            this.ipfACHLUTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfACHLUTextBox.TabIndex = 2;
+            // 
+            // ipfACHTextBox
+            // 
+            this.ipfACHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACH", true));
+            this.ipfACHTextBox.Location = new System.Drawing.Point(25, 44);
+            this.ipfACHTextBox.Name = "ipfACHTextBox";
+            this.ipfACHTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfACHTextBox.TabIndex = 1;
+            // 
+            // ipfACHCHLTextBox
+            // 
+            this.ipfACHCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHCHL", true));
+            this.ipfACHCHLTextBox.Location = new System.Drawing.Point(25, 18);
+            this.ipfACHCHLTextBox.Name = "ipfACHCHLTextBox";
+            this.ipfACHCHLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfACHCHLTextBox.TabIndex = 0;
+            // 
+            // grpPFM
+            // 
+            this.grpPFM.Controls.Add(this.ipfMCHCHLTextBox);
+            this.grpPFM.Controls.Add(this.ipfMCHLlvTextBox);
+            this.grpPFM.Controls.Add(this.ipfMCLCHLTextBox);
+            this.grpPFM.Controls.Add(this.ipfMCHLUTextBox);
+            this.grpPFM.Controls.Add(this.ipfMCHLUlvTextBox);
+            this.grpPFM.Controls.Add(this.ipfMCHTextBox);
+            this.grpPFM.Controls.Add(this.ipfMCHLTextBox);
+            this.grpPFM.Controls.Add(this.ipfMCLTextBox);
+            this.grpPFM.Location = new System.Drawing.Point(136, 124);
+            this.grpPFM.Name = "grpPFM";
+            this.grpPFM.Size = new System.Drawing.Size(158, 232);
+            this.grpPFM.TabIndex = 28;
+            this.grpPFM.TabStop = false;
+            this.grpPFM.Text = "%pf Measured";
+            // 
+            // ipfMCHCHLTextBox
+            // 
+            this.ipfMCHCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHCHL", true));
+            this.ipfMCHCHLTextBox.Location = new System.Drawing.Point(25, 18);
+            this.ipfMCHCHLTextBox.Name = "ipfMCHCHLTextBox";
+            this.ipfMCHCHLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfMCHCHLTextBox.TabIndex = 0;
+            // 
+            // ipfMCHLlvTextBox
+            // 
+            this.ipfMCHLlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHLlv", true));
+            this.ipfMCHLlvTextBox.Location = new System.Drawing.Point(25, 200);
+            this.ipfMCHLlvTextBox.Name = "ipfMCHLlvTextBox";
+            this.ipfMCHLlvTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfMCHLlvTextBox.TabIndex = 7;
+            // 
+            // ipfMCLCHLTextBox
+            // 
+            this.ipfMCLCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCLCHL", true));
+            this.ipfMCLCHLTextBox.Location = new System.Drawing.Point(25, 122);
+            this.ipfMCLCHLTextBox.Name = "ipfMCLCHLTextBox";
+            this.ipfMCLCHLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfMCLCHLTextBox.TabIndex = 4;
+            // 
+            // ipfMCHLUTextBox
+            // 
+            this.ipfMCHLUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHLU", true));
+            this.ipfMCHLUTextBox.Location = new System.Drawing.Point(25, 70);
+            this.ipfMCHLUTextBox.Name = "ipfMCHLUTextBox";
+            this.ipfMCHLUTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfMCHLUTextBox.TabIndex = 2;
+            // 
+            // ipfMCHLUlvTextBox
+            // 
+            this.ipfMCHLUlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHLUlv", true));
+            this.ipfMCHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
+            this.ipfMCHLUlvTextBox.Name = "ipfMCHLUlvTextBox";
+            this.ipfMCHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfMCHLUlvTextBox.TabIndex = 6;
+            // 
+            // ipfMCHTextBox
+            // 
+            this.ipfMCHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCH", true));
+            this.ipfMCHTextBox.Location = new System.Drawing.Point(25, 44);
+            this.ipfMCHTextBox.Name = "ipfMCHTextBox";
+            this.ipfMCHTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfMCHTextBox.TabIndex = 1;
+            // 
+            // ipfMCHLTextBox
+            // 
+            this.ipfMCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHL", true));
+            this.ipfMCHLTextBox.Location = new System.Drawing.Point(25, 96);
+            this.ipfMCHLTextBox.Name = "ipfMCHLTextBox";
+            this.ipfMCHLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfMCHLTextBox.TabIndex = 3;
+            // 
+            // ipfMCLTextBox
+            // 
+            this.ipfMCLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCL", true));
+            this.ipfMCLTextBox.Location = new System.Drawing.Point(25, 148);
+            this.ipfMCLTextBox.Name = "ipfMCLTextBox";
+            this.ipfMCLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfMCLTextBox.TabIndex = 5;
+            // 
+            // grpPFC
+            // 
+            this.grpPFC.Controls.Add(this.ipfCCLCHLTextBox);
+            this.grpPFC.Controls.Add(this.ipfCCHLlvTextBox);
+            this.grpPFC.Controls.Add(this.ipfCCHLUlvTextBox);
+            this.grpPFC.Controls.Add(this.ipfCCLTextBox);
+            this.grpPFC.Controls.Add(this.ipfCCHLTextBox);
+            this.grpPFC.Controls.Add(this.ipfCCHLUTextBox);
+            this.grpPFC.Controls.Add(this.ipfCCHTextBox);
+            this.grpPFC.Controls.Add(this.ipfCCHCHLTextBox);
+            this.grpPFC.Location = new System.Drawing.Point(309, 124);
+            this.grpPFC.Name = "grpPFC";
+            this.grpPFC.Size = new System.Drawing.Size(158, 232);
+            this.grpPFC.TabIndex = 29;
+            this.grpPFC.TabStop = false;
+            this.grpPFC.Text = "%pf Corrected";
+            // 
+            // ipfCCLCHLTextBox
+            // 
+            this.ipfCCLCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCLCHL", true));
+            this.ipfCCLCHLTextBox.Location = new System.Drawing.Point(25, 122);
+            this.ipfCCLCHLTextBox.Name = "ipfCCLCHLTextBox";
+            this.ipfCCLCHLTextBox.ReadOnly = true;
+            this.ipfCCLCHLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfCCLCHLTextBox.TabIndex = 4;
+            // 
+            // ipfCCHLlvTextBox
+            // 
+            this.ipfCCHLlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHLlv", true));
+            this.ipfCCHLlvTextBox.Location = new System.Drawing.Point(25, 200);
+            this.ipfCCHLlvTextBox.Name = "ipfCCHLlvTextBox";
+            this.ipfCCHLlvTextBox.ReadOnly = true;
+            this.ipfCCHLlvTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfCCHLlvTextBox.TabIndex = 7;
+            // 
+            // ipfCCHLUlvTextBox
+            // 
+            this.ipfCCHLUlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHLUlv", true));
+            this.ipfCCHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
+            this.ipfCCHLUlvTextBox.Name = "ipfCCHLUlvTextBox";
+            this.ipfCCHLUlvTextBox.ReadOnly = true;
+            this.ipfCCHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfCCHLUlvTextBox.TabIndex = 6;
+            // 
+            // ipfCCLTextBox
+            // 
+            this.ipfCCLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCL", true));
+            this.ipfCCLTextBox.Location = new System.Drawing.Point(25, 148);
+            this.ipfCCLTextBox.Name = "ipfCCLTextBox";
+            this.ipfCCLTextBox.ReadOnly = true;
+            this.ipfCCLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfCCLTextBox.TabIndex = 5;
+            // 
+            // ipfCCHLTextBox
+            // 
+            this.ipfCCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHL", true));
+            this.ipfCCHLTextBox.Location = new System.Drawing.Point(25, 96);
+            this.ipfCCHLTextBox.Name = "ipfCCHLTextBox";
+            this.ipfCCHLTextBox.ReadOnly = true;
+            this.ipfCCHLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfCCHLTextBox.TabIndex = 3;
+            // 
+            // ipfCCHLUTextBox
+            // 
+            this.ipfCCHLUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHLU", true));
+            this.ipfCCHLUTextBox.Location = new System.Drawing.Point(25, 70);
+            this.ipfCCHLUTextBox.Name = "ipfCCHLUTextBox";
+            this.ipfCCHLUTextBox.ReadOnly = true;
+            this.ipfCCHLUTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfCCHLUTextBox.TabIndex = 2;
+            // 
+            // ipfCCHTextBox
+            // 
+            this.ipfCCHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCH", true));
+            this.ipfCCHTextBox.Location = new System.Drawing.Point(25, 44);
+            this.ipfCCHTextBox.Name = "ipfCCHTextBox";
+            this.ipfCCHTextBox.ReadOnly = true;
+            this.ipfCCHTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfCCHTextBox.TabIndex = 1;
+            // 
+            // ipfCCHCHLTextBox
+            // 
+            this.ipfCCHCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHCHL", true));
+            this.ipfCCHCHLTextBox.Location = new System.Drawing.Point(25, 18);
+            this.ipfCCHCHLTextBox.Name = "ipfCCHCHLTextBox";
+            this.ipfCCHCHLTextBox.ReadOnly = true;
+            this.ipfCCHCHLTextBox.Size = new System.Drawing.Size(108, 20);
+            this.ipfCCHCHLTextBox.TabIndex = 0;
+            // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfAssess", true));
+            this.textBox5.Location = new System.Drawing.Point(391, 367);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(224, 20);
+            this.textBox5.TabIndex = 12;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(284, 370);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(63, 13);
+            this.label55.TabIndex = 21;
+            this.label55.Text = "Assessment";
+            // 
+            // btnAssessIPF
+            // 
+            this.btnAssessIPF.Location = new System.Drawing.Point(479, 403);
+            this.btnAssessIPF.Name = "btnAssessIPF";
+            this.btnAssessIPF.Size = new System.Drawing.Size(160, 36);
+            this.btnAssessIPF.TabIndex = 35;
+            this.btnAssessIPF.Text = "Assess";
+            this.btnAssessIPF.UseVisualStyleBackColor = true;
+            this.btnAssessIPF.Click += new System.EventHandler(this.btnAssessIPF_Click);
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(32, 91);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(88, 13);
+            this.label56.TabIndex = 20;
+            this.label56.Text = "Correction Factor";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(32, 327);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(57, 13);
+            this.label57.TabIndex = 19;
+            this.label57.Text = "CHL LV inj";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(32, 301);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(88, 13);
+            this.label58.TabIndex = 18;
+            this.label58.Text = "CHL (UST) LV inj";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(32, 275);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(20, 13);
+            this.label59.TabIndex = 17;
+            this.label59.Text = "CL";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(32, 249);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(47, 13);
+            this.label60.TabIndex = 16;
+            this.label60.Text = "CL+CHL";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(32, 223);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(28, 13);
+            this.label61.TabIndex = 15;
+            this.label61.Text = "CHL";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(32, 197);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(59, 13);
+            this.label62.TabIndex = 14;
+            this.label62.Text = "CHL (UST)";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(32, 171);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(22, 13);
+            this.label63.TabIndex = 13;
+            this.label63.Text = "CH";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(32, 145);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(49, 13);
+            this.label64.TabIndex = 22;
+            this.label64.Text = "CH+CHL";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(32, 45);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(67, 13);
+            this.label65.TabIndex = 23;
+            this.label65.Text = "Test Voltage";
             // 
             // tabBushing
             // 
@@ -2337,479 +2810,6 @@
             this.label54.TabIndex = 119;
             this.label54.Text = "H1";
             // 
-            // tabIPF
-            // 
-            this.tabIPF.AutoScroll = true;
-            this.tabIPF.Controls.Add(this.btnComputeIPF);
-            this.tabIPF.Controls.Add(this.ipfCFTextBox);
-            this.tabIPF.Controls.Add(this.txtTestVoltageIPF);
-            this.tabIPF.Controls.Add(this.btnDeleteIPF);
-            this.tabIPF.Controls.Add(this.btnSaveIPF);
-            this.tabIPF.Controls.Add(this.btnAddIPF);
-            this.tabIPF.Controls.Add(testNumberLabel1);
-            this.tabIPF.Controls.Add(this.txtTestNumberIPF);
-            this.tabIPF.Controls.Add(this.grpCap);
-            this.tabIPF.Controls.Add(this.grpPFM);
-            this.tabIPF.Controls.Add(this.grpPFC);
-            this.tabIPF.Controls.Add(this.textBox5);
-            this.tabIPF.Controls.Add(this.label55);
-            this.tabIPF.Controls.Add(this.btnAssessIPF);
-            this.tabIPF.Controls.Add(this.label56);
-            this.tabIPF.Controls.Add(this.label57);
-            this.tabIPF.Controls.Add(this.label58);
-            this.tabIPF.Controls.Add(this.label59);
-            this.tabIPF.Controls.Add(this.label60);
-            this.tabIPF.Controls.Add(this.label61);
-            this.tabIPF.Controls.Add(this.label62);
-            this.tabIPF.Controls.Add(this.label63);
-            this.tabIPF.Controls.Add(this.label64);
-            this.tabIPF.Controls.Add(this.label65);
-            this.tabIPF.Location = new System.Drawing.Point(4, 22);
-            this.tabIPF.Name = "tabIPF";
-            this.tabIPF.Size = new System.Drawing.Size(920, 741);
-            this.tabIPF.TabIndex = 2;
-            this.tabIPF.Text = "Overall Insulation Power Factor";
-            this.tabIPF.UseVisualStyleBackColor = true;
-            // 
-            // btnComputeIPF
-            // 
-            this.btnComputeIPF.Location = new System.Drawing.Point(254, 405);
-            this.btnComputeIPF.Name = "btnComputeIPF";
-            this.btnComputeIPF.Size = new System.Drawing.Size(67, 32);
-            this.btnComputeIPF.TabIndex = 34;
-            this.btnComputeIPF.Text = "Compute";
-            this.btnComputeIPF.UseVisualStyleBackColor = true;
-            this.btnComputeIPF.Click += new System.EventHandler(this.btnComputeIPF_Click);
-            // 
-            // ipfCFTextBox
-            // 
-            this.ipfCFTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCF", true));
-            this.ipfCFTextBox.Location = new System.Drawing.Point(334, 88);
-            this.ipfCFTextBox.Name = "ipfCFTextBox";
-            this.ipfCFTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCFTextBox.TabIndex = 27;
-            // 
-            // tblIPFBindingSource
-            // 
-            this.tblIPFBindingSource.DataMember = "tblIPF";
-            this.tblIPFBindingSource.DataSource = this.dtbPTASDataSet;
-            // 
-            // txtTestVoltageIPF
-            // 
-            this.txtTestVoltageIPF.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "TestVoltage", true));
-            this.txtTestVoltageIPF.Location = new System.Drawing.Point(135, 42);
-            this.txtTestVoltageIPF.Name = "txtTestVoltageIPF";
-            this.txtTestVoltageIPF.Size = new System.Drawing.Size(108, 20);
-            this.txtTestVoltageIPF.TabIndex = 26;
-            // 
-            // btnDeleteIPF
-            // 
-            this.btnDeleteIPF.Location = new System.Drawing.Point(181, 405);
-            this.btnDeleteIPF.Name = "btnDeleteIPF";
-            this.btnDeleteIPF.Size = new System.Drawing.Size(67, 32);
-            this.btnDeleteIPF.TabIndex = 33;
-            this.btnDeleteIPF.Text = "Delete";
-            this.btnDeleteIPF.UseVisualStyleBackColor = true;
-            this.btnDeleteIPF.Click += new System.EventHandler(this.btnDeleteIPF_Click);
-            // 
-            // btnSaveIPF
-            // 
-            this.btnSaveIPF.Location = new System.Drawing.Point(108, 405);
-            this.btnSaveIPF.Name = "btnSaveIPF";
-            this.btnSaveIPF.Size = new System.Drawing.Size(67, 32);
-            this.btnSaveIPF.TabIndex = 32;
-            this.btnSaveIPF.Text = "Save";
-            this.btnSaveIPF.UseVisualStyleBackColor = true;
-            this.btnSaveIPF.Click += new System.EventHandler(this.btnSaveIPF_Click);
-            // 
-            // btnAddIPF
-            // 
-            this.btnAddIPF.Location = new System.Drawing.Point(35, 405);
-            this.btnAddIPF.Name = "btnAddIPF";
-            this.btnAddIPF.Size = new System.Drawing.Size(67, 32);
-            this.btnAddIPF.TabIndex = 31;
-            this.btnAddIPF.Text = "Add";
-            this.btnAddIPF.UseVisualStyleBackColor = true;
-            this.btnAddIPF.Click += new System.EventHandler(this.btnAddIPF_Click);
-            // 
-            // txtTestNumberIPF
-            // 
-            this.txtTestNumberIPF.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "TestNumber", true));
-            this.txtTestNumberIPF.Location = new System.Drawing.Point(135, 16);
-            this.txtTestNumberIPF.Name = "txtTestNumberIPF";
-            this.txtTestNumberIPF.ReadOnly = true;
-            this.txtTestNumberIPF.Size = new System.Drawing.Size(108, 20);
-            this.txtTestNumberIPF.TabIndex = 25;
-            // 
-            // grpCap
-            // 
-            this.grpCap.Controls.Add(this.ipfACHLlvTextBox);
-            this.grpCap.Controls.Add(this.ipfACHLUlvTextBox);
-            this.grpCap.Controls.Add(this.ipfACLTextBox);
-            this.grpCap.Controls.Add(this.ipfACLCHLTextBox);
-            this.grpCap.Controls.Add(this.ipfACHLTextBox);
-            this.grpCap.Controls.Add(this.ipfACHLUTextBox);
-            this.grpCap.Controls.Add(this.ipfACHTextBox);
-            this.grpCap.Controls.Add(this.ipfACHCHLTextBox);
-            this.grpCap.Location = new System.Drawing.Point(482, 124);
-            this.grpCap.Name = "grpCap";
-            this.grpCap.Size = new System.Drawing.Size(158, 232);
-            this.grpCap.TabIndex = 30;
-            this.grpCap.TabStop = false;
-            this.grpCap.Text = "Capacitance";
-            // 
-            // ipfACHLlvTextBox
-            // 
-            this.ipfACHLlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHLlv", true));
-            this.ipfACHLlvTextBox.Location = new System.Drawing.Point(25, 200);
-            this.ipfACHLlvTextBox.Name = "ipfACHLlvTextBox";
-            this.ipfACHLlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHLlvTextBox.TabIndex = 7;
-            // 
-            // ipfACHLUlvTextBox
-            // 
-            this.ipfACHLUlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHLUlv", true));
-            this.ipfACHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
-            this.ipfACHLUlvTextBox.Name = "ipfACHLUlvTextBox";
-            this.ipfACHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHLUlvTextBox.TabIndex = 6;
-            // 
-            // ipfACLTextBox
-            // 
-            this.ipfACLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACL", true));
-            this.ipfACLTextBox.Location = new System.Drawing.Point(25, 148);
-            this.ipfACLTextBox.Name = "ipfACLTextBox";
-            this.ipfACLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACLTextBox.TabIndex = 5;
-            // 
-            // ipfACLCHLTextBox
-            // 
-            this.ipfACLCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACLCHL", true));
-            this.ipfACLCHLTextBox.Location = new System.Drawing.Point(25, 122);
-            this.ipfACLCHLTextBox.Name = "ipfACLCHLTextBox";
-            this.ipfACLCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACLCHLTextBox.TabIndex = 4;
-            // 
-            // ipfACHLTextBox
-            // 
-            this.ipfACHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHL", true));
-            this.ipfACHLTextBox.Location = new System.Drawing.Point(25, 96);
-            this.ipfACHLTextBox.Name = "ipfACHLTextBox";
-            this.ipfACHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHLTextBox.TabIndex = 3;
-            // 
-            // ipfACHLUTextBox
-            // 
-            this.ipfACHLUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHLU", true));
-            this.ipfACHLUTextBox.Location = new System.Drawing.Point(25, 70);
-            this.ipfACHLUTextBox.Name = "ipfACHLUTextBox";
-            this.ipfACHLUTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHLUTextBox.TabIndex = 2;
-            // 
-            // ipfACHTextBox
-            // 
-            this.ipfACHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACH", true));
-            this.ipfACHTextBox.Location = new System.Drawing.Point(25, 44);
-            this.ipfACHTextBox.Name = "ipfACHTextBox";
-            this.ipfACHTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHTextBox.TabIndex = 1;
-            // 
-            // ipfACHCHLTextBox
-            // 
-            this.ipfACHCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHCHL", true));
-            this.ipfACHCHLTextBox.Location = new System.Drawing.Point(25, 18);
-            this.ipfACHCHLTextBox.Name = "ipfACHCHLTextBox";
-            this.ipfACHCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfACHCHLTextBox.TabIndex = 0;
-            // 
-            // grpPFM
-            // 
-            this.grpPFM.Controls.Add(this.ipfMCHCHLTextBox);
-            this.grpPFM.Controls.Add(this.ipfMCHLlvTextBox);
-            this.grpPFM.Controls.Add(this.ipfMCLCHLTextBox);
-            this.grpPFM.Controls.Add(this.ipfMCHLUTextBox);
-            this.grpPFM.Controls.Add(this.ipfMCHLUlvTextBox);
-            this.grpPFM.Controls.Add(this.ipfMCHTextBox);
-            this.grpPFM.Controls.Add(this.ipfMCHLTextBox);
-            this.grpPFM.Controls.Add(this.ipfMCLTextBox);
-            this.grpPFM.Location = new System.Drawing.Point(136, 124);
-            this.grpPFM.Name = "grpPFM";
-            this.grpPFM.Size = new System.Drawing.Size(158, 232);
-            this.grpPFM.TabIndex = 28;
-            this.grpPFM.TabStop = false;
-            this.grpPFM.Text = "%pf Measured";
-            // 
-            // ipfMCHCHLTextBox
-            // 
-            this.ipfMCHCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHCHL", true));
-            this.ipfMCHCHLTextBox.Location = new System.Drawing.Point(25, 18);
-            this.ipfMCHCHLTextBox.Name = "ipfMCHCHLTextBox";
-            this.ipfMCHCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHCHLTextBox.TabIndex = 0;
-            // 
-            // ipfMCHLlvTextBox
-            // 
-            this.ipfMCHLlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHLlv", true));
-            this.ipfMCHLlvTextBox.Location = new System.Drawing.Point(25, 200);
-            this.ipfMCHLlvTextBox.Name = "ipfMCHLlvTextBox";
-            this.ipfMCHLlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHLlvTextBox.TabIndex = 7;
-            // 
-            // ipfMCLCHLTextBox
-            // 
-            this.ipfMCLCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCLCHL", true));
-            this.ipfMCLCHLTextBox.Location = new System.Drawing.Point(25, 122);
-            this.ipfMCLCHLTextBox.Name = "ipfMCLCHLTextBox";
-            this.ipfMCLCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCLCHLTextBox.TabIndex = 4;
-            // 
-            // ipfMCHLUTextBox
-            // 
-            this.ipfMCHLUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHLU", true));
-            this.ipfMCHLUTextBox.Location = new System.Drawing.Point(25, 70);
-            this.ipfMCHLUTextBox.Name = "ipfMCHLUTextBox";
-            this.ipfMCHLUTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHLUTextBox.TabIndex = 2;
-            // 
-            // ipfMCHLUlvTextBox
-            // 
-            this.ipfMCHLUlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHLUlv", true));
-            this.ipfMCHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
-            this.ipfMCHLUlvTextBox.Name = "ipfMCHLUlvTextBox";
-            this.ipfMCHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHLUlvTextBox.TabIndex = 6;
-            // 
-            // ipfMCHTextBox
-            // 
-            this.ipfMCHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCH", true));
-            this.ipfMCHTextBox.Location = new System.Drawing.Point(25, 44);
-            this.ipfMCHTextBox.Name = "ipfMCHTextBox";
-            this.ipfMCHTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHTextBox.TabIndex = 1;
-            // 
-            // ipfMCHLTextBox
-            // 
-            this.ipfMCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHL", true));
-            this.ipfMCHLTextBox.Location = new System.Drawing.Point(25, 96);
-            this.ipfMCHLTextBox.Name = "ipfMCHLTextBox";
-            this.ipfMCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCHLTextBox.TabIndex = 3;
-            // 
-            // ipfMCLTextBox
-            // 
-            this.ipfMCLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCL", true));
-            this.ipfMCLTextBox.Location = new System.Drawing.Point(25, 148);
-            this.ipfMCLTextBox.Name = "ipfMCLTextBox";
-            this.ipfMCLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfMCLTextBox.TabIndex = 5;
-            // 
-            // grpPFC
-            // 
-            this.grpPFC.Controls.Add(this.ipfCCLCHLTextBox);
-            this.grpPFC.Controls.Add(this.ipfCCHLlvTextBox);
-            this.grpPFC.Controls.Add(this.ipfCCHLUlvTextBox);
-            this.grpPFC.Controls.Add(this.ipfCCLTextBox);
-            this.grpPFC.Controls.Add(this.ipfCCHLTextBox);
-            this.grpPFC.Controls.Add(this.ipfCCHLUTextBox);
-            this.grpPFC.Controls.Add(this.ipfCCHTextBox);
-            this.grpPFC.Controls.Add(this.ipfCCHCHLTextBox);
-            this.grpPFC.Location = new System.Drawing.Point(309, 124);
-            this.grpPFC.Name = "grpPFC";
-            this.grpPFC.Size = new System.Drawing.Size(158, 232);
-            this.grpPFC.TabIndex = 29;
-            this.grpPFC.TabStop = false;
-            this.grpPFC.Text = "%pf Corrected";
-            // 
-            // ipfCCLCHLTextBox
-            // 
-            this.ipfCCLCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCLCHL", true));
-            this.ipfCCLCHLTextBox.Location = new System.Drawing.Point(25, 122);
-            this.ipfCCLCHLTextBox.Name = "ipfCCLCHLTextBox";
-            this.ipfCCLCHLTextBox.ReadOnly = true;
-            this.ipfCCLCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCLCHLTextBox.TabIndex = 4;
-            // 
-            // ipfCCHLlvTextBox
-            // 
-            this.ipfCCHLlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHLlv", true));
-            this.ipfCCHLlvTextBox.Location = new System.Drawing.Point(25, 200);
-            this.ipfCCHLlvTextBox.Name = "ipfCCHLlvTextBox";
-            this.ipfCCHLlvTextBox.ReadOnly = true;
-            this.ipfCCHLlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHLlvTextBox.TabIndex = 7;
-            // 
-            // ipfCCHLUlvTextBox
-            // 
-            this.ipfCCHLUlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHLUlv", true));
-            this.ipfCCHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
-            this.ipfCCHLUlvTextBox.Name = "ipfCCHLUlvTextBox";
-            this.ipfCCHLUlvTextBox.ReadOnly = true;
-            this.ipfCCHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHLUlvTextBox.TabIndex = 6;
-            // 
-            // ipfCCLTextBox
-            // 
-            this.ipfCCLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCL", true));
-            this.ipfCCLTextBox.Location = new System.Drawing.Point(25, 148);
-            this.ipfCCLTextBox.Name = "ipfCCLTextBox";
-            this.ipfCCLTextBox.ReadOnly = true;
-            this.ipfCCLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCLTextBox.TabIndex = 5;
-            // 
-            // ipfCCHLTextBox
-            // 
-            this.ipfCCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHL", true));
-            this.ipfCCHLTextBox.Location = new System.Drawing.Point(25, 96);
-            this.ipfCCHLTextBox.Name = "ipfCCHLTextBox";
-            this.ipfCCHLTextBox.ReadOnly = true;
-            this.ipfCCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHLTextBox.TabIndex = 3;
-            // 
-            // ipfCCHLUTextBox
-            // 
-            this.ipfCCHLUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHLU", true));
-            this.ipfCCHLUTextBox.Location = new System.Drawing.Point(25, 70);
-            this.ipfCCHLUTextBox.Name = "ipfCCHLUTextBox";
-            this.ipfCCHLUTextBox.ReadOnly = true;
-            this.ipfCCHLUTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHLUTextBox.TabIndex = 2;
-            // 
-            // ipfCCHTextBox
-            // 
-            this.ipfCCHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCH", true));
-            this.ipfCCHTextBox.Location = new System.Drawing.Point(25, 44);
-            this.ipfCCHTextBox.Name = "ipfCCHTextBox";
-            this.ipfCCHTextBox.ReadOnly = true;
-            this.ipfCCHTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHTextBox.TabIndex = 1;
-            // 
-            // ipfCCHCHLTextBox
-            // 
-            this.ipfCCHCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCCHCHL", true));
-            this.ipfCCHCHLTextBox.Location = new System.Drawing.Point(25, 18);
-            this.ipfCCHCHLTextBox.Name = "ipfCCHCHLTextBox";
-            this.ipfCCHCHLTextBox.ReadOnly = true;
-            this.ipfCCHCHLTextBox.Size = new System.Drawing.Size(108, 20);
-            this.ipfCCHCHLTextBox.TabIndex = 0;
-            // 
-            // textBox5
-            // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfAssess", true));
-            this.textBox5.Location = new System.Drawing.Point(391, 367);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(224, 20);
-            this.textBox5.TabIndex = 12;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(284, 370);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(63, 13);
-            this.label55.TabIndex = 21;
-            this.label55.Text = "Assessment";
-            // 
-            // btnAssessIPF
-            // 
-            this.btnAssessIPF.Location = new System.Drawing.Point(479, 403);
-            this.btnAssessIPF.Name = "btnAssessIPF";
-            this.btnAssessIPF.Size = new System.Drawing.Size(160, 36);
-            this.btnAssessIPF.TabIndex = 35;
-            this.btnAssessIPF.Text = "Assess";
-            this.btnAssessIPF.UseVisualStyleBackColor = true;
-            this.btnAssessIPF.Click += new System.EventHandler(this.btnAssessIPF_Click);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(32, 91);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(88, 13);
-            this.label56.TabIndex = 20;
-            this.label56.Text = "Correction Factor";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(32, 327);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(57, 13);
-            this.label57.TabIndex = 19;
-            this.label57.Text = "CHL LV inj";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(32, 301);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(88, 13);
-            this.label58.TabIndex = 18;
-            this.label58.Text = "CHL (UST) LV inj";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(32, 275);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(20, 13);
-            this.label59.TabIndex = 17;
-            this.label59.Text = "CL";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(32, 249);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(47, 13);
-            this.label60.TabIndex = 16;
-            this.label60.Text = "CL+CHL";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(32, 223);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(28, 13);
-            this.label61.TabIndex = 15;
-            this.label61.Text = "CHL";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(32, 197);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(59, 13);
-            this.label62.TabIndex = 14;
-            this.label62.Text = "CHL (UST)";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(32, 171);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(22, 13);
-            this.label63.TabIndex = 13;
-            this.label63.Text = "CH";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(32, 145);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(49, 13);
-            this.label64.TabIndex = 22;
-            this.label64.Text = "CH+CHL";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(32, 45);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(67, 13);
-            this.label65.TabIndex = 23;
-            this.label65.Text = "Test Voltage";
-            // 
             // tabTTR
             // 
             this.tabTTR.AutoScroll = true;
@@ -2819,7 +2819,7 @@
             this.tabTTR.Controls.Add(this.btnAddTTR);
             this.tabTTR.Controls.Add(label66);
             this.tabTTR.Controls.Add(this.txtTestNumberTTR);
-            this.tabTTR.Controls.Add(this.textBox7);
+            this.tabTTR.Controls.Add(this.txtAssessTTR);
             this.tabTTR.Controls.Add(this.label67);
             this.tabTTR.Controls.Add(this.btnAssessTTR);
             this.tabTTR.Controls.Add(this.grpError);
@@ -2886,14 +2886,14 @@
             this.tblTTRBindingSource.DataMember = "tblTTR";
             this.tblTTRBindingSource.DataSource = this.dtbPTASDataSet;
             // 
-            // textBox7
+            // txtAssessTTR
             // 
-            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrAssess", true));
-            this.textBox7.Location = new System.Drawing.Point(432, 483);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(168, 20);
-            this.textBox7.TabIndex = 59;
+            this.txtAssessTTR.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrAssess", true));
+            this.txtAssessTTR.Location = new System.Drawing.Point(432, 483);
+            this.txtAssessTTR.Name = "txtAssessTTR";
+            this.txtAssessTTR.ReadOnly = true;
+            this.txtAssessTTR.Size = new System.Drawing.Size(168, 20);
+            this.txtAssessTTR.TabIndex = 59;
             // 
             // label67
             // 
@@ -3695,6 +3695,7 @@
             // 
             // statusComboBox
             // 
+            this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "status", true));
             this.statusComboBox.DisplayMember = "status";
             this.statusComboBox.FormattingEnabled = true;
             this.statusComboBox.Location = new System.Drawing.Point(388, 52);
@@ -3714,6 +3715,7 @@
             // 
             // standardComboBox
             // 
+            this.standardComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "standard", true));
             this.standardComboBox.DataSource = this.tblStandardsBindingSource;
             this.standardComboBox.DisplayMember = "standards";
             this.standardComboBox.FormattingEnabled = true;
@@ -4230,6 +4232,10 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // tblTransformerTableAdapter
+            // 
+            this.tblTransformerTableAdapter.ClearBeforeFill = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4283,7 +4289,6 @@
             this.Name = "frmMain";
             this.Text = "PTAS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -4297,6 +4302,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblExcitationBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabIPF.ResumeLayout(false);
+            this.tabIPF.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblIPFBindingSource)).EndInit();
+            this.grpCap.ResumeLayout(false);
+            this.grpCap.PerformLayout();
+            this.grpPFM.ResumeLayout(false);
+            this.grpPFM.PerformLayout();
+            this.grpPFC.ResumeLayout(false);
+            this.grpPFC.PerformLayout();
             this.tabBushing.ResumeLayout(false);
             this.tabBushing.PerformLayout();
             this.grpNameC2pf.ResumeLayout(false);
@@ -4318,15 +4332,6 @@
             this.grpC1pf.PerformLayout();
             this.grpName.ResumeLayout(false);
             this.grpName.PerformLayout();
-            this.tabIPF.ResumeLayout(false);
-            this.tabIPF.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblIPFBindingSource)).EndInit();
-            this.grpCap.ResumeLayout(false);
-            this.grpCap.PerformLayout();
-            this.grpPFM.ResumeLayout(false);
-            this.grpPFM.PerformLayout();
-            this.grpPFC.ResumeLayout(false);
-            this.grpPFC.PerformLayout();
             this.tabTTR.ResumeLayout(false);
             this.tabTTR.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblTTRBindingSource)).EndInit();
@@ -4414,7 +4419,6 @@
         private System.Windows.Forms.CheckBox chkDielectric;
         private System.Windows.Forms.CheckBox chkOilPF;
         private System.Windows.Forms.BindingSource tblTransformerBindingSource;
-        private dtbPTASDataSetTableAdapters.tblTransformerTableAdapter tblTransformerTableAdapter;
         private System.Windows.Forms.BindingSource tblSubstationBindingSource;
         private dtbPTASDataSetTableAdapters.tblSubstationTableAdapter tblSubstationTableAdapter;
         private System.Windows.Forms.TabControl tbcTest;
@@ -4443,7 +4447,7 @@
         private System.Windows.Forms.Button btnSaveExc;
         private System.Windows.Forms.Button btnAddExc;
         private System.Windows.Forms.TextBox txtTestNumberExc;
-        private System.Windows.Forms.TextBox txtAssess;
+        private System.Windows.Forms.TextBox txtAssessExc;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnAssessExc;
@@ -4613,7 +4617,7 @@
         private System.Windows.Forms.Button btnSaveTTR;
         private System.Windows.Forms.Button btnAddTTR;
         private System.Windows.Forms.TextBox txtTestNumberTTR;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtAssessTTR;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Button btnAssessTTR;
         private System.Windows.Forms.GroupBox grpError;
@@ -4752,5 +4756,6 @@
         private System.Windows.Forms.Label label116;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
+        private dtbPTASDataSetTableAdapters.tblTransformerTableAdapter tblTransformerTableAdapter;
     }
 }

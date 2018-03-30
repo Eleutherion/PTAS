@@ -27,7 +27,7 @@ namespace PTAS
 
         public void refreshdata()
         {
-            using(SqlConnection con = new SqlConnection(constring))
+            using (SqlConnection con = new SqlConnection(constring))
             {
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM tblSubstation", con))
                 {
@@ -47,7 +47,7 @@ namespace PTAS
 
         public void refreshstate(string subID)
         {
-            using(SqlConnection con = new SqlConnection(constring))
+            using (SqlConnection con = new SqlConnection(constring))
             {
                 using (SqlCommand cmd = new SqlCommand("SELECT xfID FROM tblTransformer WHERE xfSubID = @subID", con))
                 {
@@ -68,9 +68,9 @@ namespace PTAS
 
         public void refreshstandard()
         {
-            using(SqlConnection con = new SqlConnection(constring))
+            using (SqlConnection con = new SqlConnection(constring))
             {
-                using(SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM tblStandards", con))
+                using (SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM tblStandards", con))
                 {
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -85,12 +85,12 @@ namespace PTAS
 
         public void refreshstatus(string standardID)
         {
-            using(SqlConnection con = new SqlConnection(constring))
+            using (SqlConnection con = new SqlConnection(constring))
             {
-                using(SqlCommand cmd = new SqlCommand("SELECT status FROM tblStatus WHERE standards = @standards", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT status FROM tblStatus WHERE standards = @standards", con))
                 {
                     cmd.Parameters.AddWithValue("@standards", standardID);
-                    using(SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
                         da.Fill(dt);
@@ -100,7 +100,7 @@ namespace PTAS
                         statusComboBox.SelectedIndex = -1;
                         statusComboBox.Text = "Select status";
                     }
-                    
+
                 }
             }
         }
@@ -245,7 +245,7 @@ namespace PTAS
                 string subID = cboSub.SelectedValue.ToString();
                 refreshstate(subID);
             }
-            
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -256,11 +256,11 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                
+
                 Validate();
                 tblTestBindingSource.EndEdit();
                 tableAdapterManager.UpdateAll(dtbPTASDataSet);
-                
+
                 MessageBox.Show("Record saved.");
 
                 OnPassTestNumber(testNumberTextBox.Text);
@@ -416,15 +416,15 @@ namespace PTAS
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Do you wish to exit?", "Exit?", MessageBoxButtons.YesNo);
-            if (dr == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                Application.Exit();
-            }
+            //DialogResult dr = MessageBox.Show("Do you wish to exit?", "Exit?", MessageBoxButtons.YesNo);
+            //if (dr == DialogResult.No)
+            //{
+            //    e.Cancel = true;
+            //}
+            //else
+            //{
+            //    Application.Exit();
+            //}
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -491,11 +491,11 @@ namespace PTAS
             {
                 if (result <= 10)
                 {
-                    txtAssess.Text = "PASSED";
+                    txtAssessExc.Text = "PASSED";
                 }
                 else
                 {
-                    txtAssess.Text = "FAILED";
+                    txtAssessExc.Text = "FAILED";
                 }
             }
 
@@ -503,11 +503,11 @@ namespace PTAS
             {
                 if (result <= 5)
                 {
-                    txtAssess.Text = "PASSED";
+                    txtAssessExc.Text = "PASSED";
                 }
                 else
                 {
-                    txtAssess.Text = "FAILED";
+                    txtAssessExc.Text = "FAILED";
                 }
             }
             exc = null;
@@ -593,172 +593,61 @@ namespace PTAS
 
         private void btnAssessBushing_Click(object sender, EventArgs e)
         {
-            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = (System.IO.Path.GetDirectoryName(executable));
-            AppDomain.CurrentDomain.SetData("Data Directory", path);
-            
-            string query2 = "SELECT COUNT tblTest.testXformer AS xf, tblBushing.* FROM tblBushing " +
-                "LEFT OUTER JOIN tblTest ON tblBushing.TestNumber = tblTest.TestNumber " +
-                "WHERE xf = @xf";
-            string query3 = "SELECT TOP 1 tblTest.testXformer AS xf, tblBushing.* FROM tblBushing " +
-                "LEFT OUTER JOIN tblTest ON tblBushing.TestNumber = tblTest.TestNumber " +
-                "WHERE tblBushing.TestNumber < @testnumber ORDER BY tblBushing.TestNumber DESC ";
+            int[] c1pf = GetC1pfAssess();
+            int[] c1cap = GetC1CapAssess();
+            int[] c2pf = GetC2pfAssess();
 
-            var ncc1 = grpName.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
-            var npfc1 = grpNamepf.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
-            var ncc2 = grpNameC2.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
-            var npfc2 = grpNameC2pf.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
-            var c1pf = grpC1pf.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
-            var c2pf = grpC2pf.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
-            var c1cap = grpC1Cap.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
-            var c2cap = grpC2Cap.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
+            int[] h1 = new int[3] { c1pf[0], c1cap[0], c2pf[0] };
+            int[] h2 = new int[3] { c1pf[1], c1cap[1], c2pf[1] };
+            int[] h3 = new int[3] { c1pf[2], c1cap[2], c2pf[2] };
+            int[] h0x0 = new int[3] { c1pf[3], c1cap[3], c2pf[3] };
+            int[] x1 = new int[3] { c1pf[4], c1cap[4], c2pf[4] };
+            int[] x2 = new int[3] { c1pf[5], c1cap[5], c2pf[5] };
+            int[] x3 = new int[3] { c1pf[6], c1cap[6], c2pf[6] };
+
             var assess = grpAssess.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
 
-            float[] ncap = new float[7];
-            float[] npower = new float[7];
-            float[] ncap2 = new float[7];
-            float[] npower2 = new float[7];
-            float[] c1power = new float[7];
-            float[] c2power = new float[7];
-            float[] c1c = new float[7];
-            float[] c2c = new float[7];
+            if (Array.TrueForAll(h1, v => v == 0)) assess[0].Text = "";
+            else if (Array.Exists(h1, v => v == 4)) assess[0].Text = "FAILED";
+            else if (Array.Exists(h1, v => v == 3)) assess[0].Text = "MONITOR BUSHING";
+            else if (Array.Exists(h1, v => v == 2)) assess[0].Text = "INVESTIGATE";
+            else assess[0].Text = "PASSED";
 
-            float[] diffpfc1 = new float[7];
-            float[] devpfc1 = new float[7];
-            float[] diffcapc1 = new float[7];
-            float[] devcapc1 = new float[7];
-            float[] diffpfc2 = new float[7];
-            float[] devpfc2 = new float[7];
-            float[] diffcapc2 = new float[7];
-            float[] devcapc2 = new float[7];
-            float[] prevc1cap = new float[7];
-            float[] prevc2cap = new float[7];
-            float[] prevc1pf = new float[7];
-            float[] prevc2pf = new float[7];
+            if (Array.TrueForAll(h2, v => v == 0)) assess[1].Text = "";
+            else if (Array.Exists(h2, v => v == 4)) assess[1].Text = "FAILED";
+            else if (Array.Exists(h2, v => v == 3)) assess[1].Text = "MONITOR BUSHING";
+            else if (Array.Exists(h2, v => v == 2)) assess[1].Text = "INVESTIGATE";
+            else assess[1].Text = "PASSED";
 
-            int[] capc1 = new int[7];
-            int[] capc2 = new int[7];
-            int[] pfc1 = new int[7];
-            int[] pfc2 = new int[7];
+            if (Array.TrueForAll(h3, v => v == 0)) assess[2].Text = "";
+            else if (Array.Exists(h3, v => v == 4)) assess[2].Text = "FAILED";
+            else if (Array.Exists(h3, v => v == 3)) assess[2].Text = "MONITOR BUSHING";
+            else if (Array.Exists(h3, v => v == 2)) assess[2].Text = "INVESTIGATE";
+            else assess[2].Text = "PASSED";
 
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                SqlCommand cmd2 = new SqlCommand(query2, con);
-                cmd2.Parameters.AddWithValue("@xf", cboXf.SelectedValue.ToString());
+            if (Array.TrueForAll(h0x0, v => v == 0)) assess[3].Text = "";
+            else if (Array.Exists(h0x0, v => v == 4)) assess[3].Text = "FAILED";
+            else if (Array.Exists(h0x0, v => v == 3)) assess[3].Text = "MONITOR BUSHING";
+            else if (Array.Exists(h0x0, v => v == 2)) assess[3].Text = "INVESTIGATE";
+            else assess[3].Text = "PASSED";
 
-                int record = Convert.ToInt32(cmd2.ExecuteScalar());
+            if (Array.TrueForAll(x1, v => v == 0)) assess[4].Text = "";
+            else if (Array.Exists(x1, v => v == 4)) assess[4].Text = "FAILED";
+            else if (Array.Exists(x1, v => v == 3)) assess[4].Text = "MONITOR BUSHING";
+            else if (Array.Exists(x1, v => v == 2)) assess[4].Text = "INVESTIGATE";
+            else assess[4].Text = "PASSED";
 
-                if (record > 1)
-                {
-                    using (SqlCommand cmd3 = new SqlCommand(query3, con))
-                    {
-                        cmd3.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+            if (Array.TrueForAll(x2, v => v == 0)) assess[5].Text = "";
+            else if (Array.Exists(x2, v => v == 4)) assess[5].Text = "FAILED";
+            else if (Array.Exists(x2, v => v == 3)) assess[5].Text = "MONITOR BUSHING";
+            else if (Array.Exists(x2, v => v == 2)) assess[5].Text = "INVESTIGATE";
+            else assess[5].Text = "PASSED";
 
-                        SqlDataReader dr2 = cmd3.ExecuteReader();
-                        dr2.Read();
-                        while (dr2.Read())
-                        {
-                            float.TryParse(dr2["capC1H1"].ToString(), out prevc1cap[0]);
-                            float.TryParse(dr2["capC1H2"].ToString(), out prevc1cap[1]);
-                            float.TryParse(dr2["capC1H3"].ToString(), out prevc1cap[2]);
-                            float.TryParse(dr2["capC1H0X0"].ToString(), out prevc1cap[3]);
-                            float.TryParse(dr2["capC1X1"].ToString(), out prevc1cap[4]);
-                            float.TryParse(dr2["capC1X2"].ToString(), out prevc1cap[5]);
-                            float.TryParse(dr2["capC1X3"].ToString(), out prevc1cap[6]);
-                            float.TryParse(dr2["capC2H1"].ToString(), out prevc2cap[0]);
-                            float.TryParse(dr2["capC2H2"].ToString(), out prevc2cap[1]);
-                            float.TryParse(dr2["capC2H3"].ToString(), out prevc2cap[2]);
-                            float.TryParse(dr2["capC2H0X0"].ToString(), out prevc2cap[3]);
-                            float.TryParse(dr2["capC2X1"].ToString(), out prevc2cap[4]);
-                            float.TryParse(dr2["capC2X2"].ToString(), out prevc2cap[5]);
-                            float.TryParse(dr2["capC2X3"].ToString(), out prevc2cap[6]);
-                            float.TryParse(dr2["pfC1H1"].ToString(), out prevc1pf[0]);
-                            float.TryParse(dr2["pfC1H2"].ToString(), out prevc1pf[1]);
-                            float.TryParse(dr2["pfC1H3"].ToString(), out prevc1pf[2]);
-                            float.TryParse(dr2["pfC1H0X0"].ToString(), out prevc1pf[3]);
-                            float.TryParse(dr2["pfC1X1"].ToString(), out prevc1pf[4]);
-                            float.TryParse(dr2["pfC1X2"].ToString(), out prevc1pf[5]);
-                            float.TryParse(dr2["pfC1X3"].ToString(), out prevc1pf[6]);
-                            float.TryParse(dr2["pfC2H1"].ToString(), out prevc2pf[0]);
-                            float.TryParse(dr2["pfC2H2"].ToString(), out prevc2pf[1]);
-                            float.TryParse(dr2["pfC2H3"].ToString(), out prevc2pf[2]);
-                            float.TryParse(dr2["pfC2H0X0"].ToString(), out prevc2pf[3]);
-                            float.TryParse(dr2["pfC2X1"].ToString(), out prevc2pf[4]);
-                            float.TryParse(dr2["pfC2X2"].ToString(), out prevc2pf[5]);
-                            float.TryParse(dr2["pfC2X3"].ToString(), out prevc2pf[6]);
-                        }
-                    }
-                }
-                con.Close();
-            }
-
-            for (int i = 0; i < 7; i++)
-            {
-                float.TryParse(ncc1[i].Text, out ncap[i]);
-                float.TryParse(npfc1[i].Text, out npower[i]);
-                float.TryParse(ncc2[i].Text, out ncap2[i]);
-                float.TryParse(npfc2[i].Text, out npower2[i]);
-                float.TryParse(c1pf[i].Text, out c1power[i]);
-                float.TryParse(c2pf[i].Text, out c2power[i]);
-                float.TryParse(c1cap[i].Text, out c1c[i]);
-                float.TryParse(c2cap[i].Text, out c2c[i]);
-
-                //FOR C1 CAPACITANCE
-                if (!string.IsNullOrWhiteSpace(ncc1[i].Text))
-                {
-                    diffcapc1[i] = c1c[i] - ncap[i];
-                    if (diffcapc1[i] == 327) capc1[i] = 0;
-                    else capc1[i] = 1;
-                }
-                else
-                {
-                    devcapc1[i] = ((c1c[i] - prevc1cap[i]) / prevc1cap[i]) * 100;
-                    if (devcapc1[i] <= 8) capc1[i] = 0;
-                    else if (devcapc1[i] > 8 && devcapc1[i] <= 10) capc1[i] = 1;
-                    else capc1[i] = 3;
-                }
-
-                //FOR C1 POWER FACTOR
-                if (!string.IsNullOrWhiteSpace(npfc1[i].Text))
-                {
-                    diffpfc1[i] = c1power[i] - npower[i];
-                    if (diffpfc1[i] <= 0.25) pfc1[i] = 0;
-                    else pfc1[i] = 1;
-                }
-                else
-                {
-                    devpfc1[i] = ((c1power[i] - prevc1pf[i]) / prevc1pf[i]) * 100;
-                    if (npower[i] <= 0.5)
-                    {
-                        if (devpfc1[i] <= 50) pfc1[i] = 0;
-                        else pfc1[i] = 2;
-                    }
-                    else pfc1[i] = 3;
-                }
-
-                //if (!string.IsNullOrWhiteSpace(ncc2[i].Text))
-                //{
-
-                //}
-                //else devcapc2[i] = ((c2c[i] - prevc2cap[i]) / prevc2cap[i]) * 100;
-
-                //if (!string.IsNullOrWhiteSpace(npfc2[i].Text)) diffpfc2[i] = c2power[i] - npower2[i];
-                //else devpfc2[i] = ((c2power[i] - prevc2pf[i]) / prevc2pf[i]) * 100;
-
-                //FOR C2 POWER FACTOR
-                if (npower2[i] <= 1) pfc2[i] = 1;
-                else if (npower2[i] > 1 && npower2[i] <= 2) pfc2[i] = 2;
-                else pfc2[i] = 4;
-
-                if (ncap[i] != 0 || ncap2[i] != 0)
-                {
-                    if (capc1[i] == 0 && pfc1[i] == 0 && pfc2[i] == 0) assess[i].Text = "PASSED";
-                    else if (capc1[i] == 1 || pfc1[i] == 1 || pfc2[i] == 1) assess[i].Text = "INVESTIGATE";
-                    else if (capc1[i] == 2 || pfc1[i] == 2 || pfc2[i] == 2) assess[i].Text = "MONITOR";
-                    else assess[i].Text = "FAILED";
-                }
-                else assess[i].Text = "";
-            }
+            if (Array.TrueForAll(x3, v => v == 0)) assess[6].Text = "";
+            else if (Array.Exists(x3, v => v == 4)) assess[6].Text = "FAILED";
+            else if (Array.Exists(x3, v => v == 3)) assess[6].Text = "MONITOR BUSHING";
+            else if (Array.Exists(x3, v => v == 2)) assess[6].Text = "INVESTIGATE";
+            else assess[6].Text = "PASSED";
         }
 
         private void btnDeleteBushing_Click(object sender, EventArgs e)
@@ -998,11 +887,11 @@ namespace PTAS
             {
                 if (Array.TrueForAll(corrected, v => v <= 0.5))
                 {
-                    txtAssess.Text = "PASSED";
+                    txtAssessExc.Text = "PASSED";
                 }
                 else if (Array.TrueForAll(corrected, v => v > 1))
                 {
-                    txtAssess.Text = "FAILED";
+                    txtAssessExc.Text = "FAILED";
                 }
                 else
                 {
@@ -1011,8 +900,8 @@ namespace PTAS
                     {
                         if (corrected[i] > 0.5)
                         {
-                            if (previous[i] <= 0.5) txtAssess.Text = "INVESTIGATE";
-                            else txtAssess.Text = "MONITOR";
+                            if (previous[i] <= 0.5) txtAssessExc.Text = "INVESTIGATE";
+                            else txtAssessExc.Text = "MONITOR";
                         }
                     }
                 }
@@ -1022,11 +911,11 @@ namespace PTAS
             {
                 if (Array.TrueForAll(corrected, v => v <= 0.4))
                 {
-                    txtAssess.Text = "PASSED";
+                    txtAssessExc.Text = "PASSED";
                 }
                 else if (Array.TrueForAll(corrected, v => v > 1))
                 {
-                    txtAssess.Text = "FAILED";
+                    txtAssessExc.Text = "FAILED";
                 }
                 else
                 {
@@ -1035,8 +924,8 @@ namespace PTAS
                     {
                         if (corrected[i] > 0.5)
                         {
-                            if (previous[i] <= 0.5) txtAssess.Text = "INVESTIGATE";
-                            else txtAssess.Text = "MONITOR";
+                            if (previous[i] <= 0.5) txtAssessExc.Text = "INVESTIGATE";
+                            else txtAssessExc.Text = "MONITOR";
                         }
                     }
                 }
@@ -1108,20 +997,22 @@ namespace PTAS
             }
             else Focus();
         }
-        
-        float[] compute = new float[6];
-        float[] measure = new float[6];
-        float[] previous = new float[6];
+
+
 
         private void btnComputeTTR_Click(object sender, EventArgs e)
         {
+            float[] compute = new float[6];
+            float[] measure = new float[6];
+            float[] previous = new float[6];
+
             float LVRatio = 0;
             float TVRatio = 0;
             string primary = "";
             string secondary = "";
             string auto = "";
-            float secfactor;
-            float tertfactor;
+            float secfactor = 0;
+            float tertfactor = 0;
             int clock;
 
             string query = "SELECT * FROM tblTransformer WHERE xfID = @xfID";
@@ -1155,7 +1046,7 @@ namespace PTAS
                         tertfactor = (float)(1 / 1.732);
                         break;
                     case "D " when secondary == "yn":
-                        tertfactor = (float)1.732;
+                        tertfactor = (float)(1.732);
                         break;
                     default:
                         tertfactor = 1;
@@ -1178,16 +1069,16 @@ namespace PTAS
                         break;
                 }
             }
-            
+
             float hv = float.Parse(ttrHVTextBox.Text);
             float lv = float.Parse(ttrLVTextBox.Text);
             float.TryParse(ttrTVTextBox.Text, out float tv);
 
-            LVRatio = hv / lv;
+            LVRatio = (float)Math.Round((hv / lv) * secfactor, 4);
             ttrRHVLVTextBox.Text = LVRatio.ToString();
             if (tv != 0)
             {
-                TVRatio = hv / tv;
+                TVRatio = (float)Math.Round((hv / tv) * tertfactor, 4);
                 ttrRHVTVTextBox.Text = TVRatio.ToString();
             }
 
@@ -1201,10 +1092,19 @@ namespace PTAS
                         OrderBy(v => v.TabIndex).
                         ToArray();
 
+            //var measured = grpMeasured.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
+            //var error = grpError.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
+
             if (Array.TrueForAll(measured, v => string.IsNullOrWhiteSpace(v.Text)))
                 MessageBox.Show("Please input a value in the textbox(es) in 'measured' group box.");
             else
             {
+                //float.TryParse(ttrAHVLVTextBox.Text, out measure[0]);
+                //float.TryParse(ttrBHVLVTextBox.Text, out measure[1]);
+                //float.TryParse(ttrCHVLVTextBox.Text, out measure[3]);
+                //float.TryParse(ttrAHVTVTextBox.Text, out measure[4]);
+                //float.TryParse(ttrBHVTVTextBox.Text, out measure[5]);
+                //float.TryParse(ttrCHVTVTextBox.Text, out measure[0]);
                 for (int i = 0; i < 6; i++)
                 {
                     float.TryParse(measured[i].Text, out measure[i]);
@@ -1213,67 +1113,81 @@ namespace PTAS
                     else ratio = TVRatio;
 
                     compute[i] = (float)Math.Round(Math.Abs(((measure[i] - ratio) / ratio) * 100), 2);
-                    if (string.IsNullOrWhiteSpace(measured[i].Text))
-                        error[i].Text = compute[i].ToString();
+                    if (!string.IsNullOrWhiteSpace(measured[i].Text)) error[i].Text = compute[i].ToString();
                 }
             }
         }
 
         private void btnAssessTTR_Click(object sender, EventArgs e)
         {
-            if (Array.TrueForAll(compute, v => v <= 0.5))
+            float[] compute = new float[6];
+            float[] previous = new float[6];
+            float[] present = new float[6];
+
+            var error = grpError.Controls.
+                        OfType<TextBox>().
+                        OrderBy(v => v.TabIndex).
+                        ToArray();
+
+            var measured = grpMeasured.Controls.
+                           OfType<TextBox>().
+                           OrderBy(v => v.TabIndex).
+                           ToArray();
+
+            for (int i = 0; i < 6; i++)
             {
-                string query = "SELECT testXformer FROM tblTest WHERE TestNumber = @testnumber";
-                string query2 = "SELECT TOP 1 tblTest.testXformer, tblTTR.* FROM tblTTR LEFT OUTER JOIN" +
-                    "tblTest ON tblTTR.TestNumber = tblTest.TestNumber ORDER BY tblTTR.TestNumber DESC" +
-                    "WHERE tblTTR.TestNumber < @testnumber";
+                float.TryParse(error[i].Text, out compute[i]);
+                float.TryParse(measured[i].Text, out present[i]);
+            }
+
+            if (Array.TrueForAll(compute, v => v <= 0.5)) txtAssessTTR.Text = "PASSED";
+            else
+            {
+                string query = "SELECT COUNT (*) FROM tblTTR LEFT OUTER JOIN tblTest ON tblTTR.TestNumber = tblTest.TestNumber " +
+                    "WHERE testXformer = @xf";
+                string query2 = "SELECT TOP 1 tblTest.testXformer, tblTTR.* FROM tblTTR LEFT OUTER JOIN " +
+                    "tblTest ON tblTTR.TestNumber = tblTest.TestNumber " +
+                    "WHERE tblTTR.TestNumber < @testnumber AND testXformer = @xf " +
+                    "ORDER BY tblTTR.TestNumber DESC";
 
                 float[] diff = new float[6];
 
-                string xf;
-
                 using (SqlConnection con = new SqlConnection(constring))
                 {
+                    con.Open();
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-
-                        con.Open();
-
-                        SqlDataReader dr = cmd.ExecuteReader();
-                        while (dr.Read())
+                        cmd.Parameters.AddWithValue("@xf", cboXf.SelectedValue.ToString());
+                        int record = Convert.ToInt32(cmd.ExecuteScalar());
+                        if (record > 1)
                         {
-                            xf = (dr["tblTest.testXformer"].ToString());
-                        }
-
-                        using (SqlCommand cmd2 = new SqlCommand(query2, con))
-                        {
-                            cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-
-                            SqlDataReader dr2 = cmd2.ExecuteReader();
-                            while (dr2.Read())
+                            using (SqlCommand cmd2 = new SqlCommand(query2, con))
                             {
-                                float.TryParse(dr2["ttrAHVLVe"].ToString(), out previous[0]);
-                                float.TryParse(dr2["ttrBHVLVe"].ToString(), out previous[1]);
-                                float.TryParse(dr2["ttrCHVLVe"].ToString(), out previous[2]);
-                                float.TryParse(dr2["ttrAHVTVe"].ToString(), out previous[3]);
-                                float.TryParse(dr2["ttrBHVTVe"].ToString(), out previous[4]);
-                                float.TryParse(dr2["ttrCHVTVe"].ToString(), out previous[5]);
+                                cmd2.Parameters.AddWithValue("@testnumber", txtTestNumberTTR.Text);
+                                cmd2.Parameters.AddWithValue("@xf", cboXf.SelectedValue.ToString());
+
+                                SqlDataReader dr2 = cmd2.ExecuteReader();
+                                while (dr2.Read())
+                                {
+                                    float.TryParse(dr2["ttrAHVLV"].ToString(), out previous[0]);
+                                    float.TryParse(dr2["ttrBHVLV"].ToString(), out previous[1]);
+                                    float.TryParse(dr2["ttrCHVLV"].ToString(), out previous[2]);
+                                    float.TryParse(dr2["ttrAHVTV"].ToString(), out previous[3]);
+                                    float.TryParse(dr2["ttrBHVTV"].ToString(), out previous[4]);
+                                    float.TryParse(dr2["ttrCHVTV"].ToString(), out previous[5]);
+                                }
+                                for (int i = 0; i < 6; i++)
+                                {
+                                    diff[i] = (float)Math.Round(Math.Abs((previous[i] - present[i])), 2);
+                                }
                             }
                         }
                     }
                     con.Close();
                 }
-
-                for (int i = 0; i < 6; i++)
-                {
-                    diff[i] = (float)Math.Round(Math.Abs(((previous[i] - compute[i]) / previous[i]) * 100),2);
-                }
-
-                if (Array.TrueForAll(diff, v => v <= 0.5)) txtAssess.Text = "PASSED";
-                else txtAssess.Text = "INVESTIGATE WINDING";
+                if (Array.TrueForAll(diff, v => v >= 0.5)) txtAssessTTR.Text = "INVESTIGATE WINDING";
+                else txtAssessTTR.Text = "FAILED";
             }
-            else txtAssess.Text = "FAILED";
         }
 
         private void btnAddWinding_Click(object sender, EventArgs e)
@@ -1342,13 +1256,15 @@ namespace PTAS
             float[] low = new float[3];
             float[] tert = new float[3];
 
-            float[] highdiff = new float[3];
-            float[] lowdiff = new float[3];
-            float[] tertdiff = new float[3];
+            //float[] highdiff = new float[3];
+            //float[] lowdiff = new float[3];
+            //float[] tertdiff = new float[3];
 
-            var hv = grpHV.Controls.OfType<TextBox>().ToArray();
-            var lv = grpLV.Controls.OfType<TextBox>().ToArray();
-            var tv = grpTV.Controls.OfType<TextBox>().ToArray();
+            float highdiff = 0; float lowdiff = 0; float tertdiff = 0;
+
+            var hv = grpHV.Controls.OfType<TextBox>().OrderByDescending(v => v.TabIndex).ToArray();
+            var lv = grpLV.Controls.OfType<TextBox>().OrderByDescending(v => v.TabIndex).ToArray();
+            var tv = grpTV.Controls.OfType<TextBox>().OrderByDescending(v => v.TabIndex).ToArray();
 
             for (int i = 0; i < 3; i++)
             {
@@ -1357,43 +1273,60 @@ namespace PTAS
                 float.TryParse(tv[i].Text, out tert[i]);
             }
 
-            float sumhigh = 0; float sumlow = 0; float sumtert = 0;
-            for (int i = 0; i < 3; i++)
-            {
-                sumhigh += high[i];
-                sumlow += low[i];
-                sumtert += tert[i];
-            }
+            //float sumhigh = 0; float sumlow = 0; float sumtert = 0;
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    sumhigh += high[i];
+            //    sumlow += low[i];
+            //    sumtert += tert[i];
+            //}
 
-            highave = sumhigh / hv.Length;
-            lowave = sumlow / lv.Length;
-            tertave = sumtert / tv.Length;
+            //highave = sumhigh / hv.Length;
+            //lowave = sumlow / lv.Length;
+            //tertave = sumtert / tv.Length;
 
-            for (int i = 0; i < 3; i++)
-            {
-                highdiff[i] = ((high[i] - highave) / highave) * 100;
-                lowdiff[i] = ((low[i] - lowave) / lowave) * 100;
-                tertdiff[i] = ((tert[i] - tertave) / tertave) * 100;
-            }
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    highdiff[i] = ((high[i] - highave) / highave) * 100;
+            //    lowdiff[i] = ((low[i] - lowave) / lowave) * 100;
+            //    tertdiff[i] = ((tert[i] - tertave) / tertave) * 100;
+            //}
 
-            if (Array.TrueForAll(highdiff, v => v <= 2)) txtAssessHigh.Text = "PASSED";
+            //if (Array.TrueForAll(highdiff, v => v <= 1)) txtAssessHigh.Text = "PASSED";
+            //else txtAssessHigh.Text = "FAILED";
+
+            //if (Array.TrueForAll(lowdiff, v => v <= 1)) txtAssessLow.Text = "PASSED";
+            //else txtAssessLow.Text = "FAILED";
+
+            //if (Array.TrueForAll(tv, v => !string.IsNullOrEmpty(v.Text)))
+            //{
+            //    if (Array.TrueForAll(tertdiff, v => v <= 1)) txtAssessTert.Text = "PASSED";
+            //    else txtAssessTert.Text = "FAILED";
+            //}
+
+            highdiff = ((high[0] - high[2]) / high[2]) * 100;
+            lowdiff = ((low[0] - low[2]) / low[2]) * 100;
+            tertdiff = ((tert[0] - tert[2]) / tert[2]) * 100;
+
+            if (highdiff <= 1) txtAssessHigh.Text = "PASSED";
             else txtAssessHigh.Text = "FAILED";
 
-            if (Array.TrueForAll(lowdiff, v => v <= 2)) txtAssessLow.Text = "PASSED";
+            if (lowdiff <= 1) txtAssessLow.Text = "PASSED";
             else txtAssessLow.Text = "FAILED";
 
-            if (!string.IsNullOrEmpty(tv[0].Text))
+            if (Array.TrueForAll(tv, v => !string.IsNullOrEmpty(v.Text)))
             {
-                if (Array.TrueForAll(tertdiff, v => v <= 2)) txtAssessTert.Text = "PASSED";
+                if (tertdiff <= 1) txtAssessTert.Text = "PASSED";
                 else txtAssessTert.Text = "FAILED";
             }
+            else txtAssessTert.Text = "";
 
             high = null;
             low = null;
             tert = null;
-            highdiff = null;
-            lowdiff = null;
-            tertdiff = null;
+            //highdiff = null;
+            //lowdiff = null;
+            //tertdiff = null;
             hv = null;
             lv = null;
             tv = null;
@@ -1496,7 +1429,7 @@ namespace PTAS
             }
 
             mainAveTextBox.Text = ((main.Sum()) / main.Count()).ToString();
-            oltcAveTextBox.Text = ((oltc.Sum()) / oltc.Count()).ToString();
+            if(Array.TrueForAll(textoltc, v => v.Text != "")) oltcAveTextBox.Text = ((oltc.Sum()) / oltc.Count()).ToString();
         }
 
         private void btnAssessDielectric_Click(object sender, EventArgs e)
@@ -1535,10 +1468,7 @@ namespace PTAS
 
             if (standardComboBox.SelectedValue.ToString() == "ASTM D1816")
             {
-                if (statusComboBox.SelectedValue.ToString() == "AGED")
-                {
-
-                }
+                MessageBox.Show("Under Construction.");
             }
 
             else
@@ -1686,5 +1616,229 @@ namespace PTAS
                     txtAssessOLTC.Text = "FAILED. CONSIDER REPLACING OIL";
             }
         }
+
+        private int[] GetC1pfAssess()
+        {
+            int[] C1pf = new int[7];
+
+            var C1nameplate = grpNamepf.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
+            var C1measured = grpC1pf.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
+
+            float[] name = new float[7];
+            float[] measured = new float[7];
+
+            float[] error = new float[7];
+
+            float[] diff = new float[7];
+
+            float[] previous = new float[7];
+
+            for (int i = 0; i < 7; i++)
+            {
+                float.TryParse(C1nameplate[i].Text, out name[i]);
+                float.TryParse(C1measured[i].Text, out measured[i]);
+
+                if (name[i] != 0 && measured[i] != 0)
+                {
+                    error[i] = (float)Math.Round((Math.Abs(name[i] - measured[i]) / name[i]) * 100, 4);
+
+                    if (error[i] <= 0.25) C1pf[i] = 1;
+                    else if (error[i] > 0.25 && error[i] <= 0.5)
+                    {
+                        previous = GetC1pfPrevious();
+                        if (previous[i] != 0)
+                        {
+                            diff[i] = Math.Abs((previous[i] - measured[i]) / previous[i]) * 100;
+                            if (diff[i] < 50) C1pf[i] = 2;
+                            else C1pf[i] = 3;
+                        }
+                        else C1pf[i] = 0;
+                    }
+                    else C1pf[i] = 4;
+                }
+
+                else if (name[i] == 0 && measured[i] != 0)
+                {
+                    if (measured[i] > 0 && measured[i] <= 0.5) C1pf[i] = 1;
+                    else if (measured[i] > 0.5 && measured[i] <= 1) C1pf[i] = 2;
+                    else if (measured[i] < 0) C1pf[i] = 4;
+                    else C1pf[i] = 3;
+                }
+
+                else C1pf[i] = 0;
+            }
+
+            return C1pf;
+
+            //C1nameplate = null;
+            //C1measured = null;
+            //name = null;
+            //measured = null;
+            //diff = null;
+        }
+
+        private float[] GetC1pfPrevious()
+        {
+            float[] C1pfPrevious = new float[7];
+
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("Data Directory", path);
+
+            string query = "SELECT TOP 1 tblBushing.pfC1H1, tblBushing.pfC1H2, tblBushing.pfC1H3, " +
+                "tblBushing.pfC1H0X0, tblBushing.pfC1X1, tblBushing.pfC1X2, tblBushing.pfC1X3 " +
+                "FROM tblBushing LEFT OUTER JOIN tblTest ON tblBushing.TestNumber = tblTest.TestNumber " +
+                "WHERE tblBushing.TestNumber < @testnumber AND testXformer = @xf ORDER BY tblBushing.TestNumber DESC";
+
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@testnumber", txtTestNumberBushing.Text);
+                    cmd.Parameters.AddWithValue("@xf", cboXf.SelectedValue.ToString());
+
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        float.TryParse(dr["pfC1H1"].ToString(), out C1pfPrevious[0]);
+                        float.TryParse(dr["pfC1H2"].ToString(), out C1pfPrevious[1]);
+                        float.TryParse(dr["pfC1H3"].ToString(), out C1pfPrevious[2]);
+                        float.TryParse(dr["pfC1H0X0"].ToString(), out C1pfPrevious[3]);
+                        float.TryParse(dr["pfC1X1"].ToString(), out C1pfPrevious[4]);
+                        float.TryParse(dr["pfC1X2"].ToString(), out C1pfPrevious[5]);
+                        float.TryParse(dr["pfC1X3"].ToString(), out C1pfPrevious[6]);
+                    }
+                    con.Close();
+                }
+            }
+
+            return C1pfPrevious;
+        }
+
+        private int[] GetC2pfAssess()
+        {
+            int[] C2pf = new int[7];
+
+            var C2measured = grpC2pf.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
+
+            float[] c2 = new float[7];
+
+            for(int i =0; i < 7; i++)
+            {
+                float.TryParse(C2measured[i].Text, out c2[i]);
+                if (c2[i] == 0) C2pf[i] = 0;
+                else if (c2[i] > 0 && c2[i] <= 1) C2pf[i] = 1;
+                else if (c2[i] > 1 && c2[i] <= 2) C2pf[i] = 2;
+                else C2pf[i] = 4;
+            }
+
+            return C2pf;
+        }
+
+        private int[] GetC1CapAssess()
+        {
+            int[] C1cap = new int[7];
+
+            var C1nameplate = grpName.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
+            var C1measured = grpC1Cap.Controls.OfType<TextBox>().OrderBy(v => v.TabIndex).ToArray();
+
+            float[] measured = new float[7];
+            float[] nameplate = new float[7];
+            float[] previous = new float[7];
+
+            float[] diff = new float[7];
+
+            previous = GetC1CapPrevious();
+
+            for(int i = 0; i < 7; i++)
+            {
+                float.TryParse(C1nameplate[i].Text, out nameplate[i]);
+                float.TryParse(C1measured[i].Text, out measured[i]);
+
+                if (nameplate[i] != 0 && nameplate[i] > measured[i])
+                {
+                    diff[i] = ((nameplate[i] - measured[i]) / nameplate[i]) * 100;
+                    if (diff[i] <= 8) C1cap[i] = 1;
+                    else if (diff[i] > 8 && diff[i] <= 10) C1cap[i] = 2;
+                    else C1cap[i] = 4;
+                }
+
+                else if (nameplate[i] == 0 && measured[i] != 0)
+                {
+                    if (previous[i] != 0)
+                    {
+                        diff[i] = Math.Abs((previous[i] - measured[i]) / previous[i]) * 100;
+                        if (diff[i] <= 8) C1cap[i] = 1;
+                        else if (diff[i] > 8 && diff[i] <= 10) C1cap[i] = 2;
+                        else C1cap[i] = 4;
+                    }
+                    else C1cap[i] = 0;
+                }
+
+                else if (nameplate[i] != 0 && nameplate[i] < measured[i]) C1cap[i] = 4;
+                else if (measured[i] == 0) C1cap[i] = 0;
+            }
+
+            return C1cap;
+        }
+
+        private float[] GetC1CapPrevious()
+        {
+            float[] C1capPrevious = new float[7];
+
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("Data Directory", path);
+
+            string query = "SELECT TOP 1 tblBushing.capC1H1, tblBushing.capC1H2, tblBushing.capC1H3, " +
+                "tblBushing.capC1H0X0, tblBushing.capC1X1, tblBushing.capC1X2, tblBushing.capC1X3 " +
+                "FROM tblBushing LEFT OUTER JOIN tblTest ON tblBushing.TestNumber = tblTest.TestNumber " +
+                "WHERE tblBushing.TestNumber < @testnumber AND testXformer = @xf ORDER BY tblBushing.TestNumber DESC";
+
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@testnumber", txtTestNumberBushing.Text);
+                    cmd.Parameters.AddWithValue("@xf", cboXf.SelectedValue.ToString());
+
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        float.TryParse(dr["capC1H1"].ToString(), out C1capPrevious[0]);
+                        float.TryParse(dr["capC1H2"].ToString(), out C1capPrevious[1]);
+                        float.TryParse(dr["capC1H3"].ToString(), out C1capPrevious[2]);
+                        float.TryParse(dr["capC1H0X0"].ToString(), out C1capPrevious[3]);
+                        float.TryParse(dr["capC1X1"].ToString(), out C1capPrevious[4]);
+                        float.TryParse(dr["capC1X2"].ToString(), out C1capPrevious[5]);
+                        float.TryParse(dr["capC1X3"].ToString(), out C1capPrevious[6]);
+                    }
+                    con.Close();
+                }
+            }
+
+            return C1capPrevious;
+        }
+
+        //private void Validation(object sender, CancelEventArgs e)
+        //{
+        //    TextBox textbox = (TextBox)sender;
+        //    ErrorProvider ep = new ErrorProvider();
+        //    float f;
+        //    if (!float.TryParse(textbox.Text, out f))
+        //    {
+        //        ep.SetError(textbox, "Numeric value required.");
+        //        e.Cancel = true;
+        //        return;
+        //    }
+        //    else ep.SetError(textbox, "");
+        //}
+
+        //private int[] GetC2CapAssess()
+        //{
+
+        //}
     }
 }

@@ -22,8 +22,6 @@ namespace PTAS
         {
             // TODO: This line of code loads data into the 'dtbPTASDataSet.tblSubstation' table. You can move, or remove it, as needed.
             this.tblSubstationTableAdapter.Fill(this.dtbPTASDataSet.tblSubstation);
-            // TODO: This line of code loads data into the 'dtbPTASDataSet.tblTest' table. You can move, or remove it, as needed.
-            this.tblTestTableAdapter.Fill(this.dtbPTASDataSet.tblTest);
             // TODO: This line of code loads data into the 'dtbPTASDataSet.tblTransformer' table. You can move, or remove it, as needed.
             this.tblTransformerTableAdapter.Fill(this.dtbPTASDataSet.tblTransformer);
 
@@ -31,13 +29,13 @@ namespace PTAS
         
         private void frmXformer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmMain form = new frmMain();
-            form.Show();
+            //frmMain form = new frmMain();
+            //form.Show();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            this.tblTransformerBindingSource.AddNew();
+            tblTransformerBindingSource.AddNew();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -45,14 +43,14 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                this.Validate();
-                this.tblTransformerBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                Validate();
+                tblTransformerBindingSource.EndEdit();
+                tableAdapterManager.UpdateAll(dtbPTASDataSet);
                 
                 MessageBox.Show("Record saved.");
             }
             else
-                this.Focus();
+                Focus();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -60,29 +58,29 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to delete this record?", "Delete record", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                this.tblTransformerBindingSource.RemoveCurrent();
+                tblTransformerBindingSource.RemoveCurrent();
                 MessageBox.Show("Record deleted.");
             }
                 
             else
-                this.Focus();
+                Focus();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            this.tblTransformerBindingSource.MovePrevious();
+            tblTransformerBindingSource.MovePrevious();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            this.tblTransformerBindingSource.MoveNext();
+            tblTransformerBindingSource.MoveNext();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
             frmMain f = new frmMain();
             f.Show();
-            this.Dispose();
+            Dispose();
         }
     }
 }

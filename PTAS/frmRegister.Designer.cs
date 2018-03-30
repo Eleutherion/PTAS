@@ -68,6 +68,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(139, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnRegister
             // 
@@ -94,6 +95,7 @@
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.Size = new System.Drawing.Size(139, 20);
             this.txtConfirm.TabIndex = 5;
+            this.txtConfirm.UseSystemPasswordChar = true;
             // 
             // frmRegister
             // 

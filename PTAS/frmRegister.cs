@@ -25,15 +25,15 @@ namespace PTAS
             string constring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dtbPTAS.mdf;Integrated Security=True";
             string query = "INSERT INTO tblSecurity (username, password) VALUES (@username, @password)";
 
-            if (txtUsername.Text == "" || txtPassword.Text == "")
+            if (txtUsername.Text == "" || txtPassword.Text == "" || txtConfirm.Text == "")
                 MessageBox.Show("All fields required.");
             else
             {
                 if (txtPassword.Text == txtConfirm.Text)
                 {
-                    using(SqlConnection con = new SqlConnection(constring))
+                    using (SqlConnection con = new SqlConnection(constring))
                     {
-                        using(SqlCommand cmd = new SqlCommand(query, con))
+                        using (SqlCommand cmd = new SqlCommand(query, con))
                         {
                             cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                             cmd.Parameters.AddWithValue("@password", txtPassword.Text);
@@ -47,14 +47,17 @@ namespace PTAS
 
                                 con.Close();
                             }
-                            catch(SqlException ex)
+                            catch (SqlException ex)
                             {
                                 MessageBox.Show(ex.ToString());
                             }
                         }
                     }
                 }
+                else if (txtPassword.Text != txtConfirm.Text)
+                    MessageBox.Show("Passwords do not match.", "Confirm password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            Close();
         }
 
         private void frmRegister_FormClosed(object sender, FormClosedEventArgs e)
