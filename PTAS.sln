@@ -6,16 +6,16 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTAS", "PTAS\PTAS.csproj", "{0075DD78-EAC2-4236-BD57-DFF546FAEE79}"
 EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DefaultBuild|Any CPU = DefaultBuild|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.DefaultBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
 		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {68D4AC98-C28C-4828-BFD1-6123AB8F5216}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

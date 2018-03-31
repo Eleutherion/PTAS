@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace PTAS
 {
@@ -16,6 +17,22 @@ namespace PTAS
         public frmLogin()
         {
             InitializeComponent();
+
+            Splasher.Status = "Loading Files...";
+            Thread.Sleep(2000);
+
+            Splasher.Status = "Loading Crystal Report Module...";
+            Thread.Sleep(2000);
+
+            Splasher.Status = "Connecting to Database...";
+            Thread.Sleep(2000);
+
+            Splasher.Close();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            Activate();
         }
 
         private int _failedAttempts = 0;

@@ -72,3 +72,4 @@ C:\Users\ambal\Documents\GitHub\PTAS\PTAS\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmReport.resources
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.AboutBox1.resources
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.csprojResolveAssemblyReference.cache
+C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.SplashForm.resources

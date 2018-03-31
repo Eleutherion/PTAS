@@ -48,3 +48,4 @@ C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Release\PTAS.csproj.CoreCompileInp
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Release\PTAS.exe
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Release\PTAS.pdb
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Release\PTAS.csprojResolveAssemblyReference.cache
+C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Release\PTAS.SplashForm.resources
