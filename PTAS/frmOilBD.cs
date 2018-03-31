@@ -20,73 +20,73 @@ namespace PTAS
         public frmOilBD()
         {
             InitializeComponent();
-            frmMain.OnDataChanged += FrmMain_OnDataChanged;
-            frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
+            //frmMain.OnDataChanged += FrmMain_OnDataChanged;
+            //frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
         }
 
-        private void FrmMain_OnPassTestNumber(string TestNumber)
-        {
-            TestData = TestNumber;
-            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
-        }
+        //private void FrmMain_OnPassTestNumber(string TestNumber)
+        //{
+        //    TestData = TestNumber;
+        //    frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
+        //}
 
-        private void FrmMain_OnDataChanged(string TestNumber)
-        {
-            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = (System.IO.Path.GetDirectoryName(executable));
-            AppDomain.CurrentDomain.SetData("Data Directory", path);
+        //private void FrmMain_OnDataChanged(string TestNumber)
+        //{
+        //    string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        //    string path = (System.IO.Path.GetDirectoryName(executable));
+        //    AppDomain.CurrentDomain.SetData("Data Directory", path);
 
-            frmOilBD f = new frmOilBD();
+        //    frmOilBD f = new frmOilBD();
 
-            var t = f.Controls.OfType<TextBox>().ToArray();
+        //    var t = f.Controls.OfType<TextBox>().ToArray();
 
-            string query = "SELECT COUNT (*) FROM tblDielectric WHERE TestNumber = @testnumber";
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestNumber);
-                    con.Open();
-                    int record = Convert.ToInt32(cmd.ExecuteScalar());
+        //    string query = "SELECT COUNT (*) FROM tblDielectric WHERE TestNumber = @testnumber";
+        //    using (SqlConnection con = new SqlConnection(constring))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand(query, con))
+        //        {
+        //            cmd.Parameters.AddWithValue("@testnumber", TestNumber);
+        //            con.Open();
+        //            int record = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if (record == 1)
-                    {
-                        string query2 = "SELECT * FROM tblDielectric WHERE TestNumber = @testnumber";
-                        using (SqlCommand cmd2 = new SqlCommand(query2, con))
-                        {
-                            cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
-                            SqlDataReader dr = cmd2.ExecuteReader();
+        //            if (record == 1)
+        //            {
+        //                string query2 = "SELECT * FROM tblDielectric WHERE TestNumber = @testnumber";
+        //                using (SqlCommand cmd2 = new SqlCommand(query2, con))
+        //                {
+        //                    cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
+        //                    SqlDataReader dr = cmd2.ExecuteReader();
 
-                            while (dr.Read())
-                            {
-                                testNumberTextBox.Text = (dr["TestNumber"].ToString());
-                                main1TextBox.Text = (dr["main1"].ToString());
-                                main2TextBox.Text = (dr["main2"].ToString());
-                                main3TextBox.Text = (dr["main3"].ToString());
-                                main4TextBox.Text = (dr["main4"].ToString());
-                                main5TextBox.Text = (dr["main5"].ToString());
-                                mainAveTextBox.Text = (dr["mainAve"].ToString());
-                                oltc1TextBox.Text = (dr["oltc1"].ToString());
-                                oltc2TextBox.Text = (dr["oltc2"].ToString());
-                                oltc3TextBox.Text = (dr["oltc3"].ToString());
-                                oltc4TextBox.Text = (dr["oltc4"].ToString());
-                                oltc5TextBox.Text = (dr["oltc5"].ToString());
-                                oltcAveTextBox.Text = (dr["oltcAve"].ToString());
-                            }
-                        }
-                    }
-                    //else
-                    //{
-                    //    for(int i = 0; i < 15; i++)
-                    //    {
-                    //        t[i].Clear();
-                    //    }
-                    //}
-                    //con.Close();
-                }
-            }
-            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
-        }
+        //                    while (dr.Read())
+        //                    {
+        //                        testNumberTextBox.Text = (dr["TestNumber"].ToString());
+        //                        main1TextBox.Text = (dr["main1"].ToString());
+        //                        main2TextBox.Text = (dr["main2"].ToString());
+        //                        main3TextBox.Text = (dr["main3"].ToString());
+        //                        main4TextBox.Text = (dr["main4"].ToString());
+        //                        main5TextBox.Text = (dr["main5"].ToString());
+        //                        mainAveTextBox.Text = (dr["mainAve"].ToString());
+        //                        oltc1TextBox.Text = (dr["oltc1"].ToString());
+        //                        oltc2TextBox.Text = (dr["oltc2"].ToString());
+        //                        oltc3TextBox.Text = (dr["oltc3"].ToString());
+        //                        oltc4TextBox.Text = (dr["oltc4"].ToString());
+        //                        oltc5TextBox.Text = (dr["oltc5"].ToString());
+        //                        oltcAveTextBox.Text = (dr["oltcAve"].ToString());
+        //                    }
+        //                }
+        //            }
+        //            //else
+        //            //{
+        //            //    for(int i = 0; i < 15; i++)
+        //            //    {
+        //            //        t[i].Clear();
+        //            //    }
+        //            //}
+        //            //con.Close();
+        //        }
+        //    }
+        //    //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
+        //}
 
         private void frmOilBD_Load(object sender, EventArgs e)
         {

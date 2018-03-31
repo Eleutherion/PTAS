@@ -18,110 +18,110 @@ namespace PTAS
         public frmBushing()
         {
             InitializeComponent();
-            frmMain.OnDataChanged += FrmMain_OnDataChanged;
-            frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
+            //frmMain.OnDataChanged += FrmMain_OnDataChanged;
+            //frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
         }
 
-        private void FrmMain_OnPassTestNumber(string TestNumber)
-        {
-            TestData = TestNumber;
-            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
-        }
+        //private void FrmMain_OnPassTestNumber(string TestNumber)
+        //{
+        //    TestData = TestNumber;
+        //    frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
+        //}
 
-        private void FrmMain_OnDataChanged(string TestNumber)
-        {
-            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = (System.IO.Path.GetDirectoryName(executable));
-            AppDomain.CurrentDomain.SetData("Data Directory", path);
+        //private void FrmMain_OnDataChanged(string TestNumber)
+        //{
+        //    string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        //    string path = (System.IO.Path.GetDirectoryName(executable));
+        //    AppDomain.CurrentDomain.SetData("Data Directory", path);
 
-            frmBushing f = new frmBushing();
+        //    frmBushing f = new frmBushing();
 
-            var t = f.Controls.OfType<TextBox>().ToArray();
+        //    var t = f.Controls.OfType<TextBox>().ToArray();
 
-            string query = "SELECT COUNT (*) FROM tblBushing WHERE TestNumber = @testnumber";
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestNumber);
-                    con.Open();
-                    int record = Convert.ToInt32(cmd.ExecuteScalar());
+        //    string query = "SELECT COUNT (*) FROM tblBushing WHERE TestNumber = @testnumber";
+        //    using (SqlConnection con = new SqlConnection(constring))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand(query, con))
+        //        {
+        //            cmd.Parameters.AddWithValue("@testnumber", TestNumber);
+        //            con.Open();
+        //            int record = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if (record == 1)
-                    {
-                        string query2 = "SELECT * FROM tblBushing WHERE TestNumber = @testnumber";
-                        using (SqlCommand cmd2 = new SqlCommand(query2, con))
-                        {
-                            cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
-                            SqlDataReader dr = cmd2.ExecuteReader();
+        //            if (record == 1)
+        //            {
+        //                string query2 = "SELECT * FROM tblBushing WHERE TestNumber = @testnumber";
+        //                using (SqlCommand cmd2 = new SqlCommand(query2, con))
+        //                {
+        //                    cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
+        //                    SqlDataReader dr = cmd2.ExecuteReader();
 
-                            while (dr.Read())
-                            {
-                                testNumberTextBox.Text = (dr["TestNumber"].ToString());
-                                nameH1TextBox.Text = (dr["nameH1"].ToString());
-                                nameH2TextBox.Text = (dr["nameH2"].ToString());
-                                nameH3TextBox.Text = (dr["nameH3"].ToString());
-                                nameH0X0TextBox.Text = (dr["nameH0X0"].ToString());
-                                nameX1TextBox.Text = (dr["nameX1"].ToString());
-                                nameX2TextBox.Text = (dr["nameX2"].ToString());
-                                nameX3TextBox.Text = (dr["nameX3"].ToString());
-                                pfC1H1TextBox.Text = (dr["pfC1H1"].ToString());
-                                pfC1H2TextBox.Text = (dr["pfC1H2"].ToString());
-                                pfC1H3TextBox.Text = (dr["pfC1H3"].ToString());
-                                pfC1H0X0TextBox.Text = (dr["pfC1H0X0"].ToString());
-                                pfC1X1TextBox.Text = (dr["pfC1X1"].ToString());
-                                pfC1X2TextBox.Text = (dr["pfC1X2"].ToString());
-                                pfC1X3TextBox.Text = (dr["pfC1X3"].ToString());
-                                pfC2H1TextBox.Text = (dr["pfC2H1"].ToString());
-                                pfC2H2TextBox.Text = (dr["pfC2H2"].ToString());
-                                pfC2H3TextBox.Text = (dr["pfC2H3"].ToString());
-                                pfC2H0X0TextBox.Text = (dr["pfC2H0X0"].ToString());
-                                pfC2X1TextBox.Text = (dr["pfC2X1"].ToString());
-                                pfC2X2TextBox.Text = (dr["pfC2X2"].ToString());
-                                pfC2X2TextBox.Text = (dr["pfC2X3"].ToString());
-                                capC1H1TextBox.Text = (dr["capC1H1"].ToString());
-                                capC1H2TextBox.Text = (dr["capC1H2"].ToString());
-                                capC1H3TextBox.Text = (dr["capC1H3"].ToString());
-                                capC1H0X0TextBox.Text = (dr["capC1H0X0"].ToString());
-                                capC1X1TextBox.Text = (dr["capC1X1"].ToString());
-                                capC1X2TextBox.Text = (dr["capC1X2"].ToString());
-                                capC1X3TextBox.Text = (dr["capC1X3"].ToString());
-                                capC2H1TextBox.Text = (dr["capC2H1"].ToString());
-                                capC2H2TextBox.Text = (dr["capC2H2"].ToString());
-                                capC2H3TextBox.Text = (dr["capC2H3"].ToString());
-                                capC2H0X0TextBox.Text = (dr["capC2H0X0"].ToString());
-                                capC2X1TextBox.Text = (dr["capC2X1"].ToString());
-                                capC2X2TextBox.Text = (dr["capC2X2"].ToString());
-                                capC2X2TextBox.Text = (dr["capC2X3"].ToString());
-                                pfnameH1TextBox.Text = (dr["pfnameH1"].ToString());
-                                pfnameH2TextBox.Text = (dr["pfnameH2"].ToString());
-                                pfnameH3TextBox.Text = (dr["pfnameH3"].ToString());
-                                pfnameH0X0TextBox.Text = (dr["pfnameH0X0"].ToString());
-                                pfnameX1TextBox.Text = (dr["pfnameX1"].ToString());
-                                pfnameX2TextBox.Text = (dr["pfnameX2"].ToString());
-                                pfnameX3TextBox.Text = (dr["pfnameX3"].ToString());
-                                txtAssessH1.Text = (dr["AssessH1"].ToString());
-                                txtAssessH2.Text = (dr["AssessH2"].ToString());
-                                txtAssessH3.Text = (dr["AssessH3"].ToString());
-                                txtAssessH0X0.Text = (dr["AssessH0X0"].ToString());
-                                txtAssessX1.Text = (dr["AssessX1"].ToString());
-                                txtAssessX2.Text = (dr["AssessX2"].ToString());
-                                txtAssessX3.Text = (dr["AssessX3"].ToString());
-                            }
-                        }
-                    }
-                    //else
-                    //{
-                    //    for(int i = 0; i<50; i++)
-                    //    {
-                    //        t[i].Clear();
-                    //    }
-                    //}
-                    con.Close();
-                }
-            }
-            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
-        }
+        //                    while (dr.Read())
+        //                    {
+        //                        testNumberTextBox.Text = (dr["TestNumber"].ToString());
+        //                        nameH1TextBox.Text = (dr["nameH1"].ToString());
+        //                        nameH2TextBox.Text = (dr["nameH2"].ToString());
+        //                        nameH3TextBox.Text = (dr["nameH3"].ToString());
+        //                        nameH0X0TextBox.Text = (dr["nameH0X0"].ToString());
+        //                        nameX1TextBox.Text = (dr["nameX1"].ToString());
+        //                        nameX2TextBox.Text = (dr["nameX2"].ToString());
+        //                        nameX3TextBox.Text = (dr["nameX3"].ToString());
+        //                        pfC1H1TextBox.Text = (dr["pfC1H1"].ToString());
+        //                        pfC1H2TextBox.Text = (dr["pfC1H2"].ToString());
+        //                        pfC1H3TextBox.Text = (dr["pfC1H3"].ToString());
+        //                        pfC1H0X0TextBox.Text = (dr["pfC1H0X0"].ToString());
+        //                        pfC1X1TextBox.Text = (dr["pfC1X1"].ToString());
+        //                        pfC1X2TextBox.Text = (dr["pfC1X2"].ToString());
+        //                        pfC1X3TextBox.Text = (dr["pfC1X3"].ToString());
+        //                        pfC2H1TextBox.Text = (dr["pfC2H1"].ToString());
+        //                        pfC2H2TextBox.Text = (dr["pfC2H2"].ToString());
+        //                        pfC2H3TextBox.Text = (dr["pfC2H3"].ToString());
+        //                        pfC2H0X0TextBox.Text = (dr["pfC2H0X0"].ToString());
+        //                        pfC2X1TextBox.Text = (dr["pfC2X1"].ToString());
+        //                        pfC2X2TextBox.Text = (dr["pfC2X2"].ToString());
+        //                        pfC2X2TextBox.Text = (dr["pfC2X3"].ToString());
+        //                        capC1H1TextBox.Text = (dr["capC1H1"].ToString());
+        //                        capC1H2TextBox.Text = (dr["capC1H2"].ToString());
+        //                        capC1H3TextBox.Text = (dr["capC1H3"].ToString());
+        //                        capC1H0X0TextBox.Text = (dr["capC1H0X0"].ToString());
+        //                        capC1X1TextBox.Text = (dr["capC1X1"].ToString());
+        //                        capC1X2TextBox.Text = (dr["capC1X2"].ToString());
+        //                        capC1X3TextBox.Text = (dr["capC1X3"].ToString());
+        //                        capC2H1TextBox.Text = (dr["capC2H1"].ToString());
+        //                        capC2H2TextBox.Text = (dr["capC2H2"].ToString());
+        //                        capC2H3TextBox.Text = (dr["capC2H3"].ToString());
+        //                        capC2H0X0TextBox.Text = (dr["capC2H0X0"].ToString());
+        //                        capC2X1TextBox.Text = (dr["capC2X1"].ToString());
+        //                        capC2X2TextBox.Text = (dr["capC2X2"].ToString());
+        //                        capC2X2TextBox.Text = (dr["capC2X3"].ToString());
+        //                        pfnameH1TextBox.Text = (dr["pfnameH1"].ToString());
+        //                        pfnameH2TextBox.Text = (dr["pfnameH2"].ToString());
+        //                        pfnameH3TextBox.Text = (dr["pfnameH3"].ToString());
+        //                        pfnameH0X0TextBox.Text = (dr["pfnameH0X0"].ToString());
+        //                        pfnameX1TextBox.Text = (dr["pfnameX1"].ToString());
+        //                        pfnameX2TextBox.Text = (dr["pfnameX2"].ToString());
+        //                        pfnameX3TextBox.Text = (dr["pfnameX3"].ToString());
+        //                        txtAssessH1.Text = (dr["AssessH1"].ToString());
+        //                        txtAssessH2.Text = (dr["AssessH2"].ToString());
+        //                        txtAssessH3.Text = (dr["AssessH3"].ToString());
+        //                        txtAssessH0X0.Text = (dr["AssessH0X0"].ToString());
+        //                        txtAssessX1.Text = (dr["AssessX1"].ToString());
+        //                        txtAssessX2.Text = (dr["AssessX2"].ToString());
+        //                        txtAssessX3.Text = (dr["AssessX3"].ToString());
+        //                    }
+        //                }
+        //            }
+        //            //else
+        //            //{
+        //            //    for(int i = 0; i<50; i++)
+        //            //    {
+        //            //        t[i].Clear();
+        //            //    }
+        //            //}
+        //            con.Close();
+        //        }
+        //    }
+        //    //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
+        //}
 
         private void frmBushing_Load(object sender, EventArgs e)
         {

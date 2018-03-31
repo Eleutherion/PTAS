@@ -18,52 +18,52 @@ namespace PTAS
         public frmOilPF()
         {
             InitializeComponent();
-            frmMain.OnDataChanged += FrmMain_OnDataChanged;
-            frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
+            //frmMain.OnDataChanged += FrmMain_OnDataChanged;
+            //frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
         }
 
-        private void FrmMain_OnPassTestNumber(string TestNumber)
-        {
-            TestData = TestNumber;
-            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
-        }
+        //private void FrmMain_OnPassTestNumber(string TestNumber)
+        //{
+        //    TestData = TestNumber;
+        //    frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
+        //}
 
-        private void FrmMain_OnDataChanged(string TestNumber)
-        {
-            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = (System.IO.Path.GetDirectoryName(executable));
-            AppDomain.CurrentDomain.SetData("Data Directory", path);
+        //private void FrmMain_OnDataChanged(string TestNumber)
+        //{
+        //    string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        //    string path = (System.IO.Path.GetDirectoryName(executable));
+        //    AppDomain.CurrentDomain.SetData("Data Directory", path);
 
-            string query = "SELECT COUNT (*) FROM tblOilPF WHERE TestNumber = @testnumber";
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using(SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestNumber);
-                    con.Open();
-                    int record = Convert.ToInt32(cmd.ExecuteScalar());
+        //    string query = "SELECT COUNT (*) FROM tblOilPF WHERE TestNumber = @testnumber";
+        //    using (SqlConnection con = new SqlConnection(constring))
+        //    {
+        //        using(SqlCommand cmd = new SqlCommand(query, con))
+        //        {
+        //            cmd.Parameters.AddWithValue("@testnumber", TestNumber);
+        //            con.Open();
+        //            int record = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if (record == 1)
-                    {
-                        string query2 = "SELECT * FROM tblOilPF WHERE TestNumber = @testnumber";
-                        using (SqlCommand cmd2 = new SqlCommand(query2, con))
-                        {
-                            cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
-                            SqlDataReader dr = cmd2.ExecuteReader();
+        //            if (record == 1)
+        //            {
+        //                string query2 = "SELECT * FROM tblOilPF WHERE TestNumber = @testnumber";
+        //                using (SqlCommand cmd2 = new SqlCommand(query2, con))
+        //                {
+        //                    cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
+        //                    SqlDataReader dr = cmd2.ExecuteReader();
 
-                            while (dr.Read())
-                            {
-                                testNumberTextBox.Text = (dr["TestNumber"].ToString());
-                                pfMainTextBox.Text = (dr["pfMain"].ToString());
-                                pfOLTCTextBox.Text = (dr["pfOLTC"].ToString());
-                            }
-                        }
-                    }
-                    con.Close();
-                }
-            }
-            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
-        }
+        //                    while (dr.Read())
+        //                    {
+        //                        testNumberTextBox.Text = (dr["TestNumber"].ToString());
+        //                        pfMainTextBox.Text = (dr["pfMain"].ToString());
+        //                        pfOLTCTextBox.Text = (dr["pfOLTC"].ToString());
+        //                    }
+        //                }
+        //            }
+        //            con.Close();
+        //        }
+        //    }
+        //    //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
+        //}
 
         private void frmOilPF_Load(object sender, EventArgs e)
         {

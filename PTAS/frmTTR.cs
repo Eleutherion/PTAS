@@ -33,69 +33,69 @@ namespace PTAS
         public frmTTR()
         {
             InitializeComponent();
-            frmMain.OnDataChanged += FrmMain_OnDataChanged;
-            frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
+            //frmMain.OnDataChanged += FrmMain_OnDataChanged;
+            //frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
         }
 
-        private void FrmMain_OnPassTestNumber(string TestNumber)
-        {
-            TestData = TestNumber;
-            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
-        }
+        //private void FrmMain_OnPassTestNumber(string TestNumber)
+        //{
+        //    TestData = TestNumber;
+        //    frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
+        //}
 
-        private void FrmMain_OnDataChanged(string TestNumber)
-        {
-            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = (System.IO.Path.GetDirectoryName(executable));
-            AppDomain.CurrentDomain.SetData("Data Directory", path);
+        //private void FrmMain_OnDataChanged(string TestNumber)
+        //{
+        //    string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        //    string path = (System.IO.Path.GetDirectoryName(executable));
+        //    AppDomain.CurrentDomain.SetData("Data Directory", path);
 
-            string query = "SELECT COUNT (*) FROM tblTTR WHERE TestNumber = @testnumber";
+        //    string query = "SELECT COUNT (*) FROM tblTTR WHERE TestNumber = @testnumber";
 
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using(SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestNumber);
-                    con.Open();
-                    int record = Convert.ToInt32(cmd.ExecuteScalar());
+        //    using (SqlConnection con = new SqlConnection(constring))
+        //    {
+        //        using(SqlCommand cmd = new SqlCommand(query, con))
+        //        {
+        //            cmd.Parameters.AddWithValue("@testnumber", TestNumber);
+        //            con.Open();
+        //            int record = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if (record == 1)
-                    {
-                        string query2 = "SELECT * FROM tblTTR WHERE TestNumber = @testnumber";
-                        using (SqlCommand cmd2 = new SqlCommand(query2, con))
-                        {
-                            cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
-                            SqlDataReader dr = cmd2.ExecuteReader();
+        //            if (record == 1)
+        //            {
+        //                string query2 = "SELECT * FROM tblTTR WHERE TestNumber = @testnumber";
+        //                using (SqlCommand cmd2 = new SqlCommand(query2, con))
+        //                {
+        //                    cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
+        //                    SqlDataReader dr = cmd2.ExecuteReader();
 
-                            while (dr.Read())
-                            {
-                                testNumberTextBox.Text = (dr["TestNumber"].ToString());
-                                ttrTapTextBox.Text = (dr["ttrTap"].ToString());
-                                ttrHVTextBox.Text = (dr["ttrHV"].ToString());
-                                ttrLVTextBox.Text = (dr["ttrLV"].ToString());
-                                ttrTVTextBox.Text = (dr["ttrTV"].ToString());
-                                ttrRHVLVTextBox.Text = (dr["ttrRHVLV"].ToString());
-                                ttrRHVTVTextBox.Text = (dr["ttrRHVTV"].ToString());
-                                ttrAHVLVTextBox.Text = (dr["ttrAHVLV"].ToString());
-                                ttrBHVLVTextBox.Text = (dr["ttrBHVLV"].ToString());
-                                ttrCHVLVTextBox.Text = (dr["ttrCHVLV"].ToString());
-                                ttrAHVTVTextBox.Text = (dr["ttrAHVTV"].ToString());
-                                ttrBHVTVTextBox.Text = (dr["ttrBHVTV"].ToString());
-                                ttrCHVTVTextBox.Text = (dr["ttrCHVTV"].ToString());
-                                ttrAHVLVeTextBox.Text = (dr["ttrAHVLVe"].ToString());
-                                ttrBHVLVeTextBox.Text = (dr["ttrBHVLVe"].ToString());
-                                ttrCHVLVeTextBox.Text = (dr["ttrCHVLVe"].ToString());
-                                ttrAHVTVeTextBox.Text = (dr["ttrAHVTVe"].ToString());
-                                ttrBHVTVeTextBox.Text = (dr["ttrBHVTVe"].ToString());
-                                ttrCHVTVeTextBox.Text = (dr["ttrCHVTVe"].ToString());
-                            }
-                        }
-                    }
-                    con.Close();
-                }
-            }
-            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
-        }
+        //                    while (dr.Read())
+        //                    {
+        //                        testNumberTextBox.Text = (dr["TestNumber"].ToString());
+        //                        ttrTapTextBox.Text = (dr["ttrTap"].ToString());
+        //                        ttrHVTextBox.Text = (dr["ttrHV"].ToString());
+        //                        ttrLVTextBox.Text = (dr["ttrLV"].ToString());
+        //                        ttrTVTextBox.Text = (dr["ttrTV"].ToString());
+        //                        ttrRHVLVTextBox.Text = (dr["ttrRHVLV"].ToString());
+        //                        ttrRHVTVTextBox.Text = (dr["ttrRHVTV"].ToString());
+        //                        ttrAHVLVTextBox.Text = (dr["ttrAHVLV"].ToString());
+        //                        ttrBHVLVTextBox.Text = (dr["ttrBHVLV"].ToString());
+        //                        ttrCHVLVTextBox.Text = (dr["ttrCHVLV"].ToString());
+        //                        ttrAHVTVTextBox.Text = (dr["ttrAHVTV"].ToString());
+        //                        ttrBHVTVTextBox.Text = (dr["ttrBHVTV"].ToString());
+        //                        ttrCHVTVTextBox.Text = (dr["ttrCHVTV"].ToString());
+        //                        ttrAHVLVeTextBox.Text = (dr["ttrAHVLVe"].ToString());
+        //                        ttrBHVLVeTextBox.Text = (dr["ttrBHVLVe"].ToString());
+        //                        ttrCHVLVeTextBox.Text = (dr["ttrCHVLVe"].ToString());
+        //                        ttrAHVTVeTextBox.Text = (dr["ttrAHVTVe"].ToString());
+        //                        ttrBHVTVeTextBox.Text = (dr["ttrBHVTVe"].ToString());
+        //                        ttrCHVTVeTextBox.Text = (dr["ttrCHVTVe"].ToString());
+        //                    }
+        //                }
+        //            }
+        //            con.Close();
+        //        }
+        //    }
+        //    //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
+        //}
 
         private void frmTTR_Load(object sender, EventArgs e)
         {

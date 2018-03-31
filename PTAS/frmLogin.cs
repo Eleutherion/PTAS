@@ -33,6 +33,8 @@ namespace PTAS
         protected override void OnLoad(EventArgs e)
         {
             Activate();
+
+            AcceptButton = btnLogin;
         }
 
         private int _failedAttempts = 0;
@@ -66,7 +68,11 @@ namespace PTAS
                                 Application.Exit();
                             }
                             else
+                            {
                                 MessageBox.Show("Incorrect username and/or password. Please try again.");
+                                Focus();
+                            }
+                                
 
                         }
 
@@ -86,7 +92,7 @@ namespace PTAS
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = btnLogin;
+            AcceptButton = btnLogin;
         }
     }
 }

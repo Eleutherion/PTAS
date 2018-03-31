@@ -258,6 +258,10 @@ namespace PTAS
                     tblTestTableAdapter.Fill(dtbPTASDataSet.tblTest);
 
                     btnAdd.Enabled = true;
+                    btnPrev.Enabled = true;
+                    btnNext.Enabled = true;
+                    btnFirst.Enabled = true;
+                    btnLast.Enabled = true;
                 }
                 catch(NoNullAllowedException)
                 {
@@ -284,6 +288,10 @@ namespace PTAS
             //chkOilPF.Checked = false;
             tblTestBindingSource.AddNew();
             btnAdd.Enabled = false;
+            btnPrev.Enabled = false;
+            btnNext.Enabled = false;
+            btnFirst.Enabled = false;
+            btnLast.Enabled = false;
             //chkExcite.Checked = false;
             //chkIPF.Checked = false;
             //chkBushing.Checked = false;
@@ -320,6 +328,12 @@ namespace PTAS
                         //ds.Clear();
                         tblTestTableAdapter.Fill(dtbPTASDataSet.tblTest);
                         con.Close();
+
+                        btnAdd.Enabled = true;
+                        btnPrev.Enabled = true;
+                        btnNext.Enabled = true;
+                        btnFirst.Enabled = true;
+                        btnLast.Enabled = true;
                     }
                 }
                 catch
@@ -341,7 +355,6 @@ namespace PTAS
             tblWindingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblWinding, Convert.ToDecimal(testNumberTextBox.Text));
             tblDielectricTableAdapter.FillByTestNumber(dtbPTASDataSet.tblDielectric, Convert.ToDecimal(testNumberTextBox.Text));
             tblOilPFTableAdapter.FillByTestNumber(dtbPTASDataSet.tblOilPF, Convert.ToDecimal(testNumberTextBox.Text));
-            //OnDataChanged(testNumberTextBox.Text);
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -354,13 +367,10 @@ namespace PTAS
             tblWindingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblWinding, Convert.ToDecimal(testNumberTextBox.Text));
             tblDielectricTableAdapter.FillByTestNumber(dtbPTASDataSet.tblDielectric, Convert.ToDecimal(testNumberTextBox.Text));
             tblOilPFTableAdapter.FillByTestNumber(dtbPTASDataSet.tblOilPF, Convert.ToDecimal(testNumberTextBox.Text));
-            //OnDataChanged(testNumberTextBox.Text);
         }
 
-        public delegate void DataChanged(string TestNumber);
         public delegate void PassTestNumber(string TestNumber);
 
-        public static event DataChanged OnDataChanged;
         public static event PassTestNumber OnPassTestNumber;
 
         frmExcitation f1 = new frmExcitation();
@@ -515,6 +525,8 @@ namespace PTAS
         {
             tblExcitationBindingSource.AddNew();
             txtTestNumberExc.Text = testNumberTextBox.Text;
+
+            btnAddExc.Enabled = false;
         }
 
         private void btnSaveExc_Click(object sender, EventArgs e)
@@ -536,6 +548,8 @@ namespace PTAS
                 }
             }
             else Focus();
+
+            btnAddExc.Enabled = true;
         }
 
         private void btnDeleteExc_Click(object sender, EventArgs e)
@@ -580,6 +594,8 @@ namespace PTAS
         {
             tblBushingBindingSource.AddNew();
             txtTestNumberBushing.Text = testNumberTextBox.Text;
+
+            btnAddBushing.Enabled = false;
         }
 
         private void btnSaveBushing_Click(object sender, EventArgs e)
@@ -602,6 +618,8 @@ namespace PTAS
                 }
             }
             else Focus();
+
+            btnAddBushing.Enabled = true;
         }
 
         private void btnAssessBushing_Click(object sender, EventArgs e)
@@ -714,6 +732,8 @@ namespace PTAS
         {
             tblIPFBindingSource.AddNew();
             txtTestNumberIPF.Text = testNumberTextBox.Text;
+
+            btnAddIPF.Enabled = false;
         }
 
         private void btnSaveIPF_Click(object sender, EventArgs e)
@@ -741,6 +761,8 @@ namespace PTAS
             }
             else
                 Focus();
+
+            btnAddIPF.Enabled = true;
         }
 
         private void btnDeleteIPF_Click(object sender, EventArgs e)
@@ -975,6 +997,8 @@ namespace PTAS
         {
             tblTTRBindingSource.AddNew();
             txtTestNumberTTR.Text = testNumberTextBox.Text;
+
+            btnAddTTR.Enabled = false;
         }
 
         private void btnSaveTTR_Click(object sender, EventArgs e)
@@ -997,6 +1021,8 @@ namespace PTAS
             }
             else
                 Focus();
+
+            btnAddTTR.Enabled = true;
         }
 
         private void btnDeleteTTR_Click(object sender, EventArgs e)
@@ -1238,6 +1264,8 @@ namespace PTAS
         {
             tblWindingBindingSource.AddNew();
             txtTestNumberWinding.Text = testNumberTextBox.Text;
+
+            btnAddWinding.Enabled = false;
         }
 
         private void btnSaveWinding_Click(object sender, EventArgs e)
@@ -1259,6 +1287,8 @@ namespace PTAS
                 }
             }
             else Focus();
+
+            btnAddWinding.Enabled = true;
         }
 
         private void btnDeleteWinding_Click(object sender, EventArgs e)
@@ -1393,6 +1423,8 @@ namespace PTAS
         {
             tblDielectricBindingSource.AddNew();
             txtTestNumberDielectric.Text = testNumberTextBox.Text;
+
+            btnAddDielectric.Enabled = false;
         }
 
         private void btnSaveDielectric_Click(object sender, EventArgs e)
@@ -1414,6 +1446,8 @@ namespace PTAS
             }
             else
                 Focus();
+
+            btnAddDielectric.Enabled = true;
         }
 
         private void btnDeleteDielectric_Click(object sender, EventArgs e)
@@ -1541,6 +1575,8 @@ namespace PTAS
         {
             tblOilPFBindingSource.AddNew();
             txtTestNumberOilPF.Text = testNumberTextBox.Text;
+
+            btnAddOilPF.Enabled = false;
         }
 
         private void btnSaveOilPF_Click(object sender, EventArgs e)
@@ -1561,6 +1597,8 @@ namespace PTAS
             }
             else
                 Focus();
+
+            btnAddOilPF.Enabled = true;
         }
 
         private void btnDeleteOilPF_Click(object sender, EventArgs e)

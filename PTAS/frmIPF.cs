@@ -20,109 +20,109 @@ namespace PTAS
         public frmIPF()
         {
             InitializeComponent();
-            frmMain.OnDataChanged += FrmMain_OnDataChanged;
-            frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
+            //frmMain.OnDataChanged += FrmMain_OnDataChanged;
+            //frmMain.OnPassTestNumber += FrmMain_OnPassTestNumber;
         }
 
-        private void FrmMain_OnPassTestNumber(string TestNumber)
-        {
-            TestData = TestNumber;
-            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
-        }
+        //private void FrmMain_OnPassTestNumber(string TestNumber)
+        //{
+        //    TestData = TestNumber;
+        //    frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
+        //}
 
-        private void FrmMain_OnDataChanged(string TestNumber)
-        {
-            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = (System.IO.Path.GetDirectoryName(executable));
-            AppDomain.CurrentDomain.SetData("Data Directory", path);
+        //private void FrmMain_OnDataChanged(string TestNumber)
+        //{
+        //    string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        //    string path = (System.IO.Path.GetDirectoryName(executable));
+        //    AppDomain.CurrentDomain.SetData("Data Directory", path);
 
-            frmIPF f = new frmIPF();
+        //    frmIPF f = new frmIPF();
 
-            //var t = f.Controls.OfType<TextBox>().ToArray();
+        //    //var t = f.Controls.OfType<TextBox>().ToArray();
 
-            var tm = grpPFM.Controls.
-                     OfType<TextBox>().
-                     OrderBy(t => t.TabIndex).
-                     ToArray();
+        //    var tm = grpPFM.Controls.
+        //             OfType<TextBox>().
+        //             OrderBy(t => t.TabIndex).
+        //             ToArray();
 
-            var cap = grpCap.Controls.
-                      OfType<TextBox>().
-                      ToArray();
+        //    var cap = grpCap.Controls.
+        //              OfType<TextBox>().
+        //              ToArray();
 
-            var tc = grpPFC.Controls.
-                     OfType<TextBox>().
-                     OrderBy(v => v.TabIndex).
-                     ToArray();
+        //    var tc = grpPFC.Controls.
+        //             OfType<TextBox>().
+        //             OrderBy(v => v.TabIndex).
+        //             ToArray();
 
-            string query = "SELECT COUNT (*) FROM tblIPF WHERE TestNumber = @testnumber";
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestNumber);
-                    con.Open();
-                    int record = Convert.ToInt32(cmd.ExecuteScalar());
+        //    string query = "SELECT COUNT (*) FROM tblIPF WHERE TestNumber = @testnumber";
+        //    using (SqlConnection con = new SqlConnection(constring))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand(query, con))
+        //        {
+        //            cmd.Parameters.AddWithValue("@testnumber", TestNumber);
+        //            con.Open();
+        //            int record = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if (record == 1)
-                    {
-                        string query2 = "SELECT * FROM tblIPF WHERE TestNumber = @testnumber";
-                        using (SqlCommand cmd2 = new SqlCommand(query2, con))
-                        {
-                            cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
-                            SqlDataReader dr = cmd2.ExecuteReader();
+        //            if (record == 1)
+        //            {
+        //                string query2 = "SELECT * FROM tblIPF WHERE TestNumber = @testnumber";
+        //                using (SqlCommand cmd2 = new SqlCommand(query2, con))
+        //                {
+        //                    cmd2.Parameters.AddWithValue("@testnumber", TestNumber);
+        //                    SqlDataReader dr = cmd2.ExecuteReader();
 
-                            while (dr.Read())
-                            {
-                                testNumberTextBox.Text = (dr["TestNumber"].ToString());
-                                ipfMCHCHLTextBox.Text = (dr["ipfMCHCHL"].ToString());
-                                ipfMCHTextBox.Text = (dr["ipfMCH"].ToString());
-                                ipfMCHLUTextBox.Text = (dr["ipfMCHLU"].ToString());
-                                ipfMCHLTextBox.Text = (dr["ipfMCHL"].ToString());
-                                ipfMCLCHLTextBox.Text = (dr["ipfMCLCHL"].ToString());
-                                ipfMCLTextBox.Text = (dr["ipfMCL"].ToString());
-                                ipfMCHLUlvTextBox.Text = (dr["ipfMCHLUlv"].ToString());
-                                ipfMCHLlvTextBox.Text = (dr["ipfMCHLlv"].ToString());
-                                ipfCFTextBox.Text = (dr["ipfCF"].ToString());
-                                ipfCCHCHLTextBox.Text = (dr["ipfCCHCHL"].ToString());
-                                ipfCCHTextBox.Text = (dr["ipfCCH"].ToString());
-                                ipfCCHLUTextBox.Text = (dr["ipfCCHLU"].ToString());
-                                ipfCCHLTextBox.Text = (dr["ipfCCHL"].ToString());
-                                ipfCCLCHLTextBox.Text = (dr["ipfCCLCHL"].ToString());
-                                ipfCCLTextBox.Text = (dr["ipfCCL"].ToString());
-                                ipfCCHLUlvTextBox.Text = (dr["ipfCCHLUlv"].ToString());
-                                ipfCCHLlvTextBox.Text = (dr["ipfCCHLlv"].ToString());
-                                ipfACHCHLTextBox.Text = (dr["ipfACHCHL"].ToString());
-                                ipfACHTextBox.Text = (dr["ipfACH"].ToString());
-                                ipfACHLUTextBox.Text = (dr["ipfACHLU"].ToString());
-                                ipfACHLTextBox.Text = (dr["ipfACHL"].ToString());
-                                ipfACLCHLTextBox.Text = (dr["ipfACLCHL"].ToString());
-                                ipfACLTextBox.Text = (dr["ipfACL"].ToString());
-                                ipfACHLUlvTextBox.Text = (dr["ipfACHLUlv"].ToString());
-                                ipfACHLlvTextBox.Text = (dr["ipfACHLlv"].ToString());
-                                testVoltageTextBox.Text = (dr["TestVoltage"].ToString());
-                                txtAssess.Text = (dr["ipfAssess"].ToString());
-                            }
-                        }
-                    }
-                    //else
-                    //{
-                    //    testNumberTextBox.Clear();
-                    //    testVoltageTextBox.Clear();
-                    //    ipfCFTextBox.Clear();
-                    //    txtAssess.Clear();
-                    //    //for(int i = 0; i < 4; i++)
-                    //    //{
-                    //    //    //t[i].Clear();
-                    //    //    tm[i].Text = "";
-                    //    //    tc[i].Text = "";
-                    //    //    cap[i].Text = "";
-                    //    //}
-                    //}
-                    con.Close();
-                }
-            }
-            //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
-        }
+        //                    while (dr.Read())
+        //                    {
+        //                        testNumberTextBox.Text = (dr["TestNumber"].ToString());
+        //                        ipfMCHCHLTextBox.Text = (dr["ipfMCHCHL"].ToString());
+        //                        ipfMCHTextBox.Text = (dr["ipfMCH"].ToString());
+        //                        ipfMCHLUTextBox.Text = (dr["ipfMCHLU"].ToString());
+        //                        ipfMCHLTextBox.Text = (dr["ipfMCHL"].ToString());
+        //                        ipfMCLCHLTextBox.Text = (dr["ipfMCLCHL"].ToString());
+        //                        ipfMCLTextBox.Text = (dr["ipfMCL"].ToString());
+        //                        ipfMCHLUlvTextBox.Text = (dr["ipfMCHLUlv"].ToString());
+        //                        ipfMCHLlvTextBox.Text = (dr["ipfMCHLlv"].ToString());
+        //                        ipfCFTextBox.Text = (dr["ipfCF"].ToString());
+        //                        ipfCCHCHLTextBox.Text = (dr["ipfCCHCHL"].ToString());
+        //                        ipfCCHTextBox.Text = (dr["ipfCCH"].ToString());
+        //                        ipfCCHLUTextBox.Text = (dr["ipfCCHLU"].ToString());
+        //                        ipfCCHLTextBox.Text = (dr["ipfCCHL"].ToString());
+        //                        ipfCCLCHLTextBox.Text = (dr["ipfCCLCHL"].ToString());
+        //                        ipfCCLTextBox.Text = (dr["ipfCCL"].ToString());
+        //                        ipfCCHLUlvTextBox.Text = (dr["ipfCCHLUlv"].ToString());
+        //                        ipfCCHLlvTextBox.Text = (dr["ipfCCHLlv"].ToString());
+        //                        ipfACHCHLTextBox.Text = (dr["ipfACHCHL"].ToString());
+        //                        ipfACHTextBox.Text = (dr["ipfACH"].ToString());
+        //                        ipfACHLUTextBox.Text = (dr["ipfACHLU"].ToString());
+        //                        ipfACHLTextBox.Text = (dr["ipfACHL"].ToString());
+        //                        ipfACLCHLTextBox.Text = (dr["ipfACLCHL"].ToString());
+        //                        ipfACLTextBox.Text = (dr["ipfACL"].ToString());
+        //                        ipfACHLUlvTextBox.Text = (dr["ipfACHLUlv"].ToString());
+        //                        ipfACHLlvTextBox.Text = (dr["ipfACHLlv"].ToString());
+        //                        testVoltageTextBox.Text = (dr["TestVoltage"].ToString());
+        //                        txtAssess.Text = (dr["ipfAssess"].ToString());
+        //                    }
+        //                }
+        //            }
+        //            //else
+        //            //{
+        //            //    testNumberTextBox.Clear();
+        //            //    testVoltageTextBox.Clear();
+        //            //    ipfCFTextBox.Clear();
+        //            //    txtAssess.Clear();
+        //            //    //for(int i = 0; i < 4; i++)
+        //            //    //{
+        //            //    //    //t[i].Clear();
+        //            //    //    tm[i].Text = "";
+        //            //    //    tc[i].Text = "";
+        //            //    //    cap[i].Text = "";
+        //            //    //}
+        //            //}
+        //            con.Close();
+        //        }
+        //    }
+        //    //frmMain.OnDataChanged -= FrmMain_OnDataChanged;
+        //}
 
         private void frmIPF_Load(object sender, EventArgs e)
         {
