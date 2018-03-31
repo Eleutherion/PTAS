@@ -75,6 +75,25 @@
             this.xfYearTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tblTransformerDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             xfIDLabel = new System.Windows.Forms.Label();
             xfSubIDLabel = new System.Windows.Forms.Label();
             xfMakeLabel = new System.Windows.Forms.Label();
@@ -92,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // xfIDLabel
@@ -451,7 +471,7 @@
             // 
             this.xfSubIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTransformerBindingSource, "xfSubID", true));
             this.xfSubIDComboBox.DataSource = this.tblSubstationBindingSource;
-            this.xfSubIDComboBox.DisplayMember = "subName";
+            this.xfSubIDComboBox.DisplayMember = "subID";
             this.xfSubIDComboBox.FormattingEnabled = true;
             this.xfSubIDComboBox.Location = new System.Drawing.Point(200, 84);
             this.xfSubIDComboBox.Name = "xfSubIDComboBox";
@@ -490,12 +510,151 @@
             this.label3.Text = "**Use format as in: YN a D 5. Leave second field blank if not autotransformer. Fi" +
     "elds not required.";
             // 
+            // tblTransformerDataGridView
+            // 
+            this.tblTransformerDataGridView.AutoGenerateColumns = false;
+            this.tblTransformerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblTransformerDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18});
+            this.tblTransformerDataGridView.DataSource = this.tblTransformerBindingSource;
+            this.tblTransformerDataGridView.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tblTransformerDataGridView.Location = new System.Drawing.Point(598, 0);
+            this.tblTransformerDataGridView.Name = "tblTransformerDataGridView";
+            this.tblTransformerDataGridView.Size = new System.Drawing.Size(590, 498);
+            this.tblTransformerDataGridView.TabIndex = 79;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "xfSubID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "xfSubID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "xfMake";
+            this.dataGridViewTextBoxColumn2.HeaderText = "xfMake";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "xfSerial";
+            this.dataGridViewTextBoxColumn3.HeaderText = "xfSerial";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "xfClass";
+            this.dataGridViewTextBoxColumn4.HeaderText = "xfClass";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "xfCap";
+            this.dataGridViewTextBoxColumn5.HeaderText = "xfCap";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "xfImpedanceA";
+            this.dataGridViewTextBoxColumn6.HeaderText = "xfImpedanceA";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "xfImpedanceB";
+            this.dataGridViewTextBoxColumn7.HeaderText = "xfImpedanceB";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "xfImpedanceC";
+            this.dataGridViewTextBoxColumn8.HeaderText = "xfImpedanceC";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "xfPrimVolt";
+            this.dataGridViewTextBoxColumn9.HeaderText = "xfPrimVolt";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "xfSecVolt";
+            this.dataGridViewTextBoxColumn10.HeaderText = "xfSecVolt";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "xfTertVolt";
+            this.dataGridViewTextBoxColumn11.HeaderText = "xfTertVolt";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "xfPrimW";
+            this.dataGridViewTextBoxColumn12.HeaderText = "xfPrimW";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "xfSecW";
+            this.dataGridViewTextBoxColumn13.HeaderText = "xfSecW";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "xfSecClock";
+            this.dataGridViewTextBoxColumn14.HeaderText = "xfSecClock";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "xfAuto";
+            this.dataGridViewTextBoxColumn15.HeaderText = "xfAuto";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "xfPhase";
+            this.dataGridViewTextBoxColumn16.HeaderText = "xfPhase";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "xfYear";
+            this.dataGridViewTextBoxColumn17.HeaderText = "xfYear";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "xfID";
+            this.dataGridViewTextBoxColumn18.HeaderText = "xfID";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
             // frmXformer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(646, 488);
+            this.ClientSize = new System.Drawing.Size(1188, 498);
+            this.Controls.Add(this.tblTransformerDataGridView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.xfYearTextBox);
@@ -538,11 +697,13 @@
             this.Controls.Add(this.btnAdd);
             this.Name = "frmXformer";
             this.Text = "frmXformer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmXformer_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmXformer_FormClosed);
             this.Load += new System.EventHandler(this.frmXformer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTransformerDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -581,5 +742,24 @@
         private System.Windows.Forms.TextBox xfYearTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView tblTransformerDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
     }
 }

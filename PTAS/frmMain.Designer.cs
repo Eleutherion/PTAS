@@ -42,6 +42,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -83,16 +83,18 @@
             this.testPrimWTTextBox = new System.Windows.Forms.TextBox();
             this.testSecWTTextBox = new System.Windows.Forms.TextBox();
             this.testTertWTTextBox = new System.Windows.Forms.TextBox();
-            this.chkExcite = new System.Windows.Forms.CheckBox();
-            this.chkIPF = new System.Windows.Forms.CheckBox();
-            this.chkBushing = new System.Windows.Forms.CheckBox();
-            this.chkTTR = new System.Windows.Forms.CheckBox();
-            this.chkDCWR = new System.Windows.Forms.CheckBox();
-            this.chkDielectric = new System.Windows.Forms.CheckBox();
-            this.chkOilPF = new System.Windows.Forms.CheckBox();
-            this.tblTestTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTestTableAdapter();
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
+            this.tblBushingTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblBushingTableAdapter();
+            this.tblDielectricTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblDielectricTableAdapter();
+            this.tblExcitationTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblExcitationTableAdapter();
+            this.tblIPFTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblIPFTableAdapter();
+            this.tblOilPFTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblOilPFTableAdapter();
+            this.tblStandardsTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblStandardsTableAdapter();
             this.tblSubstationTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblSubstationTableAdapter();
+            this.tblTestTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTestTableAdapter();
+            this.tblTransformerTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTransformerTableAdapter();
+            this.tblTTRTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTTRTableAdapter();
+            this.tblWindingTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblWindingTableAdapter();
             this.tbcTest = new System.Windows.Forms.TabControl();
             this.tabExcite = new System.Windows.Forms.TabPage();
             this.txtDeviation = new System.Windows.Forms.TextBox();
@@ -150,7 +152,7 @@
             this.ipfCCHLUTextBox = new System.Windows.Forms.TextBox();
             this.ipfCCHTextBox = new System.Windows.Forms.TextBox();
             this.ipfCCHCHLTextBox = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtAssessIPF = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
             this.btnAssessIPF = new System.Windows.Forms.Button();
             this.label56 = new System.Windows.Forms.Label();
@@ -416,18 +418,23 @@
             this.btnLast = new System.Windows.Forms.Button();
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
-            this.tblExcitationTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblExcitationTableAdapter();
-            this.tblBushingTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblBushingTableAdapter();
-            this.tblIPFTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblIPFTableAdapter();
-            this.tblTTRTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTTRTableAdapter();
-            this.tblWindingTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblWindingTableAdapter();
-            this.tblDielectricTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblDielectricTableAdapter();
-            this.tblOilPFTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblOilPFTableAdapter();
-            this.tblStandardsTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblStandardsTableAdapter();
             this.label116 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.tblTransformerTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTransformerTableAdapter();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tblTestDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             testNumberLabel = new System.Windows.Forms.Label();
             label40 = new System.Windows.Forms.Label();
             testNumberLabel1 = new System.Windows.Forms.Label();
@@ -479,6 +486,8 @@
             this.grpMain.SuspendLayout();
             this.tabOilPF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblOilPFBindingSource)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTestDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // testNumberLabel
@@ -579,6 +588,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registerAccountToolStripMenuItem,
             this.logOutToolStripMenuItem,
+            this.refreshToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -597,6 +607,14 @@
             this.logOutToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -659,6 +677,7 @@
             this.manualToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.manualToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.manualToolStripMenuItem.Text = "Manual";
+            this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
             // aboutUsToolStripMenuItem
             // 
@@ -672,18 +691,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 159);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Test Date";
+            this.label1.Text = "Test Date*";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(22, 185);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
+            this.label2.Size = new System.Drawing.Size(110, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Test Engineer (Initial)";
+            this.label2.Text = "Test Engineer (Initial)*";
             // 
             // label4
             // 
@@ -744,27 +763,18 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(22, 133);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 13);
+            this.label10.Size = new System.Drawing.Size(67, 13);
             this.label10.TabIndex = 21;
-            this.label10.Text = "Transformer";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(22, 534);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 13);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "TESTS CONDUCTED";
+            this.label10.Text = "Transformer*";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(22, 107);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(85, 13);
+            this.label12.Size = new System.Drawing.Size(89, 13);
             this.label12.TabIndex = 31;
-            this.label12.Text = "TEST NUMBER";
+            this.label12.Text = "TEST NUMBER*";
             // 
             // btnAdd
             // 
@@ -837,7 +847,7 @@
             // 
             // cboSub
             // 
-            this.cboSub.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tblTestBindingSource, "testSub", true));
+            this.cboSub.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testSub", true));
             this.cboSub.DataSource = this.tblSubstationBindingSource;
             this.cboSub.FormattingEnabled = true;
             this.cboSub.Location = new System.Drawing.Point(167, 130);
@@ -854,6 +864,7 @@
             // cboXf
             // 
             this.cboXf.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testXformer", true));
+            this.cboXf.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tblTransformerBindingSource, "xfID", true));
             this.cboXf.DataSource = this.tblTransformerBindingSource;
             this.cboXf.FormattingEnabled = true;
             this.cboXf.Location = new System.Drawing.Point(268, 130);
@@ -938,106 +949,73 @@
             this.testTertWTTextBox.Size = new System.Drawing.Size(200, 20);
             this.testTertWTTextBox.TabIndex = 147;
             // 
-            // chkExcite
-            // 
-            this.chkExcite.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testExcite", true));
-            this.chkExcite.Location = new System.Drawing.Point(42, 560);
-            this.chkExcite.Name = "chkExcite";
-            this.chkExcite.Size = new System.Drawing.Size(200, 24);
-            this.chkExcite.TabIndex = 153;
-            this.chkExcite.Text = "Excitation Current";
-            this.chkExcite.UseVisualStyleBackColor = true;
-            // 
-            // chkIPF
-            // 
-            this.chkIPF.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testIPF", true));
-            this.chkIPF.Location = new System.Drawing.Point(42, 620);
-            this.chkIPF.Name = "chkIPF";
-            this.chkIPF.Size = new System.Drawing.Size(200, 24);
-            this.chkIPF.TabIndex = 155;
-            this.chkIPF.Text = "Overall Insulation Power Factor";
-            this.chkIPF.UseVisualStyleBackColor = true;
-            // 
-            // chkBushing
-            // 
-            this.chkBushing.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testBushing", true));
-            this.chkBushing.Location = new System.Drawing.Point(42, 590);
-            this.chkBushing.Name = "chkBushing";
-            this.chkBushing.Size = new System.Drawing.Size(200, 24);
-            this.chkBushing.TabIndex = 157;
-            this.chkBushing.Text = "Bushing C1/C2 Capacitance";
-            this.chkBushing.UseVisualStyleBackColor = true;
-            // 
-            // chkTTR
-            // 
-            this.chkTTR.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testTTR", true));
-            this.chkTTR.Location = new System.Drawing.Point(42, 650);
-            this.chkTTR.Name = "chkTTR";
-            this.chkTTR.Size = new System.Drawing.Size(200, 24);
-            this.chkTTR.TabIndex = 159;
-            this.chkTTR.Text = "Transformer Turns Ratio";
-            this.chkTTR.UseVisualStyleBackColor = true;
-            // 
-            // chkDCWR
-            // 
-            this.chkDCWR.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testDCWR", true));
-            this.chkDCWR.Location = new System.Drawing.Point(42, 680);
-            this.chkDCWR.Name = "chkDCWR";
-            this.chkDCWR.Size = new System.Drawing.Size(200, 24);
-            this.chkDCWR.TabIndex = 161;
-            this.chkDCWR.Text = "DC Winding Resistance";
-            this.chkDCWR.UseVisualStyleBackColor = true;
-            // 
-            // chkDielectric
-            // 
-            this.chkDielectric.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testOilBD", true));
-            this.chkDielectric.Location = new System.Drawing.Point(42, 710);
-            this.chkDielectric.Name = "chkDielectric";
-            this.chkDielectric.Size = new System.Drawing.Size(200, 24);
-            this.chkDielectric.TabIndex = 163;
-            this.chkDielectric.Text = "Oil Dielectric Breakdown Strength";
-            this.chkDielectric.UseVisualStyleBackColor = true;
-            // 
-            // chkOilPF
-            // 
-            this.chkOilPF.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tblTestBindingSource, "testOilPF", true));
-            this.chkOilPF.Location = new System.Drawing.Point(42, 740);
-            this.chkOilPF.Name = "chkOilPF";
-            this.chkOilPF.Size = new System.Drawing.Size(200, 24);
-            this.chkOilPF.TabIndex = 165;
-            this.chkOilPF.Text = "Oil Power Factor";
-            this.chkOilPF.UseVisualStyleBackColor = true;
-            // 
-            // tblTestTableAdapter
-            // 
-            this.tblTestTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.tblBushingTableAdapter = null;
-            this.tableAdapterManager.tblDielectricTableAdapter = null;
-            this.tableAdapterManager.tblExcitationTableAdapter = null;
-            this.tableAdapterManager.tblIPFTableAdapter = null;
-            this.tableAdapterManager.tblOilPFTableAdapter = null;
+            this.tableAdapterManager.tblBushingTableAdapter = this.tblBushingTableAdapter;
+            this.tableAdapterManager.tblDielectricTableAdapter = this.tblDielectricTableAdapter;
+            this.tableAdapterManager.tblExcitationTableAdapter = this.tblExcitationTableAdapter;
+            this.tableAdapterManager.tblIPFTableAdapter = this.tblIPFTableAdapter;
+            this.tableAdapterManager.tblOilPFTableAdapter = this.tblOilPFTableAdapter;
             this.tableAdapterManager.tblParamListTableAdapter = null;
             this.tableAdapterManager.tblSecurityTableAdapter = null;
-            this.tableAdapterManager.tblStandardsTableAdapter = null;
+            this.tableAdapterManager.tblStandardsTableAdapter = this.tblStandardsTableAdapter;
             this.tableAdapterManager.tblStatusTableAdapter = null;
-            this.tableAdapterManager.tblSubstationTableAdapter = null;
+            this.tableAdapterManager.tblSubstationTableAdapter = this.tblSubstationTableAdapter;
             this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = this.tblTestTableAdapter;
-            this.tableAdapterManager.tblTransformerTableAdapter = null;
-            this.tableAdapterManager.tblTTRTableAdapter = null;
-            this.tableAdapterManager.tblWindingTableAdapter = null;
+            this.tableAdapterManager.tblTransformerTableAdapter = this.tblTransformerTableAdapter;
+            this.tableAdapterManager.tblTTRTableAdapter = this.tblTTRTableAdapter;
+            this.tableAdapterManager.tblWindingTableAdapter = this.tblWindingTableAdapter;
             this.tableAdapterManager.UpdateOrder = PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // tblBushingTableAdapter
+            // 
+            this.tblBushingTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblDielectricTableAdapter
+            // 
+            this.tblDielectricTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblExcitationTableAdapter
+            // 
+            this.tblExcitationTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblIPFTableAdapter
+            // 
+            this.tblIPFTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblOilPFTableAdapter
+            // 
+            this.tblOilPFTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblStandardsTableAdapter
+            // 
+            this.tblStandardsTableAdapter.ClearBeforeFill = true;
             // 
             // tblSubstationTableAdapter
             // 
             this.tblSubstationTableAdapter.ClearBeforeFill = true;
             // 
+            // tblTestTableAdapter
+            // 
+            this.tblTestTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblTransformerTableAdapter
+            // 
+            this.tblTransformerTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblTTRTableAdapter
+            // 
+            this.tblTTRTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblWindingTableAdapter
+            // 
+            this.tblWindingTableAdapter.ClearBeforeFill = true;
+            // 
             // tbcTest
             // 
+            this.tbcTest.Controls.Add(this.tabPage1);
             this.tbcTest.Controls.Add(this.tabExcite);
             this.tbcTest.Controls.Add(this.tabIPF);
             this.tbcTest.Controls.Add(this.tabBushing);
@@ -1122,6 +1100,7 @@
             this.excHVATextBox.Name = "excHVATextBox";
             this.excHVATextBox.Size = new System.Drawing.Size(134, 20);
             this.excHVATextBox.TabIndex = 21;
+            this.excHVATextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // excHVBTextBox
             // 
@@ -1131,6 +1110,7 @@
             this.excHVBTextBox.Name = "excHVBTextBox";
             this.excHVBTextBox.Size = new System.Drawing.Size(134, 20);
             this.excHVBTextBox.TabIndex = 23;
+            this.excHVBTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // excHVCTextBox
             // 
@@ -1140,6 +1120,7 @@
             this.excHVCTextBox.Name = "excHVCTextBox";
             this.excHVCTextBox.Size = new System.Drawing.Size(134, 20);
             this.excHVCTextBox.TabIndex = 25;
+            this.excHVCTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label14
             // 
@@ -1176,6 +1157,7 @@
             this.txtTestVoltageExc.Name = "txtTestVoltageExc";
             this.txtTestVoltageExc.Size = new System.Drawing.Size(134, 20);
             this.txtTestVoltageExc.TabIndex = 72;
+            this.txtTestVoltageExc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // btnDeleteExc
             // 
@@ -1267,7 +1249,7 @@
             this.tabIPF.Controls.Add(this.grpCap);
             this.tabIPF.Controls.Add(this.grpPFM);
             this.tabIPF.Controls.Add(this.grpPFC);
-            this.tabIPF.Controls.Add(this.textBox5);
+            this.tabIPF.Controls.Add(this.txtAssessIPF);
             this.tabIPF.Controls.Add(this.label55);
             this.tabIPF.Controls.Add(this.btnAssessIPF);
             this.tabIPF.Controls.Add(this.label56);
@@ -1299,11 +1281,13 @@
             // 
             // ipfCFTextBox
             // 
+            this.ipfCFTextBox.CausesValidation = false;
             this.ipfCFTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfCF", true));
             this.ipfCFTextBox.Location = new System.Drawing.Point(334, 88);
             this.ipfCFTextBox.Name = "ipfCFTextBox";
             this.ipfCFTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfCFTextBox.TabIndex = 27;
+            this.ipfCFTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // tblIPFBindingSource
             // 
@@ -1312,11 +1296,13 @@
             // 
             // txtTestVoltageIPF
             // 
+            this.txtTestVoltageIPF.CausesValidation = false;
             this.txtTestVoltageIPF.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "TestVoltage", true));
             this.txtTestVoltageIPF.Location = new System.Drawing.Point(135, 42);
             this.txtTestVoltageIPF.Name = "txtTestVoltageIPF";
             this.txtTestVoltageIPF.Size = new System.Drawing.Size(108, 20);
             this.txtTestVoltageIPF.TabIndex = 26;
+            this.txtTestVoltageIPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // btnDeleteIPF
             // 
@@ -1359,6 +1345,7 @@
             // 
             // grpCap
             // 
+            this.grpCap.CausesValidation = false;
             this.grpCap.Controls.Add(this.ipfACHLlvTextBox);
             this.grpCap.Controls.Add(this.ipfACHLUlvTextBox);
             this.grpCap.Controls.Add(this.ipfACLTextBox);
@@ -1376,67 +1363,83 @@
             // 
             // ipfACHLlvTextBox
             // 
+            this.ipfACHLlvTextBox.CausesValidation = false;
             this.ipfACHLlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHLlv", true));
             this.ipfACHLlvTextBox.Location = new System.Drawing.Point(25, 200);
             this.ipfACHLlvTextBox.Name = "ipfACHLlvTextBox";
             this.ipfACHLlvTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfACHLlvTextBox.TabIndex = 7;
+            this.ipfACHLlvTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfACHLUlvTextBox
             // 
+            this.ipfACHLUlvTextBox.CausesValidation = false;
             this.ipfACHLUlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHLUlv", true));
             this.ipfACHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
             this.ipfACHLUlvTextBox.Name = "ipfACHLUlvTextBox";
             this.ipfACHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfACHLUlvTextBox.TabIndex = 6;
+            this.ipfACHLUlvTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfACLTextBox
             // 
+            this.ipfACLTextBox.CausesValidation = false;
             this.ipfACLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACL", true));
             this.ipfACLTextBox.Location = new System.Drawing.Point(25, 148);
             this.ipfACLTextBox.Name = "ipfACLTextBox";
             this.ipfACLTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfACLTextBox.TabIndex = 5;
+            this.ipfACLTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfACLCHLTextBox
             // 
+            this.ipfACLCHLTextBox.CausesValidation = false;
             this.ipfACLCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACLCHL", true));
             this.ipfACLCHLTextBox.Location = new System.Drawing.Point(25, 122);
             this.ipfACLCHLTextBox.Name = "ipfACLCHLTextBox";
             this.ipfACLCHLTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfACLCHLTextBox.TabIndex = 4;
+            this.ipfACLCHLTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfACHLTextBox
             // 
+            this.ipfACHLTextBox.CausesValidation = false;
             this.ipfACHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHL", true));
             this.ipfACHLTextBox.Location = new System.Drawing.Point(25, 96);
             this.ipfACHLTextBox.Name = "ipfACHLTextBox";
             this.ipfACHLTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfACHLTextBox.TabIndex = 3;
+            this.ipfACHLTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfACHLUTextBox
             // 
+            this.ipfACHLUTextBox.CausesValidation = false;
             this.ipfACHLUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHLU", true));
             this.ipfACHLUTextBox.Location = new System.Drawing.Point(25, 70);
             this.ipfACHLUTextBox.Name = "ipfACHLUTextBox";
             this.ipfACHLUTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfACHLUTextBox.TabIndex = 2;
+            this.ipfACHLUTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfACHTextBox
             // 
+            this.ipfACHTextBox.CausesValidation = false;
             this.ipfACHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACH", true));
             this.ipfACHTextBox.Location = new System.Drawing.Point(25, 44);
             this.ipfACHTextBox.Name = "ipfACHTextBox";
             this.ipfACHTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfACHTextBox.TabIndex = 1;
+            this.ipfACHTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfACHCHLTextBox
             // 
+            this.ipfACHCHLTextBox.CausesValidation = false;
             this.ipfACHCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfACHCHL", true));
             this.ipfACHCHLTextBox.Location = new System.Drawing.Point(25, 18);
             this.ipfACHCHLTextBox.Name = "ipfACHCHLTextBox";
             this.ipfACHCHLTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfACHCHLTextBox.TabIndex = 0;
+            this.ipfACHCHLTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // grpPFM
             // 
@@ -1457,67 +1460,83 @@
             // 
             // ipfMCHCHLTextBox
             // 
+            this.ipfMCHCHLTextBox.CausesValidation = false;
             this.ipfMCHCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHCHL", true));
             this.ipfMCHCHLTextBox.Location = new System.Drawing.Point(25, 18);
             this.ipfMCHCHLTextBox.Name = "ipfMCHCHLTextBox";
             this.ipfMCHCHLTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfMCHCHLTextBox.TabIndex = 0;
+            this.ipfMCHCHLTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfMCHLlvTextBox
             // 
+            this.ipfMCHLlvTextBox.CausesValidation = false;
             this.ipfMCHLlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHLlv", true));
             this.ipfMCHLlvTextBox.Location = new System.Drawing.Point(25, 200);
             this.ipfMCHLlvTextBox.Name = "ipfMCHLlvTextBox";
             this.ipfMCHLlvTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfMCHLlvTextBox.TabIndex = 7;
+            this.ipfMCHLlvTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfMCLCHLTextBox
             // 
+            this.ipfMCLCHLTextBox.CausesValidation = false;
             this.ipfMCLCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCLCHL", true));
             this.ipfMCLCHLTextBox.Location = new System.Drawing.Point(25, 122);
             this.ipfMCLCHLTextBox.Name = "ipfMCLCHLTextBox";
             this.ipfMCLCHLTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfMCLCHLTextBox.TabIndex = 4;
+            this.ipfMCLCHLTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfMCHLUTextBox
             // 
+            this.ipfMCHLUTextBox.CausesValidation = false;
             this.ipfMCHLUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHLU", true));
             this.ipfMCHLUTextBox.Location = new System.Drawing.Point(25, 70);
             this.ipfMCHLUTextBox.Name = "ipfMCHLUTextBox";
             this.ipfMCHLUTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfMCHLUTextBox.TabIndex = 2;
+            this.ipfMCHLUTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfMCHLUlvTextBox
             // 
+            this.ipfMCHLUlvTextBox.CausesValidation = false;
             this.ipfMCHLUlvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHLUlv", true));
             this.ipfMCHLUlvTextBox.Location = new System.Drawing.Point(25, 174);
             this.ipfMCHLUlvTextBox.Name = "ipfMCHLUlvTextBox";
             this.ipfMCHLUlvTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfMCHLUlvTextBox.TabIndex = 6;
+            this.ipfMCHLUlvTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfMCHTextBox
             // 
+            this.ipfMCHTextBox.CausesValidation = false;
             this.ipfMCHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCH", true));
             this.ipfMCHTextBox.Location = new System.Drawing.Point(25, 44);
             this.ipfMCHTextBox.Name = "ipfMCHTextBox";
             this.ipfMCHTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfMCHTextBox.TabIndex = 1;
+            this.ipfMCHTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfMCHLTextBox
             // 
+            this.ipfMCHLTextBox.CausesValidation = false;
             this.ipfMCHLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCHL", true));
             this.ipfMCHLTextBox.Location = new System.Drawing.Point(25, 96);
             this.ipfMCHLTextBox.Name = "ipfMCHLTextBox";
             this.ipfMCHLTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfMCHLTextBox.TabIndex = 3;
+            this.ipfMCHLTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ipfMCLTextBox
             // 
+            this.ipfMCLTextBox.CausesValidation = false;
             this.ipfMCLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfMCL", true));
             this.ipfMCLTextBox.Location = new System.Drawing.Point(25, 148);
             this.ipfMCLTextBox.Name = "ipfMCLTextBox";
             this.ipfMCLTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfMCLTextBox.TabIndex = 5;
+            this.ipfMCLTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // grpPFC
             // 
@@ -1608,14 +1627,14 @@
             this.ipfCCHCHLTextBox.Size = new System.Drawing.Size(108, 20);
             this.ipfCCHCHLTextBox.TabIndex = 0;
             // 
-            // textBox5
+            // txtAssessIPF
             // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfAssess", true));
-            this.textBox5.Location = new System.Drawing.Point(391, 367);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(224, 20);
-            this.textBox5.TabIndex = 12;
+            this.txtAssessIPF.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblIPFBindingSource, "ipfAssess", true));
+            this.txtAssessIPF.Location = new System.Drawing.Point(391, 367);
+            this.txtAssessIPF.Name = "txtAssessIPF";
+            this.txtAssessIPF.ReadOnly = true;
+            this.txtAssessIPF.Size = new System.Drawing.Size(224, 20);
+            this.txtAssessIPF.TabIndex = 12;
             // 
             // label55
             // 
@@ -1783,11 +1802,13 @@
             // 
             // c2pfnameX3TextBox
             // 
+            this.c2pfnameX3TextBox.CausesValidation = false;
             this.c2pfnameX3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2pfnameX3", true));
             this.c2pfnameX3TextBox.Location = new System.Drawing.Point(399, 58);
             this.c2pfnameX3TextBox.Name = "c2pfnameX3TextBox";
             this.c2pfnameX3TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2pfnameX3TextBox.TabIndex = 113;
+            this.c2pfnameX3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // tblBushingBindingSource
             // 
@@ -1805,11 +1826,13 @@
             // 
             // c2pfnameX2TextBox
             // 
+            this.c2pfnameX2TextBox.CausesValidation = false;
             this.c2pfnameX2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2pfnameX2", true));
             this.c2pfnameX2TextBox.Location = new System.Drawing.Point(254, 58);
             this.c2pfnameX2TextBox.Name = "c2pfnameX2TextBox";
             this.c2pfnameX2TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2pfnameX2TextBox.TabIndex = 112;
+            this.c2pfnameX2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label21
             // 
@@ -1822,11 +1845,13 @@
             // 
             // c2pfnameX1TextBox
             // 
+            this.c2pfnameX1TextBox.CausesValidation = false;
             this.c2pfnameX1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2pfnameX1", true));
             this.c2pfnameX1TextBox.Location = new System.Drawing.Point(109, 58);
             this.c2pfnameX1TextBox.Name = "c2pfnameX1TextBox";
             this.c2pfnameX1TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2pfnameX1TextBox.TabIndex = 111;
+            this.c2pfnameX1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label22
             // 
@@ -1839,11 +1864,13 @@
             // 
             // c2pfnameH0X0TextBox
             // 
+            this.c2pfnameH0X0TextBox.CausesValidation = false;
             this.c2pfnameH0X0TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2pfnameH0X0", true));
             this.c2pfnameH0X0TextBox.Location = new System.Drawing.Point(557, 32);
             this.c2pfnameH0X0TextBox.Name = "c2pfnameH0X0TextBox";
             this.c2pfnameH0X0TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2pfnameH0X0TextBox.TabIndex = 110;
+            this.c2pfnameH0X0TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label23
             // 
@@ -1856,11 +1883,13 @@
             // 
             // c2pfnameH3TextBox
             // 
+            this.c2pfnameH3TextBox.CausesValidation = false;
             this.c2pfnameH3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2pfnameH3", true));
             this.c2pfnameH3TextBox.Location = new System.Drawing.Point(399, 32);
             this.c2pfnameH3TextBox.Name = "c2pfnameH3TextBox";
             this.c2pfnameH3TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2pfnameH3TextBox.TabIndex = 109;
+            this.c2pfnameH3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label24
             // 
@@ -1873,11 +1902,13 @@
             // 
             // c2pfnameH2TextBox
             // 
+            this.c2pfnameH2TextBox.CausesValidation = false;
             this.c2pfnameH2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2pfnameH2", true));
             this.c2pfnameH2TextBox.Location = new System.Drawing.Point(254, 32);
             this.c2pfnameH2TextBox.Name = "c2pfnameH2TextBox";
             this.c2pfnameH2TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2pfnameH2TextBox.TabIndex = 108;
+            this.c2pfnameH2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label25
             // 
@@ -1890,11 +1921,13 @@
             // 
             // c2pfnameH1TextBox
             // 
+            this.c2pfnameH1TextBox.CausesValidation = false;
             this.c2pfnameH1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2pfnameH1", true));
             this.c2pfnameH1TextBox.Location = new System.Drawing.Point(109, 32);
             this.c2pfnameH1TextBox.Name = "c2pfnameH1TextBox";
             this.c2pfnameH1TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2pfnameH1TextBox.TabIndex = 107;
+            this.c2pfnameH1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label26
             // 
@@ -1930,11 +1963,13 @@
             // 
             // c2nameX3TextBox
             // 
+            this.c2nameX3TextBox.CausesValidation = false;
             this.c2nameX3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2nameX3", true));
             this.c2nameX3TextBox.Location = new System.Drawing.Point(399, 58);
             this.c2nameX3TextBox.Name = "c2nameX3TextBox";
             this.c2nameX3TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2nameX3TextBox.TabIndex = 113;
+            this.c2nameX3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label27
             // 
@@ -1947,11 +1982,13 @@
             // 
             // c2nameX2TextBox
             // 
+            this.c2nameX2TextBox.CausesValidation = false;
             this.c2nameX2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2nameX2", true));
             this.c2nameX2TextBox.Location = new System.Drawing.Point(254, 58);
             this.c2nameX2TextBox.Name = "c2nameX2TextBox";
             this.c2nameX2TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2nameX2TextBox.TabIndex = 112;
+            this.c2nameX2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label28
             // 
@@ -1964,11 +2001,13 @@
             // 
             // c2nameX1TextBox
             // 
+            this.c2nameX1TextBox.CausesValidation = false;
             this.c2nameX1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2nameX1", true));
             this.c2nameX1TextBox.Location = new System.Drawing.Point(109, 58);
             this.c2nameX1TextBox.Name = "c2nameX1TextBox";
             this.c2nameX1TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2nameX1TextBox.TabIndex = 111;
+            this.c2nameX1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label29
             // 
@@ -1981,11 +2020,13 @@
             // 
             // c2nameH0X0TextBox
             // 
+            this.c2nameH0X0TextBox.CausesValidation = false;
             this.c2nameH0X0TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2nameH0X0", true));
             this.c2nameH0X0TextBox.Location = new System.Drawing.Point(557, 32);
             this.c2nameH0X0TextBox.Name = "c2nameH0X0TextBox";
             this.c2nameH0X0TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2nameH0X0TextBox.TabIndex = 110;
+            this.c2nameH0X0TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label30
             // 
@@ -1998,11 +2039,13 @@
             // 
             // c2nameH3TextBox
             // 
+            this.c2nameH3TextBox.CausesValidation = false;
             this.c2nameH3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2nameH3", true));
             this.c2nameH3TextBox.Location = new System.Drawing.Point(399, 32);
             this.c2nameH3TextBox.Name = "c2nameH3TextBox";
             this.c2nameH3TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2nameH3TextBox.TabIndex = 109;
+            this.c2nameH3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label31
             // 
@@ -2015,11 +2058,13 @@
             // 
             // c2nameH2TextBox
             // 
+            this.c2nameH2TextBox.CausesValidation = false;
             this.c2nameH2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2nameH2", true));
             this.c2nameH2TextBox.Location = new System.Drawing.Point(254, 32);
             this.c2nameH2TextBox.Name = "c2nameH2TextBox";
             this.c2nameH2TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2nameH2TextBox.TabIndex = 108;
+            this.c2nameH2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label32
             // 
@@ -2032,11 +2077,13 @@
             // 
             // c2nameH1TextBox
             // 
+            this.c2nameH1TextBox.CausesValidation = false;
             this.c2nameH1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "C2nameH1", true));
             this.c2nameH1TextBox.Location = new System.Drawing.Point(109, 32);
             this.c2nameH1TextBox.Name = "c2nameH1TextBox";
             this.c2nameH1TextBox.Size = new System.Drawing.Size(68, 20);
             this.c2nameH1TextBox.TabIndex = 107;
+            this.c2nameH1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label33
             // 
@@ -2072,11 +2119,13 @@
             // 
             // pfnameX3TextBox
             // 
+            this.pfnameX3TextBox.CausesValidation = false;
             this.pfnameX3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfnameX3", true));
             this.pfnameX3TextBox.Location = new System.Drawing.Point(399, 59);
             this.pfnameX3TextBox.Name = "pfnameX3TextBox";
             this.pfnameX3TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfnameX3TextBox.TabIndex = 6;
+            this.pfnameX3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label19
             // 
@@ -2089,11 +2138,13 @@
             // 
             // pfnameX2TextBox
             // 
+            this.pfnameX2TextBox.CausesValidation = false;
             this.pfnameX2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfnameX2", true));
             this.pfnameX2TextBox.Location = new System.Drawing.Point(254, 58);
             this.pfnameX2TextBox.Name = "pfnameX2TextBox";
             this.pfnameX2TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfnameX2TextBox.TabIndex = 5;
+            this.pfnameX2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label34
             // 
@@ -2106,11 +2157,13 @@
             // 
             // pfnameX1TextBox
             // 
+            this.pfnameX1TextBox.CausesValidation = false;
             this.pfnameX1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfnameX1", true));
             this.pfnameX1TextBox.Location = new System.Drawing.Point(109, 58);
             this.pfnameX1TextBox.Name = "pfnameX1TextBox";
             this.pfnameX1TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfnameX1TextBox.TabIndex = 4;
+            this.pfnameX1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label35
             // 
@@ -2123,35 +2176,43 @@
             // 
             // pfnameH0X0TextBox
             // 
+            this.pfnameH0X0TextBox.CausesValidation = false;
             this.pfnameH0X0TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfnameH0X0", true));
             this.pfnameH0X0TextBox.Location = new System.Drawing.Point(557, 32);
             this.pfnameH0X0TextBox.Name = "pfnameH0X0TextBox";
             this.pfnameH0X0TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfnameH0X0TextBox.TabIndex = 3;
+            this.pfnameH0X0TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfnameH3TextBox
             // 
+            this.pfnameH3TextBox.CausesValidation = false;
             this.pfnameH3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfnameH3", true));
             this.pfnameH3TextBox.Location = new System.Drawing.Point(399, 32);
             this.pfnameH3TextBox.Name = "pfnameH3TextBox";
             this.pfnameH3TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfnameH3TextBox.TabIndex = 2;
+            this.pfnameH3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfnameH2TextBox
             // 
+            this.pfnameH2TextBox.CausesValidation = false;
             this.pfnameH2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfnameH2", true));
             this.pfnameH2TextBox.Location = new System.Drawing.Point(254, 32);
             this.pfnameH2TextBox.Name = "pfnameH2TextBox";
             this.pfnameH2TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfnameH2TextBox.TabIndex = 1;
+            this.pfnameH2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfnameH1TextBox
             // 
+            this.pfnameH1TextBox.CausesValidation = false;
             this.pfnameH1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfnameH1", true));
             this.pfnameH1TextBox.Location = new System.Drawing.Point(109, 32);
             this.pfnameH1TextBox.Name = "pfnameH1TextBox";
             this.pfnameH1TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfnameH1TextBox.TabIndex = 0;
+            this.pfnameH1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label36
             // 
@@ -2325,59 +2386,73 @@
             // 
             // capC2H1TextBox
             // 
+            this.capC2H1TextBox.CausesValidation = false;
             this.capC2H1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC2H1", true));
             this.capC2H1TextBox.Location = new System.Drawing.Point(14, 25);
             this.capC2H1TextBox.Name = "capC2H1TextBox";
             this.capC2H1TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC2H1TextBox.TabIndex = 0;
+            this.capC2H1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC2X3TextBox
             // 
+            this.capC2X3TextBox.CausesValidation = false;
             this.capC2X3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC2X3", true));
             this.capC2X3TextBox.Location = new System.Drawing.Point(14, 181);
             this.capC2X3TextBox.Name = "capC2X3TextBox";
             this.capC2X3TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC2X3TextBox.TabIndex = 6;
+            this.capC2X3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC2X2TextBox
             // 
+            this.capC2X2TextBox.CausesValidation = false;
             this.capC2X2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC2X2", true));
             this.capC2X2TextBox.Location = new System.Drawing.Point(14, 155);
             this.capC2X2TextBox.Name = "capC2X2TextBox";
             this.capC2X2TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC2X2TextBox.TabIndex = 5;
+            this.capC2X2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC2X1TextBox
             // 
+            this.capC2X1TextBox.CausesValidation = false;
             this.capC2X1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC2X1", true));
             this.capC2X1TextBox.Location = new System.Drawing.Point(14, 129);
             this.capC2X1TextBox.Name = "capC2X1TextBox";
             this.capC2X1TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC2X1TextBox.TabIndex = 4;
+            this.capC2X1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC2H0X0TextBox
             // 
+            this.capC2H0X0TextBox.CausesValidation = false;
             this.capC2H0X0TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC2H0X0", true));
             this.capC2H0X0TextBox.Location = new System.Drawing.Point(14, 103);
             this.capC2H0X0TextBox.Name = "capC2H0X0TextBox";
             this.capC2H0X0TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC2H0X0TextBox.TabIndex = 3;
+            this.capC2H0X0TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC2H3TextBox
             // 
+            this.capC2H3TextBox.CausesValidation = false;
             this.capC2H3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC2H3", true));
             this.capC2H3TextBox.Location = new System.Drawing.Point(14, 77);
             this.capC2H3TextBox.Name = "capC2H3TextBox";
             this.capC2H3TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC2H3TextBox.TabIndex = 2;
+            this.capC2H3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC2H2TextBox
             // 
+            this.capC2H2TextBox.CausesValidation = false;
             this.capC2H2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC2H2", true));
             this.capC2H2TextBox.Location = new System.Drawing.Point(14, 51);
             this.capC2H2TextBox.Name = "capC2H2TextBox";
             this.capC2H2TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC2H2TextBox.TabIndex = 1;
+            this.capC2H2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // grpC1Cap
             // 
@@ -2397,59 +2472,73 @@
             // 
             // capC1H1TextBox
             // 
+            this.capC1H1TextBox.CausesValidation = false;
             this.capC1H1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC1H1", true));
             this.capC1H1TextBox.Location = new System.Drawing.Point(14, 25);
             this.capC1H1TextBox.Name = "capC1H1TextBox";
             this.capC1H1TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC1H1TextBox.TabIndex = 0;
+            this.capC1H1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC1X3TextBox
             // 
+            this.capC1X3TextBox.CausesValidation = false;
             this.capC1X3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC1X3", true));
             this.capC1X3TextBox.Location = new System.Drawing.Point(14, 181);
             this.capC1X3TextBox.Name = "capC1X3TextBox";
             this.capC1X3TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC1X3TextBox.TabIndex = 6;
+            this.capC1X3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC1X2TextBox
             // 
+            this.capC1X2TextBox.CausesValidation = false;
             this.capC1X2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC1X2", true));
             this.capC1X2TextBox.Location = new System.Drawing.Point(14, 155);
             this.capC1X2TextBox.Name = "capC1X2TextBox";
             this.capC1X2TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC1X2TextBox.TabIndex = 5;
+            this.capC1X2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC1X1TextBox
             // 
+            this.capC1X1TextBox.CausesValidation = false;
             this.capC1X1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC1X1", true));
             this.capC1X1TextBox.Location = new System.Drawing.Point(14, 129);
             this.capC1X1TextBox.Name = "capC1X1TextBox";
             this.capC1X1TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC1X1TextBox.TabIndex = 4;
+            this.capC1X1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC1H0X0TextBox
             // 
+            this.capC1H0X0TextBox.CausesValidation = false;
             this.capC1H0X0TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC1H0X0", true));
             this.capC1H0X0TextBox.Location = new System.Drawing.Point(14, 103);
             this.capC1H0X0TextBox.Name = "capC1H0X0TextBox";
             this.capC1H0X0TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC1H0X0TextBox.TabIndex = 3;
+            this.capC1H0X0TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC1H3TextBox
             // 
+            this.capC1H3TextBox.CausesValidation = false;
             this.capC1H3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC1H3", true));
             this.capC1H3TextBox.Location = new System.Drawing.Point(14, 77);
             this.capC1H3TextBox.Name = "capC1H3TextBox";
             this.capC1H3TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC1H3TextBox.TabIndex = 2;
+            this.capC1H3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // capC1H2TextBox
             // 
+            this.capC1H2TextBox.CausesValidation = false;
             this.capC1H2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "capC1H2", true));
             this.capC1H2TextBox.Location = new System.Drawing.Point(14, 51);
             this.capC1H2TextBox.Name = "capC1H2TextBox";
             this.capC1H2TextBox.Size = new System.Drawing.Size(101, 20);
             this.capC1H2TextBox.TabIndex = 1;
+            this.capC1H2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // grpC2pf
             // 
@@ -2469,59 +2558,73 @@
             // 
             // pfC2H1TextBox
             // 
+            this.pfC2H1TextBox.CausesValidation = false;
             this.pfC2H1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC2H1", true));
             this.pfC2H1TextBox.Location = new System.Drawing.Point(30, 25);
             this.pfC2H1TextBox.Name = "pfC2H1TextBox";
             this.pfC2H1TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC2H1TextBox.TabIndex = 0;
+            this.pfC2H1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC2X3TextBox
             // 
+            this.pfC2X3TextBox.CausesValidation = false;
             this.pfC2X3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC2X3", true));
             this.pfC2X3TextBox.Location = new System.Drawing.Point(30, 181);
             this.pfC2X3TextBox.Name = "pfC2X3TextBox";
             this.pfC2X3TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC2X3TextBox.TabIndex = 6;
+            this.pfC2X3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC2X2TextBox
             // 
+            this.pfC2X2TextBox.CausesValidation = false;
             this.pfC2X2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC2X2", true));
             this.pfC2X2TextBox.Location = new System.Drawing.Point(30, 155);
             this.pfC2X2TextBox.Name = "pfC2X2TextBox";
             this.pfC2X2TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC2X2TextBox.TabIndex = 5;
+            this.pfC2X2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC2X1TextBox
             // 
+            this.pfC2X1TextBox.CausesValidation = false;
             this.pfC2X1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC2X1", true));
             this.pfC2X1TextBox.Location = new System.Drawing.Point(30, 129);
             this.pfC2X1TextBox.Name = "pfC2X1TextBox";
             this.pfC2X1TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC2X1TextBox.TabIndex = 4;
+            this.pfC2X1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC2H0X0TextBox
             // 
+            this.pfC2H0X0TextBox.CausesValidation = false;
             this.pfC2H0X0TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC2H0X0", true));
             this.pfC2H0X0TextBox.Location = new System.Drawing.Point(30, 103);
             this.pfC2H0X0TextBox.Name = "pfC2H0X0TextBox";
             this.pfC2H0X0TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC2H0X0TextBox.TabIndex = 3;
+            this.pfC2H0X0TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC2H3TextBox
             // 
+            this.pfC2H3TextBox.CausesValidation = false;
             this.pfC2H3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC2H3", true));
             this.pfC2H3TextBox.Location = new System.Drawing.Point(30, 77);
             this.pfC2H3TextBox.Name = "pfC2H3TextBox";
             this.pfC2H3TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC2H3TextBox.TabIndex = 2;
+            this.pfC2H3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC2H2TextBox
             // 
+            this.pfC2H2TextBox.CausesValidation = false;
             this.pfC2H2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC2H2", true));
             this.pfC2H2TextBox.Location = new System.Drawing.Point(30, 51);
             this.pfC2H2TextBox.Name = "pfC2H2TextBox";
             this.pfC2H2TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC2H2TextBox.TabIndex = 1;
+            this.pfC2H2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // grpC1pf
             // 
@@ -2541,59 +2644,73 @@
             // 
             // pfC1H1TextBox
             // 
+            this.pfC1H1TextBox.CausesValidation = false;
             this.pfC1H1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC1H1", true));
             this.pfC1H1TextBox.Location = new System.Drawing.Point(30, 25);
             this.pfC1H1TextBox.Name = "pfC1H1TextBox";
             this.pfC1H1TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC1H1TextBox.TabIndex = 0;
+            this.pfC1H1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC1X3TextBox
             // 
+            this.pfC1X3TextBox.CausesValidation = false;
             this.pfC1X3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC1X3", true));
             this.pfC1X3TextBox.Location = new System.Drawing.Point(30, 181);
             this.pfC1X3TextBox.Name = "pfC1X3TextBox";
             this.pfC1X3TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC1X3TextBox.TabIndex = 6;
+            this.pfC1X3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC1X2TextBox
             // 
+            this.pfC1X2TextBox.CausesValidation = false;
             this.pfC1X2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC1X2", true));
             this.pfC1X2TextBox.Location = new System.Drawing.Point(30, 155);
             this.pfC1X2TextBox.Name = "pfC1X2TextBox";
             this.pfC1X2TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC1X2TextBox.TabIndex = 5;
+            this.pfC1X2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC1X1TextBox
             // 
+            this.pfC1X1TextBox.CausesValidation = false;
             this.pfC1X1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC1X1", true));
             this.pfC1X1TextBox.Location = new System.Drawing.Point(30, 129);
             this.pfC1X1TextBox.Name = "pfC1X1TextBox";
             this.pfC1X1TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC1X1TextBox.TabIndex = 4;
+            this.pfC1X1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC1H0X0TextBox
             // 
+            this.pfC1H0X0TextBox.CausesValidation = false;
             this.pfC1H0X0TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC1H0X0", true));
             this.pfC1H0X0TextBox.Location = new System.Drawing.Point(30, 103);
             this.pfC1H0X0TextBox.Name = "pfC1H0X0TextBox";
             this.pfC1H0X0TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC1H0X0TextBox.TabIndex = 3;
+            this.pfC1H0X0TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC1H3TextBox
             // 
+            this.pfC1H3TextBox.CausesValidation = false;
             this.pfC1H3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC1H3", true));
             this.pfC1H3TextBox.Location = new System.Drawing.Point(30, 77);
             this.pfC1H3TextBox.Name = "pfC1H3TextBox";
             this.pfC1H3TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC1H3TextBox.TabIndex = 2;
+            this.pfC1H3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfC1H2TextBox
             // 
+            this.pfC1H2TextBox.CausesValidation = false;
             this.pfC1H2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "pfC1H2", true));
             this.pfC1H2TextBox.Location = new System.Drawing.Point(30, 51);
             this.pfC1H2TextBox.Name = "pfC1H2TextBox";
             this.pfC1H2TextBox.Size = new System.Drawing.Size(68, 20);
             this.pfC1H2TextBox.TabIndex = 1;
+            this.pfC1H2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // grpName
             // 
@@ -2629,11 +2746,13 @@
             // 
             // nameH1TextBox
             // 
+            this.nameH1TextBox.CausesValidation = false;
             this.nameH1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "nameH1", true));
             this.nameH1TextBox.Location = new System.Drawing.Point(109, 32);
             this.nameH1TextBox.Name = "nameH1TextBox";
             this.nameH1TextBox.Size = new System.Drawing.Size(68, 20);
             this.nameH1TextBox.TabIndex = 0;
+            this.nameH1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label42
             // 
@@ -2646,11 +2765,13 @@
             // 
             // nameH2TextBox
             // 
+            this.nameH2TextBox.CausesValidation = false;
             this.nameH2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "nameH2", true));
             this.nameH2TextBox.Location = new System.Drawing.Point(254, 32);
             this.nameH2TextBox.Name = "nameH2TextBox";
             this.nameH2TextBox.Size = new System.Drawing.Size(68, 20);
             this.nameH2TextBox.TabIndex = 1;
+            this.nameH2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label43
             // 
@@ -2663,43 +2784,53 @@
             // 
             // nameH3TextBox
             // 
+            this.nameH3TextBox.CausesValidation = false;
             this.nameH3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "nameH3", true));
             this.nameH3TextBox.Location = new System.Drawing.Point(399, 32);
             this.nameH3TextBox.Name = "nameH3TextBox";
             this.nameH3TextBox.Size = new System.Drawing.Size(68, 20);
             this.nameH3TextBox.TabIndex = 2;
+            this.nameH3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // nameH0X0TextBox
             // 
+            this.nameH0X0TextBox.CausesValidation = false;
             this.nameH0X0TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "nameH0X0", true));
             this.nameH0X0TextBox.Location = new System.Drawing.Point(557, 32);
             this.nameH0X0TextBox.Name = "nameH0X0TextBox";
             this.nameH0X0TextBox.Size = new System.Drawing.Size(68, 20);
             this.nameH0X0TextBox.TabIndex = 3;
+            this.nameH0X0TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // nameX1TextBox
             // 
+            this.nameX1TextBox.CausesValidation = false;
             this.nameX1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "nameX1", true));
             this.nameX1TextBox.Location = new System.Drawing.Point(109, 58);
             this.nameX1TextBox.Name = "nameX1TextBox";
             this.nameX1TextBox.Size = new System.Drawing.Size(68, 20);
             this.nameX1TextBox.TabIndex = 4;
+            this.nameX1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // nameX2TextBox
             // 
+            this.nameX2TextBox.CausesValidation = false;
             this.nameX2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "nameX2", true));
             this.nameX2TextBox.Location = new System.Drawing.Point(254, 58);
             this.nameX2TextBox.Name = "nameX2TextBox";
             this.nameX2TextBox.Size = new System.Drawing.Size(68, 20);
             this.nameX2TextBox.TabIndex = 5;
+            this.nameX2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // nameX3TextBox
             // 
+            this.nameX3TextBox.CausesValidation = false;
             this.nameX3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblBushingBindingSource, "nameX3", true));
             this.nameX3TextBox.Location = new System.Drawing.Point(399, 58);
             this.nameX3TextBox.Name = "nameX3TextBox";
             this.nameX3TextBox.Size = new System.Drawing.Size(68, 20);
             this.nameX3TextBox.TabIndex = 6;
+            this.nameX3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label44
             // 
@@ -3120,51 +3251,63 @@
             // 
             // ttrAHVLVTextBox
             // 
+            this.ttrAHVLVTextBox.CausesValidation = false;
             this.ttrAHVLVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrAHVLV", true));
             this.ttrAHVLVTextBox.Location = new System.Drawing.Point(144, 46);
             this.ttrAHVLVTextBox.Name = "ttrAHVLVTextBox";
             this.ttrAHVLVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrAHVLVTextBox.TabIndex = 0;
+            this.ttrAHVLVTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ttrCHVTVTextBox
             // 
+            this.ttrCHVTVTextBox.CausesValidation = false;
             this.ttrCHVTVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrCHVTV", true));
             this.ttrCHVTVTextBox.Location = new System.Drawing.Point(144, 176);
             this.ttrCHVTVTextBox.Name = "ttrCHVTVTextBox";
             this.ttrCHVTVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrCHVTVTextBox.TabIndex = 5;
+            this.ttrCHVTVTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ttrBHVTVTextBox
             // 
+            this.ttrBHVTVTextBox.CausesValidation = false;
             this.ttrBHVTVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrBHVTV", true));
             this.ttrBHVTVTextBox.Location = new System.Drawing.Point(144, 150);
             this.ttrBHVTVTextBox.Name = "ttrBHVTVTextBox";
             this.ttrBHVTVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrBHVTVTextBox.TabIndex = 4;
+            this.ttrBHVTVTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ttrAHVTVTextBox
             // 
+            this.ttrAHVTVTextBox.CausesValidation = false;
             this.ttrAHVTVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrAHVTV", true));
             this.ttrAHVTVTextBox.Location = new System.Drawing.Point(144, 124);
             this.ttrAHVTVTextBox.Name = "ttrAHVTVTextBox";
             this.ttrAHVTVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrAHVTVTextBox.TabIndex = 3;
+            this.ttrAHVTVTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ttrBHVLVTextBox
             // 
+            this.ttrBHVLVTextBox.CausesValidation = false;
             this.ttrBHVLVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrBHVLV", true));
             this.ttrBHVLVTextBox.Location = new System.Drawing.Point(144, 72);
             this.ttrBHVLVTextBox.Name = "ttrBHVLVTextBox";
             this.ttrBHVLVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrBHVLVTextBox.TabIndex = 1;
+            this.ttrBHVLVTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ttrCHVLVTextBox
             // 
+            this.ttrCHVLVTextBox.CausesValidation = false;
             this.ttrCHVLVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrCHVLV", true));
             this.ttrCHVLVTextBox.Location = new System.Drawing.Point(144, 98);
             this.ttrCHVLVTextBox.Name = "ttrCHVLVTextBox";
             this.ttrCHVLVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrCHVLVTextBox.TabIndex = 2;
+            this.ttrCHVLVTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // groupBox2
             // 
@@ -3207,6 +3350,7 @@
             // 
             // ttrTapTextBox
             // 
+            this.ttrTapTextBox.CausesValidation = false;
             this.ttrTapTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrTap", true));
             this.ttrTapTextBox.Location = new System.Drawing.Point(182, 25);
             this.ttrTapTextBox.Name = "ttrTapTextBox";
@@ -3224,11 +3368,13 @@
             // 
             // ttrHVTextBox
             // 
+            this.ttrHVTextBox.CausesValidation = false;
             this.ttrHVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrHV", true));
             this.ttrHVTextBox.Location = new System.Drawing.Point(182, 51);
             this.ttrHVTextBox.Name = "ttrHVTextBox";
             this.ttrHVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrHVTextBox.TabIndex = 55;
+            this.ttrHVTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // ttrRHVLVTextBox
             // 
@@ -3259,11 +3405,13 @@
             // 
             // ttrLVTextBox
             // 
+            this.ttrLVTextBox.CausesValidation = false;
             this.ttrLVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrLV", true));
             this.ttrLVTextBox.Location = new System.Drawing.Point(182, 77);
             this.ttrLVTextBox.Name = "ttrLVTextBox";
             this.ttrLVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrLVTextBox.TabIndex = 57;
+            this.ttrLVTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label84
             // 
@@ -3285,11 +3433,13 @@
             // 
             // ttrTVTextBox
             // 
+            this.ttrTVTextBox.CausesValidation = false;
             this.ttrTVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTTRBindingSource, "ttrTV", true));
             this.ttrTVTextBox.Location = new System.Drawing.Point(182, 103);
             this.ttrTVTextBox.Name = "ttrTVTextBox";
             this.ttrTVTextBox.Size = new System.Drawing.Size(68, 20);
             this.ttrTVTextBox.TabIndex = 59;
+            this.ttrTVTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // tabWinding
             // 
@@ -3448,27 +3598,33 @@
             // 
             // windTertBTextBox
             // 
+            this.windTertBTextBox.CausesValidation = false;
             this.windTertBTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windTertB", true));
             this.windTertBTextBox.Location = new System.Drawing.Point(100, 59);
             this.windTertBTextBox.Name = "windTertBTextBox";
             this.windTertBTextBox.Size = new System.Drawing.Size(122, 20);
             this.windTertBTextBox.TabIndex = 75;
+            this.windTertBTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // windTertCTextBox
             // 
+            this.windTertCTextBox.CausesValidation = false;
             this.windTertCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windTertC", true));
             this.windTertCTextBox.Location = new System.Drawing.Point(100, 85);
             this.windTertCTextBox.Name = "windTertCTextBox";
             this.windTertCTextBox.Size = new System.Drawing.Size(122, 20);
             this.windTertCTextBox.TabIndex = 77;
+            this.windTertCTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // windTertATextBox
             // 
+            this.windTertATextBox.CausesValidation = false;
             this.windTertATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windTertA", true));
             this.windTertATextBox.Location = new System.Drawing.Point(100, 33);
             this.windTertATextBox.Name = "windTertATextBox";
             this.windTertATextBox.Size = new System.Drawing.Size(122, 20);
             this.windTertATextBox.TabIndex = 73;
+            this.windTertATextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // grpLV
             // 
@@ -3514,27 +3670,33 @@
             // 
             // windSecBTextBox
             // 
+            this.windSecBTextBox.CausesValidation = false;
             this.windSecBTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windSecB", true));
             this.windSecBTextBox.Location = new System.Drawing.Point(100, 59);
             this.windSecBTextBox.Name = "windSecBTextBox";
             this.windSecBTextBox.Size = new System.Drawing.Size(122, 20);
             this.windSecBTextBox.TabIndex = 69;
+            this.windSecBTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // windSecCTextBox
             // 
+            this.windSecCTextBox.CausesValidation = false;
             this.windSecCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windSecC", true));
             this.windSecCTextBox.Location = new System.Drawing.Point(100, 85);
             this.windSecCTextBox.Name = "windSecCTextBox";
             this.windSecCTextBox.Size = new System.Drawing.Size(122, 20);
             this.windSecCTextBox.TabIndex = 71;
+            this.windSecCTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // windSecATextBox
             // 
+            this.windSecATextBox.CausesValidation = false;
             this.windSecATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windSecA", true));
             this.windSecATextBox.Location = new System.Drawing.Point(100, 33);
             this.windSecATextBox.Name = "windSecATextBox";
             this.windSecATextBox.Size = new System.Drawing.Size(122, 20);
             this.windSecATextBox.TabIndex = 67;
+            this.windSecATextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // grpHV
             // 
@@ -3580,27 +3742,33 @@
             // 
             // windPrimATextBox
             // 
+            this.windPrimATextBox.CausesValidation = false;
             this.windPrimATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windPrimA", true));
             this.windPrimATextBox.Location = new System.Drawing.Point(100, 33);
             this.windPrimATextBox.Name = "windPrimATextBox";
             this.windPrimATextBox.Size = new System.Drawing.Size(122, 20);
             this.windPrimATextBox.TabIndex = 61;
+            this.windPrimATextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // windPrimCTextBox
             // 
+            this.windPrimCTextBox.CausesValidation = false;
             this.windPrimCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windPrimC", true));
             this.windPrimCTextBox.Location = new System.Drawing.Point(100, 85);
             this.windPrimCTextBox.Name = "windPrimCTextBox";
             this.windPrimCTextBox.Size = new System.Drawing.Size(122, 20);
             this.windPrimCTextBox.TabIndex = 65;
+            this.windPrimCTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // windPrimBTextBox
             // 
+            this.windPrimBTextBox.CausesValidation = false;
             this.windPrimBTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblWindingBindingSource, "windPrimB", true));
             this.windPrimBTextBox.Location = new System.Drawing.Point(100, 59);
             this.windPrimBTextBox.Name = "windPrimBTextBox";
             this.windPrimBTextBox.Size = new System.Drawing.Size(122, 20);
             this.windPrimBTextBox.TabIndex = 63;
+            this.windPrimBTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // tabDielectric
             // 
@@ -3855,43 +4023,53 @@
             // 
             // oltc1TextBox
             // 
+            this.oltc1TextBox.CausesValidation = false;
             this.oltc1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "oltc1", true));
             this.oltc1TextBox.Location = new System.Drawing.Point(89, 20);
             this.oltc1TextBox.Name = "oltc1TextBox";
             this.oltc1TextBox.Size = new System.Drawing.Size(123, 20);
             this.oltc1TextBox.TabIndex = 73;
+            this.oltc1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // oltc5TextBox
             // 
+            this.oltc5TextBox.CausesValidation = false;
             this.oltc5TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "oltc5", true));
             this.oltc5TextBox.Location = new System.Drawing.Point(89, 124);
             this.oltc5TextBox.Name = "oltc5TextBox";
             this.oltc5TextBox.Size = new System.Drawing.Size(123, 20);
             this.oltc5TextBox.TabIndex = 81;
+            this.oltc5TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // oltc4TextBox
             // 
+            this.oltc4TextBox.CausesValidation = false;
             this.oltc4TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "oltc4", true));
             this.oltc4TextBox.Location = new System.Drawing.Point(89, 98);
             this.oltc4TextBox.Name = "oltc4TextBox";
             this.oltc4TextBox.Size = new System.Drawing.Size(123, 20);
             this.oltc4TextBox.TabIndex = 79;
+            this.oltc4TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // oltc2TextBox
             // 
+            this.oltc2TextBox.CausesValidation = false;
             this.oltc2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "oltc2", true));
             this.oltc2TextBox.Location = new System.Drawing.Point(89, 46);
             this.oltc2TextBox.Name = "oltc2TextBox";
             this.oltc2TextBox.Size = new System.Drawing.Size(123, 20);
             this.oltc2TextBox.TabIndex = 75;
+            this.oltc2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // oltc3TextBox
             // 
+            this.oltc3TextBox.CausesValidation = false;
             this.oltc3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "oltc3", true));
             this.oltc3TextBox.Location = new System.Drawing.Point(89, 72);
             this.oltc3TextBox.Name = "oltc3TextBox";
             this.oltc3TextBox.Size = new System.Drawing.Size(123, 20);
             this.oltc3TextBox.TabIndex = 77;
+            this.oltc3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // mainAveTextBox
             // 
@@ -3923,11 +4101,13 @@
             // 
             // main1TextBox
             // 
+            this.main1TextBox.CausesValidation = false;
             this.main1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "main1", true));
             this.main1TextBox.Location = new System.Drawing.Point(89, 20);
             this.main1TextBox.Name = "main1TextBox";
             this.main1TextBox.Size = new System.Drawing.Size(123, 20);
             this.main1TextBox.TabIndex = 61;
+            this.main1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label107
             // 
@@ -3949,11 +4129,13 @@
             // 
             // main2TextBox
             // 
+            this.main2TextBox.CausesValidation = false;
             this.main2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "main2", true));
             this.main2TextBox.Location = new System.Drawing.Point(89, 46);
             this.main2TextBox.Name = "main2TextBox";
             this.main2TextBox.Size = new System.Drawing.Size(123, 20);
             this.main2TextBox.TabIndex = 63;
+            this.main2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label109
             // 
@@ -3975,11 +4157,13 @@
             // 
             // main3TextBox
             // 
+            this.main3TextBox.CausesValidation = false;
             this.main3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "main3", true));
             this.main3TextBox.Location = new System.Drawing.Point(89, 72);
             this.main3TextBox.Name = "main3TextBox";
             this.main3TextBox.Size = new System.Drawing.Size(123, 20);
             this.main3TextBox.TabIndex = 65;
+            this.main3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // label111
             // 
@@ -3992,19 +4176,23 @@
             // 
             // main4TextBox
             // 
+            this.main4TextBox.CausesValidation = false;
             this.main4TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "main4", true));
             this.main4TextBox.Location = new System.Drawing.Point(89, 98);
             this.main4TextBox.Name = "main4TextBox";
             this.main4TextBox.Size = new System.Drawing.Size(123, 20);
             this.main4TextBox.TabIndex = 67;
+            this.main4TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // main5TextBox
             // 
+            this.main5TextBox.CausesValidation = false;
             this.main5TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblDielectricBindingSource, "main5", true));
             this.main5TextBox.Location = new System.Drawing.Point(89, 124);
             this.main5TextBox.Name = "main5TextBox";
             this.main5TextBox.Size = new System.Drawing.Size(123, 20);
             this.main5TextBox.TabIndex = 69;
+            this.main5TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // tabOilPF
             // 
@@ -4045,19 +4233,23 @@
             // 
             // pfMainTextBox
             // 
+            this.pfMainTextBox.CausesValidation = false;
             this.pfMainTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblOilPFBindingSource, "pfMain", true));
             this.pfMainTextBox.Location = new System.Drawing.Point(111, 79);
             this.pfMainTextBox.Name = "pfMainTextBox";
             this.pfMainTextBox.Size = new System.Drawing.Size(155, 20);
             this.pfMainTextBox.TabIndex = 76;
+            this.pfMainTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // pfOLTCTextBox
             // 
+            this.pfOLTCTextBox.CausesValidation = false;
             this.pfOLTCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblOilPFBindingSource, "pfOLTC", true));
             this.pfOLTCTextBox.Location = new System.Drawing.Point(111, 105);
             this.pfOLTCTextBox.Name = "pfOLTCTextBox";
             this.pfOLTCTextBox.Size = new System.Drawing.Size(155, 20);
             this.pfOLTCTextBox.TabIndex = 77;
+            this.pfOLTCTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // btnDeleteOilPF
             // 
@@ -4174,38 +4366,6 @@
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
-            // tblExcitationTableAdapter
-            // 
-            this.tblExcitationTableAdapter.ClearBeforeFill = true;
-            // 
-            // tblBushingTableAdapter
-            // 
-            this.tblBushingTableAdapter.ClearBeforeFill = true;
-            // 
-            // tblIPFTableAdapter
-            // 
-            this.tblIPFTableAdapter.ClearBeforeFill = true;
-            // 
-            // tblTTRTableAdapter
-            // 
-            this.tblTTRTableAdapter.ClearBeforeFill = true;
-            // 
-            // tblWindingTableAdapter
-            // 
-            this.tblWindingTableAdapter.ClearBeforeFill = true;
-            // 
-            // tblDielectricTableAdapter
-            // 
-            this.tblDielectricTableAdapter.ClearBeforeFill = true;
-            // 
-            // tblOilPFTableAdapter
-            // 
-            this.tblOilPFTableAdapter.ClearBeforeFill = true;
-            // 
-            // tblStandardsTableAdapter
-            // 
-            this.tblStandardsTableAdapter.ClearBeforeFill = true;
-            // 
             // label116
             // 
             this.label116.AutoSize = true;
@@ -4232,9 +4392,128 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // tblTransformerTableAdapter
+            // label11
             // 
-            this.tblTransformerTableAdapter.ClearBeforeFill = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 530);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 13);
+            this.label11.TabIndex = 172;
+            this.label11.Text = "*Field Required";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.tblTestDataGridView);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(920, 741);
+            this.tabPage1.TabIndex = 7;
+            this.tabPage1.Text = "DataGridView";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tblTestDataGridView
+            // 
+            this.tblTestDataGridView.AllowUserToAddRows = false;
+            this.tblTestDataGridView.AllowUserToDeleteRows = false;
+            this.tblTestDataGridView.AutoGenerateColumns = false;
+            this.tblTestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblTestDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            this.tblTestDataGridView.DataSource = this.tblTestBindingSource;
+            this.tblTestDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblTestDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.tblTestDataGridView.Name = "tblTestDataGridView";
+            this.tblTestDataGridView.ReadOnly = true;
+            this.tblTestDataGridView.Size = new System.Drawing.Size(914, 735);
+            this.tblTestDataGridView.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestNumber";
+            this.dataGridViewTextBoxColumn1.HeaderText = "TestNumber";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "testDate";
+            this.dataGridViewTextBoxColumn2.HeaderText = "testDate";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "testEngr";
+            this.dataGridViewTextBoxColumn3.HeaderText = "testEngr";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "testWeather";
+            this.dataGridViewTextBoxColumn4.HeaderText = "testWeather";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "testAmbient";
+            this.dataGridViewTextBoxColumn5.HeaderText = "testAmbient";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "testOil";
+            this.dataGridViewTextBoxColumn6.HeaderText = "testOil";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "testPrimWT";
+            this.dataGridViewTextBoxColumn7.HeaderText = "testPrimWT";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "testSecWT";
+            this.dataGridViewTextBoxColumn8.HeaderText = "testSecWT";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "testTertWT";
+            this.dataGridViewTextBoxColumn9.HeaderText = "testTertWT";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "testXformer";
+            this.dataGridViewTextBoxColumn10.HeaderText = "testXformer";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "testSub";
+            this.dataGridViewTextBoxColumn11.HeaderText = "testSub";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
             // frmMain
             // 
@@ -4242,6 +4521,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1370, 791);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label116);
@@ -4257,13 +4537,6 @@
             this.Controls.Add(this.testPrimWTTextBox);
             this.Controls.Add(this.testSecWTTextBox);
             this.Controls.Add(this.testTertWTTextBox);
-            this.Controls.Add(this.chkExcite);
-            this.Controls.Add(this.chkIPF);
-            this.Controls.Add(this.chkBushing);
-            this.Controls.Add(this.chkTTR);
-            this.Controls.Add(this.chkDCWR);
-            this.Controls.Add(this.chkDielectric);
-            this.Controls.Add(this.chkOilPF);
             this.Controls.Add(this.tbcTest);
             this.Controls.Add(this.cboXf);
             this.Controls.Add(this.cboSub);
@@ -4273,7 +4546,6 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
@@ -4289,6 +4561,7 @@
             this.Name = "frmMain";
             this.Text = "PTAS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -4361,6 +4634,8 @@
             this.tabOilPF.ResumeLayout(false);
             this.tabOilPF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblOilPFBindingSource)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tblTestDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4387,7 +4662,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
@@ -4400,7 +4674,6 @@
         private System.Windows.Forms.ToolStripMenuItem registerAccountToolStripMenuItem;
         private dtbPTASDataSet dtbPTASDataSet;
         private System.Windows.Forms.BindingSource tblTestBindingSource;
-        private dtbPTASDataSetTableAdapters.tblTestTableAdapter tblTestTableAdapter;
         private dtbPTASDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox testNumberTextBox;
         private System.Windows.Forms.DateTimePicker testDateDateTimePicker;
@@ -4411,13 +4684,6 @@
         private System.Windows.Forms.TextBox testPrimWTTextBox;
         private System.Windows.Forms.TextBox testSecWTTextBox;
         private System.Windows.Forms.TextBox testTertWTTextBox;
-        private System.Windows.Forms.CheckBox chkExcite;
-        private System.Windows.Forms.CheckBox chkIPF;
-        private System.Windows.Forms.CheckBox chkBushing;
-        private System.Windows.Forms.CheckBox chkTTR;
-        private System.Windows.Forms.CheckBox chkDCWR;
-        private System.Windows.Forms.CheckBox chkDielectric;
-        private System.Windows.Forms.CheckBox chkOilPF;
         private System.Windows.Forms.BindingSource tblTransformerBindingSource;
         private System.Windows.Forms.BindingSource tblSubstationBindingSource;
         private dtbPTASDataSetTableAdapters.tblSubstationTableAdapter tblSubstationTableAdapter;
@@ -4599,7 +4865,7 @@
         private System.Windows.Forms.TextBox ipfCCHLUTextBox;
         private System.Windows.Forms.TextBox ipfCCHTextBox;
         private System.Windows.Forms.TextBox ipfCCHCHLTextBox;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtAssessIPF;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Button btnAssessIPF;
         private System.Windows.Forms.Label label56;
@@ -4757,5 +5023,21 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private dtbPTASDataSetTableAdapters.tblTransformerTableAdapter tblTransformerTableAdapter;
+        private dtbPTASDataSetTableAdapters.tblTestTableAdapter tblTestTableAdapter;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView tblTestDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
     }
 }

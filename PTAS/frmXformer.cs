@@ -80,6 +80,11 @@ namespace PTAS
         {
             frmMain f = new frmMain();
             f.Show();
+            Close();
+        }
+
+        private void frmXformer_FormClosing(object sender, FormClosingEventArgs e)
+        {
             Dispose();
         }
     }

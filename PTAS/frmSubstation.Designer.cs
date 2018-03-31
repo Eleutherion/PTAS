@@ -189,7 +189,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmSubstation";
             this.Text = "Substation";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSubstation_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSubstation_FormClosing);
             this.Load += new System.EventHandler(this.frmSubstation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).EndInit();

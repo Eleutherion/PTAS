@@ -36,7 +36,7 @@ namespace PTAS
                         DataTable dt = new DataTable();
                         sda.Fill(dt);
                         cboSub.DataSource = dt;
-                        cboSub.DisplayMember = "subName";
+                        cboSub.DisplayMember = "subID";
                         cboSub.ValueMember = "subID";
                         cboSub.SelectedIndex = -1;
                         cboSub.Text = "Select substation";
@@ -47,23 +47,13 @@ namespace PTAS
 
         public void refreshstate(string subID)
         {
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand("SELECT xfID FROM tblTransformer WHERE xfSubID = @subID", con))
-                {
-                    cmd.Parameters.AddWithValue("@subID", cboSub.SelectedValue.ToString());
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        cboXf.DataSource = dt;
-                        cboXf.DisplayMember = "xfID";
-                        cboXf.ValueMember = "xfID";
-                        cboXf.SelectedIndex = -1;
-                        cboXf.Text = "Select transformer";
-                    }
-                }
-            }
+            DataTable dt = tblTransformerTableAdapter.GetDataBySubstation(cboSub.SelectedValue.ToString());
+
+            cboXf.DataSource = dt;
+            cboXf.DisplayMember = "xfID";
+            cboXf.ValueMember = "xfID";
+            cboXf.SelectedIndex = -1;
+            cboXf.Text = "Select transformer";
         }
 
         public void refreshstandard()
@@ -253,17 +243,30 @@ namespace PTAS
             string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string path = (System.IO.Path.GetDirectoryName(executable));
             AppDomain.CurrentDomain.SetData("Data Directory", path);
+
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
+                try
+                {
+                    Validate();
+                    tblTestBindingSource.EndEdit();
+                    tableAdapterManager.UpdateAll(dtbPTASDataSet);
 
-                Validate();
-                tblTestBindingSource.EndEdit();
-                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                    MessageBox.Show("Record saved.");
 
-                MessageBox.Show("Record saved.");
+                    tblTestTableAdapter.Fill(dtbPTASDataSet.tblTest);
 
-                OnPassTestNumber(testNumberTextBox.Text);
+                    btnAdd.Enabled = true;
+                }
+                catch(NoNullAllowedException)
+                {
+                    MessageBox.Show("Fill the required fields.", "NoNullAllowedException", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
+                catch (ConstraintException)
+                {
+                    MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
 
             else
@@ -272,21 +275,22 @@ namespace PTAS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            chkExcite.Checked = false;
-            chkIPF.Checked = false;
-            chkBushing.Checked = false;
-            chkTTR.Checked = false;
-            chkDCWR.Checked = false;
-            chkDielectric.Checked = false;
-            chkOilPF.Checked = false;
+            //chkExcite.Checked = false;
+            //chkIPF.Checked = false;
+            //chkBushing.Checked = false;
+            //chkTTR.Checked = false;
+            //chkDCWR.Checked = false;
+            //chkDielectric.Checked = false;
+            //chkOilPF.Checked = false;
             tblTestBindingSource.AddNew();
-            chkExcite.Checked = false;
-            chkIPF.Checked = false;
-            chkBushing.Checked = false;
-            chkTTR.Checked = false;
-            chkDCWR.Checked = false;
-            chkDielectric.Checked = false;
-            chkOilPF.Checked = false;
+            btnAdd.Enabled = false;
+            //chkExcite.Checked = false;
+            //chkIPF.Checked = false;
+            //chkBushing.Checked = false;
+            //chkTTR.Checked = false;
+            //chkDCWR.Checked = false;
+            //chkDielectric.Checked = false;
+            //chkOilPF.Checked = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -313,8 +317,8 @@ namespace PTAS
 
                         MessageBox.Show("Record deleted.");
 
-                        ds.Clear();
-                        this.tblTestTableAdapter.Fill(this.dtbPTASDataSet.tblTest);
+                        //ds.Clear();
+                        tblTestTableAdapter.Fill(dtbPTASDataSet.tblTest);
                         con.Close();
                     }
                 }
@@ -416,15 +420,7 @@ namespace PTAS
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //DialogResult dr = MessageBox.Show("Do you wish to exit?", "Exit?", MessageBoxButtons.YesNo);
-            //if (dr == DialogResult.No)
-            //{
-            //    e.Cancel = true;
-            //}
-            //else
-            //{
-            //    Application.Exit();
-            //}
+            Application.Exit();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -469,6 +465,7 @@ namespace PTAS
             txtDeviation.Text = result.ToString();
 
             exc = null;
+            textboxes = null;
         }
 
         private void btnAssessExc_Click(object sender, EventArgs e)
@@ -525,11 +522,18 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                Validate();
-                tblExcitationBindingSource.EndEdit();
-                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                try
+                {
+                    Validate();
+                    tblExcitationBindingSource.EndEdit();
+                    tableAdapterManager.UpdateAll(dtbPTASDataSet);
 
-                MessageBox.Show("Record saved.");
+                    MessageBox.Show("Record saved.");
+                }
+                catch (ConstraintException)
+                {
+                    MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else Focus();
         }
@@ -550,16 +554,16 @@ namespace PTAS
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
+                        con.Open();
                         try
                         {
-                            cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-                            con.Open();
+                            cmd.Parameters.AddWithValue("@testnumber", txtTestNumberExc.Text);
+                            
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Record deleted.");
 
-                            ds.Clear();
-                            tblExcitationTableAdapter.Fill(dtbPTASDataSet.tblExcitation);
+                            tblExcitationTableAdapter.FillByTestNumber(dtbPTASDataSet.tblExcitation, Convert.ToDecimal(testNumberTextBox.Text));
                         }
                         catch
                         {
@@ -584,9 +588,18 @@ namespace PTAS
 
             if (dr == DialogResult.Yes)
             {
-                Validate();
-                tblBushingBindingSource.EndEdit();
-                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                try
+                {
+                    Validate();
+                    tblBushingBindingSource.EndEdit();
+                    tableAdapterManager.UpdateAll(dtbPTASDataSet);
+
+                    MessageBox.Show("Record saved.");
+                }
+                catch (ConstraintException)
+                {
+                    MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else Focus();
         }
@@ -648,6 +661,17 @@ namespace PTAS
             else if (Array.Exists(x3, v => v == 3)) assess[6].Text = "MONITOR BUSHING";
             else if (Array.Exists(x3, v => v == 2)) assess[6].Text = "INVESTIGATE";
             else assess[6].Text = "PASSED";
+
+            c1pf = null;
+            c2pf = null;
+            c1cap = null;
+            h1 = null;
+            h2 = null;
+            h3 = null;
+            h0x0 = null;
+            x1 = null;
+            x2 = null;
+            x3 = null;
         }
 
         private void btnDeleteBushing_Click(object sender, EventArgs e)
@@ -657,7 +681,6 @@ namespace PTAS
             AppDomain.CurrentDomain.SetData("Data Directory", path);
 
             string query = "DELETE FROM tblBushing WHERE TestNumber = @testnumber";
-            DataSet ds = dtbPTASDataSet;
 
             DialogResult dr = MessageBox.Show("Do you wish to delete this record? This action cannot be undone.", "Delete record", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
@@ -666,16 +689,16 @@ namespace PTAS
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
+                        con.Open();
                         try
                         {
-                            cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-                            con.Open();
+                            cmd.Parameters.AddWithValue("@testnumber", txtTestNumberBushing.Text);
+                            
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Record deleted.");
 
-                            ds.Clear();
-                            tblBushingTableAdapter.Fill(dtbPTASDataSet.tblBushing);
+                            tblBushingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblBushing, Convert.ToDecimal(testNumberTextBox.Text));
                         }
                         catch
                         {
@@ -703,11 +726,18 @@ namespace PTAS
             if (dr == DialogResult.Yes)
             {
 
-                Validate();
-                tblIPFBindingSource.EndEdit();
-                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                try
+                {
+                    Validate();
+                    tblIPFBindingSource.EndEdit();
+                    tableAdapterManager.UpdateAll(dtbPTASDataSet);
 
-                MessageBox.Show("Record saved.");
+                    MessageBox.Show("Record saved.");
+                }
+                catch (ConstraintException)
+                {
+                    MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
                 Focus();
@@ -720,7 +750,6 @@ namespace PTAS
             AppDomain.CurrentDomain.SetData("Data Directory", path);
 
             string query = "DELETE FROM tblIPF WHERE TestNumber = @testnumber";
-            DataSet ds = dtbPTASDataSet;
 
             DialogResult dr = MessageBox.Show("Do you wish to delete this record? This action cannot be undone.", "Delete record", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
@@ -729,15 +758,14 @@ namespace PTAS
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
+                        con.Open();
                         try
                         {
-                            cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
-                            con.Open();
+                            cmd.Parameters.AddWithValue("@testnumber", txtTestNumberIPF.Text);
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Record deleted.");
-
-                            ds.Clear();
+                            
                             tblIPFTableAdapter.Fill(dtbPTASDataSet.tblIPF);
                         }
                         catch
@@ -804,6 +832,11 @@ namespace PTAS
                 ipfCCHLUlvTextBox.Text = truncated[6].ToString();
             if (truncated[7] != 0)
                 ipfCCHLlvTextBox.Text = truncated[7].ToString();
+
+            measured = null;
+            capacitance = null;
+            tm = null;
+            cap = null;
         }
 
         private void btnAssessIPF_Click(object sender, EventArgs e)
@@ -835,7 +868,7 @@ namespace PTAS
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+                    cmd.Parameters.AddWithValue("@testnumber", txtTestNumberIPF.Text);
 
                     con.Open();
 
@@ -849,7 +882,7 @@ namespace PTAS
 
                     using (SqlCommand cmd2 = new SqlCommand(query2, con))
                     {
-                        cmd2.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+                        cmd2.Parameters.AddWithValue("@testnumber", txtTestNumberIPF.Text);
 
                         SqlDataReader dr2 = cmd2.ExecuteReader();
                         dr2.Read();
@@ -887,11 +920,11 @@ namespace PTAS
             {
                 if (Array.TrueForAll(corrected, v => v <= 0.5))
                 {
-                    txtAssessExc.Text = "PASSED";
+                    txtAssessIPF.Text = "PASSED";
                 }
                 else if (Array.TrueForAll(corrected, v => v > 1))
                 {
-                    txtAssessExc.Text = "FAILED";
+                    txtAssessIPF.Text = "FAILED";
                 }
                 else
                 {
@@ -900,8 +933,8 @@ namespace PTAS
                     {
                         if (corrected[i] > 0.5)
                         {
-                            if (previous[i] <= 0.5) txtAssessExc.Text = "INVESTIGATE";
-                            else txtAssessExc.Text = "MONITOR";
+                            if (previous[i] <= 0.5) txtAssessIPF.Text = "INVESTIGATE";
+                            else txtAssessIPF.Text = "MONITOR";
                         }
                     }
                 }
@@ -911,11 +944,11 @@ namespace PTAS
             {
                 if (Array.TrueForAll(corrected, v => v <= 0.4))
                 {
-                    txtAssessExc.Text = "PASSED";
+                    txtAssessIPF.Text = "PASSED";
                 }
                 else if (Array.TrueForAll(corrected, v => v > 1))
                 {
-                    txtAssessExc.Text = "FAILED";
+                    txtAssessIPF.Text = "FAILED";
                 }
                 else
                 {
@@ -924,8 +957,8 @@ namespace PTAS
                     {
                         if (corrected[i] > 0.5)
                         {
-                            if (previous[i] <= 0.5) txtAssessExc.Text = "INVESTIGATE";
-                            else txtAssessExc.Text = "MONITOR";
+                            if (previous[i] <= 0.5) txtAssessIPF.Text = "INVESTIGATE";
+                            else txtAssessIPF.Text = "MONITOR";
                         }
                     }
                 }
@@ -949,11 +982,18 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                Validate();
-                tblTTRBindingSource.EndEdit();
-                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                try
+                {
+                    Validate();
+                    tblTTRBindingSource.EndEdit();
+                    tableAdapterManager.UpdateAll(dtbPTASDataSet);
 
-                MessageBox.Show("Record saved.");
+                    MessageBox.Show("Record saved.");
+                }
+                catch (ConstraintException)
+                {
+                    MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
                 Focus();
@@ -966,7 +1006,6 @@ namespace PTAS
             AppDomain.CurrentDomain.SetData("Data Directory", path);
 
             string query = "DELETE FROM tblTTR WHERE TestNumber = @testnumber";
-            DataSet ds = dtbPTASDataSet;
 
             DialogResult dr = MessageBox.Show("Do you wish to delete this record? This action cannot be undone.", "Delete record", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
@@ -975,7 +1014,7 @@ namespace PTAS
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+                        cmd.Parameters.AddWithValue("@testnumber", txtTestNumberTTR.Text);
                         con.Open();
 
                         try
@@ -983,9 +1022,7 @@ namespace PTAS
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Record deleted.");
-
-                            ds.Clear();
-                            tblTTRTableAdapter.Fill(dtbPTASDataSet.tblTTR);
+                            tblTTRTableAdapter.FillByTestNumber(dtbPTASDataSet.tblTTR, Convert.ToDecimal(testNumberTextBox.Text));
                         }
                         catch
                         {
@@ -1187,6 +1224,13 @@ namespace PTAS
                 }
                 if (Array.TrueForAll(diff, v => v >= 0.5)) txtAssessTTR.Text = "INVESTIGATE WINDING";
                 else txtAssessTTR.Text = "FAILED";
+
+                compute = null;
+                diff = null;
+                previous = null;
+                present = null;
+                error = null;
+                measured = null;
             }
         }
 
@@ -1201,11 +1245,18 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                Validate();
-                tblTTRBindingSource.EndEdit();
-                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                try
+                {
+                    Validate();
+                    tblTTRBindingSource.EndEdit();
+                    tableAdapterManager.UpdateAll(dtbPTASDataSet);
 
-                MessageBox.Show("Record saved.");
+                    MessageBox.Show("Record saved.");
+                }
+                catch (ConstraintException)
+                {
+                    MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else Focus();
         }
@@ -1217,7 +1268,6 @@ namespace PTAS
             AppDomain.CurrentDomain.SetData("Data Directory", path);
 
             string query = "DELETE FROM tblWinding WHERE TestNumber = @testnumber";
-            dtbPTASDataSet ds = new dtbPTASDataSet();
 
             DialogResult dr = MessageBox.Show("Do you wish to delete this record? This action cannot be undone.", "Delete record", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
@@ -1226,16 +1276,14 @@ namespace PTAS
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+                        cmd.Parameters.AddWithValue("@testnumber", txtTestNumberWinding.Text);
                         con.Open();
                         try
                         {
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Record deleted.");
-
-                            ds.Clear();
-                            tblWindingTableAdapter.Fill(dtbPTASDataSet.tblWinding);
+                            tblWindingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblWinding, Convert.ToDecimal(testNumberTextBox.Text));
                         }
                         catch
                         {
@@ -1353,9 +1401,16 @@ namespace PTAS
             if (dr == DialogResult.Yes)
             {
 
-                Validate();
-                tblDielectricBindingSource.EndEdit();
-                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                try
+                {
+                    Validate();
+                    tblDielectricBindingSource.EndEdit();
+                    tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                }
+                catch (ConstraintException)
+                {
+                    MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
                 Focus();
@@ -1378,17 +1433,15 @@ namespace PTAS
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+                        cmd.Parameters.AddWithValue("@testnumber", txtTestNumberDielectric.Text);
                         con.Open();
-
                         try
                         {
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Record deleted.");
 
-                            ds.Clear();
-                            tblDielectricTableAdapter.Fill(dtbPTASDataSet.tblDielectric);
+                            tblDielectricTableAdapter.FillByTestNumber(dtbPTASDataSet.tblDielectric, Convert.ToDecimal(testNumberTextBox.Text));
                         }
                         catch
                         {
@@ -1399,7 +1452,7 @@ namespace PTAS
                 }
             }
             else
-                this.Focus();
+                Focus();
         }
 
         private void btnComputeDielectric_Click(object sender, EventArgs e)
@@ -1468,7 +1521,7 @@ namespace PTAS
 
             if (standardComboBox.SelectedValue.ToString() == "ASTM D1816")
             {
-                MessageBox.Show("Under Construction.");
+                MessageBox.Show("ASTM D1816 under construction. Use ASTM D877 instead.");
             }
 
             else
@@ -1495,12 +1548,19 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                Validate();
-                tblOilPFBindingSource.EndEdit();
-                tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                try
+                {
+                    Validate();
+                    tblOilPFBindingSource.EndEdit();
+                    tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                }
+                catch (ConstraintException)
+                {
+                    MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
-                this.Focus();
+                Focus();
         }
 
         private void btnDeleteOilPF_Click(object sender, EventArgs e)
@@ -1510,7 +1570,6 @@ namespace PTAS
             AppDomain.CurrentDomain.SetData("Data Directory", path);
 
             string query = "DELETE FROM tblOilPF WHERE TestNumber = @testnumber";
-            DataSet ds = dtbPTASDataSet;
 
             DialogResult dr = MessageBox.Show("Do you wish to delete this record? This action cannot be undone.", "Delete record", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
@@ -1519,17 +1578,15 @@ namespace PTAS
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@testnumber", testNumberTextBox.Text);
+                        cmd.Parameters.AddWithValue("@testnumber", txtTestNumberOilPF.Text);
                         con.Open();
-
                         try
                         {
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Record deleted.");
 
-                            ds.Clear();
-                            tblOilPFTableAdapter.Fill(dtbPTASDataSet.tblOilPF);
+                            tblOilPFTableAdapter.FillByTestNumber(dtbPTASDataSet.tblOilPF, Convert.ToDecimal(testNumberTextBox.Text));
                         }
                         catch
                         {
@@ -1576,9 +1633,7 @@ namespace PTAS
             if (pfMainTextBox.Text != "")
             {
                 float pfmain = float.Parse(pfMainTextBox.Text);
-
-                //if (pfmain < 0)
-                //    txtAssessMain.Text = "FAILED";
+                
                 if (pfmain >= 0 && pfmain <= 0.5)
                 {
                     float.TryParse(main, out float prevmain);
@@ -1820,6 +1875,30 @@ namespace PTAS
             }
 
             return C1capPrevious;
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        private void manualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Under construction.");
+        }
+
+        private void NumericKeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textbox = (TextBox)sender;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && (textbox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
         }
 
         //private void Validation(object sender, CancelEventArgs e)

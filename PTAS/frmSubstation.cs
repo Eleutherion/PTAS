@@ -20,13 +20,12 @@ namespace PTAS
         {
             // TODO: This line of code loads data into the 'dtbPTASDataSet.tblSubstation' table. You can move, or remove it, as needed.
             this.tblSubstationTableAdapter.Fill(this.dtbPTASDataSet.tblSubstation);
-
         }
 
         private void frmSubstation_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmMain form = new frmMain();
-            form.Show();
+            //frmMain form = new frmMain();
+            //form.Show();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -39,9 +38,9 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to save?", "Save", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                this.Validate();
-                this.tblSubstationBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(dtbPTASDataSet);
+                Validate();
+                tblSubstationBindingSource.EndEdit();
+                tableAdapterManager.UpdateAll(dtbPTASDataSet);
 
                 MessageBox.Show("Record saved.");
             }
@@ -54,7 +53,7 @@ namespace PTAS
             DialogResult dr = MessageBox.Show("Do you wish to delete this record?", "Delete record", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                this.tblSubstationBindingSource.RemoveCurrent();
+                tblSubstationBindingSource.RemoveCurrent();
                 MessageBox.Show("Record deleted.");
             }
             else
@@ -65,7 +64,12 @@ namespace PTAS
         {
             frmMain f = new frmMain();
             f.Show();
-            this.Dispose();
+            Close();
+        }
+
+        private void frmSubstation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Dispose();
         }
     }
 }
