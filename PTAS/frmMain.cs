@@ -1614,6 +1614,7 @@ namespace PTAS
 
             using (SqlConnection con = new SqlConnection(constring))
             {
+                con.Open();
                 using (SqlCommand cmd2 = new SqlCommand(query, con))
                 {
                     cmd2.Parameters.AddWithValue("@testnumber", txtTestNumberOilPF.Text);

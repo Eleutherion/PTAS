@@ -44,81 +44,86 @@ namespace PTAS
             string dielectric = "SELECT * FROM tblDielectric WHERE TestNumber = @testnumber";
             string oilpf = "SELECT * FROM tblOilPF WHERE TestNumber = @testnumber";
 
-            using (SqlConnection con = new SqlConnection(constring))
+            try
             {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand(test, con))
+                using (SqlConnection con = new SqlConnection(constring))
                 {
-                    cmd.Parameters.AddWithValue("@testnumber", TestData);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(test, con))
                     {
-                        da.Fill(ds.Tables["Test"]);
+                        cmd.Parameters.AddWithValue("@testnumber", TestData);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ds.Tables["Test"]);
+                        }
                     }
-                }
-                using (SqlCommand cmd = new SqlCommand(excitation, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestData);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand(excitation, con))
                     {
-                        da.Fill(ds.Tables["Excitation"]);
+                        cmd.Parameters.AddWithValue("@testnumber", TestData);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ds.Tables["Excitation"]);
+                        }
                     }
-                }
-                using (SqlCommand cmd = new SqlCommand(ipf, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestData);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand(ipf, con))
                     {
-                        da.Fill(ds.Tables["IPF"]);
+                        cmd.Parameters.AddWithValue("@testnumber", TestData);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ds.Tables["IPF"]);
+                        }
                     }
-                }
-                using (SqlCommand cmd = new SqlCommand(bushing, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestData);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand(bushing, con))
                     {
-                        da.Fill(ds.Tables["Bushing"]);
+                        cmd.Parameters.AddWithValue("@testnumber", TestData);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ds.Tables["Bushing"]);
+                        }
                     }
-                }
-                using (SqlCommand cmd = new SqlCommand(ttr, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestData);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand(ttr, con))
                     {
-                        da.Fill(ds.Tables["TTR"]);
+                        cmd.Parameters.AddWithValue("@testnumber", TestData);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ds.Tables["TTR"]);
+                        }
                     }
-                }
-                using (SqlCommand cmd = new SqlCommand(winding, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestData);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand(winding, con))
                     {
-                        da.Fill(ds.Tables["Winding"]);
+                        cmd.Parameters.AddWithValue("@testnumber", TestData);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ds.Tables["Winding"]);
+                        }
                     }
-                }
-                using (SqlCommand cmd = new SqlCommand(dielectric, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestData);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand(dielectric, con))
                     {
-                        da.Fill(ds.Tables["Dielectric"]);
+                        cmd.Parameters.AddWithValue("@testnumber", TestData);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ds.Tables["Dielectric"]);
+                        }
                     }
-                }
-                using (SqlCommand cmd = new SqlCommand(oilpf, con))
-                {
-                    cmd.Parameters.AddWithValue("@testnumber", TestData);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand(oilpf, con))
                     {
-                        da.Fill(ds.Tables["OilPF"]);
+                        cmd.Parameters.AddWithValue("@testnumber", TestData);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ds.Tables["OilPF"]);
+                        }
                     }
+                    con.Close();
                 }
-                con.Close();
+
+                CrystalReport11.SetDataSource(ds);
+                crystalReportViewer1.ReportSource = CrystalReport11;
+                crystalReportViewer1.Refresh();
             }
-
-            CrystalReport11.SetDataSource(ds);
-            crystalReportViewer1.ReportSource = CrystalReport11;
-            crystalReportViewer1.Refresh();
-
-            frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
+            finally
+            {
+                frmMain.OnPassTestNumber -= FrmMain_OnPassTestNumber;
+            }
         }
 
         string TestData;
