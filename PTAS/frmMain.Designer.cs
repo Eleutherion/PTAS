@@ -70,7 +70,6 @@
             this.tblTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtbPTASDataSet = new PTAS.dtbPTASDataSet();
             this.label3 = new System.Windows.Forms.Label();
-            this.cboSub = new System.Windows.Forms.ComboBox();
             this.tblSubstationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cboXf = new System.Windows.Forms.ComboBox();
             this.tblTransformerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -96,6 +95,18 @@
             this.tblTTRTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTTRTableAdapter();
             this.tblWindingTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblWindingTableAdapter();
             this.tbcTest = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tblTestDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabExcite = new System.Windows.Forms.TabPage();
             this.txtDeviation = new System.Windows.Forms.TextBox();
             this.tblExcitationBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -422,19 +433,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tblTestDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             testNumberLabel = new System.Windows.Forms.Label();
             label40 = new System.Windows.Forms.Label();
             testNumberLabel1 = new System.Windows.Forms.Label();
@@ -450,6 +448,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).BeginInit();
             this.tbcTest.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTestDataGridView)).BeginInit();
             this.tabExcite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblExcitationBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -486,8 +486,6 @@
             this.grpMain.SuspendLayout();
             this.tabOilPF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblOilPFBindingSource)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTestDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // testNumberLabel
@@ -675,14 +673,14 @@
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
             this.manualToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
             // aboutUsToolStripMenuItem
             // 
             this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutUsToolStripMenuItem.Text = "About us";
             this.aboutUsToolStripMenuItem.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click);
             // 
@@ -781,7 +779,7 @@
             this.btnAdd.Location = new System.Drawing.Point(25, 401);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(79, 31);
-            this.btnAdd.TabIndex = 33;
+            this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -791,7 +789,7 @@
             this.btnSave.Location = new System.Drawing.Point(130, 401);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 31);
-            this.btnSave.TabIndex = 34;
+            this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -801,7 +799,7 @@
             this.btnDelete.Location = new System.Drawing.Point(235, 401);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(79, 31);
-            this.btnDelete.TabIndex = 35;
+            this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -811,7 +809,7 @@
             this.btnPrev.Location = new System.Drawing.Point(25, 438);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(79, 31);
-            this.btnPrev.TabIndex = 36;
+            this.btnPrev.TabIndex = 15;
             this.btnPrev.Text = "Prev";
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
@@ -821,7 +819,7 @@
             this.btnNext.Location = new System.Drawing.Point(235, 438);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(79, 31);
-            this.btnNext.TabIndex = 37;
+            this.btnNext.TabIndex = 17;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -845,17 +843,6 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Ambient Temperature";
             // 
-            // cboSub
-            // 
-            this.cboSub.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testSub", true));
-            this.cboSub.DataSource = this.tblSubstationBindingSource;
-            this.cboSub.FormattingEnabled = true;
-            this.cboSub.Location = new System.Drawing.Point(167, 130);
-            this.cboSub.Name = "cboSub";
-            this.cboSub.Size = new System.Drawing.Size(95, 21);
-            this.cboSub.TabIndex = 56;
-            this.cboSub.SelectedIndexChanged += new System.EventHandler(this.cboSub_SelectedIndexChanged);
-            // 
             // tblSubstationBindingSource
             // 
             this.tblSubstationBindingSource.DataMember = "tblSubstation";
@@ -864,13 +851,14 @@
             // cboXf
             // 
             this.cboXf.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testXformer", true));
-            this.cboXf.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tblTransformerBindingSource, "xfID", true));
             this.cboXf.DataSource = this.tblTransformerBindingSource;
+            this.cboXf.DisplayMember = "xfID";
             this.cboXf.FormattingEnabled = true;
-            this.cboXf.Location = new System.Drawing.Point(268, 130);
+            this.cboXf.Location = new System.Drawing.Point(167, 130);
             this.cboXf.Name = "cboXf";
-            this.cboXf.Size = new System.Drawing.Size(99, 21);
-            this.cboXf.TabIndex = 57;
+            this.cboXf.Size = new System.Drawing.Size(200, 21);
+            this.cboXf.TabIndex = 3;
+            this.cboXf.ValueMember = "xfID";
             // 
             // tblTransformerBindingSource
             // 
@@ -879,11 +867,13 @@
             // 
             // testNumberTextBox
             // 
+            this.testNumberTextBox.CausesValidation = false;
             this.testNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "TestNumber", true));
             this.testNumberTextBox.Location = new System.Drawing.Point(167, 104);
             this.testNumberTextBox.Name = "testNumberTextBox";
             this.testNumberTextBox.Size = new System.Drawing.Size(200, 20);
-            this.testNumberTextBox.TabIndex = 131;
+            this.testNumberTextBox.TabIndex = 2;
+            this.testNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // testDateDateTimePicker
             // 
@@ -891,63 +881,75 @@
             this.testDateDateTimePicker.Location = new System.Drawing.Point(167, 156);
             this.testDateDateTimePicker.Name = "testDateDateTimePicker";
             this.testDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.testDateDateTimePicker.TabIndex = 133;
+            this.testDateDateTimePicker.TabIndex = 4;
             // 
             // testEngrTextBox
             // 
+            this.testEngrTextBox.CausesValidation = false;
             this.testEngrTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testEngr", true));
             this.testEngrTextBox.Location = new System.Drawing.Point(167, 182);
             this.testEngrTextBox.Name = "testEngrTextBox";
             this.testEngrTextBox.Size = new System.Drawing.Size(200, 20);
-            this.testEngrTextBox.TabIndex = 135;
+            this.testEngrTextBox.TabIndex = 5;
             // 
             // testWeatherTextBox
             // 
+            this.testWeatherTextBox.CausesValidation = false;
             this.testWeatherTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testWeather", true));
             this.testWeatherTextBox.Location = new System.Drawing.Point(167, 208);
             this.testWeatherTextBox.Name = "testWeatherTextBox";
             this.testWeatherTextBox.Size = new System.Drawing.Size(200, 20);
-            this.testWeatherTextBox.TabIndex = 137;
+            this.testWeatherTextBox.TabIndex = 6;
             // 
             // testAmbientTextBox
             // 
+            this.testAmbientTextBox.CausesValidation = false;
             this.testAmbientTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testAmbient", true));
             this.testAmbientTextBox.Location = new System.Drawing.Point(167, 234);
             this.testAmbientTextBox.Name = "testAmbientTextBox";
             this.testAmbientTextBox.Size = new System.Drawing.Size(200, 20);
-            this.testAmbientTextBox.TabIndex = 139;
+            this.testAmbientTextBox.TabIndex = 7;
+            this.testAmbientTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // testOilTextBox
             // 
+            this.testOilTextBox.CausesValidation = false;
             this.testOilTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testOil", true));
             this.testOilTextBox.Location = new System.Drawing.Point(167, 260);
             this.testOilTextBox.Name = "testOilTextBox";
             this.testOilTextBox.Size = new System.Drawing.Size(200, 20);
-            this.testOilTextBox.TabIndex = 141;
+            this.testOilTextBox.TabIndex = 8;
+            this.testOilTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // testPrimWTTextBox
             // 
+            this.testPrimWTTextBox.CausesValidation = false;
             this.testPrimWTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testPrimWT", true));
             this.testPrimWTTextBox.Location = new System.Drawing.Point(167, 312);
             this.testPrimWTTextBox.Name = "testPrimWTTextBox";
             this.testPrimWTTextBox.Size = new System.Drawing.Size(200, 20);
-            this.testPrimWTTextBox.TabIndex = 143;
+            this.testPrimWTTextBox.TabIndex = 9;
+            this.testPrimWTTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // testSecWTTextBox
             // 
+            this.testSecWTTextBox.CausesValidation = false;
             this.testSecWTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testSecWT", true));
             this.testSecWTTextBox.Location = new System.Drawing.Point(167, 338);
             this.testSecWTTextBox.Name = "testSecWTTextBox";
             this.testSecWTTextBox.Size = new System.Drawing.Size(200, 20);
-            this.testSecWTTextBox.TabIndex = 145;
+            this.testSecWTTextBox.TabIndex = 10;
+            this.testSecWTTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // testTertWTTextBox
             // 
+            this.testTertWTTextBox.CausesValidation = false;
             this.testTertWTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tblTestBindingSource, "testTertWT", true));
             this.testTertWTTextBox.Location = new System.Drawing.Point(167, 364);
             this.testTertWTTextBox.Name = "testTertWTTextBox";
             this.testTertWTTextBox.Size = new System.Drawing.Size(200, 20);
-            this.testTertWTTextBox.TabIndex = 147;
+            this.testTertWTTextBox.TabIndex = 11;
+            this.testTertWTTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericKeyPress);
             // 
             // tableAdapterManager
             // 
@@ -1027,8 +1029,114 @@
             this.tbcTest.Location = new System.Drawing.Point(442, 24);
             this.tbcTest.Name = "tbcTest";
             this.tbcTest.SelectedIndex = 0;
-            this.tbcTest.Size = new System.Drawing.Size(928, 767);
+            this.tbcTest.Size = new System.Drawing.Size(928, 725);
             this.tbcTest.TabIndex = 93;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.tblTestDataGridView);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(920, 699);
+            this.tabPage1.TabIndex = 7;
+            this.tabPage1.Text = "DataGridView";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tblTestDataGridView
+            // 
+            this.tblTestDataGridView.AllowUserToAddRows = false;
+            this.tblTestDataGridView.AllowUserToDeleteRows = false;
+            this.tblTestDataGridView.AutoGenerateColumns = false;
+            this.tblTestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblTestDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+            this.tblTestDataGridView.DataSource = this.tblTestBindingSource;
+            this.tblTestDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblTestDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.tblTestDataGridView.Name = "tblTestDataGridView";
+            this.tblTestDataGridView.ReadOnly = true;
+            this.tblTestDataGridView.Size = new System.Drawing.Size(914, 693);
+            this.tblTestDataGridView.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestNumber";
+            this.dataGridViewTextBoxColumn1.HeaderText = "TestNumber";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "testDate";
+            this.dataGridViewTextBoxColumn2.HeaderText = "testDate";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "testEngr";
+            this.dataGridViewTextBoxColumn3.HeaderText = "testEngr";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "testWeather";
+            this.dataGridViewTextBoxColumn4.HeaderText = "testWeather";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "testAmbient";
+            this.dataGridViewTextBoxColumn5.HeaderText = "testAmbient";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "testOil";
+            this.dataGridViewTextBoxColumn6.HeaderText = "testOil";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "testPrimWT";
+            this.dataGridViewTextBoxColumn7.HeaderText = "testPrimWT";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "testSecWT";
+            this.dataGridViewTextBoxColumn8.HeaderText = "testSecWT";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "testTertWT";
+            this.dataGridViewTextBoxColumn9.HeaderText = "testTertWT";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "testXformer";
+            this.dataGridViewTextBoxColumn10.HeaderText = "testXformer";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
             // tabExcite
             // 
@@ -1049,7 +1157,7 @@
             this.tabExcite.Location = new System.Drawing.Point(4, 22);
             this.tabExcite.Name = "tabExcite";
             this.tabExcite.Padding = new System.Windows.Forms.Padding(3);
-            this.tabExcite.Size = new System.Drawing.Size(920, 741);
+            this.tabExcite.Size = new System.Drawing.Size(920, 699);
             this.tabExcite.TabIndex = 0;
             this.tabExcite.Text = "Excitation Current";
             this.tabExcite.UseVisualStyleBackColor = true;
@@ -1264,7 +1372,7 @@
             this.tabIPF.Controls.Add(this.label65);
             this.tabIPF.Location = new System.Drawing.Point(4, 22);
             this.tabIPF.Name = "tabIPF";
-            this.tabIPF.Size = new System.Drawing.Size(920, 741);
+            this.tabIPF.Size = new System.Drawing.Size(920, 699);
             this.tabIPF.TabIndex = 2;
             this.tabIPF.Text = "Overall Insulation Power Factor";
             this.tabIPF.UseVisualStyleBackColor = true;
@@ -1772,7 +1880,7 @@
             this.tabBushing.Controls.Add(this.label54);
             this.tabBushing.Location = new System.Drawing.Point(4, 22);
             this.tabBushing.Name = "tabBushing";
-            this.tabBushing.Size = new System.Drawing.Size(920, 741);
+            this.tabBushing.Size = new System.Drawing.Size(920, 699);
             this.tabBushing.TabIndex = 1;
             this.tabBushing.Text = "Bushing C1/C2 Capacitance";
             this.tabBushing.UseVisualStyleBackColor = true;
@@ -2958,7 +3066,7 @@
             this.tabTTR.Controls.Add(this.groupBox2);
             this.tabTTR.Location = new System.Drawing.Point(4, 22);
             this.tabTTR.Name = "tabTTR";
-            this.tabTTR.Size = new System.Drawing.Size(920, 741);
+            this.tabTTR.Size = new System.Drawing.Size(920, 699);
             this.tabTTR.TabIndex = 3;
             this.tabTTR.Text = "Transformer Turns Ratio";
             this.tabTTR.UseVisualStyleBackColor = true;
@@ -3459,7 +3567,7 @@
             this.tabWinding.Controls.Add(this.grpHV);
             this.tabWinding.Location = new System.Drawing.Point(4, 22);
             this.tabWinding.Name = "tabWinding";
-            this.tabWinding.Size = new System.Drawing.Size(920, 741);
+            this.tabWinding.Size = new System.Drawing.Size(920, 699);
             this.tabWinding.TabIndex = 4;
             this.tabWinding.Text = "DC Winding Resistance";
             this.tabWinding.UseVisualStyleBackColor = true;
@@ -3796,7 +3904,7 @@
             this.tabDielectric.Controls.Add(this.grpMain);
             this.tabDielectric.Location = new System.Drawing.Point(4, 22);
             this.tabDielectric.Name = "tabDielectric";
-            this.tabDielectric.Size = new System.Drawing.Size(920, 741);
+            this.tabDielectric.Size = new System.Drawing.Size(920, 699);
             this.tabDielectric.TabIndex = 5;
             this.tabDielectric.Text = "Oil Dielectric Breakdown Strength";
             this.tabDielectric.UseVisualStyleBackColor = true;
@@ -4212,7 +4320,7 @@
             this.tabOilPF.Controls.Add(this.label115);
             this.tabOilPF.Location = new System.Drawing.Point(4, 22);
             this.tabOilPF.Name = "tabOilPF";
-            this.tabOilPF.Size = new System.Drawing.Size(920, 741);
+            this.tabOilPF.Size = new System.Drawing.Size(920, 699);
             this.tabOilPF.TabIndex = 6;
             this.tabOilPF.Text = "Oil Power Factor";
             this.tabOilPF.UseVisualStyleBackColor = true;
@@ -4341,7 +4449,7 @@
             this.btnLast.Location = new System.Drawing.Point(235, 475);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(79, 31);
-            this.btnLast.TabIndex = 167;
+            this.btnLast.TabIndex = 19;
             this.btnLast.Text = "Last";
             this.btnLast.UseVisualStyleBackColor = true;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
@@ -4351,7 +4459,7 @@
             this.btnFirst.Location = new System.Drawing.Point(25, 475);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(79, 31);
-            this.btnFirst.TabIndex = 166;
+            this.btnFirst.TabIndex = 18;
             this.btnFirst.Text = "First";
             this.btnFirst.UseVisualStyleBackColor = true;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
@@ -4361,7 +4469,7 @@
             this.btnReport.Location = new System.Drawing.Point(130, 438);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(79, 31);
-            this.btnReport.TabIndex = 168;
+            this.btnReport.TabIndex = 16;
             this.btnReport.Text = "Report";
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
@@ -4380,14 +4488,14 @@
             this.txtSearch.Location = new System.Drawing.Point(167, 46);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 20);
-            this.txtSearch.TabIndex = 170;
+            this.txtSearch.TabIndex = 0;
             // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(292, 44);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 171;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -4401,126 +4509,12 @@
             this.label11.TabIndex = 172;
             this.label11.Text = "*Field Required";
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.tblTestDataGridView);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(920, 741);
-            this.tabPage1.TabIndex = 7;
-            this.tabPage1.Text = "DataGridView";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tblTestDataGridView
-            // 
-            this.tblTestDataGridView.AllowUserToAddRows = false;
-            this.tblTestDataGridView.AllowUserToDeleteRows = false;
-            this.tblTestDataGridView.AutoGenerateColumns = false;
-            this.tblTestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblTestDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-            this.tblTestDataGridView.DataSource = this.tblTestBindingSource;
-            this.tblTestDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblTestDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.tblTestDataGridView.Name = "tblTestDataGridView";
-            this.tblTestDataGridView.ReadOnly = true;
-            this.tblTestDataGridView.Size = new System.Drawing.Size(914, 735);
-            this.tblTestDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestNumber";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TestNumber";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "testDate";
-            this.dataGridViewTextBoxColumn2.HeaderText = "testDate";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "testEngr";
-            this.dataGridViewTextBoxColumn3.HeaderText = "testEngr";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "testWeather";
-            this.dataGridViewTextBoxColumn4.HeaderText = "testWeather";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "testAmbient";
-            this.dataGridViewTextBoxColumn5.HeaderText = "testAmbient";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "testOil";
-            this.dataGridViewTextBoxColumn6.HeaderText = "testOil";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "testPrimWT";
-            this.dataGridViewTextBoxColumn7.HeaderText = "testPrimWT";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "testSecWT";
-            this.dataGridViewTextBoxColumn8.HeaderText = "testSecWT";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "testTertWT";
-            this.dataGridViewTextBoxColumn9.HeaderText = "testTertWT";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "testXformer";
-            this.dataGridViewTextBoxColumn10.HeaderText = "testXformer";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "testSub";
-            this.dataGridViewTextBoxColumn11.HeaderText = "testSub";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1370, 791);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
@@ -4539,7 +4533,6 @@
             this.Controls.Add(this.testTertWTTextBox);
             this.Controls.Add(this.tbcTest);
             this.Controls.Add(this.cboXf);
-            this.Controls.Add(this.cboSub);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnDelete);
@@ -4570,6 +4563,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).EndInit();
             this.tbcTest.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tblTestDataGridView)).EndInit();
             this.tabExcite.ResumeLayout(false);
             this.tabExcite.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblExcitationBindingSource)).EndInit();
@@ -4634,8 +4629,6 @@
             this.tabOilPF.ResumeLayout(false);
             this.tabOilPF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblOilPFBindingSource)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tblTestDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4669,7 +4662,6 @@
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cboSub;
         private System.Windows.Forms.ComboBox cboXf;
         private System.Windows.Forms.ToolStripMenuItem registerAccountToolStripMenuItem;
         private dtbPTASDataSet dtbPTASDataSet;

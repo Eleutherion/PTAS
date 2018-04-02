@@ -7123,8 +7123,6 @@ namespace PTAS {
             
             private global::System.Data.DataColumn columntestXformer;
             
-            private global::System.Data.DataColumn columntestSub;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tblTestDataTable() {
@@ -7240,14 +7238,6 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn testSubColumn {
-                get {
-                    return this.columntestSub;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7283,7 +7273,7 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblTestRow AddtblTestRow(decimal TestNumber, System.DateTime testDate, string testEngr, string testWeather, int testAmbient, int testOil, int testPrimWT, int testSecWT, int testTertWT, tblTransformerRow parenttblTransformerRowByFK_tblTest_tblTransformer, string testSub) {
+            public tblTestRow AddtblTestRow(decimal TestNumber, System.DateTime testDate, string testEngr, string testWeather, int testAmbient, int testOil, int testPrimWT, int testSecWT, int testTertWT, tblTransformerRow parenttblTransformerRowByFK_tblTest_tblTransformer) {
                 tblTestRow rowtblTestRow = ((tblTestRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TestNumber,
@@ -7295,8 +7285,7 @@ namespace PTAS {
                         testPrimWT,
                         testSecWT,
                         testTertWT,
-                        null,
-                        testSub};
+                        null};
                 if ((parenttblTransformerRowByFK_tblTest_tblTransformer != null)) {
                     columnValuesArray[9] = parenttblTransformerRowByFK_tblTest_tblTransformer[17];
                 }
@@ -7339,7 +7328,6 @@ namespace PTAS {
                 this.columntestSecWT = base.Columns["testSecWT"];
                 this.columntestTertWT = base.Columns["testTertWT"];
                 this.columntestXformer = base.Columns["testXformer"];
-                this.columntestSub = base.Columns["testSub"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7365,8 +7353,6 @@ namespace PTAS {
                 base.Columns.Add(this.columntestTertWT);
                 this.columntestXformer = new global::System.Data.DataColumn("testXformer", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntestXformer);
-                this.columntestSub = new global::System.Data.DataColumn("testSub", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntestSub);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTestNumber}, true));
                 this.columnTestNumber.AllowDBNull = false;
@@ -7377,8 +7363,6 @@ namespace PTAS {
                 this.columntestWeather.MaxLength = 20;
                 this.columntestXformer.AllowDBNull = false;
                 this.columntestXformer.MaxLength = 20;
-                this.columntestSub.AllowDBNull = false;
-                this.columntestSub.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12802,17 +12786,6 @@ namespace PTAS {
                 }
                 set {
                     this[this.tabletblTest.testXformerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string testSub {
-                get {
-                    return ((string)(this[this.tabletblTest.testSubColumn]));
-                }
-                set {
-                    this[this.tabletblTest.testSubColumn] = value;
                 }
             }
             
@@ -25244,17 +25217,16 @@ SELECT xfSubID, xfMake, xfSerial, xfClass, xfCap, xfImpedanceA, xfImpedanceB, xf
             tableMapping.ColumnMappings.Add("testSecWT", "testSecWT");
             tableMapping.ColumnMappings.Add("testTertWT", "testTertWT");
             tableMapping.ColumnMappings.Add("testXformer", "testXformer");
-            tableMapping.ColumnMappings.Add("testSub", "testSub");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tblTest] WHERE (([TestNumber] = @Original_TestNumber) AND ([testDate] = @Original_testDate) AND ([testEngr] = @Original_testEngr) AND ((@IsNull_testWeather = 1 AND [testWeather] IS NULL) OR ([testWeather] = @Original_testWeather)) AND ((@IsNull_testAmbient = 1 AND [testAmbient] IS NULL) OR ([testAmbient] = @Original_testAmbient)) AND ((@IsNull_testOil = 1 AND [testOil] IS NULL) OR ([testOil] = @Original_testOil)) AND ((@IsNull_testPrimWT = 1 AND [testPrimWT] IS NULL) OR ([testPrimWT] = @Original_testPrimWT)) AND ((@IsNull_testSecWT = 1 AND [testSecWT] IS NULL) OR ([testSecWT] = @Original_testSecWT)) AND ((@IsNull_testTertWT = 1 AND [testTertWT] IS NULL) OR ([testTertWT] = @Original_testTertWT)) AND ([testXformer] = @Original_testXformer) AND ([testSub] = @Original_testSub))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tblTest] WHERE (([TestNumber] = @Original_TestNumber) AND ([testDate] = @Original_testDate) AND ([testEngr] = @Original_testEngr) AND ((@IsNull_testWeather = 1 AND [testWeather] IS NULL) OR ([testWeather] = @Original_testWeather)) AND ((@IsNull_testAmbient = 1 AND [testAmbient] IS NULL) OR ([testAmbient] = @Original_testAmbient)) AND ((@IsNull_testOil = 1 AND [testOil] IS NULL) OR ([testOil] = @Original_testOil)) AND ((@IsNull_testPrimWT = 1 AND [testPrimWT] IS NULL) OR ([testPrimWT] = @Original_testPrimWT)) AND ((@IsNull_testSecWT = 1 AND [testSecWT] IS NULL) OR ([testSecWT] = @Original_testSecWT)) AND ((@IsNull_testTertWT = 1 AND [testTertWT] IS NULL) OR ([testTertWT] = @Original_testTertWT)) AND ([testXformer] = @Original_testXformer))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testEngr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testEngr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testWeather", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testWeather", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testWeather", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -25266,44 +25238,41 @@ SELECT xfSubID, xfMake, xfSerial, xfClass, xfCap, xfImpedanceA, xfImpedanceB, xf
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testXformer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testXformer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testSub", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSub", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblTest] ([TestNumber], [testDate], [testEngr], [testWeather], [testAmbient], [testOil], [testPrimWT], [testSecWT], [testTertWT], [testXformer], [testSub]) VALUES (@TestNumber, @testDate, @testEngr, @testWeather, @testAmbient, @testOil, @testPrimWT, @testSecWT, @testTertWT, @testXformer, @testSub);
-SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer, testSub FROM tblTest WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblTest] ([TestNumber], [testDate], [testEngr], [testWeather], [testAmbient], [testOil], [testPrimWT], [testSecWT], [testTertWT], [testXformer]) VALUES (@TestNumber, @testDate, @testEngr, @testWeather, @testAmbient, @testOil, @testPrimWT, @testSecWT, @testTertWT, @testXformer);
+SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer FROM tblTest WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testEngr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testEngr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testWeather", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testWeather", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testPrimWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testPrimWT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testSecWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSecWT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testXformer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testXformer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testSub", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSub", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [tblTest] SET [TestNumber] = @TestNumber, [testDate] = @testDate, [testEngr] = @testEngr, [testWeather] = @testWeather, [testAmbient] = @testAmbient, [testOil] = @testOil, [testPrimWT] = @testPrimWT, [testSecWT] = @testSecWT, [testTertWT] = @testTertWT, [testXformer] = @testXformer, [testSub] = @testSub WHERE (([TestNumber] = @Original_TestNumber) AND ([testDate] = @Original_testDate) AND ([testEngr] = @Original_testEngr) AND ((@IsNull_testWeather = 1 AND [testWeather] IS NULL) OR ([testWeather] = @Original_testWeather)) AND ((@IsNull_testAmbient = 1 AND [testAmbient] IS NULL) OR ([testAmbient] = @Original_testAmbient)) AND ((@IsNull_testOil = 1 AND [testOil] IS NULL) OR ([testOil] = @Original_testOil)) AND ((@IsNull_testPrimWT = 1 AND [testPrimWT] IS NULL) OR ([testPrimWT] = @Original_testPrimWT)) AND ((@IsNull_testSecWT = 1 AND [testSecWT] IS NULL) OR ([testSecWT] = @Original_testSecWT)) AND ((@IsNull_testTertWT = 1 AND [testTertWT] IS NULL) OR ([testTertWT] = @Original_testTertWT)) AND ([testXformer] = @Original_testXformer) AND ([testSub] = @Original_testSub));
-SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer, testSub FROM tblTest WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [tblTest] SET [TestNumber] = @TestNumber, [testDate] = @testDate, [testEngr] = @testEngr, [testWeather] = @testWeather, [testAmbient] = @testAmbient, [testOil] = @testOil, [testPrimWT] = @testPrimWT, [testSecWT] = @testSecWT, [testTertWT] = @testTertWT, [testXformer] = @testXformer WHERE (([TestNumber] = @Original_TestNumber) AND ([testDate] = @Original_testDate) AND ([testEngr] = @Original_testEngr) AND ((@IsNull_testWeather = 1 AND [testWeather] IS NULL) OR ([testWeather] = @Original_testWeather)) AND ((@IsNull_testAmbient = 1 AND [testAmbient] IS NULL) OR ([testAmbient] = @Original_testAmbient)) AND ((@IsNull_testOil = 1 AND [testOil] IS NULL) OR ([testOil] = @Original_testOil)) AND ((@IsNull_testPrimWT = 1 AND [testPrimWT] IS NULL) OR ([testPrimWT] = @Original_testPrimWT)) AND ((@IsNull_testSecWT = 1 AND [testSecWT] IS NULL) OR ([testSecWT] = @Original_testSecWT)) AND ((@IsNull_testTertWT = 1 AND [testTertWT] IS NULL) OR ([testTertWT] = @Original_testTertWT)) AND ([testXformer] = @Original_testXformer));
+SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer FROM tblTest WHERE (TestNumber = @TestNumber) ORDER BY TestNumber DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testEngr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testEngr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testWeather", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testWeather", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testPrimWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testPrimWT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testSecWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSecWT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testXformer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testXformer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testSub", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSub", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TestNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TestNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testEngr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testEngr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testWeather", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testWeather", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testWeather", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testWeather", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testAmbient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testAmbient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testOil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testOil", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -25315,7 +25284,6 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testTertWT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testTertWT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testXformer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testXformer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_testSub", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "testSub", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25332,8 +25300,7 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPri" +
-                "mWT, testSecWT, testTertWT, testXformer, testSub FROM tblTest ORDER BY TestNumbe" +
-                "r DESC";
+                "mWT, testSecWT, testTertWT, testXformer FROM tblTest ORDER BY TestNumber DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -25400,7 +25367,7 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal Original_TestNumber, System.DateTime Original_testDate, string Original_testEngr, string Original_testWeather, global::System.Nullable<int> Original_testAmbient, global::System.Nullable<int> Original_testOil, global::System.Nullable<int> Original_testPrimWT, global::System.Nullable<int> Original_testSecWT, global::System.Nullable<int> Original_testTertWT, string Original_testXformer, string Original_testSub) {
+        public virtual int Delete(decimal Original_TestNumber, System.DateTime Original_testDate, string Original_testEngr, string Original_testWeather, global::System.Nullable<int> Original_testAmbient, global::System.Nullable<int> Original_testOil, global::System.Nullable<int> Original_testPrimWT, global::System.Nullable<int> Original_testSecWT, global::System.Nullable<int> Original_testTertWT, string Original_testXformer) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_TestNumber));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_testDate));
             if ((Original_testEngr == null)) {
@@ -25463,12 +25430,6 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_testXformer));
             }
-            if ((Original_testSub == null)) {
-                throw new global::System.ArgumentNullException("Original_testSub");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_testSub));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -25489,7 +25450,7 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal TestNumber, System.DateTime testDate, string testEngr, string testWeather, global::System.Nullable<int> testAmbient, global::System.Nullable<int> testOil, global::System.Nullable<int> testPrimWT, global::System.Nullable<int> testSecWT, global::System.Nullable<int> testTertWT, string testXformer, string testSub) {
+        public virtual int Insert(decimal TestNumber, System.DateTime testDate, string testEngr, string testWeather, global::System.Nullable<int> testAmbient, global::System.Nullable<int> testOil, global::System.Nullable<int> testPrimWT, global::System.Nullable<int> testSecWT, global::System.Nullable<int> testTertWT, string testXformer) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(TestNumber));
             this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(testDate));
             if ((testEngr == null)) {
@@ -25540,12 +25501,6 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = ((string)(testXformer));
             }
-            if ((testSub == null)) {
-                throw new global::System.ArgumentNullException("testSub");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(testSub));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -25577,7 +25532,6 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     global::System.Nullable<int> testSecWT, 
                     global::System.Nullable<int> testTertWT, 
                     string testXformer, 
-                    string testSub, 
                     decimal Original_TestNumber, 
                     System.DateTime Original_testDate, 
                     string Original_testEngr, 
@@ -25587,8 +25541,7 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     global::System.Nullable<int> Original_testPrimWT, 
                     global::System.Nullable<int> Original_testSecWT, 
                     global::System.Nullable<int> Original_testTertWT, 
-                    string Original_testXformer, 
-                    string Original_testSub) {
+                    string Original_testXformer) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(TestNumber));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(testDate));
             if ((testEngr == null)) {
@@ -25639,79 +25592,67 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(testXformer));
             }
-            if ((testSub == null)) {
-                throw new global::System.ArgumentNullException("testSub");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(testSub));
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Original_TestNumber));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_testDate));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_TestNumber));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_testDate));
             if ((Original_testEngr == null)) {
                 throw new global::System.ArgumentNullException("Original_testEngr");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_testEngr));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_testEngr));
             }
             if ((Original_testWeather == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_testWeather));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_testWeather));
             }
             if ((Original_testAmbient.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_testAmbient.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_testAmbient.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_testOil.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_testOil.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_testOil.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_testPrimWT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_testPrimWT.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_testPrimWT.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_testSecWT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_testSecWT.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_testSecWT.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             if ((Original_testTertWT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_testTertWT.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_testTertWT.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             if ((Original_testXformer == null)) {
                 throw new global::System.ArgumentNullException("Original_testXformer");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_testXformer));
-            }
-            if ((Original_testSub == null)) {
-                throw new global::System.ArgumentNullException("Original_testSub");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_testSub));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_testXformer));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -25743,7 +25684,6 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     global::System.Nullable<int> testSecWT, 
                     global::System.Nullable<int> testTertWT, 
                     string testXformer, 
-                    string testSub, 
                     decimal Original_TestNumber, 
                     System.DateTime Original_testDate, 
                     string Original_testEngr, 
@@ -25753,9 +25693,8 @@ SELECT TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPr
                     global::System.Nullable<int> Original_testPrimWT, 
                     global::System.Nullable<int> Original_testSecWT, 
                     global::System.Nullable<int> Original_testTertWT, 
-                    string Original_testXformer, 
-                    string Original_testSub) {
-            return this.Update(Original_TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer, testSub, Original_TestNumber, Original_testDate, Original_testEngr, Original_testWeather, Original_testAmbient, Original_testOil, Original_testPrimWT, Original_testSecWT, Original_testTertWT, Original_testXformer, Original_testSub);
+                    string Original_testXformer) {
+            return this.Update(Original_TestNumber, testDate, testEngr, testWeather, testAmbient, testOil, testPrimWT, testSecWT, testTertWT, testXformer, Original_TestNumber, Original_testDate, Original_testEngr, Original_testWeather, Original_testAmbient, Original_testOil, Original_testPrimWT, Original_testSecWT, Original_testTertWT, Original_testXformer);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

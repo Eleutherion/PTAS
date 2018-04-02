@@ -89,7 +89,7 @@
             this.btnDelete.Location = new System.Drawing.Point(334, 145);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(110, 33);
-            this.btnDelete.TabIndex = 36;
+            this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -99,7 +99,7 @@
             this.btnSave.Location = new System.Drawing.Point(334, 106);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 33);
-            this.btnSave.TabIndex = 35;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -109,7 +109,7 @@
             this.btnAdd.Location = new System.Drawing.Point(334, 67);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(110, 33);
-            this.btnAdd.TabIndex = 34;
+            this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -144,7 +144,7 @@
             this.subIDTextBox.Location = new System.Drawing.Point(160, 77);
             this.subIDTextBox.Name = "subIDTextBox";
             this.subIDTextBox.Size = new System.Drawing.Size(119, 20);
-            this.subIDTextBox.TabIndex = 37;
+            this.subIDTextBox.TabIndex = 0;
             // 
             // subNameTextBox
             // 
@@ -152,7 +152,7 @@
             this.subNameTextBox.Location = new System.Drawing.Point(160, 103);
             this.subNameTextBox.Name = "subNameTextBox";
             this.subNameTextBox.Size = new System.Drawing.Size(119, 20);
-            this.subNameTextBox.TabIndex = 39;
+            this.subNameTextBox.TabIndex = 1;
             // 
             // subAddressTextBox
             // 
@@ -160,14 +160,14 @@
             this.subAddressTextBox.Location = new System.Drawing.Point(160, 129);
             this.subAddressTextBox.Name = "subAddressTextBox";
             this.subAddressTextBox.Size = new System.Drawing.Size(119, 20);
-            this.subAddressTextBox.TabIndex = 41;
+            this.subAddressTextBox.TabIndex = 2;
             // 
             // btnReturn
             // 
             this.btnReturn.Location = new System.Drawing.Point(334, 184);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(110, 33);
-            this.btnReturn.TabIndex = 42;
+            this.btnReturn.TabIndex = 6;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);

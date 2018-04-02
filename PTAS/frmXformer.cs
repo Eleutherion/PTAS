@@ -29,8 +29,9 @@ namespace PTAS
         
         private void frmXformer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //frmMain form = new frmMain();
-            //form.Show();
+            frmMain form = new frmMain();
+            form.Show();
+            Dispose();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -78,8 +79,6 @@ namespace PTAS
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            frmMain f = new frmMain();
-            f.Show();
             Close();
         }
 

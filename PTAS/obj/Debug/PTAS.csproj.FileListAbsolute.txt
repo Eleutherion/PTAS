@@ -9,13 +9,6 @@ C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.csproj.GenerateResource
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.csproj.CoreCompileInputs.cache
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.exe
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.pdb
-C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmExcitation.resources
-C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmIPF.resources
-C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmBushing.resources
-C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmOilBD.resources
-C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmOilPF.resources
-C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmTTR.resources
-C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmWinding.resources
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmMain.resources
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmXformer.resources
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmSubstation.resources
@@ -73,3 +66,8 @@ C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmReport.resources
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.AboutBox1.resources
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.SplashForm.resources
 C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.csprojResolveAssemblyReference.cache
+C:\Users\ambal\Documents\GitHub\PTAS\PTAS\bin\Debug\PTAS.exe.manifest
+C:\Users\ambal\Documents\GitHub\PTAS\PTAS\bin\Debug\PTAS.application
+C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.exe.manifest
+C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.application
+C:\Users\ambal\Documents\GitHub\PTAS\PTAS\obj\Debug\PTAS.frmMessage.resources

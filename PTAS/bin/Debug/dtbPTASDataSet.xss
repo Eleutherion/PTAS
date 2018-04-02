@@ -20,7 +20,7 @@
     <Shape ID="DesignTable:tblStandards" ZOrder="21" X="1909" Y="70" Height="96" Width="218" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
     <Shape ID="DesignTable:tblSecurity" ZOrder="12" X="2197" Y="36" Height="115" Width="207" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:tblTransformer" ZOrder="1" X="-506" Y="288" Height="324" Width="295" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:tblTest" ZOrder="2" X="2474" Y="36" Height="305" Width="192" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
+    <Shape ID="DesignTable:tblTest" ZOrder="2" X="2474" Y="36" Height="286" Width="192" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_tblDielectric_tblStatus" ZOrder="25" LineWidth="11">
@@ -115,7 +115,7 @@
       <RoutePoints>
         <Point>
           <X>2491</X>
-          <Y>341</Y>
+          <Y>322</Y>
         </Point>
         <Point>
           <X>2491</X>
@@ -131,7 +131,7 @@
       <RoutePoints>
         <Point>
           <X>2499</X>
-          <Y>341</Y>
+          <Y>322</Y>
         </Point>
         <Point>
           <X>2499</X>
@@ -159,7 +159,7 @@
       <RoutePoints>
         <Point>
           <X>2507</X>
-          <Y>341</Y>
+          <Y>322</Y>
         </Point>
         <Point>
           <X>2507</X>
@@ -175,7 +175,7 @@
       <RoutePoints>
         <Point>
           <X>2515</X>
-          <Y>341</Y>
+          <Y>322</Y>
         </Point>
         <Point>
           <X>2515</X>
@@ -191,7 +191,7 @@
       <RoutePoints>
         <Point>
           <X>2523</X>
-          <Y>341</Y>
+          <Y>322</Y>
         </Point>
         <Point>
           <X>2523</X>

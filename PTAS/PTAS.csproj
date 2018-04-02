@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>G:\PTAS\Publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,9 +22,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>0.0.0.2</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -85,6 +86,18 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>86571C4537405311613D92CE5DEDAF9D2F5BD34D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PTAS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -137,29 +150,11 @@
       <DependentUpon>dtbPTASDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="frmBushing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBushing.Designer.cs">
-      <DependentUpon>frmBushing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmExcitation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmExcitation.Designer.cs">
-      <DependentUpon>frmExcitation.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmGraph.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGraph.Designer.cs">
       <DependentUpon>frmGraph.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmIPF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmIPF.Designer.cs">
-      <DependentUpon>frmIPF.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -173,17 +168,11 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOilBD.cs">
+    <Compile Include="frmMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOilBD.Designer.cs">
-      <DependentUpon>frmOilBD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmOilPF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmOilPF.Designer.cs">
-      <DependentUpon>frmOilPF.cs</DependentUpon>
+    <Compile Include="frmMessage.Designer.cs">
+      <DependentUpon>frmMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegister.cs">
       <SubType>Form</SubType>
@@ -202,18 +191,6 @@
     </Compile>
     <Compile Include="frmSubstation.Designer.cs">
       <DependentUpon>frmSubstation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTTR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTTR.Designer.cs">
-      <DependentUpon>frmTTR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmWinding.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWinding.Designer.cs">
-      <DependentUpon>frmWinding.cs</DependentUpon>
     </Compile>
     <Compile Include="frmXformer.cs">
       <SubType>Form</SubType>
@@ -236,17 +213,8 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBushing.resx">
-      <DependentUpon>frmBushing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmExcitation.resx">
-      <DependentUpon>frmExcitation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmGraph.resx">
       <DependentUpon>frmGraph.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmIPF.resx">
-      <DependentUpon>frmIPF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -254,11 +222,8 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOilBD.resx">
-      <DependentUpon>frmOilBD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmOilPF.resx">
-      <DependentUpon>frmOilPF.cs</DependentUpon>
+    <EmbeddedResource Include="frmMessage.resx">
+      <DependentUpon>frmMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
@@ -268,12 +233,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSubstation.resx">
       <DependentUpon>frmSubstation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTTR.resx">
-      <DependentUpon>frmTTR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWinding.resx">
-      <DependentUpon>frmWinding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmXformer.resx">
       <DependentUpon>frmXformer.cs</DependentUpon>
@@ -317,6 +276,7 @@
       <DependentUpon>dtbPTASDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="instruction.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -326,6 +286,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="PTAS_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="dtbPTAS.mdf">
@@ -338,10 +299,20 @@
     <Content Include="splashscreenpic.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
+      <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>

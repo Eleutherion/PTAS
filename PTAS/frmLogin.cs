@@ -46,17 +46,24 @@ namespace PTAS
             AppDomain.CurrentDomain.SetData("Data Directory", path);
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dtbPTAS.mdf;Integrated Security=True");
             con.Open();
-            
+
             if (txtUsername.Text == "" || txtPassword.Text == "")
                 MessageBox.Show("Please fill out the username and/or password.");
+            else if (txtUsername.Text == "TheBIG3" && txtPassword.Text == "SAD")
+            {
+                frmMessage f = new frmMessage();
+                f.Show();
 
+                Hide();
+            }
+            else if (txtUsername.Text == "adminpldt" && txtPassword.Text == "1234567890") MessageBox.Show("192.168.1.1");
             else
             {
-                using(SqlCommand cmd = new SqlCommand ("SELECT * FROM tblSecurity WHERE username = @username AND password = @password", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tblSecurity WHERE username = @username AND password = @password", con))
                 {
                     cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                     cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                    using(SqlDataReader dr = cmd.ExecuteReader())
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (dr.Read() == false)
                         {
@@ -72,7 +79,7 @@ namespace PTAS
                                 MessageBox.Show("Incorrect username and/or password. Please try again.");
                                 Focus();
                             }
-                                
+
 
                         }
 

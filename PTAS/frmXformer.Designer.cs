@@ -52,6 +52,7 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.tableAdapterManager = new PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager();
             this.tblSubstationTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblSubstationTableAdapter();
+            this.tblTransformerTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTransformerTableAdapter();
             this.xfIDTextBox = new System.Windows.Forms.TextBox();
             this.xfMakeTextBox = new System.Windows.Forms.TextBox();
             this.xfSerialTextBox = new System.Windows.Forms.TextBox();
@@ -71,7 +72,6 @@
             this.xfSecClockTextBox = new System.Windows.Forms.TextBox();
             this.xfPhaseTextBox = new System.Windows.Forms.TextBox();
             this.xfSubIDComboBox = new System.Windows.Forms.ComboBox();
-            this.tblTransformerTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTransformerTableAdapter();
             this.xfYearTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -315,7 +315,7 @@
             this.tableAdapterManager.tblSubstationTableAdapter = this.tblSubstationTableAdapter;
             this.tableAdapterManager.tblTestListTableAdapter = null;
             this.tableAdapterManager.tblTestTableAdapter = null;
-            this.tableAdapterManager.tblTransformerTableAdapter = null;
+            this.tableAdapterManager.tblTransformerTableAdapter = this.tblTransformerTableAdapter;
             this.tableAdapterManager.tblTTRTableAdapter = null;
             this.tableAdapterManager.tblWindingTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PTAS.dtbPTASDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -323,6 +323,10 @@
             // tblSubstationTableAdapter
             // 
             this.tblSubstationTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblTransformerTableAdapter
+            // 
+            this.tblTransformerTableAdapter.ClearBeforeFill = true;
             // 
             // xfIDTextBox
             // 
@@ -476,12 +480,8 @@
             this.xfSubIDComboBox.Location = new System.Drawing.Point(200, 84);
             this.xfSubIDComboBox.Name = "xfSubIDComboBox";
             this.xfSubIDComboBox.Size = new System.Drawing.Size(151, 21);
-            this.xfSubIDComboBox.TabIndex = 76;
+            this.xfSubIDComboBox.TabIndex = 1;
             this.xfSubIDComboBox.ValueMember = "subID";
-            // 
-            // tblTransformerTableAdapter
-            // 
-            this.tblTransformerTableAdapter.ClearBeforeFill = true;
             // 
             // xfYearTextBox
             // 
@@ -489,7 +489,7 @@
             this.xfYearTextBox.Location = new System.Drawing.Point(200, 240);
             this.xfYearTextBox.Name = "xfYearTextBox";
             this.xfYearTextBox.Size = new System.Drawing.Size(152, 20);
-            this.xfYearTextBox.TabIndex = 77;
+            this.xfYearTextBox.TabIndex = 9;
             // 
             // label2
             // 

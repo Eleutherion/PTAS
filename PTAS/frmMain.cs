@@ -18,42 +18,10 @@ namespace PTAS
         public frmMain()
         {
             InitializeComponent();
-            refreshdata();
             refreshstandard();
 
             frmLogin f = new frmLogin();
             f.Dispose();
-        }
-
-        public void refreshdata()
-        {
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tblSubstation", con))
-                {
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        cboSub.DataSource = dt;
-                        cboSub.DisplayMember = "subID";
-                        cboSub.ValueMember = "subID";
-                        cboSub.SelectedIndex = -1;
-                        cboSub.Text = "Select substation";
-                    }
-                }
-            }
-        }
-
-        public void refreshstate(string subID)
-        {
-            DataTable dt = tblTransformerTableAdapter.GetDataBySubstation(cboSub.SelectedValue.ToString());
-
-            cboXf.DataSource = dt;
-            cboXf.DisplayMember = "xfID";
-            cboXf.ValueMember = "xfID";
-            cboXf.SelectedIndex = -1;
-            cboXf.Text = "Select transformer";
         }
 
         public void refreshstandard()
@@ -154,88 +122,6 @@ namespace PTAS
             this.tblSubstationTableAdapter.Fill(this.dtbPTASDataSet.tblSubstation);
             this.tblTransformerTableAdapter.Fill(this.dtbPTASDataSet.tblTransformer);
             this.tblTestTableAdapter.Fill(this.dtbPTASDataSet.tblTest);
-
-            frmExcitation excite = new frmExcitation
-            {
-                TopLevel = false
-            };
-
-            frmIPF ipf = new frmIPF
-            {
-                TopLevel = false
-            };
-
-            frmBushing bushing = new frmBushing
-            {
-                TopLevel = false
-            };
-
-            frmTTR ttr = new frmTTR
-            {
-                TopLevel = false
-            };
-
-            frmWinding winding = new frmWinding
-            {
-                TopLevel = false
-            };
-
-            frmOilBD oilbd = new frmOilBD
-            {
-                TopLevel = false
-            };
-
-            frmOilPF oilpf = new frmOilPF
-            {
-                TopLevel = false
-            };
-
-            //tabExcite2.Text = "Excitation Current";
-            //tbcTest.TabPages.Add(tabExcite2);
-            //tabExcite2.Show();
-
-            //excite.Parent = tabExcite2;
-            //excite.Show();
-
-            //tabExcite.Text = "Excitation Current";
-            //tbcTest.TabPages.Add(tabExcite);
-            //tabExcite.Show();
-            //excite.Parent = tabExcite;
-            //excite.Show();
-
-            //tabIPF.Text = "Insulation Power Factor";
-            //tbcTest.TabPages.Add(tabIPF);
-
-            //excite.Parent = tabExcite;
-            //excite.Show();
-
-            //ipf.Parent = tabIPF;
-            //ipf.Show();
-
-            //bushing.Parent = tabBushing;
-            //bushing.Show();
-
-            //ttr.Parent = tabTTR;
-            //ttr.Show();
-
-            //winding.Parent = tabWinding;
-            //winding.Show();
-
-            //oilbd.Parent = tabOilBD;
-            //oilbd.Show();
-
-            //oilpf.Parent = tabOilPF;
-            //oilpf.Show();
-        }
-
-        private void cboSub_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(cboSub.Text))
-            {
-                string subID = cboSub.SelectedValue.ToString();
-                refreshstate(subID);
-            }
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -373,8 +259,6 @@ namespace PTAS
 
         public static event PassTestNumber OnPassTestNumber;
 
-        frmExcitation f1 = new frmExcitation();
-
         private void registerAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRegister f = new frmRegister();
@@ -384,7 +268,7 @@ namespace PTAS
         private void btnFirst_Click(object sender, EventArgs e)
         {
             tblTestBindingSource.MoveFirst();
-            //OnDataChanged(testNumberTextBox.Text);
+
             tblExcitationTableAdapter.FillByTestNumber(dtbPTASDataSet.tblExcitation, Convert.ToDecimal(testNumberTextBox.Text));
             tblBushingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblBushing, Convert.ToDecimal(testNumberTextBox.Text));
             tblIPFTableAdapter.FillByTestNumber(dtbPTASDataSet.tblIPF, Convert.ToDecimal(testNumberTextBox.Text));
@@ -397,7 +281,7 @@ namespace PTAS
         private void btnLast_Click(object sender, EventArgs e)
         {
             tblTestBindingSource.MoveLast();
-            //OnDataChanged(testNumberTextBox.Text);
+
             tblExcitationTableAdapter.FillByTestNumber(dtbPTASDataSet.tblExcitation, Convert.ToDecimal(testNumberTextBox.Text));
             tblBushingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblBushing, Convert.ToDecimal(testNumberTextBox.Text));
             tblIPFTableAdapter.FillByTestNumber(dtbPTASDataSet.tblIPF, Convert.ToDecimal(testNumberTextBox.Text));
@@ -435,24 +319,30 @@ namespace PTAS
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            int record = Convert.ToInt32(tblTestTableAdapter.CountAvailable(Convert.ToDecimal(txtSearch.Text)));
-            if (record == 1)
+            try
             {
-                //tblTestTableAdapter.FillByTestNumber(dtbPTASDataSet.tblTest, Convert.ToDecimal(txtSearch.Text));
-                int item = tblTestBindingSource.Find("TestNumber", txtSearch.Text);
-                tblTestBindingSource.Position = item;
+                int record = Convert.ToInt32(tblTestTableAdapter.CountAvailable(Convert.ToDecimal(txtSearch.Text)));
+                if (record == 1)
+                {
+                    int item = tblTestBindingSource.Find("TestNumber", txtSearch.Text);
+                    tblTestBindingSource.Position = item;
 
-                tblExcitationTableAdapter.FillByTestNumber(dtbPTASDataSet.tblExcitation, Convert.ToDecimal(testNumberTextBox.Text));
-                tblBushingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblBushing, Convert.ToDecimal(testNumberTextBox.Text));
-                tblIPFTableAdapter.FillByTestNumber(dtbPTASDataSet.tblIPF, Convert.ToDecimal(testNumberTextBox.Text));
-                tblTTRTableAdapter.FillByTestNumber(dtbPTASDataSet.tblTTR, Convert.ToDecimal(testNumberTextBox.Text));
-                tblWindingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblWinding, Convert.ToDecimal(testNumberTextBox.Text));
-                tblDielectricTableAdapter.FillByTestNumber(dtbPTASDataSet.tblDielectric, Convert.ToDecimal(testNumberTextBox.Text));
-                tblOilPFTableAdapter.FillByTestNumber(dtbPTASDataSet.tblOilPF, Convert.ToDecimal(testNumberTextBox.Text));
+                    tblExcitationTableAdapter.FillByTestNumber(dtbPTASDataSet.tblExcitation, Convert.ToDecimal(testNumberTextBox.Text));
+                    tblBushingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblBushing, Convert.ToDecimal(testNumberTextBox.Text));
+                    tblIPFTableAdapter.FillByTestNumber(dtbPTASDataSet.tblIPF, Convert.ToDecimal(testNumberTextBox.Text));
+                    tblTTRTableAdapter.FillByTestNumber(dtbPTASDataSet.tblTTR, Convert.ToDecimal(testNumberTextBox.Text));
+                    tblWindingTableAdapter.FillByTestNumber(dtbPTASDataSet.tblWinding, Convert.ToDecimal(testNumberTextBox.Text));
+                    tblDielectricTableAdapter.FillByTestNumber(dtbPTASDataSet.tblDielectric, Convert.ToDecimal(testNumberTextBox.Text));
+                    tblOilPFTableAdapter.FillByTestNumber(dtbPTASDataSet.tblOilPF, Convert.ToDecimal(testNumberTextBox.Text));
 
-                MessageBox.Show("Results found and loaded.");
+                    MessageBox.Show("Results found and loaded.");
+                }
+                else MessageBox.Show("No results found.");
             }
-            else MessageBox.Show("No results found.");
+            catch(FormatException)
+            {
+                MessageBox.Show("Search box is not filled up.");
+            }
         }
 
         private void btnComputeExc_Click(object sender, EventArgs e)
@@ -546,6 +436,11 @@ namespace PTAS
                 {
                     MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                catch (NoNullAllowedException)
+                {
+                    MessageBox.Show("No Test Number detected. Please make sure the test number is inputted through the add button.", 
+                        "NoNullAllowedException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else Focus();
 
@@ -615,6 +510,11 @@ namespace PTAS
                 catch (ConstraintException)
                 {
                     MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (NoNullAllowedException)
+                {
+                    MessageBox.Show("No Test Number detected. Please make sure the test number is inputted through the add button.",
+                        "NoNullAllowedException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else Focus();
@@ -757,6 +657,11 @@ namespace PTAS
                 catch (ConstraintException)
                 {
                     MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (NoNullAllowedException)
+                {
+                    MessageBox.Show("No Test Number detected. Please make sure the test number is inputted through the add button.",
+                        "NoNullAllowedException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -1017,6 +922,11 @@ namespace PTAS
                 catch (ConstraintException)
                 {
                     MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (NoNullAllowedException)
+                {
+                    MessageBox.Show("No Test Number detected. Please make sure the test number is inputted through the add button.",
+                        "NoNullAllowedException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -1285,6 +1195,11 @@ namespace PTAS
                 {
                     MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                catch (NoNullAllowedException)
+                {
+                    MessageBox.Show("No Test Number detected. Please make sure the test number is inputted through the add button.",
+                        "NoNullAllowedException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else Focus();
 
@@ -1329,14 +1244,9 @@ namespace PTAS
 
         private void btnAssessWinding_Click(object sender, EventArgs e)
         {
-            float highave, lowave, tertave;
             float[] high = new float[3];
             float[] low = new float[3];
             float[] tert = new float[3];
-
-            //float[] highdiff = new float[3];
-            //float[] lowdiff = new float[3];
-            //float[] tertdiff = new float[3];
 
             float highdiff = 0; float lowdiff = 0; float tertdiff = 0;
 
@@ -1350,37 +1260,6 @@ namespace PTAS
                 float.TryParse(lv[i].Text, out low[i]);
                 float.TryParse(tv[i].Text, out tert[i]);
             }
-
-            //float sumhigh = 0; float sumlow = 0; float sumtert = 0;
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    sumhigh += high[i];
-            //    sumlow += low[i];
-            //    sumtert += tert[i];
-            //}
-
-            //highave = sumhigh / hv.Length;
-            //lowave = sumlow / lv.Length;
-            //tertave = sumtert / tv.Length;
-
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    highdiff[i] = ((high[i] - highave) / highave) * 100;
-            //    lowdiff[i] = ((low[i] - lowave) / lowave) * 100;
-            //    tertdiff[i] = ((tert[i] - tertave) / tertave) * 100;
-            //}
-
-            //if (Array.TrueForAll(highdiff, v => v <= 1)) txtAssessHigh.Text = "PASSED";
-            //else txtAssessHigh.Text = "FAILED";
-
-            //if (Array.TrueForAll(lowdiff, v => v <= 1)) txtAssessLow.Text = "PASSED";
-            //else txtAssessLow.Text = "FAILED";
-
-            //if (Array.TrueForAll(tv, v => !string.IsNullOrEmpty(v.Text)))
-            //{
-            //    if (Array.TrueForAll(tertdiff, v => v <= 1)) txtAssessTert.Text = "PASSED";
-            //    else txtAssessTert.Text = "FAILED";
-            //}
 
             highdiff = ((high[0] - high[2]) / high[2]) * 100;
             lowdiff = ((low[0] - low[2]) / low[2]) * 100;
@@ -1402,9 +1281,6 @@ namespace PTAS
             high = null;
             low = null;
             tert = null;
-            //highdiff = null;
-            //lowdiff = null;
-            //tertdiff = null;
             hv = null;
             lv = null;
             tv = null;
@@ -1438,10 +1314,17 @@ namespace PTAS
                     Validate();
                     tblDielectricBindingSource.EndEdit();
                     tableAdapterManager.UpdateAll(dtbPTASDataSet);
+
+                    MessageBox.Show("Record saved.");
                 }
                 catch (ConstraintException)
                 {
                     MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (NoNullAllowedException)
+                {
+                    MessageBox.Show("No Test Number detected. Please make sure the test number is inputted through the add button.",
+                        "NoNullAllowedException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -1589,10 +1472,19 @@ namespace PTAS
                     Validate();
                     tblOilPFBindingSource.EndEdit();
                     tableAdapterManager.UpdateAll(dtbPTASDataSet);
+
+                    MessageBox.Show("Record saved.");
+
+
                 }
                 catch (ConstraintException)
                 {
                     MessageBox.Show("Duplicate records.", "ConstraintException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (NoNullAllowedException)
+                {
+                    MessageBox.Show("No Test Number detected. Please make sure the test number is inputted through the add button.",
+                        "NoNullAllowedException", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -1644,7 +1536,7 @@ namespace PTAS
             string oltc = "";
 
             string query = "SELECT TOP 1 tblOilPF.*, tblTest.testXformer FROM tblOilPF LEFT OUTER JOIN tblTest ON " +
-                "tblOilPF.TestNumber = tblTest.TestNumber WHERE TestNumber < @testnumber AND testXformer = @transformer ORDER BY TestNumber DESC";
+                "tblOilPF.TestNumber = tblTest.TestNumber WHERE tblOilPF.TestNumber < @testnumber AND testXformer = @transformer ORDER BY TestNumber DESC";
 
             string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string path = (System.IO.Path.GetDirectoryName(executable));
@@ -1923,7 +1815,8 @@ namespace PTAS
 
         private void manualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Under construction.");
+            string filename = "instruction.pdf";
+            System.Diagnostics.Process.Start(filename);
         }
 
         private void NumericKeyPress(object sender, KeyPressEventArgs e)
