@@ -65,5 +65,10 @@ namespace PTAS
             frmMain f = new frmMain();
             f.Focus();
         }
+
+        private void frmRegister_Load(object sender, EventArgs e)
+        {
+            AcceptButton = btnRegister;
+        }
     }
 }

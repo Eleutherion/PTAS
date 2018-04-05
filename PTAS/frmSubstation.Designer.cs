@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSubstation));
             this.label1 = new System.Windows.Forms.Label();
             this.tblSubstationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtbPTASDataSet = new PTAS.dtbPTASDataSet();
@@ -43,6 +44,8 @@
             this.subNameTextBox = new System.Windows.Forms.TextBox();
             this.subAddressTextBox = new System.Windows.Forms.TextBox();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblSubstationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
             this.SuspendLayout();
@@ -172,11 +175,33 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // btnPrev
+            // 
+            this.btnPrev.Location = new System.Drawing.Point(334, 223);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(54, 33);
+            this.btnPrev.TabIndex = 7;
+            this.btnPrev.Text = "Prev";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(390, 223);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(54, 33);
+            this.btnNext.TabIndex = 8;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // frmSubstation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 253);
+            this.ClientSize = new System.Drawing.Size(506, 306);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.subIDTextBox);
             this.Controls.Add(this.subNameTextBox);
@@ -187,6 +212,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSubstation";
             this.Text = "Substation";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSubstation_FormClosing);
@@ -214,5 +240,7 @@
         private System.Windows.Forms.TextBox subNameTextBox;
         private System.Windows.Forms.TextBox subAddressTextBox;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Button btnNext;
     }
 }

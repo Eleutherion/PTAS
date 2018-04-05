@@ -71,5 +71,15 @@ namespace PTAS
         {
             Dispose();
         }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            tblSubstationBindingSource.MovePrevious();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            tblSubstationBindingSource.MoveNext();
+        }
     }
 }

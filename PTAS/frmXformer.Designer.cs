@@ -43,6 +43,7 @@
             System.Windows.Forms.Label xfPhaseLabel;
             System.Windows.Forms.Label xfImpedanceALabel;
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXformer));
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -695,8 +696,9 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmXformer";
-            this.Text = "frmXformer";
+            this.Text = "Transformer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmXformer_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmXformer_FormClosed);
             this.Load += new System.EventHandler(this.frmXformer_Load);

@@ -1091,7 +1091,7 @@ namespace PTAS {
             
             private global::System.Data.DataColumn columntestTertWT;
             
-            private global::System.Data.DataColumn columntestTransformer;
+            private global::System.Data.DataColumn columntestXformer;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1200,9 +1200,9 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn testTransformerColumn {
+            public global::System.Data.DataColumn testXformerColumn {
                 get {
-                    return this.columntestTransformer;
+                    return this.columntestXformer;
                 }
             }
             
@@ -1243,7 +1243,7 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TestRow AddTestRow(string TestNumber, string testDate, string testEngr, string testWeather, string testAmbient, string testOil, string testPrimWT, string testSecWT, string testTertWT, string testTransformer) {
+            public TestRow AddTestRow(string TestNumber, string testDate, string testEngr, string testWeather, string testAmbient, string testOil, string testPrimWT, string testSecWT, string testTertWT, string testXformer) {
                 TestRow rowTestRow = ((TestRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TestNumber,
@@ -1255,7 +1255,7 @@ namespace PTAS {
                         testPrimWT,
                         testSecWT,
                         testTertWT,
-                        testTransformer};
+                        testXformer};
                 rowTestRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTestRow);
                 return rowTestRow;
@@ -1294,7 +1294,7 @@ namespace PTAS {
                 this.columntestPrimWT = base.Columns["testPrimWT"];
                 this.columntestSecWT = base.Columns["testSecWT"];
                 this.columntestTertWT = base.Columns["testTertWT"];
-                this.columntestTransformer = base.Columns["testTransformer"];
+                this.columntestXformer = base.Columns["testXformer"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1318,8 +1318,8 @@ namespace PTAS {
                 base.Columns.Add(this.columntestSecWT);
                 this.columntestTertWT = new global::System.Data.DataColumn("testTertWT", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntestTertWT);
-                this.columntestTransformer = new global::System.Data.DataColumn("testTransformer", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntestTransformer);
+                this.columntestXformer = new global::System.Data.DataColumn("testXformer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntestXformer);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTestNumber}, true));
                 this.columnTestNumber.AllowDBNull = false;
@@ -6087,17 +6087,17 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string testTransformer {
+            public string testXformer {
                 get {
                     try {
-                        return ((string)(this[this.tableTest.testTransformerColumn]));
+                        return ((string)(this[this.tableTest.testXformerColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'testTransformer\' in table \'Test\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'testXformer\' in table \'Test\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTest.testTransformerColumn] = value;
+                    this[this.tableTest.testXformerColumn] = value;
                 }
             }
             
@@ -6199,14 +6199,14 @@ namespace PTAS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IstestTransformerNull() {
-                return this.IsNull(this.tableTest.testTransformerColumn);
+            public bool IstestXformerNull() {
+                return this.IsNull(this.tableTest.testXformerColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SettestTransformerNull() {
-                this[this.tableTest.testTransformerColumn] = global::System.Convert.DBNull;
+            public void SettestXformerNull() {
+                this[this.tableTest.testXformerColumn] = global::System.Convert.DBNull;
             }
         }
         

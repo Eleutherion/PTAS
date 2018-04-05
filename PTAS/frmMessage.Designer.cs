@@ -61,6 +61,7 @@
             this.ClientSize = new System.Drawing.Size(653, 336);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMessage";
             this.Text = "Message";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMessage_FormClosing);

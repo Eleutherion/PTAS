@@ -380,6 +380,13 @@ namespace PTAS
             {
                 exc[i] = float.Parse(textboxes[i].Text);
             }
+
+            Array.Sort(exc, new Comparison<float>((i1, i2) => i2.CompareTo(i1)));
+
+            label117.Text = exc[0].ToString();
+            label118.Text = exc[1].ToString();
+            label119.Text = exc[2].ToString();
+
             float result = (float)Math.Round((Math.Abs(exc[0] - exc[1]) / exc[1]) * 100, 2);
 
             txtDeviation.Text = result.ToString();
@@ -840,7 +847,7 @@ namespace PTAS
 
             for (int i = 0; i < 8; i++)
             {
-                corrected[i] = float.Parse(tc[i].Text);
+                float.TryParse(tc[i].Text, out corrected[i]);
             }
 
             if (kv <= 230000)
@@ -1089,6 +1096,8 @@ namespace PTAS
                     if (!string.IsNullOrWhiteSpace(measured[i].Text)) error[i].Text = compute[i].ToString();
                 }
             }
+
+            btnAssessTTR.Enabled = true;
         }
 
         private void btnAssessTTR_Click(object sender, EventArgs e)
@@ -1160,6 +1169,8 @@ namespace PTAS
                 }
                 if (Array.TrueForAll(diff, v => v >= 0.5)) txtAssessTTR.Text = "INVESTIGATE WINDING";
                 else txtAssessTTR.Text = "FAILED";
+
+                btnAssessTTR.Enabled = false;
 
                 compute = null;
                 diff = null;
@@ -1400,6 +1411,8 @@ namespace PTAS
 
             mainAveTextBox.Text = ((main.Sum()) / main.Count()).ToString();
             if(Array.TrueForAll(textoltc, v => v.Text != "")) oltcAveTextBox.Text = ((oltc.Sum()) / oltc.Count()).ToString();
+
+            btnAssessDielectric.Enabled = true;
         }
 
         private void btnAssessDielectric_Click(object sender, EventArgs e)
@@ -1452,6 +1465,7 @@ namespace PTAS
                     txtMainAssess.Text = "PASSED";
                 }
             }
+            btnAssessDielectric.Enabled = false;
         }
 
         private void btnAddOilPF_Click(object sender, EventArgs e)

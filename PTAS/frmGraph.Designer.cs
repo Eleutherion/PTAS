@@ -32,6 +32,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGraph));
             this.chtTrend = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cboXf = new System.Windows.Forms.ComboBox();
             this.tblTransformerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -192,6 +193,7 @@
             this.Controls.Add(this.cboTest);
             this.Controls.Add(this.cboXf);
             this.Controls.Add(this.chtTrend);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGraph";
             this.Text = "Graphs and Trends";
             this.Load += new System.EventHandler(this.frmGraph_Load);

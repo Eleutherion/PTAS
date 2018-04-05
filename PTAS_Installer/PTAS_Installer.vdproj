@@ -75,12 +75,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D68BCBF55CBC40CCAC59AD6E90A3110F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_ECD54B46E145463BADE628A172DAB414"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -112,25 +106,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0BD9F0141729F0EFBD492B3414D5B5AC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_897CF1D7C1F9F0509AA5ABF071E3F4D2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7A4E945FE2D883E962D44AF2ADFEA4B4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B18771A673F1523F5E359A017C7D9C84"
+        "OwnerKey" = "8:_FB9EB417C216F1DD3C45AD4C17F929AF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -142,13 +118,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D68BCBF55CBC40CCAC59AD6E90A3110F"
+        "OwnerKey" = "8:_B18771A673F1523F5E359A017C7D9C84"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FB9EB417C216F1DD3C45AD4C17F929AF"
+        "OwnerKey" = "8:_7A4E945FE2D883E962D44AF2ADFEA4B4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_897CF1D7C1F9F0509AA5ABF071E3F4D2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0BD9F0141729F0EFBD492B3414D5B5AC"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -159,7 +147,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\PTAS_Installer.msi"
+        "OutputFilename" = "8:Debug\\PTAS.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -233,20 +221,6 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_9B48DA2A7C25470598848734DBA01F6D"
-            {
-            "Name" = "8:SQLServer2016-SSEI-Expr.exe"
-            "Condition" = "8:"
-            "Object" = "8:_D68BCBF55CBC40CCAC59AD6E90A3110F"
-            "FileType" = "3:2"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_EA0638A7_A097_413F_9A88_E2158AEBD337"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
         }
         "DefaultFeature"
         {
@@ -277,6 +251,11 @@
             "AssemblyAsmDisplayName" = "8:stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_0BD9F0141729F0EFBD492B3414D5B5AC"
+                    {
+                    "Name" = "8:stdole.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:stdole.dll"
             "TargetName" = "8:"
@@ -323,6 +302,11 @@
             "AssemblyAsmDisplayName" = "8:ShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
                 "ScatterAssemblies"
                 {
+                    "_7A4E945FE2D883E962D44AF2ADFEA4B4"
+                    {
+                    "Name" = "8:ShockwaveFlashObjects.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:ShockwaveFlashObjects.dll"
             "TargetName" = "8:"
@@ -349,6 +333,11 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.Prompting, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_897CF1D7C1F9F0509AA5ABF071E3F4D2"
+                    {
+                    "Name" = "8:CrystalDecisions.ReportAppServer.Prompting.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.Prompting.dll"
             "TargetName" = "8:"
@@ -375,6 +364,11 @@
             "AssemblyAsmDisplayName" = "8:FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304"
                 "ScatterAssemblies"
                 {
+                    "_B18771A673F1523F5E359A017C7D9C84"
+                    {
+                    "Name" = "8:FlashControlV71.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:FlashControlV71.dll"
             "TargetName" = "8:"
@@ -398,37 +392,6 @@
             {
             "SourcePath" = "8:..\\PTAS\\dtbPTAS.mdf"
             "TargetName" = "8:dtbPTAS.mdf"
-            "Tag" = "8:"
-            "Folder" = "8:_173E1AD18EF84BBFBA3149C44D974438"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D68BCBF55CBC40CCAC59AD6E90A3110F"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SQLServer2016-SSEI-Expr, Version=13.1801.0.0, Culture=neutral, PublicKeyToken=57d8c1d10de9dc02, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_D68BCBF55CBC40CCAC59AD6E90A3110F"
-                    {
-                    "Name" = "8:SQLServer2016-SSEI-Expr.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\SQLServer2016-SSEI-Expr.exe"
-            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_173E1AD18EF84BBFBA3149C44D974438"
             "Condition" = "8:"
@@ -531,7 +494,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:PTAS_Installer"
+        "ProductName" = "8:PTAS"
         "ProductCode" = "8:{A6589964-01CC-474D-8192-84CF7662904C}"
         "PackageCode" = "8:{FDE4ABF8-A805-4A60-8B91-24F58795E37F}"
         "UpgradeCode" = "8:{9EAFB7ED-2D98-4285-98E9-A95D7A56CFE9}"
@@ -655,7 +618,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2BF00D3776A5422582BB5E7A6EDE6921"
             {
-            "Name" = "8:Shortcut to Primary output from PTAS (Active)"
+            "Name" = "8:PTAS"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"

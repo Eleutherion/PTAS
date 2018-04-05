@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReport));
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.CrystalReport11 = new PTAS.CrystalReport1();
             this.tblTransformerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtbPTASDataSet = new PTAS.dtbPTASDataSet();
             this.tblTransformerTableAdapter = new PTAS.dtbPTASDataSetTableAdapters.tblTransformerTableAdapter();
-            this.CrystalReport11 = new PTAS.CrystalReport1();
             ((System.ComponentModel.ISupportInitialize)(this.tblTransformerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtbPTASDataSet)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 836);
             this.Controls.Add(this.crystalReportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReport";
             this.Text = "Generate Report";
             this.Load += new System.EventHandler(this.frmReport_Load);

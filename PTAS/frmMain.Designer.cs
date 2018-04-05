@@ -38,6 +38,7 @@
             System.Windows.Forms.Label standardLabel;
             System.Windows.Forms.Label label101;
             System.Windows.Forms.Label label112;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -433,6 +434,9 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.label117 = new System.Windows.Forms.Label();
+            this.label118 = new System.Windows.Forms.Label();
+            this.label119 = new System.Windows.Forms.Label();
             testNumberLabel = new System.Windows.Forms.Label();
             label40 = new System.Windows.Forms.Label();
             testNumberLabel1 = new System.Windows.Forms.Label();
@@ -673,14 +677,14 @@
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
             this.manualToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
             // aboutUsToolStripMenuItem
             // 
             this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.aboutUsToolStripMenuItem.Text = "About us";
             this.aboutUsToolStripMenuItem.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click);
             // 
@@ -1141,6 +1145,9 @@
             // tabExcite
             // 
             this.tabExcite.AutoScroll = true;
+            this.tabExcite.Controls.Add(this.label119);
+            this.tabExcite.Controls.Add(this.label118);
+            this.tabExcite.Controls.Add(this.label117);
             this.tabExcite.Controls.Add(this.txtDeviation);
             this.tabExcite.Controls.Add(this.label13);
             this.tabExcite.Controls.Add(this.groupBox1);
@@ -3145,6 +3152,7 @@
             // 
             // btnAssessTTR
             // 
+            this.btnAssessTTR.Enabled = false;
             this.btnAssessTTR.Location = new System.Drawing.Point(464, 519);
             this.btnAssessTTR.Name = "btnAssessTTR";
             this.btnAssessTTR.Size = new System.Drawing.Size(160, 36);
@@ -4057,6 +4065,7 @@
             // 
             // btnAssessDielectric
             // 
+            this.btnAssessDielectric.Enabled = false;
             this.btnAssessDielectric.Location = new System.Drawing.Point(367, 371);
             this.btnAssessDielectric.Name = "btnAssessDielectric";
             this.btnAssessDielectric.Size = new System.Drawing.Size(160, 36);
@@ -4509,6 +4518,33 @@
             this.label11.TabIndex = 172;
             this.label11.Text = "*Field Required";
             // 
+            // label117
+            // 
+            this.label117.AutoSize = true;
+            this.label117.Location = new System.Drawing.Point(483, 139);
+            this.label117.Name = "label117";
+            this.label117.Size = new System.Drawing.Size(47, 13);
+            this.label117.TabIndex = 76;
+            this.label117.Text = "label117";
+            // 
+            // label118
+            // 
+            this.label118.AutoSize = true;
+            this.label118.Location = new System.Drawing.Point(483, 155);
+            this.label118.Name = "label118";
+            this.label118.Size = new System.Drawing.Size(47, 13);
+            this.label118.TabIndex = 77;
+            this.label118.Text = "label118";
+            // 
+            // label119
+            // 
+            this.label119.AutoSize = true;
+            this.label119.Location = new System.Drawing.Point(483, 171);
+            this.label119.Name = "label119";
+            this.label119.Size = new System.Drawing.Size(47, 13);
+            this.label119.TabIndex = 78;
+            this.label119.Text = "label119";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4550,6 +4586,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "PTAS";
@@ -5030,6 +5067,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.Label label119;
+        private System.Windows.Forms.Label label118;
+        private System.Windows.Forms.Label label117;
     }
 }

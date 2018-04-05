@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTAS", "PTAS\PTAS.csproj", "{0075DD78-EAC2-4236-BD57-DFF546FAEE79}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PTAS_Installer", "PTAS_Installer\PTAS_Installer.vdproj", "{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,22 +36,6 @@ Global
 		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.Release|x64.Build.0 = Release|x64
 		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.Release|x86.ActiveCfg = Release|x86
 		{0075DD78-EAC2-4236-BD57-DFF546FAEE79}.Release|x86.Build.0 = Release|x86
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Debug|Any CPU.ActiveCfg = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Debug|Any CPU.Build.0 = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Debug|x64.ActiveCfg = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Debug|x64.Build.0 = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Debug|x86.ActiveCfg = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Debug|x86.Build.0 = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.DefaultBuild|Any CPU.ActiveCfg = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.DefaultBuild|x64.ActiveCfg = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.DefaultBuild|x64.Build.0 = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.DefaultBuild|x86.ActiveCfg = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.DefaultBuild|x86.Build.0 = Debug
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Release|Any CPU.ActiveCfg = Release
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Release|x64.ActiveCfg = Release
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Release|x64.Build.0 = Release
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Release|x86.ActiveCfg = Release
-		{BEACE8BC-4E71-4BAD-9DEB-5F2D7B3D46F5}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
