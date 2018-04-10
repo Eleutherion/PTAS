@@ -434,9 +434,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.label117 = new System.Windows.Forms.Label();
-            this.label118 = new System.Windows.Forms.Label();
-            this.label119 = new System.Windows.Forms.Label();
             testNumberLabel = new System.Windows.Forms.Label();
             label40 = new System.Windows.Forms.Label();
             testNumberLabel1 = new System.Windows.Forms.Label();
@@ -1145,9 +1142,6 @@
             // tabExcite
             // 
             this.tabExcite.AutoScroll = true;
-            this.tabExcite.Controls.Add(this.label119);
-            this.tabExcite.Controls.Add(this.label118);
-            this.tabExcite.Controls.Add(this.label117);
             this.tabExcite.Controls.Add(this.txtDeviation);
             this.tabExcite.Controls.Add(this.label13);
             this.tabExcite.Controls.Add(this.groupBox1);
@@ -4518,33 +4512,6 @@
             this.label11.TabIndex = 172;
             this.label11.Text = "*Field Required";
             // 
-            // label117
-            // 
-            this.label117.AutoSize = true;
-            this.label117.Location = new System.Drawing.Point(483, 139);
-            this.label117.Name = "label117";
-            this.label117.Size = new System.Drawing.Size(47, 13);
-            this.label117.TabIndex = 76;
-            this.label117.Text = "label117";
-            // 
-            // label118
-            // 
-            this.label118.AutoSize = true;
-            this.label118.Location = new System.Drawing.Point(483, 155);
-            this.label118.Name = "label118";
-            this.label118.Size = new System.Drawing.Size(47, 13);
-            this.label118.TabIndex = 77;
-            this.label118.Text = "label118";
-            // 
-            // label119
-            // 
-            this.label119.AutoSize = true;
-            this.label119.Location = new System.Drawing.Point(483, 171);
-            this.label119.Name = "label119";
-            this.label119.Size = new System.Drawing.Size(47, 13);
-            this.label119.TabIndex = 78;
-            this.label119.Text = "label119";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5067,8 +5034,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.Label label119;
-        private System.Windows.Forms.Label label118;
-        private System.Windows.Forms.Label label117;
     }
 }

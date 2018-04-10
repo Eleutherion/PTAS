@@ -55,8 +55,8 @@ namespace PTAS
                         statusComboBox.DataSource = dt;
                         statusComboBox.DisplayMember = "status";
                         statusComboBox.ValueMember = "status";
-                        statusComboBox.SelectedIndex = -1;
-                        statusComboBox.Text = "Select status";
+                        statusComboBox.SelectedIndex = 0;
+                        //statusComboBox.Text = "Select status";
                     }
 
                 }
@@ -382,10 +382,6 @@ namespace PTAS
             }
 
             Array.Sort(exc, new Comparison<float>((i1, i2) => i2.CompareTo(i1)));
-
-            label117.Text = exc[0].ToString();
-            label118.Text = exc[1].ToString();
-            label119.Text = exc[2].ToString();
 
             float result = (float)Math.Round((Math.Abs(exc[0] - exc[1]) / exc[1]) * 100, 2);
 
